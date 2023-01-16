@@ -1,0 +1,86 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 22/04/2020 16:20
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-view:before { content: "\f100"; }
+.flaticon-refresh:before { content: "\f101"; }
+.flaticon-like:before { content: "\f102"; }
+.flaticon-diet:before { content: "\f103"; }
+.flaticon-eat:before { content: "\f104"; }
+.flaticon-shopping-basket:before { content: "\f105"; }
+.flaticon-baby-boy:before { content: "\f106"; }
+.flaticon-quarantine:before { content: "\f107"; }
+.flaticon-supplements:before { content: "\f108"; }
+.flaticon-harvest:before { content: "\f109"; }
+.flaticon-tag:before { content: "\f10a"; }
+.flaticon-visibility:before { content: "\f10b"; }
+.flaticon-shopping-cart:before { content: "\f10c"; }
+.flaticon-passion:before { content: "\f10d"; }
+.flaticon-compare:before { content: "\f10e"; }
+.flaticon-groceries:before { content: "\f10f"; }
+.flaticon-cleaning-spray:before { content: "\f110"; }
+.flaticon-baby:before { content: "\f111"; }
+.flaticon-olive-oil:before { content: "\f112"; }
+.flaticon-quotation:before { content: "\f113"; }
+.flaticon-email:before { content: "\f114"; }
+.flaticon-call:before { content: "\f115"; }
+.flaticon-location:before { content: "\f116"; }
+    
+    $font-Flaticon-view: "\f100";
+    $font-Flaticon-refresh: "\f101";
+    $font-Flaticon-like: "\f102";
+    $font-Flaticon-diet: "\f103";
+    $font-Flaticon-eat: "\f104";
+    $font-Flaticon-shopping-basket: "\f105";
+    $font-Flaticon-baby-boy: "\f106";
+    $font-Flaticon-quarantine: "\f107";
+    $font-Flaticon-supplements: "\f108";
+    $font-Flaticon-harvest: "\f109";
+    $font-Flaticon-tag: "\f10a";
+    $font-Flaticon-visibility: "\f10b";
+    $font-Flaticon-shopping-cart: "\f10c";
+    $font-Flaticon-passion: "\f10d";
+    $font-Flaticon-compare: "\f10e";
+    $font-Flaticon-groceries: "\f10f";
+    $font-Flaticon-cleaning-spray: "\f110";
+    $font-Flaticon-baby: "\f111";
+    $font-Flaticon-olive-oil: "\f112";
+    $font-Flaticon-quotation: "\f113";
+    $font-Flaticon-email: "\f114";
+    $font-Flaticon-call: "\f115";
+    $font-Flaticon-location: "\f116";

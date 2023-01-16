@@ -1,0 +1,43 @@
+{
+    "Navbar": {
+        "Lang":"اللغه",
+        "en":"(الانجليزية)",
+        "ar":"(العربية)",
+        "MyAccount":"حسابي",
+        "AllCategories":"كل الاقسام",
+        "Categories":"الاقسام",
+        "Search":"بحث",
+        "YourCart":"عربة التسوق",
+        "WishList":"المفضلة",
+        "Home":"الصفحة الرسمية",
+        "About":"نبذه عن",
+        "Shop":"المتجر",
+        "ContactUs":"تواصل معنا",
+        "Chat":"دردشة عامة"
+    },
+    "Products":{
+        "BestProducts":"أفضل المنتجات",
+        "AddToCart":"أضف الي العربة",
+        "ViewDetails":"رؤية التفاصيل",
+        "Stars":"نجوم",
+        "Featured":"مميز",
+        "BooksAndInfo":"كتب ومعلومات زراعية",
+        "ReadMore":"قراءة المزيد",
+        "ViewAll":"رؤية الجميع",
+        "ShopNow":"اشتري الان",
+        "Sort":"ترتيب حسب",
+        "Compare":"مقارنة",
+        "AddToWish":"أضف الي المفضلة",
+        "Brand":"الماركة",
+        "UOM":"وحده القياس",
+        "AddInfo":"معلومات اضافية",
+        "reviews":"تقييم مستخدمين"
+    },
+    "Footer":{
+        "TopCategories":"أعلي الاقسام",
+        "Others":"اخري",
+        "SocialMedia":"وسائل التواصل",
+        "Signup":"تسجيل الدخول",
+        "Information":"المعلومات"
+    }
+}
