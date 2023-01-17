@@ -1,0 +1,23 @@
+[
+    {
+        "photo": "assets/img/products/1.png",
+        "title": "Kiwi",
+        "qty": 2,
+        "price": 12.99,
+        "stock": true
+    },
+    {
+        "photo": "assets/img/products/5.png",
+        "title": "Watermelons",
+        "qty": 1,
+        "price": 9.99,
+        "stock": true
+    },
+    {
+        "photo": "assets/img/products/4.png",
+        "title": "Cucumbers",
+        "qty": 3,
+        "price": 13.99,
+        "stock": false
+    }
+]

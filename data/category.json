@@ -1,0 +1,32 @@
+[
+    {
+        "icon": "flaticon-diet",
+        "title": "Food",
+        "slug":"Agri-food"
+    },
+    {
+        "icon": "flaticon-supplements",
+        "title": "Supplements",
+        "slug":"Agri-food"
+    },
+    {
+        "icon": "flaticon-groceries",
+        "title": "Baskets",
+        "slug":"Agri-basket"
+    },
+    {
+        "icon": "flaticon-cleaning-spray",
+        "title": "Home Care",
+        "slug":"Agri-Cleaning"
+    },
+    {
+        "icon": "flaticon-baby",
+        "title": "Kids Care",
+        "slug":"Agri-Kids"
+    },
+    {
+        "icon": "flaticon-olive-oil",
+        "title": "Oils",
+        "slug":"Agri-Oils"
+    }
+]
