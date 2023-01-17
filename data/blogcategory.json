@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "title": "Food",
+        "count": 32,
+        "children": [
+            {
+                "id": 2,
+                "title": "Vegetables & Fruits",
+                "count": 14,
+                "children": []
+            },
+            {
+                "id": 3,
+                "title": "Dairy",
+                "count": 39,
+                "children": []
+
+            },
+            {
+                "id": 4,
+                "title": "Vegan",
+                "count": 54,
+                "children": []
+
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Organic",
+        "count": 24,
+        "children": []
+    },
+    {
+        "id":3,
+        "title": "Baskets",
+        "count": 44,
+        "children": []
+    },
+    {
+        "id": 4,
+        "title": "Baby & Kids Care",
+        "count": 15,
+        "children": []
+    }
+]
