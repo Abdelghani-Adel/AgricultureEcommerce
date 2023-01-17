@@ -1,30 +1,27 @@
 import React from "react";
 import cart from "../../../data/cart.json";
 import CartItem from "./CartItem";
+import { withTranslation } from "react-multi-lang";
 
-const CartItemList = () => {
+const CartItemList = (props) => {
   return (
-    <div className="section">
-      <div className="container">
-        <table className="andro_responsive-table">
-          <thead>
-            <tr>
-              <th className="remove-item" />
-              <th>Product</th>
-              <th>Price</th>
-              <th>Qunantity</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cart.map((item, i) => (
-              <CartItem key={Math.random()} item={item} />
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <table className="andro_responsive-table">
+      <thead>
+        <tr>
+          <th className="remove-item" />
+          <th>{props.t("Cart.Product")}</th>
+          <th>{props.t("Cart.Price")}</th>
+          <th>{props.t("Cart.Quantity")}</th>
+          <th>{props.t("Cart.Total")}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {cart.map((item, i) => (
+          <CartItem key={Math.random()} item={item} />
+        ))}
+      </tbody>
+    </table>
   );
 };
 
-export default CartItemList;
+export default withTranslation(CartItemList);

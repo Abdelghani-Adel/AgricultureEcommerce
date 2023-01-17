@@ -1,26 +1,10 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "../styles/Home.module.css";
-import Content from "../components/sections/home/Content";
+import HomeContent from "../components/Sections/home/HomeContent";
 import Products from "../data/products.json";
-const inter = Inter({ subsets: ["latin"] });
+// import { Inter } from "@next/font/google";
+// const inter = Inter({ subsets: ["latin"] });
 
 export default function Home(props) {
-  return (
-    <>
-      <Head>
-        <title></title>
-        <meta name="description" content="#" />
-      </Head>
-      <Content
-        ProductList={props.ProductList}
-        BooksInfoList={props.BooksInfoList}
-      />
-      {/* <Instagram classname={{ style: "secondary-bg" }} /> */}
-      {/* <Footer footer={{ style:"", logo:"assets/img/logo.png" }} /> */}
-    </>
-  );
+  return <HomeContent ProductList={props.ProductList} BooksInfoList={props.BooksInfoList} />;
 }
 
 export const getStaticProps = async () => {

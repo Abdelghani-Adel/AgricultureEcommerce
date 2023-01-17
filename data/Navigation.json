@@ -1,0 +1,105 @@
+[
+  {
+    "id": 1,
+    "linkText": "Home Pages",
+    "child": true,
+    "submenu": [
+      {
+        "id": 11,
+        "link": "/",
+        "linkText": "Home v1"
+      },
+      {
+        "id": 12,
+        "link": "/home-v2",
+        "linkText": "Home v2"
+      },
+      {
+        "id": 13,
+        "link": "/home-v3",
+        "linkText": "Home v3"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "linkText": "Blog",
+    "child": true,
+    "submenu": [
+      {
+        "id": 21,
+        "linkText": "Blog Archive",
+        "child": true,
+        "submenu": [
+          {
+            "id": 211,
+            "link": "/blog-grid",
+            "linkText": "Grid View"
+          },
+          {
+            "id": 212,
+            "link": "/blog-list",
+            "linkText": "List View"
+          },
+          {
+            "id": 213,
+            "link": "/blog-masonry",
+            "linkText": "Masonary View"
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "link": "/post-single/1",
+        "linkText": "Blog Single"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "linkText": "Pages",
+    "child": true,
+    "submenu": [
+      {
+        "id": 31,
+        "link": "/about",
+        "linkText": "About Us"
+      },
+      {
+        "id": 32,
+        "link": "/login",
+        "linkText": "Login"
+      },
+      {
+        "id": 33,
+        "link": "/register",
+        "linkText": "Sign Up"
+      },
+      {
+        "id": 34,
+        "link": "/checkout",
+        "linkText": "Checkout"
+      },
+      {
+        "id": 35,
+        "link": "/cart",
+        "linkText": "Cart"
+      },
+      {
+        "id": 36,
+        "link": "/wishlist",
+        "linkText": "Wishlist"
+      },
+      {
+        "id": 37,
+        "link": "/legal",
+        "linkText": "Legal"
+      },
+      {
+        "id": 38,
+        "link": "/error",
+        "linkText": "Error 404"
+      }
+    ]
+  }
+]

@@ -1,28 +1,20 @@
 import React from "react";
 import UpSellsHeader from "./UpSellsHeader";
-import Slider from "react-slick";
-import UpSellsProducts from "./UpSellsProducts";
+import UpSellsProductsSlider from "./UpSellsProductsSlider";
 
 const UpSells = (props) => {
-  const settings = {
+  const sliderSettings = {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
     dots: false,
-    autoplay: true,
+    // autoplay: true,
   };
 
   return (
     <div className="col-lg-6 andro_upsells">
       <UpSellsHeader />
-      <Slider
-        className="andro_upsells-slider"
-        // ref={(c) => (this.slider = c)}
-        {...settings}
-      >
-        {/* Product Start */}
-        <UpSellsProducts />
-      </Slider>
+      <UpSellsProductsSlider />
     </div>
   );
 };

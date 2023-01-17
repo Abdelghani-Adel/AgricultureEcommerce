@@ -1,11 +1,13 @@
 import React, { Fragment } from "react";
 import CartItemList from "./CartItemList";
+import CouponCodeApply from "./CouponCodeApply";
 
 const CartContent = () => {
   return (
-    <Fragment>
+    <div className="section">
       <CartItemList />
-    </Fragment>
+      <CouponCodeApply />
+    </div>
   );
 };
 
