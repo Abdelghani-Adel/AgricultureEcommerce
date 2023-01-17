@@ -1,0 +1,40 @@
+import React, { Component, Fragment } from "react";
+import Banner from "./Banner";
+import BestProducts from "./BestProducts/BestProducts";
+import Cta from "./Cta";
+import AgricultureOthers from "./AgricultureOthers";
+
+class HomeContent extends Component {
+  render() {
+    return (
+      <Fragment>
+        <Banner />
+        <BestProducts ProductList={this.props.ProductList} />
+
+        <div className="section pt-0">
+          <Cta />
+        </div>
+        <div className="section pt-0 andro_fresh-arrivals">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 col-md-8 col-xs-12">
+                <AgricultureOthers BooksInfoList={this.props.BooksInfoList} />
+              </div>
+              <div className="col-lg-4 col-md-4 col-xs-12">
+                <div style={{ width: "100%" }}>
+                  <img
+                    src="img/videoFull.png"
+                    alt="agriculture_video"
+                    className="img-fluid h-100"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Fragment>
+    );
+  }
+}
+
+export default HomeContent;

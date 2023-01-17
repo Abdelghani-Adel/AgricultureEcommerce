@@ -1,46 +1,81 @@
 {
-    "Navbar": {
-        "Lang":"Language",
-        "en":"(English)",
-        "ar":"(Arabic)",
-        "MyAccount":"My Account",
-        "AllCategories":"All Categories",
-        "Categories":"Categories",
-        "Search":"Search",
-        "YourCart":"Your Cart",
-        "WishList":"WishList",
-        "Home":"Home",
-        "About":"About",
-        "Shop":"Shop",
-        "ContactUs":"ContactUs",
-        "Chat":"Chat"
-
-    },
-    "Products":{
-        "BestProducts":"Best Products",
-        "AddToCart":"Add To Cart",
-        "AddToWish":"Add To WishList",
-        "ViewDetails":"View Details",
-        "Stars":"Stars",
-        "Featured":"Featured",
-        "BooksAndInfo":"Books And Agriculture Info",
-        "ReadMore":"Read More",
-        "ViewAll":"View All",
-        "ShopNow":"Shop Now",
-        "Sort":"Sort",
-        "Compare":"Compare",
-        "Brand":"Brand",
-        "UOM":"UOM",
-        "AddInfo":"Additional Information",
-        "reviews":"reviews",
-        "ItemDesc":"Item Description"
-        
-    },
-    "Footer":{
-        "TopCategories":"Top Categories",
-        "Others":"Others",
-        "SocialMedia":"Social Media",
-        "Signup":"Signup",
-        "Information":"Information"
-    }
+  "Navbar": {
+    "Lang": "Language",
+    "en": "(English)",
+    "ar": "(Arabic)",
+    "MyAccount": "My Account",
+    "AllCategories": "All Categories",
+    "Categories": "Categories",
+    "Search": "Search",
+    "YourCart": "Your Cart",
+    "WishList": "WishList",
+    "Home": "Home",
+    "About": "About",
+    "Shop": "Shop",
+    "ContactUs": "ContactUs",
+    "Chat": "Chat"
+  },
+  "Products": {
+    "BestProducts": "Best Products",
+    "AddToCart": "Add To Cart",
+    "AddToWish": "Add To WishList",
+    "ViewDetails": "View Details",
+    "Stars": "Stars",
+    "Featured": "Featured",
+    "BooksAndInfo": "Books And Agriculture Info",
+    "ReadMore": "Read More",
+    "ViewAll": "View All",
+    "ShopNow": "Shop Now",
+    "Sort": "Sort",
+    "Compare": "Compare",
+    "Brand": "Brand",
+    "UOM": "UOM",
+    "AddInfo": "Additional Information",
+    "reviews": "reviews",
+    "ItemDesc": "Item Description"
+  },
+  "Footer": {
+    "TopCategories": "Top Categories",
+    "Others": "Others",
+    "SocialMedia": "Social Media",
+    "Signup": "Signup",
+    "Information": "Information"
+  },
+  "Cart": {
+    "Product": "Product",
+    "Price": "Price",
+    "Quantity": "Quantity",
+    "Total": "Total",
+    "CartTotal": "Cart Total",
+    "EnterCoupon": "Enter Coupon Code",
+    "Tax": "Tax",
+    "CheckoutProceed": "PROCEED TO CHECKOUT",
+    "AddToCart": "ADD TO CART"
+  },
+  "Wishlist": {
+    "Availability": "Availability",
+    "Actions": "Actions",
+    "InStock": "In Stock",
+    "OutOfStock": "Out Of Stock",
+    "Share": "Share Your Wishlist"
+  },
+  "Checkout": {
+    "BillingDetails": "BillingDetails",
+    "Firstname": "First Name",
+    "Lastname": "Last Name",
+    "CompanyName": "Company Name",
+    "Country": "Country",
+    "StAddress1": "Street Address 1",
+    "StAddress2": "Street Address 2",
+    "TownCity": "Town / City",
+    "Phone": "Phone Number",
+    "Email": "Email Address",
+    "Notes": "Order Notes",
+    "Postal": "Postal Code",
+    "Optional": "Optional",
+    "Card": "Card Number",
+    "FullName": "Full Name",
+    "Expiry": "Expiry Date",
+    "PlaceOrder": "PLACE ORDER"
+  }
 }
