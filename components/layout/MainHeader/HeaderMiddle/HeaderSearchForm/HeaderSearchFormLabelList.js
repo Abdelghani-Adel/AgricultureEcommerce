@@ -4,7 +4,7 @@ const HeaderSearchFormLabelList = (props) => {
   return (
     <div className="andro_search-adv-cats">
       <span>All Categories</span>
-      <div className="sub-menu">
+      {/* <div className="sub-menu">
         <div className="andro_dropdown-scroll">
           <HeaderSearchFromLabel
             name="category1"
@@ -42,7 +42,7 @@ const HeaderSearchFormLabelList = (props) => {
             title="Serum"
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -2,16 +2,16 @@ import React, { Fragment, useState } from "react";
 import HeaderBottom from "./HeaderBottom/HeaderBottom";
 import HeaderMiddle from "./HeaderMiddle/HeaderMiddle";
 import HeaderTop from "./HeaderTop/HeaderTop";
-import ToggleNav from "./ToggleNav";
+import ToggleNav from "./Reusable/ToggleNav";
 
-const Header = () => {
+const MainHeader = (props) => {
   const [isTop, setIsTop] = useState(true);
   return (
     <Fragment>
       <ToggleNav />
 
       <header className={`andro_header header-3 can-sticky`}>
-        <HeaderTop />
+        <HeaderTop changeLang={props.changeLang} lang={props.lang} />
         <HeaderMiddle />
         <HeaderBottom />
       </header>
@@ -19,4 +19,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default MainHeader;

@@ -1,33 +1,28 @@
 import Link from "next/link";
 import MobileViewNavToggler from "./MobileViewNavToggler";
-import {
-  FaShoppingBasket,
-  FaRegHeart,
-  FaUserAlt,
-  FaCommentAlt,
-} from "react-icons/fa";
+import { FaShoppingBasket, FaRegHeart, FaUserAlt, FaCommentAlt } from "react-icons/fa";
 
 const HeaderControls = (props) => {
   return (
     <div className="andro_header-controls">
       <ul className="andro_header-controls-inner">
         <li className="andro_header-favorites">
-          <Link href="/wishlist" title={"Navbar.WishList"}>
+          <Link href="/chat" title="Chat">
             <FaCommentAlt />
           </Link>
         </li>
         <li className="andro_header-favorites">
-          <Link href="/wishlist" title={"Navbar.WishList"}>
+          <Link href="/vendor-registration" title="Vendor Registration">
             <FaUserAlt />
           </Link>
         </li>
         <li className="andro_header-favorites">
-          <Link href="/wishlist" title={"Navbar.WishList"}>
+          <Link href="/wishlist" title="Wish List">
             <FaRegHeart />
           </Link>
         </li>
         <li className="andro_header-cart">
-          <Link href="/cart" title={"Navbar.YourCart"}>
+          <Link href="/cart" title="Cart">
             <FaShoppingBasket />
             <div className="andro_header-cart-content">
               <span>9 Items</span>
