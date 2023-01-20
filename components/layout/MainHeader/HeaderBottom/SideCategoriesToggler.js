@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import Canvas from "../../Canvas";
+import SideCategoriesList from "../Reusable/SideCategoriesList";
 import classNames from "classnames";
 
 const SideCategoriesToggler = (props) => {
@@ -13,7 +13,7 @@ const SideCategoriesToggler = (props) => {
           open: showSideCategoriesTags,
         })}
       >
-        <Canvas />
+        <SideCategoriesList />
       </aside>
 
       <div className="andro_aside-overlay aside-trigger-right" onClick={toggleSideCategoriesTags} />

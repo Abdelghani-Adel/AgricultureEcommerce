@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Link from "next/link";
 import { Rating } from "../../../helper/helper";
-import Loader from "../../layout/Loader";
+import Loader from "../../layout/Reusable/Loader";
 import {
   FaShoppingBasket,
   FaRegHeart,

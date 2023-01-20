@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Head from "next/head";
-import Breadcrumbs from "../../components/layout/Breadcrumbs";
+import Breadcrumbs from "../../components/layout/Reusable/Breadcrumbs";
 import { withTranslation } from "react-multi-lang";
 import Categories from "../../data/category.json";
 import Link from "next/Link";

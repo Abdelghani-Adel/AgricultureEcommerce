@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React from "react";
 import HeaderComponent from "../../../helper/Navigationhelper";
-import Canvas from "../Canvas";
+import SideCategoriesList from "../MainHeader/Reusable/SideCategoriesList";
 import Mobilemenu from "../Mobilemenu";
 import Navigation from "./Navigation";
 import Link from "next/Link";
@@ -54,7 +54,7 @@ class Navbar extends HeaderComponent {
             open: this.state.sidebarmethod,
           })}
         >
-          <Canvas />
+          <SideCategoriesList />
         </aside>
         <div className="andro_aside-overlay aside-trigger-right" onClick={this.sidebarToggle} />
         {/* Aside (Mobile Navigation) */}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Head from "next/head";
-import Breadcrumbs from "../../components/layout/Breadcrumbs";
+import Breadcrumbs from "../../components/layout/Reusable/Breadcrumbs";
 import Content from "../../components/sections/categories/Content";
 import Products from "../../data/products.json";
 import Categories from "../../data/category.json";

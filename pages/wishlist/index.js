@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Breadcrumbs from "../../components/layout/Breadcrumbs";
+import Breadcrumbs from "../../components/layout/Reusable/Breadcrumbs";
 import WishlistShare from "../../components/Sections/Wishlist/WishlistShare";
 import WishlistTable from "../../components/Sections/Wishlist/WishlistTable";
 
