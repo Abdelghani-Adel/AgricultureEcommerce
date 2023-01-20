@@ -1,5 +1,5 @@
-import BillingAddress from "./BillingAddress";
-import OrderDetails from "./OrderDetails";
+import BillingAddress from "./BillingDetails/BillingAddress";
+import CheckoutDetails from "./CheckoutDetails/CheckoutDetails";
 
 const CheckoutContent = (props) => {
   return (
@@ -7,12 +7,8 @@ const CheckoutContent = (props) => {
       <div className="container">
         <form method="post">
           <div className="row">
-            <div className="col-xl-7">
-              <BillingAddress />
-            </div>
-            <div className="col-xl-5 checkout-billing">
-              <OrderDetails />
-            </div>
+            <BillingAddress />
+            <CheckoutDetails />
           </div>
         </form>
       </div>

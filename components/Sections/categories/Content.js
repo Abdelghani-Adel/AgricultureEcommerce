@@ -12,9 +12,9 @@ import {
 } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
 import dynamic from "next/dynamic";
-const IonRangeSlider = dynamic(() => import("react-ion-slider"), {
-  ssr: false,
-});
+// const IonRangeSlider = dynamic(() => import("react-ion-slider"), {
+//   ssr: false,
+// });
 import ReactPaginate from "react-paginate";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
@@ -53,9 +53,7 @@ class Content extends Component {
       loading: true,
     });
     const newOffset = (event.selected * itemsPerPage) % Items.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
+    console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
     const endOffset = newOffset + itemsPerPage;
     console.log(`Loading items from ${newOffset} to ${endOffset}`);
     const currentItems = Items.slice(newOffset, endOffset);
@@ -69,8 +67,7 @@ class Content extends Component {
     // console.log("eeeeeeeeeeeee ",e.to);
   };
   render() {
-    const { Items, currentItems, currentPage, itemsPerPage, pageCount } =
-      this.state;
+    const { Items, currentItems, currentPage, itemsPerPage, pageCount } = this.state;
 
     return (
       <div className="section pagination-content">
@@ -80,14 +77,11 @@ class Content extends Component {
               {/* Product Count & Orderby Start */}
               <div className="andro_shop-global">
                 <p>
-                  Showing <b>{this.state.itemsPerPage}</b> of{" "}
-                  <b>{Items.length}</b> products{" "}
+                  Showing <b>{this.state.itemsPerPage}</b> of <b>{Items.length}</b> products{" "}
                 </p>
                 <form method="post">
                   <select className="form-control" name="orderby">
-                    <option value="default">
-                      {this.props.t("Products.Sort")}
-                    </option>
+                    <option value="default">{this.props.t("Products.Sort")}</option>
                     <option value="latest">Latest release</option>
                     <option value="price-down">Price: High - Low</option>
                     <option value="price-up">Price: Low - High</option>
@@ -99,10 +93,7 @@ class Content extends Component {
                 {this.state.loading === false ? (
                   currentItems.map((item, i) => {
                     return (
-                      <div
-                        key={i}
-                        className="col-md-4 col-sm-6 col-xs-12 masonry-item"
-                      >
+                      <div key={i} className="col-md-4 col-sm-6 col-xs-12 masonry-item">
                         <div className="andro_product andro_product-has-controls">
                           {item.featured === true ? (
                             <div className="andro_product-badge andro_badge-featured">
@@ -126,37 +117,24 @@ class Content extends Component {
                           </div>
                           <div className="andro_product-body">
                             <h5 className="andro_product-title">
-                              <Link href={"/product-single/" + item.id}>
-                                {" "}
-                                {item.title}{" "}
-                              </Link>{" "}
+                              <Link href={"/product-single/" + item.id}> {item.title} </Link>{" "}
                             </h5>
                             <div className="andro_product-price">
                               {item.discount > 0 || item.discount !== "" ? (
                                 <span>
                                   {new Intl.NumberFormat().format(
-                                    (
-                                      (item.price * (100 - item.discount)) /
-                                      100
-                                    ).toFixed(2)
+                                    ((item.price * (100 - item.discount)) / 100).toFixed(2)
                                   )}
                                   $
                                 </span>
                               ) : (
                                 ""
                               )}
-                              <span>
-                                {new Intl.NumberFormat().format(
-                                  item.price.toFixed(2)
-                                )}
-                                $
-                              </span>
+                              <span>{new Intl.NumberFormat().format(item.price.toFixed(2))}$</span>
                             </div>
                             <p>{item.shortdesc}</p>
                             <div className="andro_rating-wrapper">
-                              <div className="andro_rating">
-                                {Rating(item.rating)}
-                              </div>
+                              <div className="andro_rating">{Rating(item.rating)}</div>
                               <span>
                                 {item.rating}
                                 {this.props.t("Products.Stars")}
@@ -262,7 +240,7 @@ class Content extends Component {
                 {/* Filter: Price Start */}
                 <div className="sidebar-widget">
                   <h5 className="widget-title"> Price </h5>
-                  <IonRangeSlider
+                  {/* <IonRangeSlider
                     type="double"
                     min={0}
                     max={500}
@@ -271,7 +249,7 @@ class Content extends Component {
                     grid={true}
                     postfix=" $"
                     onChange={this.handlePriceChange}
-                  />
+                  /> */}
                 </div>
                 {/* Filter: Price End */}
               </div>

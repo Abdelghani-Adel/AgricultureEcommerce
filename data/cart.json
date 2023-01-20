@@ -8,14 +8,14 @@
   },
   {
     "id": 2,
-    "img": "assets/img/products/5.png",
+    "img": "assets/img/products/2.png",
     "title": "Watermelons",
     "qty": 1,
     "price": 12.99
   },
   {
     "id": 3,
-    "img": "assets/img/products/4.png",
+    "img": "assets/img/products/3.png",
     "title": "Cucumbers",
     "qty": 3,
     "price": 12.99

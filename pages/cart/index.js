@@ -1,16 +1,14 @@
 import React, { Fragment } from "react";
 import Breadcrumbs from "../../components/layout/Breadcrumbs";
-import CartContent from "../../components/Sections/Cart/CartContent";
+import CartContent from "../../components/Sections/Cart/CartContent/CartContent";
 import CartTotal from "../../components/Sections/Cart/CartTotal";
-import UpSells from "../../components/Sections/Cart/UpSells";
+import UpSells from "../../components/Sections/Cart/Upsells/UpSells";
 import { withTranslation } from "react-multi-lang";
 
 const Cart = () => {
-  const pagelocation = "Cart";
-
   return (
     <Fragment>
-      <Breadcrumbs breadcrumb={{ pagename: pagelocation }} />
+      <Breadcrumbs breadcrumb={{ pagename: "Cart" }} />
 
       <div className="container">
         <CartContent />

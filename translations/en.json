@@ -12,7 +12,7 @@
     "Home": "Home",
     "About": "About",
     "Shop": "Shop",
-    "ContactUs": "ContactUs",
+    "ContactUs": "Contact Us",
     "Chat": "Chat"
   },
   "Products": {
@@ -76,6 +76,16 @@
     "Card": "Card Number",
     "FullName": "Full Name",
     "Expiry": "Expiry Date",
-    "PlaceOrder": "PLACE ORDER"
+    "PlaceOrder": "PLACE ORDER",
+    "PaymentChoose": "Choose Payment Method",
+    "CreditCard": "Credit Card",
+    "Paypal": "PayPal",
+    "OnDelivery": "On Delivery"
+  },
+  "Categories": {
+    "Ingrediants": "Ingrediants",
+    "Organic": "Organic",
+    "Farms": "Farms",
+    "Supplements": "Supplements"
   }
 }

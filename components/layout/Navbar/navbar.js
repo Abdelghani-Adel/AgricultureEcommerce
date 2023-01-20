@@ -3,7 +3,7 @@ import React from "react";
 import HeaderComponent from "../../../helper/Navigationhelper";
 import Canvas from "../Canvas";
 import Mobilemenu from "../Mobilemenu";
-import Navigation from "../Navigation";
+import Navigation from "./Navigation";
 import Link from "next/Link";
 import {
   FaCommentAlt,
@@ -126,7 +126,7 @@ class Navbar extends HeaderComponent {
             <div className="container">
               <nav className="navbar">
                 {/* Logo */}
-                <Link className="navbar-brand" href="#">
+                <Link className="navbar-brand" href="/">
                   {" "}
                   <img src={"../img/logo.png"} alt="logo" />{" "}
                 </Link>
@@ -153,16 +153,12 @@ class Navbar extends HeaderComponent {
                 <div className="andro_header-controls">
                   <ul className="andro_header-controls-inner">
                     <li className="andro_header-favorites">
-                      {" "}
                       <Link href="/wishlist" title={t("Navbar.WishList")}>
-                        {/* <i className="flaticon-like" />  */}
                         <FaCommentAlt />
                       </Link>
                     </li>
                     <li className="andro_header-favorites">
-                      {" "}
-                      <Link href="/wishlist" title={t("Navbar.WishList")}>
-                        {/* <i className="flaticon-like" />  */}
+                      <Link href="/vendor-registration" title={t("Navbar.WishList")}>
                         <FaUserAlt />
                       </Link>
                     </li>

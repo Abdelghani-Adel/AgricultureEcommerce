@@ -1,0 +1,54 @@
+.registeration-progress {
+  background-color: #f0f2f3;
+  padding: 5px;
+}
+.step-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  border-radius: 50%;
+  background-color: #a8a8a8;
+}
+.step-done-wrapper {
+  background: green;
+}
+li:not(:last-of-type) .step-wrapper::after {
+  content: "";
+  display: block;
+  position: relative;
+  right: -110%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 2px;
+  width: 9vw;
+  background-color: #a8a8a8;
+}
+li:not(:last-of-type) .step-wrapper.step-done-wrapper::after {
+  background: green;
+}
+
+.step-number {
+  font-size: 2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  color: #fff;
+}
+
+/* ////////////////////////// */
+
+.titleBar {
+  height: 3px;
+  background-color: #f0f2f3;
+}
+.titleBar .col.active {
+  background-color: green;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

@@ -1,10 +1,8 @@
 import HomeContent from "../components/Sections/home/HomeContent";
 import Products from "../data/products.json";
-// import { Inter } from "@next/font/google";
-// const inter = Inter({ subsets: ["latin"] });
 
 export default function Home(props) {
-  return <HomeContent ProductList={props.ProductList} BooksInfoList={props.BooksInfoList} />;
+  return <HomeContent ProductList={Products} BooksInfoList={props.BooksInfoList} />;
 }
 
 export const getStaticProps = async () => {

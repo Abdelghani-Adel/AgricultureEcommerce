@@ -8,10 +8,6 @@ const pagelocation = "Categories";
 class Index extends Component {
   constructor(props) {
     super(props);
-
-    // this.state = {
-    //     pagelocation: this.props.t("Navbar.Categories")
-    // }
   }
 
   render() {
@@ -33,14 +29,14 @@ class Index extends Component {
                         <div className="card catg_card">
                           <img
                             className="card-img-top"
-                            src="../img/products/7.png"
+                            src={`assets/img/products/${index + 1}.png`}
                             alt="Card image cap"
                           />
                           <div className="card-body">
                             <h5 className="card-title">{cat.title}</h5>
                             <p className="card-text">
-                              Some quick example text to build on the card title
-                              and make up the bulk of the card's content.
+                              Some quick example text to build on the card title and make up the
+                              bulk of the card's content.
                             </p>
                             <Link
                               href={"categories/" + cat.slug}

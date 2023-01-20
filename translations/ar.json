@@ -64,8 +64,8 @@
     "Lastname": "اسم العائلة",
     "CompanyName": "Company Name",
     "Country": "الدولة",
-    "StAddress1": "العنوان 1",
-    "StAddress2": "العنوان 2",
+    "StAddress1": "العنوان الأول",
+    "StAddress2": "العنوان الثاني",
     "TownCity": "المدينة",
     "Phone": "رقم الهاتف",
     "Email": "البريد الالكتروني",
@@ -75,6 +75,16 @@
     "Card": "رقم البطاقة",
     "FullName": "إسم حامل البطاقة",
     "Expiry": "تاريخ انتهاء البطاقة",
-    "PlaceOrder": "نفّذ الطلب"
+    "PlaceOrder": "نفّذ الطلب",
+    "PaymentChoose": "إختر طريقة الدفع",
+    "CreditCard": "بطاقة الإئتمان",
+    "Paypal": "باي بال",
+    "OnDelivery": "عند الإستلام"
+  },
+  "Categories": {
+    "Ingrediants": "المكونات الزراعية",
+    "Organic": "المنتجات العضوية",
+    "Farms": "منتجات المزارع",
+    "Supplements": "المكملات"
   }
 }
