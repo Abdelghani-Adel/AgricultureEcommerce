@@ -51,7 +51,10 @@ const BusinessInformation = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    props.saveFunction(requestBody);
+    props.saveFunction(
+      requestBody,
+      "http://192.168.10.251:800/api/ECommerceSetting/AddVendorBusinessInfo"
+    );
   };
 
   return (

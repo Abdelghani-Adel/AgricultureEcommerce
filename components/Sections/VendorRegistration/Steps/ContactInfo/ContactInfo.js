@@ -3,6 +3,37 @@ import BillingAddressForm from "../../Reusable/BillingAddressForm/BillingAddress
 import InputField from "../../Reusable/InputField";
 import SubmitStepButton from "../../Reusable/SubmitStepButton";
 
+const initReqBody = {
+  FAContactId: 0,
+  FACompany_Id: 0,
+  FAEntityID: 0,
+  FASubCompany_Id: 0,
+  FAEntityItemId: 0,
+  PTitle_Id: 0,
+  ContactName: "string",
+  ContactEmail: "string",
+  ContactMobile: "string",
+  DefaultContact: true,
+  EntryDate: "2023-01-22T15:45:07.158Z",
+  ComputerNameOrIP: "string",
+  User_Id: 0,
+  Active: true,
+  LastModified: "2023-01-22T15:45:07.158Z",
+  First_Name: "string",
+  Last_Name: "string",
+  DOB: "string",
+  IdentityNo: "string",
+  IdentityNo_Exp: "2023-01-22T15:45:07.158Z",
+  IdentityNo_IssuedCountry: 0,
+  IdentityNo_Exp_str: "string",
+  Country_Id: 0,
+  City_Id: 0,
+  Gover_Id: 0,
+  District_Id: 0,
+  streetAdd: "string",
+  buildingNo: "string",
+};
+
 const ContactInfo = (props) => {
   const { vendorID } = props;
   const [requestBody, setRequestBody] = useState();
@@ -11,7 +42,10 @@ const ContactInfo = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    props.saveFunction(requestBody);
+    props.saveFunction(
+      requestBody,
+      "http://192.168.10.251:800/api/ECommerceSetting/addPartnerContact"
+    );
   };
 
   const fieldChangeHandler = (e) => {

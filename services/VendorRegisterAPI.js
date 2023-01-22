@@ -72,16 +72,20 @@ class VendorRegisterAPI {
     return data;
   }
 
-  async saveAndContinue(requestBody) {
-    const response = await fetch(
-      "http://192.168.10.251:800/api/ECommerceSetting/AddVendorBusinessInfo",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(requestBody),
-      }
-    );
+  async fetchClassificationTree() {
+    const response = await fetch("http://192.168.10.251:800/api/EAdmin/GetClassificationTree");
     const data = await response.json();
+    return data;
+  }
+
+  async saveAndContinue(requestBody, url) {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(requestBody),
+    });
+    const data = await response.json();
+    console.log("response ", data);
     return data;
   }
 }
