@@ -8,11 +8,12 @@ const InputField = (props) => {
     optionTitle,
     firstOptionChoosen,
     inputType,
+    style,
   } = props;
 
-  const style = `form-control form-control-lg bg-light`;
+  const inputStyle = `form-control form-control-lg bg-light`;
   return (
-    <div className="col">
+    <div className={style ? style : "col"}>
       <div className="form-group">
         <label>{title}</label>
 
@@ -20,7 +21,7 @@ const InputField = (props) => {
         {!optionID && (
           <input
             type={inputType ? inputType : "text"}
-            className={style}
+            className={inputStyle}
             name={fieldName}
             onChange={changeHandler}
             required
@@ -29,7 +30,7 @@ const InputField = (props) => {
 
         {/* Select input */}
         {optionID && (
-          <select className={style} name={fieldName} onChange={changeHandler} required>
+          <select className={inputStyle} name={fieldName} onChange={changeHandler} required>
             {!firstOptionChoosen && (
               <option selected disabled value="">
                 Choose {title}

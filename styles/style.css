@@ -759,8 +759,8 @@ textarea {
   color: #a5a5a5;
 }
 .form-control {
-  height: 50px;
-  padding: 8px 15px;
+  /* height: 50px;
+  padding: 8px 15px; */
   border-radius: 0;
   border: 1px solid #f0f2f3;
   border-radius: 25px;
@@ -4912,44 +4912,53 @@ td.remove {
   border-radius: 8px;
 }
 
-.andro_back-to-top svg{
+.andro_back-to-top svg {
   animation: pointy 1.5s infinite;
 }
 
 @keyframes pointy {
-  0% {transform: translate(0px, 0px);}
- 15% {transform: translate(0px, -10px);}
- 30% {transform: translate(0px, -5px);}
- 45% {transform: translate(0px, -10px)}
-100% {transform: translate(0px, 0px);}
+  0% {
+    transform: translate(0px, 0px);
+  }
+  15% {
+    transform: translate(0px, -10px);
+  }
+  30% {
+    transform: translate(0px, -5px);
+  }
+  45% {
+    transform: translate(0px, -10px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
 }
 
-.header_left_offers{
-  background-color: #FADA5E;
+.header_left_offers {
+  background-color: #fada5e;
   height: 60px;
   padding: 0 10px;
   display: flex;
   align-items: center;
 }
-.header_left_offers ul li{
+.header_left_offers ul li {
   display: inline-block;
   margin: 0 10px;
   color: #222;
 }
-.header_left_offers ul li a{
-
+.header_left_offers ul li a {
   color: #222;
 }
-.header_left_offers ul li img{
+.header_left_offers ul li img {
   vertical-align: middle;
   margin: 0 3px;
 }
-.chat_banner .card{
+.chat_banner .card {
   border: 1px solid #eee;
   border-radius: 6px;
   min-height: 300px;
 }
-.chat_banner .card-header{
+.chat_banner .card-header {
   background-color: #40a13d;
   padding: 10px;
   text-align: center;
@@ -4958,9 +4967,9 @@ td.remove {
   color: white;
   border: 1px solid #40a13d;
 }
-.chat_banner .card-footer{
-  background-color: #FADA5E;
-  border:  1px solid #FADA5E;
+.chat_banner .card-footer {
+  background-color: #fada5e;
+  border: 1px solid #fada5e;
   color: #222;
   text-align: center;
   font-size: 18px;

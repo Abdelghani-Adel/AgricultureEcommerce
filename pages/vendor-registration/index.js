@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 import CurrentStepTitle from "../../components/Sections/VendorRegistration/Reusable/CurrentStepTitle/CurrentStepTitle";
 import RegistrationProgressBar from "../../components/Sections/VendorRegistration/Reusable/RegistrationProgressBar/RegistrationProgressBar";
@@ -12,10 +13,13 @@ import VendorRegisterAPI from "../../services/VendorRegisterAPI";
 const vendorRegApi = new VendorRegisterAPI();
 
 const VendorRegistration = (props) => {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(6);
   const [registrationVendorID, setRegistrationVendorID] = useState();
+  const router = useRouter();
 
   const saveAndContinue = (requestBody) => {
+    currentStep == 6 && router.push("/"); // navigate to home when submitting the last step
+
     const saveAndGoToNextStep = async () => {
       const data = await vendorRegApi.saveAndContinue(requestBody);
       !registrationVendorID && setRegistrationVendorID(data.idOut);
@@ -34,7 +38,7 @@ const VendorRegistration = (props) => {
       case 3:
         return <PaymentInfo saveFunction={saveAndContinue} vendorID={registrationVendorID} />;
       case 4:
-        return <ContactInfo saveFunction={saveAndContinue} vendorID={registrationVendorID} />;
+        return <ProductInfo saveFunction={saveAndContinue} vendorID={registrationVendorID} />;
       case 5:
         return <ContactInfo saveFunction={saveAndContinue} vendorID={registrationVendorID} />;
       case 6:
