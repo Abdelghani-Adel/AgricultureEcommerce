@@ -1,5 +1,5 @@
 import React from "react";
-import LanguageChange from "./LanguageChange";
+import LanguageChange from "../HeaderMiddle/LanguageChange";
 import SocialmediaLinks from "./SocialmediaLinks";
 
 const HeaderTop = (props) => {

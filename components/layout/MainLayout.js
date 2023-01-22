@@ -9,8 +9,9 @@ export default function MainLayout(props) {
   };
   return (
     <>
-      {/* <MainHeader changeLang={changeLang} lang={props.lang} /> */}
-      <Navbar changeLang={changeLang} lang={props.lang} />
+      <MainHeader changeLang={changeLang} lang={props.lang} />
+      {/* <hr /> */}
+      {/* <Navbar changeLang={changeLang} lang={props.lang} /> */}
       {props.children}
       <Footer footer={{ style: "", logo: "img/logo.png" }} />
     </>

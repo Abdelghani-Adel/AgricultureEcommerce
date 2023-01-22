@@ -11,8 +11,7 @@ const MainHeader = (props) => {
       <ToggleNav />
 
       <header className={`andro_header header-3 can-sticky`}>
-        {/* <HeaderTop changeLang={props.changeLang} lang={props.lang} /> */}
-        <HeaderMiddle />
+        <HeaderMiddle changeLang={props.changeLang} lang={props.lang} />
         <HeaderBottom />
       </header>
     </Fragment>

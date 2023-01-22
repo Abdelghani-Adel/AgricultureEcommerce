@@ -1,6 +1,7 @@
 import { withTranslation } from "react-multi-lang";
 import { Component } from "react";
 import Link from "next/Link";
+import navLinks from "../../../../data/category.json";
 
 const navigationmenus = [
   {
@@ -31,59 +32,16 @@ const navigationmenus = [
   },
 ];
 
-class HeaderNav extends Component {
-  render() {
-    return (
-      <ul className="navbar-nav">
-        {navigationmenus.length > 0
-          ? navigationmenus.map((item, i) => (
-              <li
-                key={i}
-                className={`menu-item ${item.child ? "menu-item-has-children" : ""} `}
-                onClick={this.triggerChild}
-              >
-                {item.child ? (
-                  <Link onClick={(e) => e.preventDefault()} href="/">
-                    {" "}
-                    {this.props.t("Navbar." + item.linkText)}{" "}
-                  </Link>
-                ) : (
-                  <Link href={item.link}> {this.props.t("Navbar." + item.linkText)} </Link>
-                )}
-                {item.child ? (
-                  <ul className="sub-menu" role="menu">
-                    {item.submenu.map((sub_item, i) => (
-                      <li
-                        key={i}
-                        className={`menu-item ${sub_item.child ? "menu-item-has-children" : ""} `}
-                      >
-                        {sub_item.child ? (
-                          <Link onClick={(e) => e.preventDefault()} href="/">
-                            {" "}
-                            {sub_item.linkText}{" "}
-                          </Link>
-                        ) : (
-                          <Link href={sub_item.link}> {sub_item.linkText} </Link>
-                        )}
-                        {sub_item.submenu ? (
-                          <ul className="sub-menu">
-                            {sub_item.submenu.map((third_item, i) => (
-                              <li className="menu-item" key={i}>
-                                <Link href={third_item.link}>{third_item.linkText}</Link>
-                              </li>
-                            ))}
-                          </ul>
-                        ) : null}
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </li>
-            ))
-          : null}
-      </ul>
-    );
-  }
-}
+const HeaderNav = () => {
+  return (
+    <ul className="navbar-nav">
+      {navLinks.map((link, index) => (
+        <li key={index} className={`menu-item ${link.child && "menu-item-has-children"}`}>
+          <Link href={"categories/" + link.slug}>{link.title}</Link>
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 export default withTranslation(HeaderNav);
