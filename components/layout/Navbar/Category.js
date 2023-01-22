@@ -20,7 +20,7 @@ const Category = (props) => {
   console.log("data " ,data);
   return (
     <>
-      {data && data.map((cat ,index)=>{
+     {data && data.map((cat ,index)=>{
         return (
           <li
           key={index}
@@ -30,7 +30,7 @@ const Category = (props) => {
           
         >
          
-          <Link href="#">{cat.title}</Link>
+          <Link href={"categories/" + cat.slug}>{cat.title}</Link>
         </li>     
         )
       })}

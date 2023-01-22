@@ -17,6 +17,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
+import CategoriesNav from "./categoriesNav";
 
 class Navbar extends HeaderComponent {
   constructor(props) {
@@ -48,7 +49,7 @@ class Navbar extends HeaderComponent {
     const stickyheader = this.state.isTop ? "sticky" : "";
     return (
       <>
-        {/* Aside (Right Panel) */}
+      
         <aside
           className={classNames("andro_aside andro_aside-right", {
             open: this.state.sidebarmethod,
@@ -57,7 +58,7 @@ class Navbar extends HeaderComponent {
           <SideCategoriesList />
         </aside>
         <div className="andro_aside-overlay aside-trigger-right" onClick={this.sidebarToggle} />
-        {/* Aside (Mobile Navigation) */}
+      
         <aside
           className={classNames("andro_aside andro_aside-left", {
             open: this.state.navmethod,
@@ -66,72 +67,19 @@ class Navbar extends HeaderComponent {
           <Mobilemenu language={language} />
         </aside>
         <div className="andro_aside-overlay aside-trigger-left" onClick={this.toggleNav} />
-        {/* Header Start */}
+        
         <header className={`andro_header header-1 can-sticky ${stickyheader}`}>
-          {/* Topheader Start */}
-          <div className="andro_header-top">
-            <div className="container">
-              <div className="andro_header-top-inner">
-                <ul className="andro_header-top-sm andro_sm">
-                  <li>
-                    {" "}
-                    <Link href="#">
-                      <FaFacebookF />{" "}
-                    </Link>{" "}
-                  </li>
-                  <li>
-                    {" "}
-                    <Link href="#">
-                      {" "}
-                      <FaTwitter />{" "}
-                    </Link>{" "}
-                  </li>
-                  <li>
-                    {" "}
-                    <Link href="#">
-                      {" "}
-                      <FaLinkedinIn />{" "}
-                    </Link>{" "}
-                  </li>
-                  <li>
-                    {" "}
-                    <Link href="#">
-                      {" "}
-                      <FaYoutube />{" "}
-                    </Link>{" "}
-                  </li>
-                </ul>
-
-                <ul className="andro_header-top-links">
-                  <li className="menu-item">
-                    <Link href="/login">{t("Navbar.MyAccount")}</Link>
-                  </li>
-                  <li className="menu-item menu-item-has-children">
-                    <Link href="">
-                      {" "}
-                      <span className="andro_current-currency-text"> {t("Navbar.Lang")}</span>{" "}
-                      {t("Navbar." + this.state.language)}{" "}
-                    </Link>
-                    <ul className="sub-menu sub-menu-left">
-                      <li onClick={() => this.changeLang("en")}>{t("Navbar.en")}</li>
-                      <li onClick={() => this.changeLang("ar")}>{t("Navbar.ar")}</li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          {/* Topheader End */}
-          {/* Middle Header Start */}
+        
+        
           <div className="andro_header-middle">
             <div className="container">
               <nav className="navbar">
-                {/* Logo */}
+               
                 <Link className="navbar-brand" href="/">
                   {" "}
                   <img src={"../img/logo.png"} alt="logo" />{" "}
                 </Link>
-                {/* Search Form */}
+              
                 <div className="andro_search-adv">
                   <form method="post">
                     <div className="andro_search-adv-cats">
@@ -166,22 +114,33 @@ class Navbar extends HeaderComponent {
                     <li className="andro_header-favorites">
                       {" "}
                       <Link href="/wishlist" title={t("Navbar.WishList")}>
-                        {/* <i className="flaticon-like" />  */}
+                      
                         <FaRegHeart />
                       </Link>
                     </li>
                     <li className="andro_header-cart">
                       <Link href="/cart" title={t("Navbar.YourCart")}>
                         <FaShoppingBasket />
-                        {/* <i className="flaticon-shopping-basket" /> */}
+                       
                         <div className="andro_header-cart-content">
                           <span>9 Items</span>
                           <span>249.99$</span>
                         </div>
                       </Link>
                     </li>
+                    <li className="menu-item menu-item-has-children">
+                    <Link href="">
+                      {" "}
+                      
+                      {t("Navbar." + this.state.language)}{" "}
+                    </Link>
+                    <ul className="sub-menu sub-menu-left">
+                      <li onClick={() => this.changeLang("en")}>{t("Navbar.en")}</li>
+                      <li onClick={() => this.changeLang("ar")}>{t("Navbar.ar")}</li>
+                    </ul>
+                  </li>
                   </ul>
-                  {/* Toggler */}
+              
                   <div className="aside-toggler aside-trigger-left" onClick={this.toggleNav}>
                     <span />
                     <span />
@@ -191,14 +150,13 @@ class Navbar extends HeaderComponent {
               </nav>
             </div>
           </div>
-          {/* Middle Header End */}
-          {/* Bottom Header Start */}
-          <div className="andro_header-bottom">
+       
+          {/* <div className="andro_header-bottom">
             <div className="container">
               <div className="andro_header-bottom-inner">
-                {/* Menu */}
+              
                 <Navigation language={language} />
-                {/* Side navigation toggle */}
+               
                 <div
                   className="aside-toggler aside-trigger-right desktop-toggler"
                   onClick={this.sidebarToggle}
@@ -209,10 +167,11 @@ class Navbar extends HeaderComponent {
                 </div>
               </div>
             </div>
-          </div>
-          {/* Bottom Header End */}
+          </div> */}
+         
+          <CategoriesNav/>
         </header>
-        {/* Header End */}
+      
       </>
     );
   }

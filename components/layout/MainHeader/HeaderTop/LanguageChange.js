@@ -12,9 +12,9 @@ const LanguageChange = (props) => {
 
   return (
     <ul className="andro_header-top-links">
-      <li className="menu-item">
+      {/* <li className="menu-item">
         <Link href="/login"> My Account </Link>
-      </li>
+      </li> */}
       <li className="menu-item menu-item-has-children">
         <Link href="">
           <span className="andro_current-currency-text"> {props.t("Navbar.Lang")}</span>

@@ -52,7 +52,7 @@ class Banner extends Component {
           <div className="row">
             {/* Menu Start */}
             <div className="col-lg-3">
-              <div className="andro_category-mm">
+              {/* <div className="andro_category-mm">
                 <div className="andro_category-mm-header">
                   <h6>
                     <FaThLarge />
@@ -62,7 +62,7 @@ class Banner extends Component {
                 <div className="andro_category-mm-body">
                   <Category />
                 </div>
-              </div>
+              </div> */}
             </div>
             {/* Menu End */}
             {/* Banner Start */}

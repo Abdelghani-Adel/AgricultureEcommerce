@@ -115,12 +115,12 @@ class Footer extends Component {
                     </Link>{" "}
                   </li>
                 </ul>
-                <div className="andro_footer-offer">
+                {/* <div className="andro_footer-offer">
                   <p>{this.props.t("Footer.Signup")}</p>
                   <Link href="/register" className="andro_btn-custom btn-sm shadow-none">
                     {this.props.t("Footer.Signup")}
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

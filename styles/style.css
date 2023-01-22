@@ -580,7 +580,8 @@ ul {
 }
 ul li,
 ol li {
-  margin: 10px 0 0;
+  /* margin: 10px 0 0; */
+  margin: 0;
   position: relative;
 }
 .andro_list li {
@@ -680,7 +681,7 @@ blockquote p {
 ========================*/
 .section {
   position: relative;
-  padding: 80px 0;
+  padding: 50px 0 80px 0;
 }
 .section.section-padding {
   padding: 50px 0 20px;
@@ -1192,6 +1193,7 @@ table img {
   left: 0;
   width: 100%;
   z-index: 190;
+
 }
 
 .andro_header.header-2.sticky .andro_header-middle {
@@ -1313,6 +1315,7 @@ table img {
 }
 .andro_header-bottom {
   background-color: #5d5d5d;
+  padding: 0 10px;
 }
 .andro_header-bottom-inner {
   position: relative;
@@ -1333,11 +1336,11 @@ table img {
 .andro_header-bottom-inner > .navbar-nav > .menu-item > a,
 .andro_header-middle .navbar > .navbar-nav > .menu-item > a {
   position: relative;
-  padding: 20px;
+  padding:0 10px;
   color: #fff;
   /* font-weight: 600; */
   display: block;
-  font-size: 18px;
+  font-size: 16px;
 }
 .andro_header-middle .navbar > .navbar-nav > .menu-item > a {
   color: #18181d;
@@ -1389,7 +1392,7 @@ table img {
   > .sub-menu,
 .andro_search-adv-cats:hover .sub-menu,
 .andro_header-top-links .menu-item-has-children:hover .sub-menu,
-.andro_flex-menu .menu-item-has-children:hover .sub-menu {
+.andro_flex-menu .menu-item-has-children:hover .sub-menu,.andro_header .menu-item-has-children:hover .sub-menu {
   -webkit-transform: rotateX(0deg);
   transform: rotateX(0deg);
   opacity: 1;
@@ -1640,8 +1643,8 @@ table img {
 }
 .aside-toggler.desktop-toggler {
   display: flex;
-  height: 65px;
-  width: 65px;
+  height: 60px;
+  width: 60px;
   align-items: center;
   justify-content: center;
   background-color: #50bd4d;
@@ -1900,7 +1903,7 @@ table img {
 ========================*/
 .andro_footer {
   background-color: #f0f2f3;
-  padding: 50px 0 0;
+  padding: 20px 0 0;
 }
 .andro_footer p {
   margin-bottom: 20px;
@@ -1916,7 +1919,7 @@ table img {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 .andro_footer-middle a,
 .andro_footer-middle i {
@@ -1928,6 +1931,10 @@ table img {
 .andro_footer-middle a.andro_btn-custom,
 .andro_footer-middle a.andro_btn-custom:hover {
   color: #fff;
+}
+.andro_footer ul li{
+  display: inline-block !important;
+  margin: 0 10px !important;
 }
 .andro_footer-bottom ul {
   display: -webkit-box;
