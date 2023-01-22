@@ -1,33 +1,24 @@
-import React, { Component } from "react";
-import Head from "next/head";
+import React from "react";
 // import Breadcrumbs from "../../components/Breadcrumbs";
-import Breadcrumbs from "../../components/layout/Reusable/Breadcrumbs";
-import Content from "../../components/products/content";
-import Products from "../../data/products.json";
-import { withTranslation } from "react-multi-lang";
 import { useRouter } from "next/router";
+import { withTranslation } from "react-multi-lang";
+import Breadcrumbs from "../../components/layout/Reusable/Breadcrumbs";
+import ProductSingle from "../../components/Sections/products/ProductSingle";
+import Products from "../../data/products.json";
 
 function Slug(props) {
   const router = useRouter();
-  console.log("slug ", router.query.slug);
+  // const productSlug = router.query.slug;
+  // const productSlug = router.query.slug;
+  // const itemDetails = Products.filter((prod) => prod.slug == productSlug)[0];
+
   return (
     <>
       <Breadcrumbs breadcrumb={{ pagename: router.query.slug }} />
-      <Content ItemDetails={props.ItemDetails} />
+      <ProductSingle ItemDetails={props.ItemDetails} />
     </>
   );
 }
-
-//  class Slug extends Component {
-//     render() {
-//         return (
-//             <>
-//                <Breadcrumbs breadcrumb={{ pagename: pagelocation }} />
-//                 <Content ItemDetails={this.props.ItemDetails}/>
-//             </>
-//         )
-//     }
-// }
 
 export const getStaticPaths = async () => {
   const paths = Products.map((prod, index) => {
