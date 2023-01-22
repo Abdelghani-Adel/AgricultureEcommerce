@@ -896,16 +896,14 @@ textarea {
   border-bottom-left-radius: 0;
 }
 
-.btn-group
-  .andro_btn-custom.dropdown-toggle.dropdown-toggle-split:hover::after {
+.btn-group .andro_btn-custom.dropdown-toggle.dropdown-toggle-split:hover::after {
   animation-name: BounceUpDown;
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: both;
   animation-timing-function: ease-out;
 }
-.btn-group.dropup
-  .andro_btn-custom.dropdown-toggle.dropdown-toggle-split:hover::after {
+.btn-group.dropup .andro_btn-custom.dropdown-toggle.dropdown-toggle-split:hover::after {
   animation-name: BounceDownUp;
   animation-duration: 1s;
   animation-iteration-count: 1;
@@ -1193,7 +1191,6 @@ table img {
   left: 0;
   width: 100%;
   z-index: 190;
-
 }
 
 .andro_header.header-2.sticky .andro_header-middle {
@@ -1297,20 +1294,13 @@ table img {
 .andro_header-controls-inner li.andro_header-cart .andro_header-cart-content {
   margin-left: 15px;
 }
-.andro_header-controls-inner
-  li.andro_header-cart
-  .andro_header-cart-content
-  span {
+.andro_header-controls-inner li.andro_header-cart .andro_header-cart-content span {
   display: block;
   font-size: 13px;
   font-weight: 600;
   color: #18181d;
 }
-.andro_header-controls-inner
-  li.andro_header-cart
-  .andro_header-cart-content
-  span
-  + span {
+.andro_header-controls-inner li.andro_header-cart .andro_header-cart-content span + span {
   color: #50bd4d;
 }
 .andro_header-bottom {
@@ -1336,7 +1326,7 @@ table img {
 .andro_header-bottom-inner > .navbar-nav > .menu-item > a,
 .andro_header-middle .navbar > .navbar-nav > .menu-item > a {
   position: relative;
-  padding:0 10px;
+  padding: 0 10px;
   color: #fff;
   /* font-weight: 600; */
   display: block;
@@ -1386,13 +1376,11 @@ table img {
   right: 0;
 }
 .andro_header-middle .navbar-nav .menu-item-has-children:hover > .sub-menu,
-.andro_header-bottom-inner
-  .navbar-nav
-  .menu-item-has-children:hover
-  > .sub-menu,
+.andro_header-bottom-inner .navbar-nav .menu-item-has-children:hover > .sub-menu,
 .andro_search-adv-cats:hover .sub-menu,
 .andro_header-top-links .menu-item-has-children:hover .sub-menu,
-.andro_flex-menu .menu-item-has-children:hover .sub-menu,.andro_header .menu-item-has-children:hover .sub-menu {
+.andro_flex-menu .menu-item-has-children:hover .sub-menu,
+.andro_header .menu-item-has-children:hover .sub-menu {
   -webkit-transform: rotateX(0deg);
   transform: rotateX(0deg);
   opacity: 1;
@@ -1778,9 +1766,7 @@ table img {
   margin-bottom: 20px;
   font-size: 18px;
 }
-.andro_aside.andro_aside-right
-  .sidebar-widget.widget-categories-icons
-  + .sidebar-widget {
+.andro_aside.andro_aside-right .sidebar-widget.widget-categories-icons + .sidebar-widget {
   margin-top: 0;
 }
 .andro_aside.andro_aside-right .sidebar-widget .widget-title::after {
@@ -1823,12 +1809,8 @@ table img {
 .andro_header.header-3 .andro_header-bottom-inner .navbar-nav {
   margin-right: auto;
 }
-.andro_header.header-3
-  .andro_header-bottom-inner
-  > .navbar-nav
-  > .menu-item:first-child
-  > a {
-  padding: 20px;
+.andro_header.header-3 .andro_header-bottom-inner > .navbar-nav > .menu-item:first-child > a {
+  padding-left: 20px;
 }
 .andro_header.header-3 .andro_category-mm {
   height: 65px;
@@ -1892,10 +1874,7 @@ table img {
   opacity: 1;
   visibility: visible;
 }
-.andro_header.header-3
-  .andro_category-mm.open
-  .andro_category-mm-header
-  h6::after {
+.andro_header.header-3 .andro_category-mm.open .andro_category-mm-header h6::after {
   transform: rotate(180deg);
 }
 /*======================
@@ -1932,7 +1911,7 @@ table img {
 .andro_footer-middle a.andro_btn-custom:hover {
   color: #fff;
 }
-.andro_footer ul li{
+.andro_footer ul li {
   display: inline-block !important;
   margin: 0 10px !important;
 }
@@ -2153,10 +2132,7 @@ table img {
 .andro_footer.andro_footer-dark .footer-widget ul li a::before,
 .andro_footer.andro_footer-dark .andro_footer-bottom ul li a:hover,
 .andro_footer.andro_footer-dark .footer-widget ul li a:hover,
-.andro_footer.andro_footer-dark
-  .andro_footer-bottom
-  .andro_footer-copyright
-  > a,
+.andro_footer.andro_footer-dark .andro_footer-bottom .andro_footer-copyright > a,
 .andro_footer.andro_footer-dark .footer-widget .widget-title {
   color: #fff;
 }
@@ -2808,15 +2784,10 @@ table img {
   font-weight: 700;
   text-decoration: line-through;
 }
-.andro_product.andro_product-has-controls
-  .andro_product-body
-  .andro_product-price {
+.andro_product.andro_product-has-controls .andro_product-body .andro_product-price {
   margin-bottom: 10px;
 }
-.andro_product.andro_product-has-controls
-  .andro_product-body
-  .andro_product-price
-  span {
+.andro_product.andro_product-has-controls .andro_product-body .andro_product-price span {
   display: inline-block;
 }
 .andro_product.andro_product-has-controls
@@ -2825,11 +2796,7 @@ table img {
   span:first-child {
   font-size: 16px;
 }
-.andro_product.andro_product-has-controls
-  .andro_product-body
-  .andro_product-price
-  span
-  + span {
+.andro_product.andro_product-has-controls .andro_product-body .andro_product-price span + span {
   margin-left: 5px;
 }
 .andro_product.andro_product-has-buttons .andro_product-footer {
@@ -2837,24 +2804,16 @@ table img {
   padding: 0;
   margin: 20px -20px -20px -20px;
 }
-.andro_product.andro_product-has-buttons
-  .andro_product-footer
-  .andro_product-buttons {
+.andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
-.andro_product.andro_product-has-buttons
-  .andro_product-footer
-  .andro_product-buttons
-  a {
+.andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a {
   flex: 1;
   box-shadow: none;
 }
-.andro_product.andro_product-has-buttons
-  .andro_product-footer
-  .andro_product-buttons
-  a {
+.andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a {
   border-radius: 0;
 }
 .andro_product-stock {
@@ -2923,12 +2882,10 @@ table img {
 .andro_product.andro_product-list .andro_product-controls {
   justify-content: space-between;
 }
-.andro_product.andro_product-list.andro_product-has-buttons
-  .andro_product-footer {
+.andro_product.andro_product-list.andro_product-has-buttons .andro_product-footer {
   width: calc(100% + 40px);
 }
-.andro_product.andro_product-list.andro_product-has-buttons
-  .andro_product-footer {
+.andro_product.andro_product-list.andro_product-has-buttons .andro_product-footer {
   margin: 10px -20px -20px -20px;
 }
 
@@ -3341,9 +3298,7 @@ td.remove {
 .andro_category-mm-body .andro_category-mm-item.andro_category-mm-item-expand {
   position: static;
 }
-.andro_category-mm-body
-  .andro_category-mm-item.andro_category-mm-item-expand
-  > ul {
+.andro_category-mm-body .andro_category-mm-item.andro_category-mm-item-expand > ul {
   height: 100%;
   border-radius: 0 8px 8px 0;
 }
@@ -4048,9 +4003,7 @@ td.remove {
 }
 .andro_newsletter-popup-modal .modal-header .close,
 .andro_newsletter-popup-modal .modal-header .close:hover,
-.andro_newsletter-popup-modal
-  .modal-header
-  .close:not(:disabled):not(.disabled):hover {
+.andro_newsletter-popup-modal .modal-header .close:not(:disabled):not(.disabled):hover {
   background-color: transparent;
 }
 
@@ -4517,9 +4470,7 @@ td.remove {
   .andro_category-mm {
     margin-bottom: 30px;
   }
-  .andro_category-mm-body
-    .andro_category-mm-item.andro_category-mm-item-expand
-    > ul {
+  .andro_category-mm-body .andro_category-mm-item.andro_category-mm-item-expand > ul {
     height: auto;
   }
   .andro_category-mm-body > ul > li > ul {
@@ -4781,10 +4732,7 @@ td.remove {
   .andro_cta-notice {
     padding: 20px;
   }
-  .andro_product.andro_product-has-buttons
-    .andro_product-footer
-    .andro_product-buttons
-    a {
+  .andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a {
     flex: 0 100%;
     width: 100%;
   }
@@ -4794,11 +4742,7 @@ td.remove {
     a:first-child {
     border-radius: 0;
   }
-  .andro_product.andro_product-has-buttons
-    .andro_product-footer
-    .andro_product-buttons
-    a
-    + a {
+  .andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a + a {
     border-radius: 0 0 8px 8px;
   }
   .andro_header-cart-content,
