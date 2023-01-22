@@ -25,7 +25,7 @@ const bannerslider = [
 
 class Banner extends Component {
   render() {
-    const settings = {
+    const sliderSettings = {
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: false,
@@ -65,7 +65,7 @@ class Banner extends Component {
               <div className="row">
                 <div className="col-lg-8 col-xs-12">
                   <div className="andro_banner banner-1">
-                    <Slider className="andro_banner-slider" {...settings}>
+                    <Slider className="andro_banner-slider" {...sliderSettings}>
                       {bannerslider.map((item, i) => (
                         <div key={i} className="container-fluid">
                           <div className="row align-items-center">

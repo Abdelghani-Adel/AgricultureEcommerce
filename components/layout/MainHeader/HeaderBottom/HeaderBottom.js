@@ -9,7 +9,6 @@ const HeaderBottom = (props) => {
         <HeaderNav />
         <div className="header_left_offers">
           <HeaderOffers />
-
         </div>
       </div>
     </div>

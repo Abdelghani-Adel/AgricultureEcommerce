@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Head from "next/head";
 // import Breadcrumbs from "../../components/Breadcrumbs";
-import Breadcrumbs from "../../components/layout/Breadcrumbs";
+import Breadcrumbs from "../../components/layout/Reusable/Breadcrumbs";
 import Content from "../../components/products/content";
 import Products from "../../data/products.json";
 import { withTranslation } from "react-multi-lang";

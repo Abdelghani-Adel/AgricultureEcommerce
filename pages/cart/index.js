@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import Breadcrumbs from "../../components/layout/Breadcrumbs";
+import Breadcrumbs from "../../components/layout/Reusable/Breadcrumbs";
 import CartContent from "../../components/Sections/Cart/CartContent/CartContent";
 import CartTotal from "../../components/Sections/Cart/CartTotal";
 import UpSells from "../../components/Sections/Cart/Upsells/UpSells";
