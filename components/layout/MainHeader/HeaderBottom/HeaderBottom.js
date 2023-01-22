@@ -4,11 +4,9 @@ import SideCategoriesToggler from "./SideCategoriesToggler";
 const HeaderBottom = (props) => {
   return (
     <div className="andro_header-bottom">
-      <div className="container">
-        <div className="andro_header-bottom-inner">
-          <HeaderNav />
-          <SideCategoriesToggler />
-        </div>
+      <div className="andro_header-bottom-inner mt-0">
+        <SideCategoriesToggler />
+        <HeaderNav />
       </div>
     </div>
   );
