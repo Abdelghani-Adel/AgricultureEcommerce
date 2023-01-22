@@ -15,6 +15,9 @@
     "ContactUs": "تواصل معنا",
     "Chat": "دردشة عامة"
   },
+  "Home":{
+    "JoinChat":"الانضمام للدردشة"
+   },
   "Products": {
     "BestProducts": "أفضل المنتجات",
     "AddToCart": "أضف الي العربة",

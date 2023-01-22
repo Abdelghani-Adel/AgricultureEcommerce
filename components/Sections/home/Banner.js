@@ -5,6 +5,7 @@ import { FaThLarge } from "react-icons/fa";
 import Category from "./Category";
 import InfoSlider from "./InfoSlider";
 import { withTranslation } from "react-multi-lang";
+import Chat_banner from "./chat_banner";
 const bannerslider = [
   {
     photo: "../img/products/2.png",
@@ -52,17 +53,7 @@ class Banner extends Component {
           <div className="row">
             {/* Menu Start */}
             <div className="col-lg-3">
-              {/* <div className="andro_category-mm">
-                <div className="andro_category-mm-header">
-                  <h6>
-                    <FaThLarge />
-                    {this.props.t("Navbar.Categories")}
-                  </h6>
-                </div>
-                <div className="andro_category-mm-body">
-                  <Category />
-                </div>
-              </div> */}
+              <Chat_banner />
             </div>
             {/* Menu End */}
             {/* Banner Start */}

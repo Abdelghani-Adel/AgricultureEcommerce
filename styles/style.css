@@ -4944,3 +4944,25 @@ td.remove {
   vertical-align: middle;
   margin: 0 3px;
 }
+.chat_banner .card{
+  border: 1px solid #eee;
+  border-radius: 6px;
+  min-height: 300px;
+}
+.chat_banner .card-header{
+  background-color: #40a13d;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  /* border-radius: 6px 6px 0 0; */
+  color: white;
+  border: 1px solid #40a13d;
+}
+.chat_banner .card-footer{
+  background-color: #FADA5E;
+  border:  1px solid #FADA5E;
+  color: #222;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+}

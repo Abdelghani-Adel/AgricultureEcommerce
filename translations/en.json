@@ -15,6 +15,9 @@
     "ContactUs": "Contact Us",
     "Chat": "Chat"
   },
+  "Home":{
+   "JoinChat":"Join Chat"
+  },
   "Products": {
     "BestProducts": "Best Products",
     "AddToCart": "Add To Cart",
