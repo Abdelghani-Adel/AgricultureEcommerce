@@ -10,7 +10,7 @@ const HeaderMiddle = (props) => {
         <nav className="navbar">
           <HeaderLogo />
           <HeaderSearchForm />
-          <HeaderControls />
+          <HeaderControls changeLang={props.changeLang} lang={props.lang} />
         </nav>
       </div>
     </div>

@@ -49,7 +49,6 @@ class Navbar extends HeaderComponent {
     const stickyheader = this.state.isTop ? "sticky" : "";
     return (
       <>
-      
         <aside
           className={classNames("andro_aside andro_aside-right", {
             open: this.state.sidebarmethod,
@@ -58,7 +57,7 @@ class Navbar extends HeaderComponent {
           <SideCategoriesList />
         </aside>
         <div className="andro_aside-overlay aside-trigger-right" onClick={this.sidebarToggle} />
-      
+
         <aside
           className={classNames("andro_aside andro_aside-left", {
             open: this.state.navmethod,
@@ -67,19 +66,16 @@ class Navbar extends HeaderComponent {
           <Mobilemenu language={language} />
         </aside>
         <div className="andro_aside-overlay aside-trigger-left" onClick={this.toggleNav} />
-        
+
         <header className={`andro_header header-1 can-sticky ${stickyheader}`}>
-        
-        
           <div className="andro_header-middle">
             <div className="container">
               <nav className="navbar">
-               
                 <Link className="navbar-brand" href="/">
                   {" "}
                   <img src={"../img/logo.png"} alt="logo" />{" "}
                 </Link>
-              
+
                 <div className="andro_search-adv">
                   <form method="post">
                     <div className="andro_search-adv-cats">
@@ -114,14 +110,13 @@ class Navbar extends HeaderComponent {
                     <li className="andro_header-favorites">
                       {" "}
                       <Link href="/wishlist" title={t("Navbar.WishList")}>
-                      
                         <FaRegHeart />
                       </Link>
                     </li>
                     <li className="andro_header-cart">
                       <Link href="/cart" title={t("Navbar.YourCart")}>
                         <FaShoppingBasket />
-                       
+
                         <div className="andro_header-cart-content">
                           <span>9 Items</span>
                           <span>249.99$</span>
@@ -129,18 +124,14 @@ class Navbar extends HeaderComponent {
                       </Link>
                     </li>
                     <li className="menu-item menu-item-has-children">
-                    <Link href="">
-                      {" "}
-                      
-                      {t("Navbar." + this.state.language)}{" "}
-                    </Link>
-                    <ul className="sub-menu sub-menu-left">
-                      <li onClick={() => this.changeLang("en")}>{t("Navbar.en")}</li>
-                      <li onClick={() => this.changeLang("ar")}>{t("Navbar.ar")}</li>
-                    </ul>
-                  </li>
+                      <Link href="">{t("Navbar." + this.state.language)}</Link>
+                      <ul className="sub-menu sub-menu-left">
+                        <li onClick={() => this.changeLang("en")}>{t("Navbar.en")}</li>
+                        <li onClick={() => this.changeLang("ar")}>{t("Navbar.ar")}</li>
+                      </ul>
+                    </li>
                   </ul>
-              
+
                   <div className="aside-toggler aside-trigger-left" onClick={this.toggleNav}>
                     <span />
                     <span />
@@ -150,7 +141,7 @@ class Navbar extends HeaderComponent {
               </nav>
             </div>
           </div>
-       
+
           {/* <div className="andro_header-bottom">
             <div className="container">
               <div className="andro_header-bottom-inner">
@@ -168,10 +159,9 @@ class Navbar extends HeaderComponent {
               </div>
             </div>
           </div> */}
-         
-          <CategoriesNav/>
+
+          <CategoriesNav />
         </header>
-      
       </>
     );
   }

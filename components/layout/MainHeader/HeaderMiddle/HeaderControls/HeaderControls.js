@@ -1,6 +1,6 @@
 import Link from "next/link";
 import MobileViewNavToggler from "./MobileViewNavToggler";
-import LanguageChange from "../../HeaderTop/LanguageChange";
+import LanguageChange from "../LanguageChange";
 import { FaShoppingBasket, FaRegHeart, FaUserAlt, FaCommentAlt } from "react-icons/fa";
 
 const HeaderControls = (props) => {
