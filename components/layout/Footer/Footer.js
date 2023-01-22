@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Link from "next/Link";
 import { FaChevronUp } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
-import { FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaYoutube ,FaHandPointer } from "react-icons/fa";
 class Footer extends Component {
   scrollToTop() {
     window.scrollTo({
@@ -152,9 +152,9 @@ class Footer extends Component {
                 Copyright © 2023 <Link href="#">RTS</Link> All Rights Reserved.{" "}
               </p>
               <Link href="#" className="andro_back-to-top" onClick={() => this.scrollToTop()}>
-                Back to top{" "}
+                {/* Back to top{" "} */}
                 <span>
-                  <FaChevronUp />
+                  <FaHandPointer />
                 </span>{" "}
               </Link>
             </div>

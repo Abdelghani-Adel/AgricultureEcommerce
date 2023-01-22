@@ -3,6 +3,7 @@ import { withTranslation } from 'react-multi-lang';
 import classNames from "classnames";
 import SideCategoriesList from "../MainHeader/Reusable/SideCategoriesList";
 import Category from "./Category";
+import HeaderOffers from "./HeaderOffers";
 
 function CategoriesNav() {
     const [sidebarmethod, setsidebarmethod] = useState(false);
@@ -30,6 +31,10 @@ function CategoriesNav() {
                     </div></li>
                         <Category />
                     </ul>
+                    <div className="header_left_offers">
+                       <HeaderOffers/>
+
+                    </div>
                     
 
                 </div>

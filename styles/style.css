@@ -1315,7 +1315,7 @@ table img {
 }
 .andro_header-bottom {
   background-color: #5d5d5d;
-  padding: 0 10px;
+  padding: 0 0 0 10px;
 }
 .andro_header-bottom-inner {
   position: relative;
@@ -1984,8 +1984,8 @@ table img {
   color: #50bd4d;
 }
 .andro_footer-bottom .andro_footer-copyright > a span {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 8px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2002,7 +2002,9 @@ table img {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+  font-size: 18px;
 }
+
 .andro_footer-bottom .andro_footer-copyright > a:hover span {
   background-color: #50bd4d;
   color: #fff;
@@ -2016,7 +2018,7 @@ table img {
 }
 .footer-widget .widget-title {
   margin-bottom: 20px;
-  font-weight: 700;
+  /* font-weight: 700; */
 }
 .andro_footer-logo {
   width: 180px;
@@ -4964,4 +4966,37 @@ td.remove {
   border: 1px solid #f0f2f3;
   box-shadow: 0 3px 24px rgb(0 0 0 / 4%);
   border-radius: 8px;
+}
+
+.andro_back-to-top svg{
+  animation: pointy 1.5s infinite;
+}
+
+@keyframes pointy {
+  0% {transform: translate(0px, 0px);}
+ 15% {transform: translate(0px, -10px);}
+ 30% {transform: translate(0px, -5px);}
+ 45% {transform: translate(0px, -10px)}
+100% {transform: translate(0px, 0px);}
+}
+
+.header_left_offers{
+  background-color: #FADA5E;
+  height: 60px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+.header_left_offers ul li{
+  display: inline-block;
+  margin: 0 10px;
+  color: #222;
+}
+.header_left_offers ul li a{
+
+  color: #222;
+}
+.header_left_offers ul li img{
+  vertical-align: middle;
+  margin: 0 3px;
 }
