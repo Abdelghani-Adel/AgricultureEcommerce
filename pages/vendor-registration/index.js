@@ -29,6 +29,10 @@ const VendorRegistration = () => {
     saveAndGoToNextStep();
   });
 
+  const finishRegistration = useCallback(() => {
+    router.push("/");
+  });
+
   const renderTheStep = () => {
     switch (currentStep) {
       case 1:
@@ -42,7 +46,9 @@ const VendorRegistration = () => {
       case 5:
         return <ContactInfo saveFunction={saveAndContinue} vendorID={registrationVendorID} />;
       case 6:
-        return <Documents saveFunction={saveAndContinue} vendorID={registrationVendorID} />;
+        return (
+          <Documents finishRegistration={finishRegistration} vendorID={registrationVendorID} />
+        );
     }
   };
 
