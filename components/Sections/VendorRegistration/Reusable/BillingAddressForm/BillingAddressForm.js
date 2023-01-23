@@ -23,7 +23,7 @@ const BillingAddressForm = (props) => {
       setAddresses(data);
     };
 
-    showPreviousAddress ? fetchAddress() : fetchCountries();
+    showPreviousAddress && vendorID > 0 ? fetchAddress() : fetchCountries();
   }, []);
 
   useEffect(() => {

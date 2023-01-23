@@ -13,13 +13,11 @@ import VendorRegisterAPI from "../../services/VendorRegisterAPI";
 const vendorRegApi = new VendorRegisterAPI();
 
 const VendorRegistration = () => {
-  const [currentStep, setCurrentStep] = useState(6);
+  const [currentStep, setCurrentStep] = useState(5);
   const [registrationVendorID, setRegistrationVendorID] = useState();
   const router = useRouter();
 
   const saveAndContinue = useCallback((requestBody, url) => {
-    currentStep == 6 && router.push("/"); // navigate to home when submitting the last step
-
     const saveAndGoToNextStep = async () => {
       const data = await vendorRegApi.saveAndContinue(requestBody, url);
       !registrationVendorID && setRegistrationVendorID(data.idOut);
@@ -30,7 +28,7 @@ const VendorRegistration = () => {
   });
 
   const finishRegistration = useCallback(() => {
-    router.push("/");
+    router.push("/registration-confirm");
   });
 
   const renderTheStep = () => {

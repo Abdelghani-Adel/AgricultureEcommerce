@@ -98,7 +98,7 @@ const ContactInfo = (props) => {
         <BillingAddressForm
           fieldChangeHandler={fieldChangeHandler}
           hydrateReqBody={hydrateReqBody}
-          vendorID={15}
+          vendorID={vendorID}
           showPreviousAddress={true}
         />
 

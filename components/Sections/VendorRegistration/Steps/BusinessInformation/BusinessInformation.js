@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useEffect, useState } from "react";
 import VendorRegisterAPI from "../../../../../services/VendorRegisterAPI";
 import BillingAddressForm from "../../Reusable/BillingAddressForm/BillingAddressForm";
@@ -45,9 +46,9 @@ const BusinessInformation = (props) => {
     }
   };
 
-  const fieldChangeHandler = (e) => {
+  const fieldChangeHandler = useCallback((e) => {
     setRequestBody({ ...requestBody, [e.target.name]: e.target.value });
-  };
+  });
 
   const submitHandler = (e) => {
     e.preventDefault();
