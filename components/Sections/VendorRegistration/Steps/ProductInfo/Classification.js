@@ -14,9 +14,9 @@ const Classification = (props) => {
 
       {classification.ClassificationChildren.length > 0 && (
         <div className={style}>
-          {classification.ClassificationChildren.map((classification, index) => (
+          {classification.ClassificationChildren.map((classification) => (
             <Classification
-              key={index}
+              key={classification.FAClassificationId}
               style="ms-3"
               classification={classification}
               changeHandler={changeHandler}

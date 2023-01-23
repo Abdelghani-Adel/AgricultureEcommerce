@@ -9,12 +9,10 @@ const PickedAddress = (props) => {
   const { vendorID } = props;
   const [requestBody, setRequestBody] = useState();
 
-  // Hydrating the requestBody state with the incoming one
   useEffect(() => {
     const getVendorAddress = async () => {
-      // const data = await API.fetchAddresses(vendorID);
       setRequestBody({
-        // FAPartnerId: data[0].vendorID,
+        FAPartnerId: vendorID,
         Step_Id: 2,
       });
     };

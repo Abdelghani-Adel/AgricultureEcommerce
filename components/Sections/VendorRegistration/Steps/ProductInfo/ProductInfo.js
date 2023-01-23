@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useEffect, useState } from "react";
 import VendorRegisterAPI from "../../../../../services/VendorRegisterAPI";
 import InputField from "../../Reusable/InputField";
@@ -11,18 +12,16 @@ const ProductInfo = (props) => {
   const initReqBody = {
     FAPartnerId: vendorID,
     Step_Id: 4,
-    categories: [0],
+    categories: [],
   };
 
   const [requestBody, setRequestBody] = useState(initReqBody);
-  const [selectedCategories, setSelectedCategories] = useState([]);
   const [classifications, setClassifications] = useState([]);
 
   useEffect(() => {
     const fetchClassification = async () => {
       const data = await vendorRegApi.fetchClassificationTree();
       setClassifications(data);
-      console.log(data);
     };
     fetchClassification();
   }, []);
@@ -35,7 +34,7 @@ const ProductInfo = (props) => {
     );
   };
 
-  const fieldChangeHandler = (e) => {
+  const fieldChangeHandler = useCallback((e) => {
     const category_id = e.target.value;
     const categories = requestBody.categories;
 
@@ -44,15 +43,15 @@ const ProductInfo = (props) => {
       : categories.concat(category_id);
 
     setRequestBody({ ...requestBody, categories: [...updatedCategories] });
-  };
+  });
 
   return (
     <div className="container mt-5">
       <form action="" method="POST" onSubmit={submitHandler}>
         <div className="row row-cols-3">
-          {classifications.map((classification, index) => (
+          {classifications.map((classification) => (
             <Classification
-              key={index}
+              key={classification.FAClassificationId}
               classification={classification}
               changeHandler={fieldChangeHandler}
             />

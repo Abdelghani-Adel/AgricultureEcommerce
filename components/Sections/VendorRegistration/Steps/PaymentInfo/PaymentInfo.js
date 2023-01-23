@@ -2,31 +2,21 @@ import SubmitStepButton from "../../Reusable/SubmitStepButton";
 import { useEffect, useState } from "react";
 import InputField from "../../Reusable/InputField";
 import BillingAddressForm from "../../Reusable/BillingAddressForm/BillingAddressForm";
-
-const initReqBody = {
-  Payment_Id: 0,
-  SubCompany_Id: 0,
-  Company_Id: 0,
-  FAPartnerId: 0,
-  Credit_CardNo: null,
-  Credit_CardExp: null,
-  Card_Hold_Name: null,
-  Entity_Id: 0,
-  // Computer_Name: "string",
-  // Active: true,
-  // User_Id: 0,
-  // Credit_CardExp_str: "string",
-  Country_Id: null,
-  City_Id: null,
-  Gover_Id: null,
-  District_Id: null,
-  streetAdd: null,
-  buildingNo: null,
-};
+import { useCallback } from "react";
 
 const PaymentInfo = (props) => {
   const { vendorID } = props;
   const [requestBody, setRequestBody] = useState();
+
+  useEffect(() => {
+    setRequestBody({
+      FAPartnerId: vendorID,
+      Credit_CardNo: null,
+      Card_Hold_Name: null,
+      Credit_CardExp_str: null,
+    });
+  }, []);
+
   const submitHandler = (e) => {
     e.preventDefault();
     props.saveFunction(
@@ -34,9 +24,13 @@ const PaymentInfo = (props) => {
       "http://192.168.10.251:800/api/ECommerceSetting/addPartnerPayment"
     );
   };
-  const fieldChangeHandler = (e) => {
+  const fieldChangeHandler = useCallback((e) => {
     setRequestBody({ ...requestBody, [e.target.name]: e.target.value });
-  };
+  });
+
+  const hydrateReqBody = useCallback((data) => {
+    setRequestBody({ ...requestBody, ...data });
+  });
 
   return (
     <div className="container mt-5">
@@ -49,7 +43,7 @@ const PaymentInfo = (props) => {
           />
           <InputField
             title="Expiration Date"
-            fieldName="Credit_CardExp"
+            fieldName="Credit_CardExp_str"
             changeHandler={fieldChangeHandler}
           />
         </div>
@@ -63,7 +57,8 @@ const PaymentInfo = (props) => {
 
         <BillingAddressForm
           fieldChangeHandler={fieldChangeHandler}
-          vendorID={vendorID}
+          hydrateReqBody={hydrateReqBody}
+          vendorID={15}
           showPreviousAddress={true}
         />
         <SubmitStepButton fieldChangeHandler={fieldChangeHandler} countryID={1} />
