@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import CurrentStepTitle from "../../components/Sections/VendorRegistration/Reusable/CurrentStepTitle/CurrentStepTitle";
 import RegistrationProgressBar from "../../components/Sections/VendorRegistration/Reusable/RegistrationProgressBar/RegistrationProgressBar";
 import BusinessInformation from "../../components/Sections/VendorRegistration/steps/BusinessInformation/BusinessInformation";
@@ -12,12 +12,12 @@ import VendorRegisterAPI from "../../services/VendorRegisterAPI";
 
 const vendorRegApi = new VendorRegisterAPI();
 
-const VendorRegistration = (props) => {
-  const [currentStep, setCurrentStep] = useState(4);
+const VendorRegistration = () => {
+  const [currentStep, setCurrentStep] = useState(6);
   const [registrationVendorID, setRegistrationVendorID] = useState();
   const router = useRouter();
 
-  const saveAndContinue = (requestBody, url) => {
+  const saveAndContinue = useCallback((requestBody, url) => {
     currentStep == 6 && router.push("/"); // navigate to home when submitting the last step
 
     const saveAndGoToNextStep = async () => {
@@ -27,7 +27,7 @@ const VendorRegistration = (props) => {
     };
 
     saveAndGoToNextStep();
-  };
+  });
 
   const renderTheStep = () => {
     switch (currentStep) {

@@ -1,11 +1,11 @@
 import InputField from "../InputField";
-import { useEffect, useState, Fragment } from "react";
+import { useEffect, useState, Fragment, useCallback } from "react";
 import VendorRegisterAPI from "../../../../../services/VendorRegisterAPI";
 
 const vendorRegApi = new VendorRegisterAPI();
 
 const BillingAddressForm = (props) => {
-  const { fieldChangeHandler, vendorID, showPreviousAddress } = props;
+  const { fieldChangeHandler, hydrateReqBody, vendorID, showPreviousAddress } = props;
   const [addresses, setAddresses] = useState();
   const [countries, setCountries] = useState(null);
   const [governments, setGovernments] = useState();
@@ -24,7 +24,21 @@ const BillingAddressForm = (props) => {
     };
 
     showPreviousAddress ? fetchAddress() : fetchCountries();
-  });
+  }, []);
+
+  useEffect(() => {
+    if (addresses && addresses.length > 0) {
+      const address = {
+        Country_Id: addresses[0].Country_Id,
+        City_Id: addresses[0].City_Id,
+        Gover_Id: addresses[0].Gover_Id,
+        District_Id: addresses[0].District_Id,
+        streetAdd: addresses[0].FullAddress,
+        buildingNo: addresses[0].BuildingNo,
+      };
+      hydrateReqBody(address);
+    }
+  }, [addresses]);
 
   // When click on "add new address", show the form and fetch the governments based on countryID
   const showAddingNewAddressForm = () => {
@@ -36,7 +50,7 @@ const BillingAddressForm = (props) => {
     fetchGovernments();
   };
 
-  const countryChangeHandler = (e) => {
+  const countryChangeHandler = useCallback((e) => {
     const countryID = e.target.value;
     const fetchGovernments = async () => {
       const data = await vendorRegApi.fetchGovernments(countryID);
@@ -45,9 +59,9 @@ const BillingAddressForm = (props) => {
 
     fieldChangeHandler(e);
     fetchGovernments();
-  };
+  });
 
-  const governmentChangeHandler = (e) => {
+  const governmentChangeHandler = useCallback((e) => {
     const govID = e.target.value;
     const fetchCities = async () => {
       const data = await vendorRegApi.fetchCities(govID);
@@ -56,9 +70,9 @@ const BillingAddressForm = (props) => {
 
     fieldChangeHandler(e);
     fetchCities();
-  };
+  });
 
-  const cityChangeHandler = (e) => {
+  const cityChangeHandler = useCallback((e) => {
     const cityID = e.target.value;
     const fetchDestricts = async () => {
       const data = await vendorRegApi.fetchDestricts(cityID);
@@ -67,7 +81,7 @@ const BillingAddressForm = (props) => {
 
     fieldChangeHandler(e);
     fetchDestricts();
-  };
+  });
 
   return (
     <Fragment>

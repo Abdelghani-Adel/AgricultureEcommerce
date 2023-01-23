@@ -4,8 +4,7 @@ import BillingAddressForm from "../../Reusable/BillingAddressForm/BillingAddress
 import InputField from "../../Reusable/InputField";
 import SubmitStepButton from "../../Reusable/SubmitStepButton";
 
-const vendorRegApi = new VendorRegisterAPI();
-const initialRequestBodyValues = {
+const initialRequestBody = {
   FAPartner_Type_Id: null,
   BusinessName: null,
   Country_Id: null,
@@ -23,20 +22,21 @@ const initialRequestBodyValues = {
   verifyCode: null,
   Step_Id: 1,
 };
+const vendorRegApi = new VendorRegisterAPI();
 
 const BusinessInformation = (props) => {
   const [businessTypes, setBusinessTypes] = useState(null);
-  const [requestBody, setRequestBody] = useState(initialRequestBodyValues);
+  const [requestBody, setRequestBody] = useState(initialRequestBody);
 
   useEffect(() => {
-    const fetchBusinessTypes = async () => {
+    const getBusinessTypes = async () => {
       const data = await vendorRegApi.fetchBusinessTypes();
       setBusinessTypes(data);
     };
-    fetchBusinessTypes();
+    getBusinessTypes();
   });
 
-  const checkBoxHandler = (e) => {
+  const checkboxHandler = (e) => {
     const selectedChoice = e.target.value;
     if (selectedChoice == "ownBarcode") {
       setRequestBody({ ...requestBody, ownBarcode: true, ownBrand: false });
@@ -110,7 +110,7 @@ const BusinessInformation = (props) => {
               type="radio"
               name="checkbox"
               value="ownBarcode"
-              onChange={checkBoxHandler}
+              onChange={checkboxHandler}
               checked
             />
             <label className="form-check-label">Do you have your own barcode ?</label>
@@ -123,7 +123,7 @@ const BusinessInformation = (props) => {
               type="radio"
               name="checkbox"
               value="ownBrand"
-              onChange={checkBoxHandler}
+              onChange={checkboxHandler}
             />
             <label className="form-check-label">Do you have your own brand ?</label>
           </div>

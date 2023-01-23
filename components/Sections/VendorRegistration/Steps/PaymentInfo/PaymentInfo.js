@@ -8,20 +8,20 @@ const initReqBody = {
   SubCompany_Id: 0,
   Company_Id: 0,
   FAPartnerId: 0,
-  Credit_CardNo: "string",
-  Credit_CardExp: "2023-01-22T15:35:49.274Z",
-  Card_Hold_Name: "string",
+  Credit_CardNo: null,
+  Credit_CardExp: null,
+  Card_Hold_Name: null,
   Entity_Id: 0,
-  Computer_Name: "string",
-  Active: true,
-  User_Id: 0,
-  Credit_CardExp_str: "string",
-  Country_Id: 0,
-  City_Id: 0,
-  Gover_Id: 0,
-  District_Id: 0,
-  streetAdd: "string",
-  buildingNo: "string",
+  // Computer_Name: "string",
+  // Active: true,
+  // User_Id: 0,
+  // Credit_CardExp_str: "string",
+  Country_Id: null,
+  City_Id: null,
+  Gover_Id: null,
+  District_Id: null,
+  streetAdd: null,
+  buildingNo: null,
 };
 
 const PaymentInfo = (props) => {
@@ -42,11 +42,23 @@ const PaymentInfo = (props) => {
     <div className="container mt-5">
       <form action="" method="POST" onSubmit={submitHandler}>
         <div className="row justify-content-center">
-          <InputField title="Card No." fieldName="" changeHandler={fieldChangeHandler} />
-          <InputField title="Expiration Date" fieldName="" changeHandler={fieldChangeHandler} />
+          <InputField
+            title="Card No."
+            fieldName="Credit_CardNo"
+            changeHandler={fieldChangeHandler}
+          />
+          <InputField
+            title="Expiration Date"
+            fieldName="Credit_CardExp"
+            changeHandler={fieldChangeHandler}
+          />
         </div>
         <div className="row justify-content-center">
-          <InputField title="Card Holder's Name" fieldName="" changeHandler={fieldChangeHandler} />
+          <InputField
+            title="Card Holder's Name"
+            fieldName="Card_Hold_Name"
+            changeHandler={fieldChangeHandler}
+          />
         </div>
 
         <BillingAddressForm

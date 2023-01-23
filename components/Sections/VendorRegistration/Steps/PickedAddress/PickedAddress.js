@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import VendorRegisterAPI from "../../../../../services/VendorRegisterAPI";
 import BillingAddressForm from "../../Reusable/BillingAddressForm/BillingAddressForm";
 import SubmitStepButton from "../../Reusable/SubmitStepButton";
@@ -11,21 +11,15 @@ const PickedAddress = (props) => {
 
   // Hydrating the requestBody state with the incoming one
   useEffect(() => {
-    const fetchAddress = async () => {
-      const data = await API.fetchAddresses(vendorID); // will be props.vendorID
+    const getVendorAddress = async () => {
+      const data = await API.fetchAddresses(vendorID);
       setRequestBody({
-        Country_Id: data[0].Country_Id,
-        City_Id: data[0].City_Id,
-        Gover_Id: data[0].Gover_Id,
-        District_Id: data[0].District_Id,
-        streetAdd: data[0].FullAddress,
-        buildingNo: data[0].BuildingNo,
         FAPartnerId: data[0].vendorID,
         Step_Id: 2,
       });
     };
-    fetchAddress();
-  });
+    getVendorAddress();
+  }, []);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -35,15 +29,20 @@ const PickedAddress = (props) => {
     );
   };
 
-  const fieldChangeHandler = (e) => {
+  const fieldChangeHandler = useCallback((e) => {
     setRequestBody({ ...requestBody, [e.target.name]: e.target.value });
-  };
+  });
+
+  const hydrateReqBody = useCallback((data) => {
+    setRequestBody({ ...requestBody, ...data });
+  });
 
   return (
     <div className="container mt-5">
       <form action="" method="POST" onSubmit={submitHandler}>
         <BillingAddressForm
           fieldChangeHandler={fieldChangeHandler}
+          hydrateReqBody={hydrateReqBody}
           vendorID={vendorID}
           showPreviousAddress={true}
         />
