@@ -1,8 +1,11 @@
 import { useCallback } from "react";
 import { useEffect, useState } from "react";
+import ReactDatePicker from "react-datepicker";
 import BillingAddressForm from "../../Reusable/BillingAddressForm/BillingAddressForm";
 import InputField from "../../Reusable/InputField";
 import SubmitStepButton from "../../Reusable/SubmitStepButton";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const initReqBody = {
   // FAContactId: 0,
@@ -24,9 +27,9 @@ const initReqBody = {
   Last_Name: null,
   DOB: null,
   IdentityNo: null,
-  IdentityNo_Exp: null,
+  // IdentityNo_Exp: null,
   IdentityNo_IssuedCountry: null,
-  // IdentityNo_Exp_str: "string",
+  IdentityNo_Exp_str: new Date(),
   // Country_Id: 0,
   // City_Id: 0,
   // Gover_Id: 0,
@@ -38,8 +41,7 @@ const initReqBody = {
 const ContactInfo = (props) => {
   const { vendorID } = props;
   const [requestBody, setRequestBody] = useState(initReqBody);
-
-  useEffect(() => {}, []);
+  const [expirationDate, setExpirationDate] = useState(new Date());
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -52,6 +54,10 @@ const ContactInfo = (props) => {
   const fieldChangeHandler = useCallback((e) => {
     console.log("render");
     setRequestBody({ ...requestBody, [e.target.name]: e.target.value });
+  });
+  const dateChangeHandler = useCallback((date) => {
+    setExpirationDate(date);
+    setRequestBody({ ...requestBody, IdentityNo_Exp_str: date.toString() });
   });
 
   const hydrateReqBody = useCallback((data) => {
@@ -70,9 +76,22 @@ const ContactInfo = (props) => {
             changeHandler={fieldChangeHandler}
           />
 
+          <div className="col">
+            <div className="form-group">
+              <label>Identity Expiration Date</label>
+              <DatePicker
+                selected={expirationDate}
+                onChange={dateChangeHandler}
+                dateFormat="MM/yyyy"
+                showMonthYearPicker
+                className="form-control form-control-lg bg-light"
+              />
+            </div>
+          </div>
+
           <InputField
             title="Identity Expiration Date"
-            fieldName="IdentityNo_Exp"
+            fieldName="IdentityNo_Exp_str"
             changeHandler={fieldChangeHandler}
           />
 
