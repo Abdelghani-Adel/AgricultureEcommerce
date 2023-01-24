@@ -1,7 +1,7 @@
 const CurrentStepTitle = (props) => {
   const { currentStep } = props;
   return (
-    <div className="col-10 mt-4">
+    <div className="mt-4">
       <div className="row">
         <div className="col">
           <p className={`${currentStep != 1 && "d-none"}`}>Business Information</p>

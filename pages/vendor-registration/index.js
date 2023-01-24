@@ -13,7 +13,7 @@ import VendorRegisterAPI from "../../services/VendorRegisterAPI";
 const vendorRegApi = new VendorRegisterAPI();
 
 const VendorRegistration = () => {
-  const [currentStep, setCurrentStep] = useState(6);
+  const [currentStep, setCurrentStep] = useState(1);
   const [registrationVendorID, setRegistrationVendorID] = useState();
   const router = useRouter();
 
