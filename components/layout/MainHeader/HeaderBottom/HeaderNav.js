@@ -135,7 +135,6 @@ const HeaderNav = (props) => {
       );
 
       const data = await response.json();
-      console.log(data);
       setNavLinks(data);
     };
 
@@ -147,12 +146,6 @@ const HeaderNav = (props) => {
       {navLinks.map((link) => (
         <HeaderNavItem link={link} key={link.FAClassificationId} />
       ))}
-
-      {/* {links.map((link, index) => (
-        <li key={index} className={`menu-item ${link.child && "menu-item-has-children"}`}>
-          <Link href={"categories/" + link.slug}>{link.title}</Link>
-        </li>
-      ))} */}
     </ul>
   );
 };

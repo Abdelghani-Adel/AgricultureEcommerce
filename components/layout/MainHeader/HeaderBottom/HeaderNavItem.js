@@ -1,7 +1,6 @@
 import Link from "next/Link";
-import { useState } from "react";
-import { Fragment } from "react";
-import { FaArrowDown, FaArrowUp } from "react-icons/fa";
+import { useState, Fragment } from "react";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 
 const HeaderNavItem = (props) => {
   const { link } = props;
@@ -29,9 +28,9 @@ const HeaderNavItem = (props) => {
       {link.ClassificationChildren.length > 0 && (
         <Fragment>
           <Link href={link.FAClassificationPath}>
-            {link.FAClassificationName} {"  "}
+            {link.FAClassificationName}
             <span onClick={clickHandler} className="icon">
-              {!subMenuIsShown ? <FaArrowDown /> : <FaArrowUp />}
+              {!subMenuIsShown ? <FaAngleDown /> : <FaAngleUp />}
             </span>
           </Link>
 

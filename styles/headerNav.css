@@ -18,6 +18,9 @@
 .header-nav > .menu-item > a:hover {
   color: #50bd4d;
 }
+.header-nav > .menu-item > a > .icon {
+  margin-left: 5px;
+}
 .header-nav > .menu-item > a:hover > .icon {
   color: #fff;
 }
