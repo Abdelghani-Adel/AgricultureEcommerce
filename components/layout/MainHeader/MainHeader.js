@@ -12,7 +12,7 @@ const MainHeader = (props) => {
 
       <header className={`andro_header header-3 can-sticky`}>
         <HeaderMiddle changeLang={props.changeLang} lang={props.lang} />
-        <HeaderBottom />
+        <HeaderBottom lang={props.lang} />
       </header>
     </Fragment>
   );

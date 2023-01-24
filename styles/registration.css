@@ -81,3 +81,35 @@ li:not(:last-of-type) .step-wrapper.step-done-wrapper::after {
     font-size: 2rem;
   }
 }
+/* 
+.andro_header .custome_nav .sub-menu,
+.andro_flex-menu .custome_nav .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  transition: 0.3s;
+  opacity: 0;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: rotateX(-75deg);
+  transform: rotateX(-75deg);
+  transform-origin: 0% 0%;
+  visibility: hidden;
+  z-index: 998;
+  min-width: 230px;
+  border: 1px solid #f0f2f3;
+  box-shadow: 0 3px 24px rgba(0, 0, 0, 0.04);
+
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  opacity: 1;
+  visibility: visible;
+}
+
+.andro_header .custome_nav .sub-menu .sub-menu,
+.andro_flex-menu .custome_nav .sub-menu .sub-menu {
+  top: 0;
+  left: 100%;
+} */

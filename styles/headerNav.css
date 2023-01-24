@@ -1,0 +1,109 @@
+.header-nav {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.header-nav .menu-item {
+  margin: 0;
+}
+.header-nav > .menu-item > a {
+  position: relative;
+  padding: 0 10px;
+  color: #fff;
+  /* font-weight: 600; */
+  display: block;
+  font-size: 16px;
+}
+
+.header-nav > .menu-item > a:hover {
+  color: #50bd4d;
+}
+.header-nav > .menu-item > a:hover > .icon {
+  color: #fff;
+}
+.header-nav > .menu-item > a:hover > .icon:hover {
+  color: #50bd4d;
+}
+.header-nav > .menu-item:first-child > a {
+  padding-left: 10px;
+}
+
+.header-nav .menu-item-has-children {
+  position: relative;
+}
+
+.andro_header-bottom .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  transition: 0.3s;
+  /* opacity: 0; */
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  /* -webkit-transform: rotateX(-75deg); */
+  /* transform: rotateX(-75deg); */
+  transform-origin: 0% 0%;
+  /* visibility: hidden; */
+  z-index: 998;
+  min-width: 230px;
+  border: 1px solid #f0f2f3;
+  box-shadow: 0 3px 24px rgba(0, 0, 0, 0.04);
+
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  opacity: 1;
+  visibility: visible;
+}
+.andro_header .sub-menu.sub-menu-left,
+.andro_flex-menu .sub-menu.sub-menu-left {
+  left: auto;
+  right: 0;
+}
+
+/* .header-nav .menu-item-has-children:hover > .sub-menu,
+.andro_flex-menu .menu-item-has-children:hover .sub-menu,
+.andro_header .menu-item-has-children:hover .sub-menu {
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  opacity: 1;
+  visibility: visible;
+} */
+.andro_header .sub-menu li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  color: #838383;
+  font-weight: 400;
+  border-bottom: 1px solid #f0f2f3;
+  cursor: pointer;
+}
+.andro_header .sub-menu li:hover {
+  background-color: #f0f2f3;
+}
+.andro_header .sub-menu .sub-menu {
+  top: 0;
+  left: 100%;
+}
+.andro_header .sub-menu .menu-item-has-children > a::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f054";
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 900;
+  text-rendering: auto;
+  line-height: 1.7;
+  margin-left: auto;
+  font-size: 10px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  color: #838383;
+}
+
+.andro_header .sub-menu label:hover {
+  background-color: #f0f2f3;
+}

@@ -1313,17 +1313,17 @@ table img {
   align-items: center;
   justify-content: space-between;
 }
-.andro_header-bottom-inner .navbar-nav,
+.navbar-nav,
 .andro_header-middle .navbar-nav {
   display: flex;
   align-items: center;
   flex-direction: row;
 }
-.andro_header-bottom-inner .navbar-nav .menu-item,
+.navbar-nav .menu-item,
 .andro_header-middle .navbar-nav .menu-item {
   margin: 0;
 }
-.andro_header-bottom-inner > .navbar-nav > .menu-item > a,
+.navbar-nav > .menu-item > a,
 .andro_header-middle .navbar > .navbar-nav > .menu-item > a {
   position: relative;
   padding: 0 10px;
@@ -1336,16 +1336,16 @@ table img {
   color: #18181d;
   padding: 30px 20px;
 }
-.andro_header-bottom-inner > .navbar-nav > .menu-item > a:hover,
+.navbar-nav > .menu-item > a:hover,
 .andro_header-middle .navbar > .navbar-nav > .menu-item > a:hover {
   color: #50bd4d;
 }
-.andro_header-bottom-inner > .navbar-nav > .menu-item:first-child > a,
+.navbar-nav > .menu-item:first-child > a,
 .andro_header-middle .navbar > .navbar-nav > .menu-item:first-child > a {
   padding-left: 0;
 }
 
-.andro_header-bottom-inner .navbar-nav .menu-item-has-children,
+.navbar-nav .menu-item-has-children,
 .andro_header-middle .navbar-nav .menu-item-has-children {
   position: relative;
 }
@@ -1376,7 +1376,7 @@ table img {
   right: 0;
 }
 .andro_header-middle .navbar-nav .menu-item-has-children:hover > .sub-menu,
-.andro_header-bottom-inner .navbar-nav .menu-item-has-children:hover > .sub-menu,
+.navbar-nav .menu-item-has-children:hover > .sub-menu,
 .andro_search-adv-cats:hover .sub-menu,
 .andro_header-top-links .menu-item-has-children:hover .sub-menu,
 .andro_flex-menu .menu-item-has-children:hover .sub-menu,

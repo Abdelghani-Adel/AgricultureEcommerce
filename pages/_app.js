@@ -7,6 +7,7 @@ import MainLayout from "../components/layout/MainLayout";
 import "../styles/globals.css";
 import "../styles/style.css";
 import "../styles/registration.css";
+import "../styles/headerNav.css";
 import ar from "../translations/ar.json";
 import en from "../translations/en.json";
 

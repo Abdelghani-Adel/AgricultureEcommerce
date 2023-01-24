@@ -1,45 +1,158 @@
-import { withTranslation } from "react-multi-lang";
-import { Component } from "react";
 import Link from "next/Link";
-import navLinks from "../../../../data/category.json";
+import { useEffect } from "react";
+import { useState } from "react";
+import { withTranslation } from "react-multi-lang";
+import links from "../../../../data/category.json";
+import HeaderNavItem from "./HeaderNavItem";
 
-const navigationmenus = [
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
+
+const navigationmenu = [
   {
     id: 1,
-    linkText: "Home",
-    child: false,
-    link: "/",
+    FAClassificationName: "Home Pages",
+    child: true,
+    submenu: [
+      {
+        id: 11,
+        FAClassificationPath: "/",
+        FAClassificationName: "Home v1",
+      },
+      {
+        id: 12,
+        FAClassificationPath: "/home-v2",
+        FAClassificationName: "Home v2",
+      },
+      {
+        id: 13,
+        FAClassificationPath: "/home-v3",
+        FAClassificationName: "Home v3",
+      },
+    ],
   },
   {
     id: 2,
-    linkText: "About",
-    link: "/about",
+    FAClassificationName: "Blog",
+    child: true,
+    submenu: [
+      {
+        id: 21,
+        FAClassificationName: "Blog Archive",
+        child: true,
+        submenu: [
+          {
+            id: 211,
+            FAClassificationPath: "/blog-grid",
+            FAClassificationName: "Grid View",
+          },
+          {
+            id: 212,
+            FAClassificationPath: "/blog-list",
+            FAClassificationName: "List View",
+          },
+          {
+            id: 213,
+            FAClassificationPath: "/blog-masonry",
+            FAClassificationName: "Masonary View",
+          },
+        ],
+      },
+      {
+        id: 22,
+        FAClassificationPath: "/post-single/1",
+        FAClassificationName: "Blog Single",
+      },
+    ],
   },
   {
     id: 3,
-    linkText: "Shop",
-    link: "/categories",
-  },
-  {
-    id: 4,
-    linkText: "ContactUs",
-    link: "/contact",
-  },
-  {
-    id: 5,
-    linkText: "Chat",
-    link: "/chat",
+    FAClassificationName: "Pages",
+    child: true,
+    submenu: [
+      {
+        id: 31,
+        FAClassificationPath: "/about",
+        FAClassificationName: "About Us",
+      },
+      {
+        id: 32,
+        FAClassificationPath: "/login",
+        FAClassificationName: "Login",
+      },
+      {
+        id: 33,
+        FAClassificationPath: "/register",
+        FAClassificationName: "Sign Up",
+      },
+      {
+        id: 34,
+        FAClassificationPath: "/checkout",
+        FAClassificationName: "Checkout",
+      },
+      {
+        id: 35,
+        FAClassificationPath: "/cart",
+        FAClassificationName: "Cart",
+      },
+      {
+        id: 36,
+        FAClassificationPath: "/wishlist",
+        FAClassificationName: "Wishlist",
+      },
+      {
+        id: 37,
+        FAClassificationPath: "/legal",
+        FAClassificationName: "Legal",
+      },
+      {
+        id: 38,
+        FAClassificationPath: "/error",
+        FAClassificationName: "Error 404",
+      },
+    ],
   },
 ];
 
-const HeaderNav = () => {
+const HeaderNav = (props) => {
+  const { lang } = props;
+  const [navLinks, setNavLinks] = useState([]);
+
+  useEffect(() => {
+    const getNavLinks = async () => {
+      const response = await fetch(
+        "http://192.168.10.251:800/api/ECommerceSetting/GetCategoriesMenu",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            lang: lang,
+            FAClassification_ParentId: 81,
+          }),
+        }
+      );
+
+      const data = await response.json();
+      console.log(data);
+      setNavLinks(data);
+    };
+
+    getNavLinks();
+  }, [lang]);
+
   return (
-    <ul className="navbar-nav">
-      {navLinks.map((link, index) => (
+    <ul className="header-nav">
+      {navLinks.map((link) => (
+        <HeaderNavItem link={link} key={link.FAClassificationId} />
+      ))}
+
+      {/* {links.map((link, index) => (
         <li key={index} className={`menu-item ${link.child && "menu-item-has-children"}`}>
           <Link href={"categories/" + link.slug}>{link.title}</Link>
         </li>
-      ))}
+      ))} */}
     </ul>
   );
 };
