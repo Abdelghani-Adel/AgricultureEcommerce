@@ -1,5 +1,4 @@
-import { useCallback } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useCallback, useState } from "react";
 import VendorRegisterAPI from "../../../../../services/VendorRegisterAPI";
 import BillingAddressForm from "../../Reusable/BillingAddressForm/BillingAddressForm";
 import InputField from "../../Reusable/InputField";
@@ -23,19 +22,21 @@ const initialRequestBody = {
   verifyCode: null,
   Step_Id: 1,
 };
+
 const vendorRegApi = new VendorRegisterAPI();
 
 const BusinessInformation = (props) => {
-  const [businessTypes, setBusinessTypes] = useState(null);
   const [requestBody, setRequestBody] = useState(initialRequestBody);
+  const [businessTypes, setBusinessTypes] = useState();
 
+  // Hydrate businessTypes state from the database
   useEffect(() => {
     const getBusinessTypes = async () => {
       const data = await vendorRegApi.fetchBusinessTypes();
       setBusinessTypes(data);
     };
     getBusinessTypes();
-  });
+  }, []);
 
   const checkboxHandler = (e) => {
     const selectedChoice = e.target.value;
@@ -46,7 +47,7 @@ const BusinessInformation = (props) => {
     }
   };
 
-  const fieldChangeHandler = useCallback((e) => {
+  const inputChangeHandler = useCallback((e) => {
     setRequestBody({ ...requestBody, [e.target.name]: e.target.value });
   });
 
@@ -65,7 +66,7 @@ const BusinessInformation = (props) => {
           <InputField
             title="Business Type"
             fieldName="FAPartner_Type_Id"
-            changeHandler={fieldChangeHandler}
+            changeHandler={inputChangeHandler}
             options={businessTypes}
             optionID="FAPartner_Type_Id"
             optionTitle="FAPartner_Type_Name"
@@ -73,20 +74,20 @@ const BusinessInformation = (props) => {
           <InputField
             title="Business Name"
             fieldName="BusinessName"
-            changeHandler={fieldChangeHandler}
+            changeHandler={inputChangeHandler}
           />
         </div>
 
-        <BillingAddressForm fieldChangeHandler={fieldChangeHandler} />
+        <BillingAddressForm fieldChangeHandler={inputChangeHandler} />
 
         {/* /////////////     COMMERCIAL   |   TAX     ///////////// */}
         <div className="row justify-content-between">
           <InputField
             title="Commercial Register No."
             fieldName="commercialReg"
-            changeHandler={fieldChangeHandler}
+            changeHandler={inputChangeHandler}
           />
-          <InputField title="Tax No." fieldName="taxNo" changeHandler={fieldChangeHandler} />
+          <InputField title="Tax No." fieldName="taxNo" changeHandler={inputChangeHandler} />
         </div>
 
         {/* /////////////     PHONE   |   VERIFY_CODE     ///////////// */}
@@ -94,12 +95,12 @@ const BusinessInformation = (props) => {
           <InputField
             title="Phone Number"
             fieldName="phoneNum"
-            changeHandler={fieldChangeHandler}
+            changeHandler={inputChangeHandler}
           />
           <InputField
             title="Verify Code"
             fieldName="verifyCode"
-            changeHandler={fieldChangeHandler}
+            changeHandler={inputChangeHandler}
           />
         </div>
 

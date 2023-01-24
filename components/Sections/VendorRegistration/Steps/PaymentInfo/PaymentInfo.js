@@ -7,26 +7,17 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const PaymentInfo = (props) => {
   const { vendorID } = props;
-  const [requestBody, setRequestBody] = useState();
-  const [expirationDate, setExpirationDate] = useState(null);
-
-  useEffect(() => {
-    setRequestBody({
-      FAPartnerId: vendorID,
-      Credit_CardNo: null,
-      Card_Hold_Name: null,
-      Credit_CardExp_str: null,
-    });
-  }, []);
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    props.saveFunction(
-      requestBody,
-      "http://192.168.10.251:800/api/ECommerceSetting/addPartnerPayment"
-    );
+  const initialReqBody = {
+    FAPartnerId: vendorID,
+    Step_Id: 3,
+    Credit_CardNo: null,
+    Card_Hold_Name: null,
+    Credit_CardExp_str: null,
   };
-  const fieldChangeHandler = useCallback((e) => {
+  const [requestBody, setRequestBody] = useState(initialReqBody);
+  const [expirationDate, setExpirationDate] = useState();
+
+  const inputChangeHandler = useCallback((e) => {
     setRequestBody({ ...requestBody, [e.target.name]: e.target.value });
   });
   const dateChangeHandler = useCallback((date) => {
@@ -38,6 +29,14 @@ const PaymentInfo = (props) => {
     setRequestBody({ ...requestBody, ...data });
   });
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    props.saveFunction(
+      requestBody,
+      "http://192.168.10.251:800/api/ECommerceSetting/addPartnerPayment"
+    );
+  };
+
   return (
     <div className="container mt-5">
       <form action="" method="POST" onSubmit={submitHandler}>
@@ -45,7 +44,7 @@ const PaymentInfo = (props) => {
           <InputField
             title="Card No."
             fieldName="Credit_CardNo"
-            changeHandler={fieldChangeHandler}
+            changeHandler={inputChangeHandler}
           />
 
           <div className="col">
@@ -60,27 +59,22 @@ const PaymentInfo = (props) => {
               />
             </div>
           </div>
-          {/* <InputField
-            title="Expiration Date"
-            fieldName="Credit_CardExp_str"
-            changeHandler={fieldChangeHandler}
-          /> */}
         </div>
         <div className="row justify-content-center">
           <InputField
             title="Card Holder's Name"
             fieldName="Card_Hold_Name"
-            changeHandler={fieldChangeHandler}
+            changeHandler={inputChangeHandler}
           />
         </div>
 
         <BillingAddressForm
-          fieldChangeHandler={fieldChangeHandler}
+          fieldChangeHandler={inputChangeHandler}
           hydrateReqBody={hydrateReqBody}
-          vendorID={15}
+          vendorID={vendorID}
           showPreviousAddress={true}
         />
-        <SubmitStepButton fieldChangeHandler={fieldChangeHandler} countryID={1} />
+        <SubmitStepButton fieldChangeHandler={inputChangeHandler} countryID={1} />
       </form>
     </div>
   );

@@ -13,7 +13,7 @@ import VendorRegisterAPI from "../../services/VendorRegisterAPI";
 const vendorRegApi = new VendorRegisterAPI();
 
 const VendorRegistration = () => {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(6);
   const [registrationVendorID, setRegistrationVendorID] = useState();
   const router = useRouter();
 
@@ -58,9 +58,6 @@ const VendorRegistration = () => {
           <CurrentStepTitle currentStep={currentStep} />
           {renderTheStep()}
         </div>
-        {/* <RegistrationProgressBar currentStep={currentStep} />
-        <CurrentStepTitle currentStep={currentStep} />
-        {renderTheStep()} */}
       </div>
     </div>
   );

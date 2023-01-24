@@ -6,26 +6,32 @@ const vendorRegApi = new VendorRegisterAPI();
 
 const BillingAddressForm = (props) => {
   const { fieldChangeHandler, hydrateReqBody, vendorID, showPreviousAddress } = props;
+  const [showAddingForm, setShowAddingForm] = useState(!showPreviousAddress);
+
   const [addresses, setAddresses] = useState();
-  const [countries, setCountries] = useState(null);
+  const [countries, setCountries] = useState();
   const [governments, setGovernments] = useState();
   const [cities, setCities] = useState();
   const [districts, setDistricts] = useState();
-  const [showAddingForm, setShowAddingForm] = useState(!showPreviousAddress);
 
   useEffect(() => {
     const fetchCountries = async () => {
       const data = await vendorRegApi.fetchCountries();
       setCountries(data);
     };
-    const fetchAddress = async () => {
+    const fetchAddresses = async () => {
       const data = await vendorRegApi.fetchAddresses(vendorID);
       setAddresses(data);
     };
 
-    showPreviousAddress && vendorID > 0 ? fetchAddress() : fetchCountries();
+    showPreviousAddress && vendorID > 0 ? fetchAddresses() : fetchCountries();
+    // If showPreviousAddress is true, that means this component is being used to show
+    // the previous address to user and give him an option to add more addresses
+    // and if not showPreviousAddress that means it's being used for the first time which the user
+    // will enter his full address starting from the country, so I fetch the countries to hydrate the dropdown
   }, []);
 
+  // Once the address is fetched, I hydrate the parent's requestBody state with the incoming address to be sent again
   useEffect(() => {
     if (addresses && addresses.length > 0) {
       const address = {
@@ -40,12 +46,13 @@ const BillingAddressForm = (props) => {
     }
   }, [addresses]);
 
-  // When click on "add new address", show the form and fetch the governments based on countryID
+  // If the user wants to add new address ?
+  // show the form, starting from adding the government, so go and fetch the governments
   const showAddingNewAddressForm = () => {
     const fetchGovernments = async () => {
       const data = await vendorRegApi.fetchGovernments(1); // need dynamic countryID
-      setGovernments(data);
       setShowAddingForm(true);
+      setGovernments(data);
     };
     fetchGovernments();
   };
@@ -56,7 +63,6 @@ const BillingAddressForm = (props) => {
       const data = await vendorRegApi.fetchGovernments(countryID);
       setGovernments(data);
     };
-
     fieldChangeHandler(e);
     fetchGovernments();
   });
@@ -67,7 +73,6 @@ const BillingAddressForm = (props) => {
       const data = await vendorRegApi.fetchCities(govID);
       setCities(data);
     };
-
     fieldChangeHandler(e);
     fetchCities();
   });
@@ -78,7 +83,6 @@ const BillingAddressForm = (props) => {
       const data = await vendorRegApi.fetchDestricts(cityID);
       setDistricts(data);
     };
-
     fieldChangeHandler(e);
     fetchDestricts();
   });

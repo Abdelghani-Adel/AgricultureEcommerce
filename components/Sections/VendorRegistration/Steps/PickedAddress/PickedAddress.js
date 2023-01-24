@@ -7,17 +7,19 @@ const API = new VendorRegisterAPI();
 
 const PickedAddress = (props) => {
   const { vendorID } = props;
-  const [requestBody, setRequestBody] = useState();
+  const initialReqBody = {
+    FAPartnerId: vendorID,
+    Step_Id: 2,
+  };
+  const [requestBody, setRequestBody] = useState(initialReqBody);
 
-  useEffect(() => {
-    const getVendorAddress = async () => {
-      setRequestBody({
-        FAPartnerId: vendorID,
-        Step_Id: 2,
-      });
-    };
-    getVendorAddress();
-  }, []);
+  const inputChangeHandler = useCallback((e) => {
+    setRequestBody({ ...requestBody, [e.target.name]: e.target.value });
+  });
+
+  const hydrateReqBody = useCallback((data) => {
+    setRequestBody({ ...requestBody, ...data });
+  });
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -27,19 +29,11 @@ const PickedAddress = (props) => {
     );
   };
 
-  const fieldChangeHandler = useCallback((e) => {
-    setRequestBody({ ...requestBody, [e.target.name]: e.target.value });
-  });
-
-  const hydrateReqBody = useCallback((data) => {
-    setRequestBody({ ...requestBody, ...data });
-  });
-
   return (
     <div className="container mt-5">
       <form action="" method="POST" onSubmit={submitHandler}>
         <BillingAddressForm
-          fieldChangeHandler={fieldChangeHandler}
+          fieldChangeHandler={inputChangeHandler}
           hydrateReqBody={hydrateReqBody}
           vendorID={vendorID}
           showPreviousAddress={true}

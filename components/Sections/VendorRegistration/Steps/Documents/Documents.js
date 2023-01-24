@@ -1,5 +1,4 @@
-import { useCallback } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import InputField from "../../Reusable/InputField";
 import SubmitStepButton from "../../Reusable/SubmitStepButton";
 
@@ -9,12 +8,13 @@ const Documents = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    // the first parameter of append should be similar to your api endpoint field name
-    files.forEach((file) => formData.append("files", file));
-    formData.append("FAPartnerId", 15);
 
     const sendFile = async () => {
+      const formData = new FormData();
+      // the first parameter of append should be similar to your api endpoint field name
+      files.forEach((file) => formData.append("files", file));
+      formData.append("FAPartnerId", vendorID);
+
       const response = await fetch(
         "http://192.168.10.251:800/api/ECommerceSetting/savePartnerDocuments",
         {
@@ -23,15 +23,12 @@ const Documents = (props) => {
         }
       );
 
-      const data = await response.json();
-      console.log(data);
-
       finishRegistration();
     };
     sendFile();
   };
 
-  const fieldChangeHandler = useCallback((e) => {
+  const inputChangeHandler = useCallback((e) => {
     setFiles((prev) => [...prev, e.target.files[0]]);
   });
 
@@ -43,21 +40,21 @@ const Documents = (props) => {
             inputType="file"
             title="Commercial Register"
             fieldName=""
-            changeHandler={fieldChangeHandler}
+            changeHandler={inputChangeHandler}
             style="col-6"
           />
           <InputField
             inputType="file"
             title="License NO."
             fieldName=""
-            changeHandler={fieldChangeHandler}
+            changeHandler={inputChangeHandler}
             style="col-6"
           />
           <InputField
             inputType="file"
             title="Logo"
             fieldName=""
-            changeHandler={fieldChangeHandler}
+            changeHandler={inputChangeHandler}
             style="col-6"
           />
         </div>

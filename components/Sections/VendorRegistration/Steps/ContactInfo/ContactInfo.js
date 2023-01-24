@@ -1,47 +1,37 @@
-import { useCallback } from "react";
-import { useEffect, useState } from "react";
-import ReactDatePicker from "react-datepicker";
+import { useCallback, useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import BillingAddressForm from "../../Reusable/BillingAddressForm/BillingAddressForm";
 import InputField from "../../Reusable/InputField";
 import SubmitStepButton from "../../Reusable/SubmitStepButton";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-
-const initReqBody = {
-  // FAContactId: 0,
-  // FACompany_Id: 0,
-  // FAEntityID: 0,
-  // FASubCompany_Id: 0,
-  // FAEntityItemId: 0,
-  // PTitle_Id: 0,
-  // ContactName: null,
-  // ContactEmail: "string",
-  // ContactMobile: "string",
-  // DefaultContact: true,
-  // EntryDate: "2023-01-22T15:45:07.158Z",
-  // ComputerNameOrIP: "string",
-  // User_Id: 0,
-  // Active: true,
-  // LastModified: "2023-01-22T15:45:07.158Z",
-  First_Name: null,
-  Last_Name: null,
-  DOB: null,
-  IdentityNo: null,
-  // IdentityNo_Exp: null,
-  IdentityNo_IssuedCountry: null,
-  IdentityNo_Exp_str: new Date(),
-  // Country_Id: 0,
-  // City_Id: 0,
-  // Gover_Id: 0,
-  // District_Id: 0,
-  // streetAdd: "string",
-  // buildingNo: "string",
-};
 
 const ContactInfo = (props) => {
   const { vendorID } = props;
+  const initReqBody = {
+    // FAPartnerId: vendorID,
+    // Step_Id: 5,
+    First_Name: null,
+    Last_Name: null,
+    DOB: null,
+    IdentityNo: null,
+    IdentityNo_IssuedCountry: null,
+    IdentityNo_Exp_str: null,
+  };
   const [requestBody, setRequestBody] = useState(initReqBody);
   const [expirationDate, setExpirationDate] = useState(new Date());
+
+  const inputChangeHandler = useCallback((e) => {
+    console.log("render");
+    setRequestBody({ ...requestBody, [e.target.name]: e.target.value });
+  });
+  const dateChangeHandler = useCallback((date) => {
+    setExpirationDate(date);
+    setRequestBody({ ...requestBody, IdentityNo_Exp_str: date.toString() });
+  });
+
+  const hydrateReqBodyWithAddress = useCallback((address) => {
+    setRequestBody({ ...requestBody, ...address });
+  });
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -51,29 +41,16 @@ const ContactInfo = (props) => {
     );
   };
 
-  const fieldChangeHandler = useCallback((e) => {
-    console.log("render");
-    setRequestBody({ ...requestBody, [e.target.name]: e.target.value });
-  });
-  const dateChangeHandler = useCallback((date) => {
-    setExpirationDate(date);
-    setRequestBody({ ...requestBody, IdentityNo_Exp_str: date.toString() });
-  });
-
-  const hydrateReqBody = useCallback((data) => {
-    setRequestBody({ ...requestBody, ...data });
-  });
-
   return (
     <div className="container mt-5">
       <form action="" method="POST" onSubmit={submitHandler}>
         <div className="row justify-content-between row-cols-2">
-          <InputField title="Title" fieldName="ContactName" changeHandler={fieldChangeHandler} />
+          <InputField title="Title" fieldName="ContactName" changeHandler={inputChangeHandler} />
 
           <InputField
             title="Identity No."
             fieldName="IdentityNo"
-            changeHandler={fieldChangeHandler}
+            changeHandler={inputChangeHandler}
           />
 
           <div className="col">
@@ -92,7 +69,7 @@ const ContactInfo = (props) => {
           <InputField
             title="Identity Issue Country"
             fieldName="IdentityNo_IssuedCountry"
-            changeHandler={fieldChangeHandler}
+            changeHandler={inputChangeHandler}
             options={["Egypt", "USA"]}
             optionID="aa"
             optionTitle="aa"
@@ -101,16 +78,16 @@ const ContactInfo = (props) => {
           <InputField
             title="First Name"
             fieldName="First_Name"
-            changeHandler={fieldChangeHandler}
+            changeHandler={inputChangeHandler}
           />
 
-          <InputField title="Last Name" fieldName="Last_Name" changeHandler={fieldChangeHandler} />
+          <InputField title="Last Name" fieldName="Last_Name" changeHandler={inputChangeHandler} />
 
-          <InputField title="DOB" fieldName="DOB" changeHandler={fieldChangeHandler} />
+          <InputField title="DOB" fieldName="DOB" changeHandler={inputChangeHandler} />
         </div>
         <BillingAddressForm
-          fieldChangeHandler={fieldChangeHandler}
-          hydrateReqBody={hydrateReqBody}
+          fieldChangeHandler={inputChangeHandler}
+          hydrateReqBody={hydrateReqBodyWithAddress}
           vendorID={vendorID}
           showPreviousAddress={true}
         />

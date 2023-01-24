@@ -18,6 +18,7 @@ const ProductInfo = (props) => {
   const [requestBody, setRequestBody] = useState(initReqBody);
   const [classifications, setClassifications] = useState([]);
 
+  // Hydrate classifications and categories state from the database
   useEffect(() => {
     const fetchClassification = async () => {
       const data = await vendorRegApi.fetchClassificationTree();
@@ -34,7 +35,7 @@ const ProductInfo = (props) => {
     );
   };
 
-  const fieldChangeHandler = useCallback((e) => {
+  const inputChangeHandler = useCallback((e) => {
     const category_id = e.target.value;
     const categories = requestBody.categories;
 
@@ -53,7 +54,7 @@ const ProductInfo = (props) => {
             <Classification
               key={classification.FAClassificationId}
               classification={classification}
-              changeHandler={fieldChangeHandler}
+              changeHandler={inputChangeHandler}
             />
           ))}
         </div>
