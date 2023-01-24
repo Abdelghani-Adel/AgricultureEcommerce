@@ -104,7 +104,7 @@ const BusinessInformation = (props) => {
         </div>
 
         {/* /////////////     CHECKBOXES     ///////////// */}
-        <div className="row mt-3">
+        <div className="mt-3">
           <div className="form-check">
             <input
               className="form-check-input"
@@ -117,7 +117,7 @@ const BusinessInformation = (props) => {
             <label className="form-check-label">Do you have your own barcode ?</label>
           </div>
         </div>
-        <div className="row mt-3">
+        <div className="mt-3">
           <div className="form-check">
             <input
               className="form-check-input"

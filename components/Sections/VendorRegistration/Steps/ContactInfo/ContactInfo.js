@@ -90,12 +90,6 @@ const ContactInfo = (props) => {
           </div>
 
           <InputField
-            title="Identity Expiration Date"
-            fieldName="IdentityNo_Exp_str"
-            changeHandler={fieldChangeHandler}
-          />
-
-          <InputField
             title="Identity Issue Country"
             fieldName="IdentityNo_IssuedCountry"
             changeHandler={fieldChangeHandler}

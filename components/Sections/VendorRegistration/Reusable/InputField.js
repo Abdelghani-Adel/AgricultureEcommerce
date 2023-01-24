@@ -24,6 +24,7 @@ const InputField = (props) => {
             className={inputStyle}
             name={fieldName}
             onChange={changeHandler}
+            placeholder={`Choose ${title}`}
             required
           />
         )}

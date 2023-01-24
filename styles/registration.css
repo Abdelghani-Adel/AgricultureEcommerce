@@ -2,11 +2,15 @@
   background-color: #f0f2f3;
   padding: 5px;
 }
+
+.registeration-progress li {
+  text-align: center;
+}
 .step-wrapper {
   position: relative;
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  width: 2rem;
+  height: 2rem;
   margin: 0;
   border-radius: 50%;
   background-color: #a8a8a8;
@@ -14,23 +18,23 @@
 .step-done-wrapper {
   background: green;
 }
-li:not(:last-of-type) .step-wrapper::after {
+/* li:not(:last-of-type) .step-wrapper::after {
   content: "";
   display: block;
   position: relative;
-  right: -110%;
+  right: -100%;
   top: 50%;
   transform: translateY(-50%);
   height: 2px;
-  width: 9vw;
+  width: 12vw;
   background-color: #a8a8a8;
 }
 li:not(:last-of-type) .step-wrapper.step-done-wrapper::after {
   background: green;
-}
+} */
 
 .step-number {
-  font-size: 2em;
+  font-size: 1rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -51,4 +55,29 @@ li:not(:last-of-type) .step-wrapper.step-done-wrapper::after {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+@media only screen and (min-width: 500px) {
+  li:not(:last-of-type) .step-wrapper::after {
+    content: "";
+    display: block;
+    position: relative;
+    right: -100%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2px;
+    width: 12vw;
+    background-color: #a8a8a8;
+  }
+  li:not(:last-of-type) .step-wrapper.step-done-wrapper::after {
+    background: green;
+  }
+
+  .step-wrapper {
+    height: 3rem;
+    width: 3rem;
+  }
+  .step-number {
+    font-size: 2rem;
+  }
 }
