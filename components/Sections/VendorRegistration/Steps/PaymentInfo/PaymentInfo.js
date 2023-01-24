@@ -1,12 +1,14 @@
 import SubmitStepButton from "../../Reusable/SubmitStepButton";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import InputField from "../../Reusable/InputField";
 import BillingAddressForm from "../../Reusable/BillingAddressForm/BillingAddressForm";
-import { useCallback } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const PaymentInfo = (props) => {
   const { vendorID } = props;
   const [requestBody, setRequestBody] = useState();
+  const [expirationDate, setExpirationDate] = useState(null);
 
   useEffect(() => {
     setRequestBody({
@@ -27,6 +29,10 @@ const PaymentInfo = (props) => {
   const fieldChangeHandler = useCallback((e) => {
     setRequestBody({ ...requestBody, [e.target.name]: e.target.value });
   });
+  const dateChangeHandler = useCallback((date) => {
+    setExpirationDate(date);
+    setRequestBody({ ...requestBody, Credit_CardExp_str: date.toString() });
+  });
 
   const hydrateReqBody = useCallback((data) => {
     setRequestBody({ ...requestBody, ...data });
@@ -41,11 +47,24 @@ const PaymentInfo = (props) => {
             fieldName="Credit_CardNo"
             changeHandler={fieldChangeHandler}
           />
-          <InputField
+
+          <div className="col">
+            <div className="form-group">
+              <label>Expiration Date</label>
+              <DatePicker
+                selected={expirationDate}
+                onChange={dateChangeHandler}
+                dateFormat="MM/yyyy"
+                showMonthYearPicker
+                className="form-control form-control-lg bg-light"
+              />
+            </div>
+          </div>
+          {/* <InputField
             title="Expiration Date"
             fieldName="Credit_CardExp_str"
             changeHandler={fieldChangeHandler}
-          />
+          /> */}
         </div>
         <div className="row justify-content-center">
           <InputField
