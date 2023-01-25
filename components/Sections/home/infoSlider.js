@@ -26,24 +26,29 @@ export default function InfoSlider() {
     return (
        
             <Slider className="andro_banner-slider" {...settings}>
-                <div>
+                <div style={{
+                    backgroundImage: `url(../public/img/slider_01.jpg)`,
+                    // backgroundImage: `url(${externalImage})`,
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    height: '500px',
+                }}>
                     <h3>1</h3>
+                   {/* <img src="../img/slider_01.jpg"/> */}
                 </div>
-                <div>
-                    <h3>2</h3>
+                <div style={{
+                    backgroundImage: `url(../public/img/slider_02.jpg)`,
+                    // backgroundImage: `url(${externalImage})`,
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    height: '500px',
+                }}>
+                <h3>2</h3>
+                {/* <img src="../img/slider_02.jpg"/> */}
                 </div>
-                <div>
-                    <h3>3</h3>
-                </div>
-                <div>
-                    <h3>4</h3>
-                </div>
-                <div>
-                    <h3>5</h3>
-                </div>
-                <div>
-                    <h3>6</h3>
-                </div>
+                
             </Slider>
        
 

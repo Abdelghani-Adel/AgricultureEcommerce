@@ -5,7 +5,7 @@ const CategoryItemThumb = (props) => {
   return (
     <div className="andro_product-thumb">
       <Link href={"/products/" + item.slug}>
-        <img src={"../" + item.img} alt={item.title} />
+        <img src={"../assets/img/products/7.png"} alt={item.title} />
       </Link>
     </div>
   );

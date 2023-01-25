@@ -1241,7 +1241,7 @@ table img {
   background-color: #fff;
 }
 .andro_header-middle .navbar {
-  padding: 15px 0;
+  padding: 5px 0;
 }
 .navbar-brand {
   padding: 10px 0;
@@ -1260,8 +1260,8 @@ table img {
   margin: 0;
 }
 .andro_header-controls-inner li a {
-  width: 58px;
-  height: 58px;
+  width: 40px;
+  height: 40px;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -1270,7 +1270,7 @@ table img {
   margin: 0 10px 0 0;
 }
 .andro_header-controls-inner li a svg {
-  font-size: 21px;
+  font-size: 16px;
   color: #838383;
 }
 .andro_header-controls-inner li a:hover {
@@ -1288,7 +1288,7 @@ table img {
   align-items: center;
 }
 .andro_header-controls-inner li.andro_header-cart a svg {
-  font-size: 26px;
+  font-size: 16px;
   color: #838383;
 }
 .andro_header-controls-inner li.andro_header-cart .andro_header-cart-content {
@@ -1478,6 +1478,7 @@ table img {
 }
 .andro_search-adv-input .form-control {
   border-radius: 0 25px 25px 0;
+  height: 50px;
 }
 .sidebar-widget .andro_search-adv-input {
   width: 100%;
@@ -1510,6 +1511,7 @@ table img {
   cursor: pointer;
   width: 50px;
   height: 50px;
+  /* background-color: #fada5e; */
   background-color: transparent;
   border-radius: 0 25px 25px 0;
   color: #838383;
@@ -2695,6 +2697,8 @@ table img {
 }
 .andro_product .andro_product-thumb img {
   transition: 0.3s;
+  max-height: 200px;
+  margin: auto;
 }
 .andro_product .andro_product-thumb:hover img {
   transform: scale(1.1) rotate(3deg);
@@ -2706,7 +2710,7 @@ table img {
 .andro_product .andro_product-body .category_badge {
   display: block;
   width: 100%;
-  height: 50px;
+  height: 30px;
 }
 .andro_product .andro_product-body .category_badge .badge {
   background-color: #454545;
@@ -2808,7 +2812,8 @@ table img {
 }
 .andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons {
   width: 100%;
-  display: flex;
+  /* display: flex; */
+  display: block;
   flex-wrap: wrap;
 }
 .andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a {
@@ -3401,8 +3406,9 @@ td.remove {
 }
 .andro_banner {
   padding: 18px 40px;
-  background-color: #f0f2f3;
+  background-color: #fff;
   border-radius: 8px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .andro_banner h1 {
   font-size: 28px;
@@ -4456,7 +4462,7 @@ td.remove {
     display: none;
   }
   .andro_header.header-2 .andro_header-middle .navbar {
-    padding: 15px 0;
+    padding: 5px 0;
   }
   .aside-toggler {
     display: block;
@@ -4801,6 +4807,10 @@ td.remove {
 .info_slider {
   margin-bottom: 20px;
   text-align: center;
+  background-color: #f1f1f1;
+  height: 500px;
+  box-shadow: none;
+  padding: 15px 0;
 }
 .info_slider .slick-prev,
 .info_slider .slick-next {
@@ -4822,21 +4832,21 @@ td.remove {
   box-shadow: none !important;
 }
 .info_slider:hover .slick-next {
-  right: -55px;
+  right: 25px;
   opacity: 1;
   visibility: visible;
 }
 .info_slider:hover .slick-prev {
-  left: -55px;
+  left: 25px;
   opacity: 1;
   visibility: visible;
 }
 .andro_fresh-arrivals-slider {
-  height: 800px;
+  height: 550px;
 }
 .agri-btn-rounded {
   width: 100%;
-  margin: 20px 0;
+  margin: 20px auto;
   height: 50px;
   background-color: #50bd49;
   border-radius: 50px !important;
@@ -4974,4 +4984,29 @@ td.remove {
   text-align: center;
   font-size: 18px;
   cursor: pointer;
+}
+
+
+/* home updates */
+.carousel_bg{
+  /* background-color: #f1f1f1; */
+  /* margin: 30px 0; */
+  margin-bottom: 50px;
+  padding: 0;
+}
+.dynamic_content{
+  margin-top: -25%;
+ 
+}
+.info_slider .slick-slider{
+  height: 500px;
+}
+.slick-prev, .slick-next{
+  top: 10% !important;
+}
+.slick-next{
+  right: 20px;
+}
+.slick-prev{
+  left: 20px;
 }

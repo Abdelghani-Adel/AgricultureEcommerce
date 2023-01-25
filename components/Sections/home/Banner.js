@@ -48,9 +48,14 @@ class Banner extends Component {
       ],
     };
     return (
-      <div className="section">
-        <div className="container">
-          <div className="row">
+      <div className="section carousel_bg">
+      
+        <div className="info_slider andro_banner banner-1">
+                <InfoSlider />
+              </div>
+              <div className="container-fluid">
+              <div className="dynamic_content">
+              <div className="row">
             {/* Menu Start */}
             <div className="col-lg-3">
               <Chat_banner />
@@ -58,9 +63,7 @@ class Banner extends Component {
             {/* Menu End */}
             {/* Banner Start */}
             <div className="col-lg-9">
-              <div className="info_slider andro_banner banner-1">
-                <InfoSlider />
-              </div>
+            
               {/* style={{height:"calc(100% - 50px)"}} */}
               <div className="row">
                 <div className="col-lg-8 col-xs-12">
@@ -94,25 +97,36 @@ class Banner extends Component {
                   </div>
                 </div>
                 <div className="col-lg-4 col-xs-12">
+                  <div className="andro_banner">
                   <img src="../img/advertise.png" alt="agriculture_advertise" />
 
-                  <img
-                    src="../img/video.png"
-                    alt="agriculture_advertise"
-                    style={{ marginTop: "10px" }}
-                  />
-                  <img
-                    src="../img/advertise.png"
-                    alt="agriculture_advertise"
-                    style={{ marginTop: "10px" }}
-                  />
+                      <img
+                        src="../img/video.png"
+                        alt="agriculture_advertise"
+                        style={{ marginTop: "10px" }}
+                      />
+                      <img
+                        src="../img/advertise.png"
+                        alt="agriculture_advertise"
+                        style={{ marginTop: "10px" }}
+                      />
+                      {/* <img
+                        src="../img/advertise.png"
+                        alt="agriculture_advertise"
+                        style={{ marginTop: "10px" }}
+                      /> */}
+                  </div>
+                  
                 </div>
               </div>
             </div>
             {/* Banner End */}
           </div>
+              </div>
+              </div>
+       
         </div>
-      </div>
+    
     );
   }
 }
