@@ -14,10 +14,6 @@ class Index extends Component {
     const { CategoryList } = this.props;
     return (
       <>
-        <Head>
-          <title></title>
-          <meta name="description" content="#" />
-        </Head>
         <Breadcrumbs breadcrumb={{ pagename: pagelocation }} />
         <div className="section">
           <div className="container">
