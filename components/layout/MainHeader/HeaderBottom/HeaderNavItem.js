@@ -7,9 +7,8 @@ const HeaderNavItem = (props) => {
   const [subMenuIsShown, setSubMenuIsShown] = useState(false);
 
   const itemStyle = link.ClassificationChildren.length > 0 ? "menu-item-has-children" : "";
-  const itemLink = link.IsItemOnly
-    ? `/categories/${link.FAClassificationSlug}`
-    : `/categories/${link.FAClassificationSlug}`;
+  const itemLink =
+    link.ClassificationChildren.length > 0 ? `/categories/mopidat` : `/categories/organic`;
 
   const clickHandler = (e) => {
     e.preventDefault();

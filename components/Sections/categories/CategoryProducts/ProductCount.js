@@ -2,7 +2,13 @@ import { useState } from "react";
 import { withTranslation } from "react-multi-lang";
 
 const ProductCount = (props) => {
-  const { Items, itemsPerPage } = props;
+  const { Items } = props;
+
+  let itemsPerPage = props.itemsPerPage;
+
+  if (Items.length < itemsPerPage) {
+    itemsPerPage = Items.length;
+  }
 
   return (
     <div className="andro_shop-global">
