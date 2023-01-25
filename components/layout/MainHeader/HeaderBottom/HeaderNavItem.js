@@ -1,9 +1,9 @@
 import Link from "next/Link";
 import { useState, Fragment } from "react";
-import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+import { FaAngleDown, FaAngleUp, FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
 const HeaderNavItem = (props) => {
-  const { link } = props;
+  const { link, isChild } = props;
   const [subMenuIsShown, setSubMenuIsShown] = useState(false);
 
   const itemStyle = link.ClassificationChildren.length > 0 ? "menu-item-has-children" : "";
@@ -11,7 +11,6 @@ const HeaderNavItem = (props) => {
   const clickHandler = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log(e.target);
     setSubMenuIsShown(!subMenuIsShown);
   };
 
@@ -25,7 +24,8 @@ const HeaderNavItem = (props) => {
         {link.FAClassificationName}
         {link.ClassificationChildren.length > 0 && (
           <span onClick={clickHandler} className="icon">
-            {!subMenuIsShown ? <FaAngleDown /> : <FaAngleUp />}
+            {!isChild && (!subMenuIsShown ? <FaAngleDown /> : <FaAngleUp />)}
+            {isChild && (!subMenuIsShown ? <FaAngleRight /> : <FaAngleLeft />)}
           </span>
         )}
       </Link>
@@ -33,7 +33,7 @@ const HeaderNavItem = (props) => {
       {subMenuIsShown && (
         <ul className="sub-menu" role="menu">
           {link.ClassificationChildren.map((subItem) => (
-            <HeaderNavItem link={subItem} key={subItem.FAClassificationId} />
+            <HeaderNavItem link={subItem} key={subItem.FAClassificationId} isChild={true} />
           ))}
         </ul>
       )}
