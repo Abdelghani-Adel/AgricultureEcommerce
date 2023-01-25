@@ -4986,27 +4986,30 @@ td.remove {
   cursor: pointer;
 }
 
-
 /* home updates */
-.carousel_bg{
+.carousel_bg {
   /* background-color: #f1f1f1; */
   /* margin: 30px 0; */
   margin-bottom: 50px;
   padding: 0;
 }
-.dynamic_content{
+.dynamic_content {
   margin-top: -25%;
- 
 }
-.info_slider .slick-slider{
+.info_slider .slick-slider {
   height: 500px;
+  /* background-image: url("https://plasticseurope.org/wp-content/uploads/2021/10/5.6._aaheader.png");
+  background-size: "cover";
+  background-repeat: "no-repeat";
+  background-position: "center"; */
 }
-.slick-prev, .slick-next{
+.slick-prev,
+.slick-next {
   top: 10% !important;
 }
-.slick-next{
+.slick-next {
   right: 20px;
 }
-.slick-prev{
+.slick-prev {
   left: 20px;
 }
