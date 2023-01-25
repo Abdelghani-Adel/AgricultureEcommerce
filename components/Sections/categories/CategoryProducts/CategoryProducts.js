@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
 import ReactPaginate from "react-paginate";
-import Loader from "../../layout/Reusable/Loader";
+import Loader from "../../../layout/Reusable/Loader";
 import CategoryItemList from "./CategoryItemList";
 import FilterPrice from "./FilterPrice";
 import FilterState from "./FilterState";
@@ -10,22 +10,22 @@ import ProductCount from "./ProductCount";
 import SearchCategory from "./SearchCategory";
 
 const CategoryContent = (props) => {
-  const items = props.Items;
+  const products = props.products;
   // const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(6);
   const [loading, setLoading] = useState(false);
   const [itemOffset, setItemOffset] = useState(0);
-  const [pageCount, setPageCount] = useState(Math.ceil(items.length / itemsPerPage));
+  const [pageCount, setPageCount] = useState(Math.ceil(products.length / itemsPerPage));
   const [endOffset, setEndOffset] = useState(itemOffset + itemsPerPage);
-  const [currentItems, setCurrentItems] = useState(items.slice(itemOffset, endOffset));
+  const [currentItems, setCurrentItems] = useState(products.slice(itemOffset, endOffset));
 
   const changePageHandler = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length;
+    const newOffset = (event.selected * itemsPerPage) % products.length;
     const newEndOffset = newOffset + itemsPerPage;
 
     setLoading(true);
-    setItemOffset((event.selected * itemsPerPage) % items.length);
-    setCurrentItems(items.slice(newOffset, newEndOffset));
+    setItemOffset((event.selected * itemsPerPage) % products.length);
+    setCurrentItems(products.slice(newOffset, newEndOffset));
     setLoading(false);
   };
 
@@ -34,7 +34,7 @@ const CategoryContent = (props) => {
       <div className="andro_section-fw">
         <div className="row">
           <div className="col-lg-9 col-xs-12">
-            <ProductCount Items={items} itemsPerPage={itemsPerPage} />
+            <ProductCount Items={products} itemsPerPage={itemsPerPage} />
 
             <div className="row">
               {loading === false ? <CategoryItemList currentItems={currentItems} /> : <Loader />}

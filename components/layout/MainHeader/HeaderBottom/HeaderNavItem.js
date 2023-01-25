@@ -7,6 +7,9 @@ const HeaderNavItem = (props) => {
   const [subMenuIsShown, setSubMenuIsShown] = useState(false);
 
   const itemStyle = link.ClassificationChildren.length > 0 ? "menu-item-has-children" : "";
+  const itemLink = link.IsItemOnly
+    ? `/categories/${link.FAClassificationSlug}`
+    : `/categories/${link.FAClassificationSlug}`;
 
   const clickHandler = (e) => {
     e.preventDefault();
@@ -20,7 +23,7 @@ const HeaderNavItem = (props) => {
 
   return (
     <li className={`menu-item ${itemStyle}`} onMouseLeave={blurHandler}>
-      <Link href={"/categories/" + link.FAClassificationSlug}>
+      <Link href={itemLink}>
         {link.FAClassificationName}
         {link.ClassificationChildren.length > 0 && (
           <span onClick={clickHandler} className="icon">
