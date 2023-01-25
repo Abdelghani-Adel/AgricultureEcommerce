@@ -6,7 +6,10 @@ import { withTranslation } from "react-multi-lang";
 import ReactPaginate from "react-paginate";
 import Loader from "../../layout/Reusable/Loader";
 import CategoryItemList from "./CategoryItemList";
+import FilterPrice from "./FilterPrice";
+import FilterState from "./FilterState";
 import ProductCount from "./ProductCount";
+import SearchCategory from "./SearchCategory";
 
 const CategoryContent = (props) => {
   const [items, setItems] = useState(props.Items);
@@ -18,7 +21,7 @@ const CategoryContent = (props) => {
   const [endOffset, setEndOffset] = useState(itemOffset + itemsPerPage);
   const [currentItems, setCurrentItems] = useState(items.slice(itemOffset, endOffset));
 
-  const handlePageClick = (event) => {
+  const changePageHandler = (event) => {
     const newOffset = (event.selected * itemsPerPage) % items.length;
     const newEndOffset = newOffset + itemsPerPage;
 
@@ -27,8 +30,6 @@ const CategoryContent = (props) => {
     setCurrentItems(items.slice(newOffset, newEndOffset));
     setLoading(false);
   };
-
-  const handlePriceChange = (e) => {};
 
   return (
     <div className="section pagination-content">
@@ -40,72 +41,27 @@ const CategoryContent = (props) => {
             <div className="row">
               {loading === false ? <CategoryItemList currentItems={currentItems} /> : <Loader />}
             </div>
+          </div>
 
-            {/* Pagination Start */}
+          <div className="col-lg-3 col-xs-12">
+            <div className="sidebar">
+              <SearchCategory />
+              <FilterState />
+              <FilterPrice />
+            </div>
+          </div>
+
+          <div className="col-lg-9 col-xs-12">
             <ReactPaginate
               breakLabel="..."
               nextLabel={<FaAngleRight />}
-              onPageChange={handlePageClick}
+              onPageChange={changePageHandler}
               pageRangeDisplayed={5}
               pageCount={pageCount}
               previousLabel={<FaAngleLeft />}
               renderOnZeroPageCount={null}
               className="pagination"
             />
-          </div>
-
-          <div className="col-lg-3 col-xs-12">
-            <div className="sidebar">
-              {/* Search Start */}
-              <div className="sidebar-widget widget-search">
-                <form method="post">
-                  <div className="andro_search-adv-input">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Look for Fruits, Vegetables"
-                      name="search"
-                    />
-                    <button type="submit" name="button">
-                      <i className="fa fa-search" />
-                    </button>
-                  </div>
-                </form>
-              </div>
-              {/* Search End */}
-
-              {/* Filter: State Start */}
-              <div className="sidebar-widget">
-                <h5 className="widget-title"> Brand </h5>
-                <ul className="sidebar-widget-list">
-                  {/* {brand.map((item, i) => (
-                                            <li key={i}>
-                                                <div className="custom-control custom-checkbox">
-                                                    <input type="checkbox" className="custom-control-input" id={"customCheck" + item.id} />
-                                                    <label className="custom-control-label" htmlFor={"customCheck" + item.id}>{item.title}</label>
-                                                </div>
-                                            </li>
-                                        ))} */}
-                </ul>
-              </div>
-              {/* Filter: State End */}
-
-              {/* Filter: Price Start */}
-              <div className="sidebar-widget">
-                <h5 className="widget-title"> Price </h5>
-                {/* <IonRangeSlider
-                    type="double"
-                    min={0}
-                    max={500}
-                    from={10}
-                    to={100}
-                    grid={true}
-                    postfix=" $"
-                    onChange={this.handlePriceChange}
-                  /> */}
-              </div>
-              {/* Filter: Price End */}
-            </div>
           </div>
         </div>
       </div>
