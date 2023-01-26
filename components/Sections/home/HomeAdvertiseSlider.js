@@ -16,25 +16,25 @@ export default function HomeAdvertiseSlider() {
     <Slider className="advertise-slider" {...settings}>
       <div>
         <div className="advertise">
-          <img src="https://www.egyptyello.com/img/cats/agriculture.jpg" alt="" />
+          <img src="../img/agri_banner.png" alt="" />
         </div>
       </div>
       <div>
         <div className="advertise">
           <img
-            src="http://nppindia.in/wp-content/uploads/2020/03/agriculture-banner-1a-min-1.jpg"
+            src="../img/slider.jpg"
             alt=""
           />
         </div>
       </div>
-      <div>
+      {/* <div>
         <div className="advertise">
           <img
             src="https://www.gisp-group.com/wp-content/uploads/2016/10/Agriculture-Banner.jpg"
             alt=""
           />
         </div>
-      </div>
+      </div> */}
     </Slider>
   );
 }

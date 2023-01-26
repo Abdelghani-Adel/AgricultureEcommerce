@@ -3,7 +3,7 @@ import { withTranslation } from "react-multi-lang";
 
 function chat_banner(props) {
   return (
-    <div className="col-lg-3">
+    <div className="col-lg-2">
       <div className="chat_banner">
         <div className="card  mb-3">
           <div className="card-header">Room Title</div>

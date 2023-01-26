@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Link from "next/Link";
 import Slider from "react-slick";
 import { withTranslation } from "react-multi-lang";
-import { FaArrowRight, FaArrowLeft, FaStar } from "react-icons/fa";
+import { FaArrowRight, FaArrowLeft, FaStar ,FaRegEye ,FaShoppingBasket } from "react-icons/fa";
 
 const settings = {
-  slidesToShow: 3,
+  slidesToShow: 6,
   slidesToScroll: 1,
   arrows: false,
   dots: false,
@@ -140,10 +140,12 @@ class BestProducts extends Component {
                           href={"/product-single/" + item.id}
                           className="andro_btn-custom primary"
                         >
-                          {this.props.t("Products.AddToCart")}
+                          <FaShoppingBasket/>
+                          {/* {this.props.t("Products.AddToCart")} */}
                         </Link>
                         <Link href={"/products/" + item.slug} className="andro_btn-custom light">
-                          {this.props.t("Products.ViewDetails")}
+                          {/* {this.props.t("Products.ViewDetails")} */}
+                          <FaRegEye />
                         </Link>
                       </div>
                     </div>

@@ -1,9 +1,9 @@
 import HeaderSearchFromLabel from "./HeaderSearchFormLabel";
-
+import {FaAngleDown} from "react-icons/fa";
 const HeaderSearchFormLabelList = (props) => {
   return (
     <div className="andro_search-adv-cats">
-      <span>All Categories</span>
+      <span>All <FaAngleDown/></span>
       {/* <div className="sub-menu">
         <div className="andro_dropdown-scroll">
           <HeaderSearchFromLabel

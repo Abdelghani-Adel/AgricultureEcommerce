@@ -1,0 +1,45 @@
+.home-banner {
+  height: 500px;
+  position: relative;
+}
+
+.home-banner > .slick-slider {
+  height: 500px;
+}
+
+.home-banner .slick-slider .advertise {
+  height: 500px;
+  width: 100vw;
+}
+
+.advertise-slider .slick-prev,
+.advertise-slider .slick-next {
+  opacity: 1;
+  visibility: visible;
+  background-color:transparent;
+  position: absolute;
+}
+
+.home-banner .slick-slider .advertise img {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.home-banner--content {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  bottom: -30%;
+}
+.offer_banner {
+  padding: 0;
+  height: 100%;
+}
+.other_banner{
+  height: 100%;
+  padding: 30px 10px;
+}
+.other_banner img{
+  min-height: 100px;
+}
