@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import MainLayout from "../components/layout/MainLayout";
 import "../styles/globals.css";
 import "../styles/style.css";
-import "../styles/registration.css";
+// import "../styles/registration.css";
 import "../styles/headerNav.css";
 // import "../styles/homeBanner.css";
 import "../styles/sass/main.css";
