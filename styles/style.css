@@ -4807,7 +4807,7 @@ td.remove {
 .info_slider {
   margin-bottom: 20px;
   text-align: center;
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
   height: 500px;
   box-shadow: none;
   padding: 15px 0;

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import Banner from "./Banner";
+import HomeBanner from "./HomeBanner";
 import BestProducts from "./BestProducts/BestProducts";
 import Cta from "./Cta";
 import AgricultureOthers from "./AgricultureOthers";
@@ -8,7 +8,7 @@ class HomeContent extends Component {
   render() {
     return (
       <Fragment>
-        <Banner />
+        <HomeBanner />
         <BestProducts ProductList={this.props.ProductList} />
 
         <div className="section pt-0">
