@@ -1,16 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
 
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "red" }}
-      onClick={onClick}
-    />
-  );
-}
 const settings = {
   slidesToShow: 1,
   slidesToScroll: 1,
@@ -18,12 +8,11 @@ const settings = {
   dots: false,
   dotsClass: "slick-dots d-flex",
   autoplay: true,
-  nextArrow: <SampleNextArrow />,
 };
 
 export default function HomeAdvertiseSlider() {
   return (
-    <Slider className="andro_banner-slider" {...settings}>
+    <Slider className="advertise-slider" {...settings}>
       <div>
         <div className="advertise">
           <img src="https://www.egyptyello.com/img/cats/agriculture.jpg" alt="" />
