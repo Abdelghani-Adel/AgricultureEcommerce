@@ -14,9 +14,7 @@ class HomeBanner extends Component {
     return (
       <div className="section carousel_bg">
         <div className="home-banner">
-          <div>
-            <HomeAdvertiseSlider />
-          </div>
+          <HomeAdvertiseSlider />
 
           <div className="home-banner--content">
             <div className="container">

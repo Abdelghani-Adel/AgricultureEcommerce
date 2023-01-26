@@ -1,0 +1,56 @@
+.home-banner {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  position: relative;
+}
+
+.advertise-slider {
+  position: initial;
+}
+
+.advertise-slider .advertise {
+  height: 200px;
+  width: 100vw;
+}
+
+.advertise-slider .slick-list {
+  max-height: 200px;
+  margin-bottom: 20px;
+}
+
+.advertise-slider .slick-prev,
+.advertise-slider .slick-next {
+  opacity: 1;
+  visibility: visible;
+  background-color: transparent;
+  position: absolute;
+}
+
+.advertise-slider .advertise img {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 700px) {
+  .home-banner {
+    height: 500px;
+    position: relative;
+  }
+  .advertise-slider {
+    height: 500px;
+  }
+  .advertise-slider .advertise {
+    height: 500px;
+    width: 100vw;
+  }
+  .advertise-slider .slick-list {
+    max-height: initial;
+  }
+  .home-banner--content {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    bottom: 10px;
+  }
+}/*# sourceMappingURL=main.css.map */

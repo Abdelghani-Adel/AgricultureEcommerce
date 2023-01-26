@@ -3,11 +3,11 @@
   position: relative;
 }
 
-.home-banner > .slick-slider {
+.advertise-slider > .slick-slider {
   height: 500px;
 }
 
-.home-banner .slick-slider .advertise {
+.advertise-slider .advertise {
   height: 500px;
   width: 100vw;
 }
@@ -16,11 +16,11 @@
 .advertise-slider .slick-next {
   opacity: 1;
   visibility: visible;
-  background-color: green;
+  background-color: transparent;
   position: absolute;
 }
 
-.home-banner .slick-slider .advertise img {
+.advertise-slider .advertise img {
   width: 100%;
   height: 100%;
   z-index: -1;
