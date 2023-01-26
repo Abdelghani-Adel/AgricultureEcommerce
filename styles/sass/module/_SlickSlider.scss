@@ -133,10 +133,16 @@
   height: 40px;
   color: #18181d;
   transition: 0.3s;
-  z-index: 9;
+  z-index: 3;
   opacity: 0;
   visibility: hidden;
   top: 10%;
+
+  &:hover {
+    color: #fff;
+    background-color: #5a635a;
+    box-shadow: 4px 3px 24px rgba(80, 189, 77, 0.5);
+  }
 }
 .slick-next {
   right: 20px;
@@ -145,14 +151,6 @@
   left: 20px;
 }
 
-.slick-prev:hover,
-.slick-prev:focus,
-.slick-next:hover,
-.slick-next:focus {
-  color: #fff;
-  background-color: #50bd4d;
-  box-shadow: 4px 3px 24px rgba(80, 189, 77, 0.5);
-}
 .slick-prev:hover::before,
 .slick-prev:focus::before,
 .slick-next:hover::before,
