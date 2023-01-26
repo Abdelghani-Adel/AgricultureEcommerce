@@ -1,0 +1,237 @@
+html {
+  overflow-x: hidden;
+}
+body {
+  /* font-family: 'Open Sans', sans-serif; */
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.8;
+  font-weight: 400;
+  color: #86858c;
+  overflow-x: hidden;
+}
+hr {
+  margin: 30px 0;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 20px;
+  font-family: "Montserrat", serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #18181d;
+}
+h1 {
+  font-size: 50px;
+}
+h2 {
+  font-size: 42px;
+}
+h3 {
+  font-size: 34px;
+  line-height: 1.4;
+}
+h4 {
+  font-size: 26px;
+  line-height: 1.4;
+}
+h5 {
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+h6 {
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 500;
+}
+p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #838383;
+}
+
+a {
+  color: #50bd4d;
+  text-decoration: none;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+a:hover,
+a:focus {
+  color: #40a13d;
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+b,
+strong {
+  font-weight: 700;
+}
+label {
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #18181d;
+}
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+  /* margin-bottom: 20px; */
+}
+ul li,
+ol li {
+  /* margin: 10px 0 0; */
+  margin: 0;
+  position: relative;
+}
+
+small {
+  line-height: 1.7;
+}
+blockquote {
+  background-color: #fff;
+  position: relative;
+  padding: 30px;
+  margin: 20px 0;
+  border-left: 3px solid #50bd49;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+}
+
+blockquote p {
+  margin-bottom: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+}
+
+textarea {
+  resize: none;
+}
+
+table th,
+table td {
+  padding: 15px;
+  vertical-align: middle;
+  background-color: #fff;
+}
+table th {
+  font-weight: 600;
+  color: #18181d;
+  font-family: "Montserrat", sans-serif;
+  border: 1px solid #f0f2f3;
+}
+table {
+  width: 100%;
+  margin-bottom: 30px;
+}
+table td {
+  border: 1px solid #f0f2f3;
+}
+table img {
+  width: 40px;
+  border-radius: 0;
+}
+
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+}
