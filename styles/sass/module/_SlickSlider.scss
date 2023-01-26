@@ -1,0 +1,209 @@
+.slick-list {
+  margin: 0 -15px;
+}
+.slick-slide {
+  outline: none;
+  margin: 0 15px;
+}
+
+.andro_banner .slick-track,
+.andro_banner .slick-slide {
+  margin: 0;
+}
+
+// //////////////////   START SLICK DOTS   ////////////////// //
+.slick-dots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 0;
+
+  li {
+    margin: 0 5px;
+    text-align: center;
+
+    button {
+      font-size: 0;
+      width: 12px !important;
+      height: 12px !important;
+      background-color: #f0f2f3;
+      border: 0;
+      border-radius: 50%;
+      -webkit-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s;
+      cursor: pointer;
+      outline: none;
+    }
+
+    &.slick-active button {
+      -webkit-transform: scale(1.3);
+      -ms-transform: scale(1.3);
+      transform: scale(1.3);
+      background-color: #5d5d5d;
+    }
+  }
+}
+.andro_banner .slick-dots {
+  padding: 0 0 10px;
+  display: block !important;
+
+  li {
+    button {
+      background-color: #fff;
+      &:before {
+        display: none !important;
+      }
+    }
+
+    &.slick-active button {
+      background-color: #50bd4d;
+    }
+  }
+}
+
+.andro_banner-slider .slick-track {
+  padding: 10px 0;
+}
+
+.deals-slider .slick-dots {
+  justify-content: center;
+  margin: 10px 0 0;
+}
+
+.andro_testimonials .slick-dots {
+  justify-content: center;
+  margin: 10px 0 0;
+}
+// //////////////////   END SLICK DOTS   ////////////////// //
+
+// //////////////////   STYLE 2   ////////////////// //
+.banner-2.andro_banner,
+.banner-2.andro_banner .slick-track {
+  padding: 0;
+}
+
+.banner-2.andro_banner .slick-track,
+.banner-3.andro_banner .slick-track {
+  display: flex;
+}
+.banner-2.andro_banner .slick-slide,
+.banner-3.andro_banner .slick-slide {
+  display: flex;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+// //////////////////   START ARROWS   ////////////////// //
+.slick-arrow {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f0f2f3;
+  transition: 0.3s;
+  cursor: pointer;
+  color: #18181d;
+
+  &:hover {
+    color: #fff;
+    background-color: #50bd4d;
+    box-shadow: 4px 3px 24px rgba(80, 189, 77, 0.5);
+  }
+
+  &.slider-prev {
+    margin-right: 10px;
+  }
+}
+
+.slick-prev,
+.slick-next {
+  background-color: #f0f2f3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #18181d;
+  transition: 0.3s;
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  top: 10%;
+}
+.slick-next {
+  right: 20px;
+}
+.slick-prev {
+  left: 20px;
+}
+
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+  color: #fff;
+  background-color: #50bd4d;
+  box-shadow: 4px 3px 24px rgba(80, 189, 77, 0.5);
+}
+.slick-prev:hover::before,
+.slick-prev:focus::before,
+.slick-next:hover::before,
+.slick-next:focus::before {
+  color: #fff;
+}
+
+// .info_slider .slick-prev,
+// .info_slider .slick-next {
+//   visibility: visible;
+//   opacity: 1;
+//   background-color: transparent;
+// }
+// .info_slider .slick-prev:before,
+// .info_slider .slick-next:before {
+//   color: #50bd4d;
+//   font-size: 30px;
+// }
+// .info_slider .slick-prev:hover,
+// .info_slider .slick-prev:focus,
+// .info_slider .slick-next:hover,
+// .info_slider .slick-next:focus {
+//   background-color: transparent;
+//   box-shadow: none;
+// }
+// .info_slider:hover .slick-next {
+//   right: 25px;
+//   opacity: 1;
+//   visibility: visible;
+// }
+// .info_slider:hover .slick-prev {
+//   left: 25px;
+//   opacity: 1;
+//   visibility: visible;
+// }
+
+// .info_slider .slick-slider {
+//   height: 500px;
+// }
+
+// //////////////////   END ARROWS   ////////////////// //
+
+@media (max-width: 991px) {
+  .andro_grid-slider .slick-prev,
+  .andro_grid-slider .slick-next {
+    display: none;
+  }
+  .banner-3 .slick-arrow {
+    background-color: #fff;
+  }
+  .banner-3 .slick-arrow:hover {
+    background-color: #50bd4d;
+  }
+}

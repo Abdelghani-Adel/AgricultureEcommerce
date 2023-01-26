@@ -2659,10 +2659,6 @@ table img {
   margin-bottom: 15px;
 }
 
-.deals-slider .slick-dots {
-  justify-content: center;
-  margin: 10px 0 0;
-}
 .deals-slider .andro_product:hover .andro_countdown-timer {
   background-color: #f0f2f3;
 }
@@ -3400,10 +3396,6 @@ td.remove {
 }
 
 /* 6.5. Banners */
-.andro_banner .slick-track,
-.andro_banner .slick-slide {
-  margin: 0;
-}
 .andro_banner {
   padding: 18px 40px;
   background-color: #fff;
@@ -3419,9 +3411,7 @@ td.remove {
 .andro_banner p {
   margin-bottom: 20px;
 }
-.andro_banner-slider .slick-track {
-  padding: 10px 0;
-}
+
 .andro_flex-menu > ul {
   display: flex;
   margin: 0;
@@ -3442,25 +3432,7 @@ td.remove {
 .andro_flex-menu > ul > li:first-child > a {
   padding-left: 0;
 }
-.andro_banner .slick-dots {
-  padding: 0 0 10px;
-  display: block !important;
-}
-.andro_banner .slick-dots li button {
-  background-color: #fff;
-}
-.andro_banner .slick-dots li button:before {
-  display: none !important;
-}
-.andro_banner .slick-dots li.slick-active button {
-  background-color: #50bd4d;
-}
 
-/* Style 2 */
-.banner-2.andro_banner,
-.banner-2.andro_banner .slick-track {
-  padding: 0;
-}
 .banner-2.andro_banner .andro_banner-slider-inner {
   padding: 120px 15px 150px;
   background-position: center;
@@ -3500,17 +3472,6 @@ td.remove {
   background-repeat: no-repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-.banner-2.andro_banner .slick-track,
-.banner-3.andro_banner .slick-track {
-  display: flex;
-}
-.banner-2.andro_banner .slick-slide,
-.banner-3.andro_banner .slick-slide {
-  display: flex;
-  height: auto;
-  align-items: center;
-  justify-content: center;
 }
 
 /* Style 3 */
@@ -3812,10 +3773,7 @@ td.remove {
 }
 
 /* 6.10. Testimonials */
-.andro_testimonials .slick-dots {
-  justify-content: center;
-  margin: 10px 0 0;
-}
+
 .andro_testimonials-inner {
   position: relative;
   padding: 20px;
@@ -4055,126 +4013,12 @@ td.remove {
 /*======================
 7. Misc
 ========================*/
-.slick-list {
-  margin: 0 -15px;
-}
-.slick-slide {
-  outline: none;
-  margin: 0 15px;
-}
 
 /* Arrows */
 .andro_arrows {
   display: flex;
   align-items: center;
   margin-left: auto;
-}
-.andro_arrows .slick-arrow {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: #f0f2f3;
-  transition: 0.3s;
-  cursor: pointer;
-  color: #18181d;
-}
-.andro_arrows .slick-arrow:hover {
-  color: #fff;
-  background-color: #50bd4d;
-  box-shadow: 4px 3px 24px rgba(80, 189, 77, 0.5);
-}
-.andro_arrows .slick-arrow.slider-prev {
-  margin-right: 10px;
-}
-
-.slick-prev,
-.slick-next {
-  background-color: #f0f2f3;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  color: #18181d;
-  transition: 0.3s;
-  z-index: 9;
-  opacity: 0;
-  visibility: hidden;
-}
-
-/* .slick-prev:before,
-.slick-next:before{
-  color: #18181D;
-  font-family: "Font Awesome 5 Free";
-  content: "\f061";
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 900;
-  text-rendering: auto;
-  line-height: 1.7;
-  -webkit-transition: .3s;
-  -o-transition: .3s;
-  transition: .3s;
-  font-size: 14px;
-}
-.slick-prev:before{
-  content: "\f060";
-} */
-.slick-prev:hover,
-.slick-prev:focus,
-.slick-next:hover,
-.slick-next:focus {
-  color: #fff;
-  background-color: #50bd4d;
-  box-shadow: 4px 3px 24px rgba(80, 189, 77, 0.5);
-}
-.slick-prev:hover::before,
-.slick-prev:focus::before,
-.slick-next:hover::before,
-.slick-next:focus::before {
-  color: #fff;
-}
-
-/* Dots */
-.slick-dots {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-bottom: 0;
-}
-.slick-dots li {
-  margin: 0 5px;
-  text-align: center;
-}
-.slick-dots li button {
-  font-size: 0;
-  width: 12px !important;
-  height: 12px !important;
-  background-color: #f0f2f3;
-  border: 0;
-  border-radius: 50%;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-  cursor: pointer;
-  outline: none;
-}
-.slick-dots li.slick-active button {
-  -webkit-transform: scale(1.3);
-  -ms-transform: scale(1.3);
-  transform: scale(1.3);
-  background-color: #5d5d5d;
-}
-.slick-slide {
-  outline: none;
 }
 
 /* pagination */
@@ -4385,20 +4229,10 @@ td.remove {
 }
 
 @media (max-width: 991px) {
-  .andro_grid-slider .slick-prev,
-  .andro_grid-slider .slick-next {
-    display: none;
-  }
-
   .banner-3.andro_banner .andro_arrows {
     margin-top: 10px;
   }
-  .banner-3.andro_banner .andro_arrows .slick-arrow {
-    background-color: #fff;
-  }
-  .banner-3.andro_banner .andro_arrows .slick-arrow:hover {
-    background-color: #50bd4d;
-  }
+
   .banner-2.andro_banner .andro_banner-slider-inner {
     padding: 80px 15px;
   }
@@ -4812,35 +4646,7 @@ td.remove {
   box-shadow: none;
   padding: 15px 0;
 }
-.info_slider .slick-prev,
-.info_slider .slick-next {
-  visibility: visible !important;
-  opacity: 1 !important;
-  background-color: transparent;
-  /* font-size: 30px; */
-}
-.info_slider .slick-prev:before,
-.info_slider .slick-next:before {
-  color: #50bd4d !important;
-  font-size: 30px;
-}
-.info_slider .slick-prev:hover,
-.info_slider .slick-prev:focus,
-.info_slider .slick-next:hover,
-.info_slider .slick-next:focus {
-  background-color: transparent !important;
-  box-shadow: none !important;
-}
-.info_slider:hover .slick-next {
-  right: 25px;
-  opacity: 1;
-  visibility: visible;
-}
-.info_slider:hover .slick-prev {
-  left: 25px;
-  opacity: 1;
-  visibility: visible;
-}
+
 .andro_fresh-arrivals-slider {
   height: 550px;
 }
@@ -4995,21 +4801,4 @@ td.remove {
 }
 .dynamic_content {
   margin-top: -25%;
-}
-.info_slider .slick-slider {
-  height: 500px;
-  /* background-image: url("https://plasticseurope.org/wp-content/uploads/2021/10/5.6._aaheader.png");
-  background-size: "cover";
-  background-repeat: "no-repeat";
-  background-position: "center"; */
-}
-.slick-prev,
-.slick-next {
-  top: 10% !important;
-}
-.slick-next {
-  right: 20px;
-}
-.slick-prev {
-  left: 20px;
 }

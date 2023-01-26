@@ -5,17 +5,13 @@
   position: relative;
 }
 
-.advertise-slider {
-  position: initial;
-}
-
-.advertise-slider .advertise {
-  height: 200px;
+.advertise {
+  height: 20vh;
   width: 100vw;
 }
 
 .advertise-slider .slick-list {
-  max-height: 200px;
+  max-height: 20vh;
   margin-bottom: 20px;
 }
 
@@ -25,6 +21,8 @@
   visibility: visible;
   background-color: transparent;
   position: absolute;
+  top: 50% !important;
+  transform: translateY(-50%);
 }
 
 .advertise-slider .advertise img {
@@ -52,5 +50,172 @@
     width: 100%;
     z-index: 2;
     bottom: 10px;
+  }
+}
+.slick-list {
+  margin: 0 -15px;
+}
+
+.slick-slide {
+  outline: none;
+  margin: 0 15px;
+}
+
+.andro_banner .slick-track,
+.andro_banner .slick-slide {
+  margin: 0;
+}
+
+.slick-dots {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.slick-dots li {
+  margin: 0 5px;
+  text-align: center;
+}
+
+.slick-dots li button {
+  font-size: 0;
+  width: 12px !important;
+  height: 12px !important;
+  background-color: #f0f2f3;
+  border: 0;
+  border-radius: 50%;
+  transition: 0.3s;
+  cursor: pointer;
+  outline: none;
+}
+
+.slick-dots li.slick-active button {
+  transform: scale(1.3);
+  background-color: #5d5d5d;
+}
+
+.andro_banner .slick-dots {
+  padding: 0 0 10px;
+  display: block !important;
+}
+
+.andro_banner .slick-dots li button {
+  background-color: #fff;
+}
+
+.andro_banner .slick-dots li button:before {
+  display: none !important;
+}
+
+.andro_banner .slick-dots li.slick-active button {
+  background-color: #50bd4d;
+}
+
+.andro_banner-slider .slick-track {
+  padding: 10px 0;
+}
+
+.deals-slider .slick-dots {
+  justify-content: center;
+  margin: 10px 0 0;
+}
+
+.andro_testimonials .slick-dots {
+  justify-content: center;
+  margin: 10px 0 0;
+}
+
+.banner-2.andro_banner,
+.banner-2.andro_banner .slick-track {
+  padding: 0;
+}
+
+.banner-2.andro_banner .slick-track,
+.banner-3.andro_banner .slick-track {
+  display: flex;
+}
+
+.banner-2.andro_banner .slick-slide,
+.banner-3.andro_banner .slick-slide {
+  display: flex;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-arrow {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f0f2f3;
+  transition: 0.3s;
+  cursor: pointer;
+  color: #18181d;
+}
+
+.slick-arrow:hover {
+  color: #fff;
+  background-color: #50bd4d;
+  box-shadow: 4px 3px 24px rgba(80, 189, 77, 0.5);
+}
+
+.slick-arrow.slider-prev {
+  margin-right: 10px;
+}
+
+.slick-prev,
+.slick-next {
+  background-color: #f0f2f3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #18181d;
+  transition: 0.3s;
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  top: 10%;
+}
+
+.slick-next {
+  right: 20px;
+}
+
+.slick-prev {
+  left: 20px;
+}
+
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+  color: #fff;
+  background-color: #50bd4d;
+  box-shadow: 4px 3px 24px rgba(80, 189, 77, 0.5);
+}
+
+.slick-prev:hover::before,
+.slick-prev:focus::before,
+.slick-next:hover::before,
+.slick-next:focus::before {
+  color: #fff;
+}
+
+@media (max-width: 991px) {
+  .andro_grid-slider .slick-prev,
+.andro_grid-slider .slick-next {
+    display: none;
+  }
+  .banner-3 .slick-arrow {
+    background-color: #fff;
+  }
+  .banner-3 .slick-arrow:hover {
+    background-color: #50bd4d;
   }
 }/*# sourceMappingURL=main.css.map */
