@@ -9,6 +9,7 @@
 
 .home-banner .slick-slider .advertise {
   height: 500px;
+  width: 100vw;
 }
 
 .advertise-slider .slick-prev,

@@ -8,6 +8,7 @@ const settings = {
   dots: false,
   dotsClass: "slick-dots d-flex",
   autoplay: true,
+  variableWidth: true,
 };
 
 export default function HomeAdvertiseSlider() {
