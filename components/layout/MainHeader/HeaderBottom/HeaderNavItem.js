@@ -10,11 +10,15 @@ const HeaderNavItem = (props) => {
   const itemLink =
     link.ClassificationChildren.length > 0 ? `/categories/mopidat` : `/categories/organic`;
 
-  const clickHandler = (e) => {
+  const arrowClickHandler = (e) => {
     e.preventDefault();
     e.stopPropagation();
     setSubMenuIsShown(!subMenuIsShown);
   };
+
+  // const linkClickHandler = () => {
+  //   set
+  // }
 
   const blurHandler = () => {
     setSubMenuIsShown(false);
@@ -22,10 +26,10 @@ const HeaderNavItem = (props) => {
 
   return (
     <li className={`menu-item ${itemStyle}`} onMouseLeave={blurHandler}>
-      <Link href={itemLink}>
+      <Link href={itemLink} onClick={blurHandler}>
         {link.FAClassificationName}
         {link.ClassificationChildren.length > 0 && (
-          <span onClick={clickHandler} className="icon">
+          <span onClick={arrowClickHandler} className="icon">
             {!isChild && (!subMenuIsShown ? <FaAngleDown /> : <FaAngleUp />)}
             {isChild && (!subMenuIsShown ? <FaAngleRight /> : <FaAngleLeft />)}
           </span>

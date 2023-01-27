@@ -484,13 +484,23 @@ video {
   visibility: visible;
   background-color: transparent;
   position: absolute;
-  top: 50% !important;
-  transform: translateY(-50%);
+  top: 30% !important;
 }
 
 .advertise-slider .advertise img {
   width: 100%;
   height: 100%;
+}
+
+.offer_banner {
+  padding: 0;
+  height: 100%;
+  height: 100%;
+  padding: 30px 10px;
+}
+
+.offer_banner img {
+  min-height: 100px;
 }
 
 @media screen and (min-width: 700px) {
@@ -512,7 +522,7 @@ video {
     position: absolute;
     width: 100%;
     z-index: 2;
-    bottom: 10px;
+    bottom: -30%;
   }
 }
 .slick-list {
@@ -1245,8 +1255,8 @@ video {
 
 .andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons {
   width: 100%;
-  /* display: flex; */
-  display: block;
+  display: flex;
+  /* display: block; */
   flex-wrap: wrap;
 }
 
@@ -1630,7 +1640,7 @@ video {
 
 .andro_header-controls-inner li.andro_header-cart a {
   width: auto;
-  height: auto;
+  height: 40px;
   border-radius: 8px;
   padding: 5px 15px;
   display: flex;
@@ -1873,7 +1883,7 @@ video {
 
 .andro_search-adv-input {
   position: relative;
-  width: 400px;
+  width: 100%;
 }
 
 .andro_search-adv-input button {
