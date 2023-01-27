@@ -1,6 +1,6 @@
 import Link from "next/Link";
-import { useState, Fragment } from "react";
-import { FaAngleDown, FaAngleUp, FaAngleRight, FaAngleLeft } from "react-icons/fa";
+import { useState } from "react";
+import { FaAngleDown, FaAngleLeft, FaAngleRight, FaAngleUp } from "react-icons/fa";
 
 const HeaderNavItem = (props) => {
   const { link, isChild } = props;
@@ -16,17 +16,13 @@ const HeaderNavItem = (props) => {
     setSubMenuIsShown(!subMenuIsShown);
   };
 
-  // const linkClickHandler = () => {
-  //   set
-  // }
-
   const blurHandler = () => {
     setSubMenuIsShown(false);
   };
 
   return (
-    <li className={`menu-item ${itemStyle}`} onMouseLeave={blurHandler}>
-      <Link href={itemLink} onClick={blurHandler}>
+    <li className={`menu-item ${itemStyle}`} onMouseLeave={blurHandler} onClick={blurHandler}>
+      <Link href={itemLink}>
         {link.FAClassificationName}
         {link.ClassificationChildren.length > 0 && (
           <span onClick={arrowClickHandler} className="icon">
