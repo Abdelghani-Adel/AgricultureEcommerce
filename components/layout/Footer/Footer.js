@@ -1,8 +1,7 @@
-import React, { Component } from "react";
 import Link from "next/Link";
-import { FaChevronUp } from "react-icons/fa";
+import React, { Component } from "react";
+import { FaFacebookF, FaHandPointer, FaTwitter, FaYoutube } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
-import { FaFacebookF, FaTwitter, FaYoutube, FaHandPointer } from "react-icons/fa";
 class Footer extends Component {
   scrollToTop() {
     window.scrollTo({
@@ -12,17 +11,17 @@ class Footer extends Component {
   }
   render() {
     return (
-      <footer className={"andro_footer " + this.props.footer.style}>
+      <footer className="footer">
         {/* Logo */}
         <div className="container">
-          <div className="andro_footer-top">
-            <Link href="/" className="andro_footer-logo">
+          <div className="footer-top">
+            <Link href="/" className="footer-logo">
               <img src="../img/logo.png" alt="logo" />
             </Link>
           </div>
         </div>
         {/* Middle Footer */}
-        <div className="andro_footer-middle">
+        <div className="footer-middle">
           <div className="container">
             <div className="row">
               {/* Information */}
@@ -114,7 +113,7 @@ class Footer extends Component {
                 </ul>
 
                 {/* Signup button */}
-                {/* <div className="andro_footer-offer">
+                {/* <div className="footer-offer">
                   <p>{this.props.t("Footer.Signup")}</p>
                   <Link href="/register" className="andro_btn-custom btn-sm shadow-none">
                     {this.props.t("Footer.Signup")}
@@ -125,7 +124,7 @@ class Footer extends Component {
           </div>
         </div>
         {/* Footer Bottom */}
-        <div className="andro_footer-bottom">
+        <div className="footer-bottom">
           <div className="container">
             <ul>
               <li>
@@ -142,13 +141,13 @@ class Footer extends Component {
               </li>
             </ul>
 
-            <div className="andro_footer-copyright">
+            <div className="footer-copyright">
               <p>
                 Copyright © 2023 <Link href="#">RTS</Link> All Rights Reserved.
               </p>
 
               {/* Back to top */}
-              <Link href="#" className="andro_back-to-top" onClick={() => this.scrollToTop()}>
+              <Link href="#" className="back-to-top" onClick={() => this.scrollToTop()}>
                 <span>
                   <FaHandPointer />
                 </span>
