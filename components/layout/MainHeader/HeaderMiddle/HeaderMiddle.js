@@ -5,7 +5,7 @@ import HeaderSearchForm from "./HeaderSearchForm/HeaderSearchForm";
 
 const HeaderMiddle = (props) => {
   return (
-    <div className="andro_header-middle">
+    <div className="main_header-middle">
       <div className="container">
         <nav className="navbar">
           <HeaderLogo />
