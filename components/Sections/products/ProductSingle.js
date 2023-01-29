@@ -9,6 +9,7 @@ import { withTranslation } from "react-multi-lang";
 import { Rating } from "../../../helper/helper";
 import AdditionalInfo from "./AdditionalInfo";
 import BuyNow from "./BuyNow";
+import ProductCarousel from "./ProductCarousel";
 import ProductDetails from "./ProductDetails";
 // import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 // import 'react-tabs/style/react-tabs.css';
@@ -26,10 +27,12 @@ const ProductSingle = (props) => {
           <div className="container">
             <div className="row">
               {/* Product Thumbnail */}
+
               <div className="col-md-5">
-                <div className="andro_product-single-thumb">
+                <ProductCarousel />
+                {/* <div className="andro_product-single-thumb">
                   <img src="../assets/img/products/2.png" alt="aaa" />
-                </div>
+                </div> */}
               </div>
 
               {/* Product Details */}

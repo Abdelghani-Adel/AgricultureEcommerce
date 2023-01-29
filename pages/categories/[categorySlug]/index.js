@@ -3,6 +3,7 @@ import { withTranslation } from "react-multi-lang";
 import Breadcrumbs from "../../../components/layout/Reusable/Breadcrumbs";
 import CategoryProducts from "../../../components/Sections/categories/CategoryProducts/CategoryProducts";
 import SubCategories from "../../../components/Sections/categories/SubCategories/SubCategories";
+import { CategoryApi } from "../../../services/category_product_API";
 
 const CategorySingle = (props) => {
   const { categories, categorySlug, showProducts, products } = props;
@@ -60,7 +61,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths: paths,
-    fallback: false,
+    fallback: true,
   };
 };
 

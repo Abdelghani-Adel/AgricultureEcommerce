@@ -9,6 +9,7 @@ const HeaderNavItem = (props) => {
   const itemStyle = link.ClassificationChildren.length > 0 ? "menu-item-has-children" : "";
   const itemLink =
     link.ClassificationChildren.length > 0 ? `/categories/mopidat` : `/categories/organic`;
+  // const itemLink = `/categories/${link.FAClassificationSlug}`;
 
   const arrowClickHandler = (e) => {
     e.preventDefault();

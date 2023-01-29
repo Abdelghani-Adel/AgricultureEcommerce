@@ -8,9 +8,6 @@ import Products from "../../data/products.json";
 
 function Slug(props) {
   const router = useRouter();
-  // const productSlug = router.query.slug;
-  // const productSlug = router.query.slug;
-  // const itemDetails = Products.filter((prod) => prod.slug == productSlug)[0];
 
   return (
     <>
@@ -21,6 +18,7 @@ function Slug(props) {
 }
 
 export const getStaticPaths = async () => {
+  // API fetch to get all the product slugs
   const paths = Products.map((prod, index) => {
     return {
       params: { slug: `${prod.slug}` },
@@ -28,10 +26,11 @@ export const getStaticPaths = async () => {
   });
   return {
     paths: paths,
-    fallback: false, // can also be true or 'blocking' // will be passed to the page component as props
+    fallback: false,
   };
 };
 export const getStaticProps = async (context) => {
+  // API fetch to get all products
   const items = Products.filter((prod) => prod.slug == context.params.slug);
   return {
     props: {
