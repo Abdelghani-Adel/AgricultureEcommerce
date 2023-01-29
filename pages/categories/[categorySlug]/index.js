@@ -8,6 +8,7 @@ import { CategoryApi } from "../../../services/category_product_API";
 const CategorySingle = (props) => {
   const { categories, categorySlug, showProducts, products } = props;
   const router = useRouter();
+  console.log(router.query);
   return (
     <>
       <Breadcrumbs breadcrumb={{ pagename: router.query.categorySlug }} />
@@ -134,7 +135,25 @@ export const getStaticProps = async (context) => {
     },
   ];
 
-  // API fetch to get the subCategories if => IsItemOnly = false
+  // API fetch to get the array of sub_categories | send slug || get the sub_categories
+  // if the array.length == 0
+  // return {
+  //   props: {
+  //     categories: subCategories,
+  //     categorySlug: context.params.categorySlug,
+  //     showProducts: false,
+  //   },
+  // };
+
+  // API fetch to get the array of products for the category | send slug || get the products
+  // if the array.length == 0
+  // return {
+  //   props: {
+  //     products: products_Array,
+  //     categorySlug: context.params.categorySlug,
+  //     showProducts: true,
+  //   },
+  // };
 
   // API fetch to get the products of the category if => IsItemOnly = true
   const response = await fetch(
