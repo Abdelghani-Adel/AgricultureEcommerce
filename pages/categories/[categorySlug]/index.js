@@ -12,7 +12,7 @@ const CategorySingle = (props) => {
     <>
       <Breadcrumbs breadcrumb={{ pagename: router.query.categorySlug }} />
       {showProducts ? (
-        <CategoryProducts products={products} />
+        <CategoryProducts products={products} slug={router.query.categorySlug} />
       ) : (
         <SubCategories categories={categories} />
       )}
@@ -31,9 +31,7 @@ export const getServerSideProps = async (ctx) => {
       },
       body: JSON.stringify({
         lang: ctx.query.lang,
-        Cate_Id: ctx.query.id,
-        limit: 6,
-        start: 1,
+        FAClassification_ParentId: ctx.query.id,
       }),
     }
   );
@@ -130,6 +128,7 @@ export const getServerSideProps = async (ctx) => {
         Cate_Id: ctx.query.id,
         limit: 6,
         start: 1,
+        // start: ctx.query.start ? ctx.query.start : 1,
       }),
     }
   );
@@ -137,7 +136,7 @@ export const getServerSideProps = async (ctx) => {
 
   return {
     props: {
-      products: products.data,
+      products: products,
       categorySlug: ctx.params.categorySlug,
       showProducts: true,
     },

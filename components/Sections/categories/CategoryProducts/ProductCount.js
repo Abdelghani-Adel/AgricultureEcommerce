@@ -2,18 +2,18 @@ import { useState } from "react";
 import { withTranslation } from "react-multi-lang";
 
 const ProductCount = (props) => {
-  const { Items } = props;
+  const { Items, total } = props;
 
   let itemsPerPage = props.itemsPerPage;
 
-  if (Items.length < itemsPerPage) {
-    itemsPerPage = Items.length;
+  if (total < itemsPerPage) {
+    itemsPerPage = total;
   }
 
   return (
     <div className="andro_shop-global">
       <p>
-        Showing <b>{itemsPerPage}</b> of <b>{Items.length}</b> products{" "}
+        Showing <b>{itemsPerPage}</b> of <b>{total}</b> products
       </p>
       {/* <form method="post">
         <select className="form-control" name="orderby">

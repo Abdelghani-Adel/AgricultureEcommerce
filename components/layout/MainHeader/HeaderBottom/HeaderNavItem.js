@@ -6,12 +6,16 @@ const HeaderNavItem = (props) => {
   const { link, isChild, lang } = props;
   const [subMenuIsShown, setSubMenuIsShown] = useState(false);
 
+  console.log(link.Cate_Id);
+
   const itemStyle = link.ClassificationChildren.length > 0 ? "menu-item-has-children" : "";
   const itemLink =
     link.ClassificationChildren.length > 0
-      ? `/categories/mopidat?lang=${lang}&id=${87}`
-      : `/categories/organic?lang=${lang}&id=${87}`;
-  // const itemLink = `/categories/${link.FAClassificationSlug}?lang=${'en'}&id=${link.Cate_Id}`;
+      ? `/categories/${"mopidat"}?lang=${lang}&id=${link.FAClassificationId}`
+      : `/categories/${"organic"}?lang=${lang}&id=${link.FAClassificationId}`;
+  // const itemLink = `/categories/${link.FAClassificationSlug}?lang=${"en"}&id=${
+  //   link.FAClassificationId
+  // }`;
 
   const arrowClickHandler = (e) => {
     e.preventDefault();
@@ -38,7 +42,12 @@ const HeaderNavItem = (props) => {
       {subMenuIsShown && (
         <ul className="sub-menu" role="menu">
           {link.ClassificationChildren.map((subItem) => (
-            <HeaderNavItem link={subItem} key={subItem.FAClassificationId} isChild={true} />
+            <HeaderNavItem
+              lang={lang}
+              link={subItem}
+              key={subItem.FAClassificationId}
+              isChild={true}
+            />
           ))}
         </ul>
       )}

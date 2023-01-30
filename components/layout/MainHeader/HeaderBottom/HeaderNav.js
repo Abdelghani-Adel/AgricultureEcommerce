@@ -1,12 +1,6 @@
-import Link from "next/Link";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { withTranslation } from "react-multi-lang";
-import links from "../../../../data/category.json";
 import HeaderNavItem from "./HeaderNavItem";
-
-import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
 
 const HeaderNav = (props) => {
   const { lang } = props;
@@ -40,6 +34,7 @@ const HeaderNav = (props) => {
       {navLinks.map((link) => (
         <HeaderNavItem lang={lang} link={link} key={link.FAClassificationId} />
       ))}
+      {/* <li>test</li> */}
     </ul>
   );
 };
