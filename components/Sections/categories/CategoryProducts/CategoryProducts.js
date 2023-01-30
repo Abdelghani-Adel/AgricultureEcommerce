@@ -4,7 +4,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
 import ReactPaginate from "react-paginate";
 import Loader from "../../../layout/Reusable/Loader";
-import CategoryItemList from "./CategoryItemList";
+import ProductCardList from "../../products/ProductCardList/ProductCardList";
 import FilterPrice from "./FilterPrice";
 import FilterState from "./FilterState";
 import ProductCount from "./ProductCount";
@@ -16,7 +16,7 @@ const CategoryContent = (props) => {
   const router = useRouter();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(16);
+  const [itemsPerPage, setItemsPerPage] = useState(6);
   const [loading, setLoading] = useState(false);
   const [itemOffset, setItemOffset] = useState(0);
   const [pageCount, setPageCount] = useState(Math.ceil(products.length / itemsPerPage));
@@ -54,7 +54,7 @@ const CategoryContent = (props) => {
 
             <div className="row">
               {loading === false ? (
-                <CategoryItemList currentItems={currentItems} slug={props.slug} />
+                <ProductCardList products={currentItems} slug={props.slug} />
               ) : (
                 <Loader />
               )}
