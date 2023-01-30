@@ -2,6 +2,7 @@ import Link from "next/Link";
 import React, { Component } from "react";
 import { FaFacebookF, FaHandPointer, FaTwitter, FaYoutube } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
+import BrandLogo from "../Reusable/BrandLogo";
 class Footer extends Component {
   scrollToTop() {
     window.scrollTo({
@@ -15,9 +16,7 @@ class Footer extends Component {
         {/* Logo */}
         <div className="container">
           <div className="footer-top">
-            <Link href="/" className="footer-logo">
-              <img src="../img/logo.png" alt="logo" />
-            </Link>
+            <BrandLogo />
           </div>
         </div>
         {/* Middle Footer */}

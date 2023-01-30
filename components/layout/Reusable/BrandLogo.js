@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const HeaderLogo = () => {
+const BrandLogo = () => {
   return (
     <Link className="navbar-brand" href="/">
       <img src={"../img/logo.png"} alt="logo" />
@@ -8,4 +8,4 @@ const HeaderLogo = () => {
   );
 };
 
-export default HeaderLogo;
+export default BrandLogo;

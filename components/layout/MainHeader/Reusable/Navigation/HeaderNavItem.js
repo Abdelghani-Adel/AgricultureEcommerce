@@ -1,6 +1,3 @@
-import Link from "next/Link";
-import { useState } from "react";
-import { FaAngleDown, FaAngleLeft, FaAngleRight, FaAngleUp } from "react-icons/fa";
 import CategoryNavItem from "./CategoryNavItem";
 
 const HeaderNavItem = (props) => {

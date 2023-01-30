@@ -1,4 +1,4 @@
-import HeaderNav from "./HeaderNav";
+import HeaderNav from "../Reusable/Navigation/HeaderNav";
 import SideCategoriesToggler from "./SideCategoriesToggler";
 import HeaderOffers from "./HeaderOffers";
 const HeaderBottom = (props) => {
