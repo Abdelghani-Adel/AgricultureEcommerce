@@ -8,8 +8,10 @@ const HeaderNavItem = (props) => {
 
   const itemStyle = link.ClassificationChildren.length > 0 ? "menu-item-has-children" : "";
   const itemLink =
-    link.ClassificationChildren.length > 0 ? `/categories/mopidat` : `/categories/organic`;
-  // const itemLink = `/categories/${link.FAClassificationSlug}`;
+    link.ClassificationChildren.length > 0
+      ? `/categories/mopidat?lang=${"en"}&id=${87}`
+      : `/categories/organic?lang=${"en"}&id=${87}`;
+  // const itemLink = `/categories/${link.FAClassificationSlug}?lang=${'en'}&id=${link.Cate_Id}`;
 
   const arrowClickHandler = (e) => {
     e.preventDefault();
