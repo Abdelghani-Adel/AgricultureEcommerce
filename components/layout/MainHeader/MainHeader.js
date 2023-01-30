@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 import HeaderBottom from "./HeaderBottom/HeaderBottom";
 import HeaderMiddle from "./HeaderMiddle/HeaderMiddle";
-import HeaderTop from "./HeaderTop/HeaderTop";
 import ToggleNav from "./Reusable/ToggleNav";
 
 const MainHeader = (props) => {

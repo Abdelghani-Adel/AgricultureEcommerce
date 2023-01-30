@@ -34,7 +34,6 @@ const HeaderNav = (props) => {
       {navLinks.map((link) => (
         <HeaderNavItem lang={lang} link={link} key={link.FAClassificationId} />
       ))}
-      {/* <li>test</li> */}
     </ul>
   );
 };

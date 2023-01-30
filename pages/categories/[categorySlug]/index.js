@@ -1,3 +1,4 @@
+import { Head, Html } from "next/document";
 import { useRouter } from "next/router";
 import { withTranslation } from "react-multi-lang";
 import Breadcrumbs from "../../../components/layout/Reusable/Breadcrumbs";
