@@ -3,14 +3,14 @@ import { useState } from "react";
 import { FaAngleDown, FaAngleLeft, FaAngleRight, FaAngleUp } from "react-icons/fa";
 
 const HeaderNavItem = (props) => {
-  const { link, isChild } = props;
+  const { link, isChild, lang } = props;
   const [subMenuIsShown, setSubMenuIsShown] = useState(false);
 
   const itemStyle = link.ClassificationChildren.length > 0 ? "menu-item-has-children" : "";
   const itemLink =
     link.ClassificationChildren.length > 0
-      ? `/categories/mopidat?lang=${"en"}&id=${87}`
-      : `/categories/organic?lang=${"en"}&id=${87}`;
+      ? `/categories/mopidat?lang=${lang}&id=${87}`
+      : `/categories/organic?lang=${lang}&id=${87}`;
   // const itemLink = `/categories/${link.FAClassificationSlug}?lang=${'en'}&id=${link.Cate_Id}`;
 
   const arrowClickHandler = (e) => {

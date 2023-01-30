@@ -38,7 +38,7 @@ const HeaderNav = (props) => {
   return (
     <ul className="header-nav">
       {navLinks.map((link) => (
-        <HeaderNavItem link={link} key={link.FAClassificationId} />
+        <HeaderNavItem lang={lang} link={link} key={link.FAClassificationId} />
       ))}
     </ul>
   );
