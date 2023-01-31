@@ -1,12 +1,9 @@
-import Link from "next/Link";
 import React, { Fragment } from "react";
 // import Relatedproduct from '../../layouts/Relatedproduct';
 // import blogcategory from '../../../data/blogcategory.json';
 // import blogtags from "../../../data/blogtags.json";
 import { useState } from "react";
-import { FaCompressAlt, FaMinus, FaPlus, FaRegHeart } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
-import { Rating } from "../../../helper/helper";
 import AdditionalInfo from "./AdditionalInfo";
 import BuyNow from "./BuyNow";
 import ProductCarousel from "./ProductCarousel";
@@ -22,17 +19,12 @@ const ProductSingle = (props) => {
   return (
     <Fragment>
       <>
-        {/* Product Content Start */}
         <div className="section">
           <div className="container">
             <div className="row">
               {/* Product Thumbnail */}
-
               <div className="col-md-5">
                 <ProductCarousel />
-                {/* <div className="andro_product-single-thumb">
-                  <img src="../assets/img/products/2.png" alt="aaa" />
-                </div> */}
               </div>
 
               {/* Product Details */}

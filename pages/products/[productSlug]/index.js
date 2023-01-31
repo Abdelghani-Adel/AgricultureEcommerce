@@ -3,7 +3,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { withTranslation } from "react-multi-lang";
 import Breadcrumbs from "../../../components/layout/Reusable/Breadcrumbs";
-import ProductSingle from "../../../components/Sections/products/ProductSingle";
+import ProductSingle from "../../../components/Sections/products/ProductSingle/ProductSingle";
 import Products from "../../../data/products.json";
 
 function Slug(props) {
@@ -11,7 +11,7 @@ function Slug(props) {
 
   return (
     <>
-      <Breadcrumbs breadcrumb={{ pagename: router.query.slug }} />
+      <Breadcrumbs breadcrumb={{ pagename: router.query.productSlug }} />
       <ProductSingle ItemDetails={props.productDetails} />
     </>
   );

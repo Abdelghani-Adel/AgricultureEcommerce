@@ -1,7 +1,7 @@
 import Link from "next/Link";
 import { Fragment } from "react";
 import { FaCompressAlt, FaRegHeart } from "react-icons/fa";
-import { Rating } from "../../../helper/helper";
+import { Rating } from "../../../../helper/helper";
 
 const ProductDetails = (props) => {
   const { item } = props;
