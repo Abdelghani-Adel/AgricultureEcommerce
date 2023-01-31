@@ -4,7 +4,6 @@ import HeaderNavItem from "./HeaderNavItem";
 
 const HeaderNav = (props) => {
   const { lang } = props;
-  console.log(props.test);
   const [navLinks, setNavLinks] = useState([]);
 
   useEffect(() => {

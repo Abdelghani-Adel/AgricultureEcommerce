@@ -31,7 +31,7 @@ export const getServerSideProps = async (ctx) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        lang: ctx.query.lang,
+        lang: "ar",
         FAClassification_ParentId: ctx.query.id,
       }),
     }

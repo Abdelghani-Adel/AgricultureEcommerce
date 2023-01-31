@@ -2,8 +2,24 @@ import Link from "next/link";
 import MobileViewNavToggler from "./MobileViewNavToggler";
 import LanguageChange from "../LanguageChange";
 import { FaShoppingBasket, FaRegHeart, FaUserAlt, FaCommentAlt } from "react-icons/fa";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const HeaderControls = (props) => {
+  const [isMobileView, setIsMobileView] = useState(false);
+  const updateWindowSize = () => {
+    setIsMobileView(window.innerWidth < 991);
+  };
+
+  useEffect(() => {
+    updateWindowSize();
+    window.addEventListener("resize", updateWindowSize);
+
+    return () => {
+      window.removeEventListener("resize", updateWindowSize);
+    };
+  }, []);
+
   return (
     <div className="main_header-controls">
       <ul className="main_header-controls-inner">
@@ -33,7 +49,7 @@ const HeaderControls = (props) => {
         </li>
         <LanguageChange changeLang={props.changeLang} lang={props.lang} />
       </ul>
-      <MobileViewNavToggler />
+      {isMobileView && <MobileViewNavToggler />}
     </div>
   );
 };
