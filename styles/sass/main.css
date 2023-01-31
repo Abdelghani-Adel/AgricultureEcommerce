@@ -1198,6 +1198,31 @@ video {
     margin: 10px 0 30px;
   }
 }
+.andro_rating-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.andro_rating-wrapper > span {
+  margin-left: 10px;
+  color: #848486;
+  font-size: 13px;
+}
+
+.andro_rating {
+  margin-bottom: 5px;
+}
+
+.andro_rating svg {
+  margin-right: 5px;
+  font-size: 12px;
+  color: #848486;
+}
+
+.andro_rating svg.active {
+  color: #ffa80a;
+}
+
 .close-btn {
   border: 0;
   background-color: transparent;

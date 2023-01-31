@@ -1,0 +1,24 @@
+.andro_rating-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.andro_rating-wrapper > span {
+  margin-left: 10px;
+  color: #848486;
+  font-size: 13px;
+}
+.andro_rating {
+  margin-bottom: 5px;
+}
+.andro_rating svg {
+  margin-right: 5px;
+  font-size: 12px;
+  color: #848486;
+}
+.andro_rating svg.active {
+  color: #ffa80a;
+}

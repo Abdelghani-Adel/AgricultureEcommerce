@@ -1876,7 +1876,7 @@ Version: 1.0.0
   box-shadow: none;
 }
 
-.andro_newsletter-form {
+/* .andro_newsletter-form {
   position: relative;
   background-color: #f0f2f3;
   padding: 20px;
@@ -1887,7 +1887,7 @@ Version: 1.0.0
 }
 .andro_newsletter-form h5 {
   margin-bottom: 15px;
-}
+} */
 
 .deals-slider .andro_product:hover .andro_countdown-timer {
   background-color: #f0f2f3;
@@ -3232,7 +3232,7 @@ td.remove {
 }
 
 /* Rating */
-.andro_rating-wrapper {
+/* .andro_rating-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3255,7 +3255,7 @@ td.remove {
 }
 .andro_rating svg.active {
   color: #ffa80a;
-}
+} */
 
 /*======================
 8. Repsonsive
