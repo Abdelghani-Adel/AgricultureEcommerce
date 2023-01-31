@@ -2271,7 +2271,7 @@ td.remove {
 } */
 
 /* 6.3.5. Checkout */
-.andro_notice {
+/* .andro_notice {
   background-color: #f0f2f3;
   padding: 20px;
   margin-bottom: 30px;
@@ -2279,7 +2279,6 @@ td.remove {
 }
 .andro_notice p {
   margin: 0;
-  /* font-weight: 600; */
 }
 .andro_notice p a:hover {
   text-decoration: underline;
@@ -2287,10 +2286,10 @@ td.remove {
 .andro_notice-content {
   margin-bottom: 30px;
   display: none;
-}
+} */
 
 /* 6.4. Categories Megamenu */
-.andro_category-mm {
+/* .andro_category-mm {
   box-shadow: 0 3px 24px rgba(0, 0, 0, 0.04);
 }
 .andro_category-mm-header {
@@ -2357,8 +2356,8 @@ td.remove {
   position: relative;
   margin: 0;
   padding: 20px 20px 10px 20px;
-}
-.andro_category-mm-body > ul > li:last-child {
+} */
+/* .andro_category-mm-body > ul > li:last-child {
   padding: 10px 20px 20px 20px;
 }
 .andro_category-mm-body ul li + li {
@@ -2384,8 +2383,8 @@ td.remove {
 }
 .andro_category-mm-body > ul > li > ul.andro_category-mm-1-cols {
   min-width: 200px;
-}
-.andro_category-mm-body > ul > li:hover > ul {
+} */
+/* .andro_category-mm-body > ul > li:hover > ul {
   opacity: 1;
   visibility: visible;
   left: 100%;
@@ -2415,8 +2414,8 @@ td.remove {
   width: 100%;
   flex: 0 100%;
   border-radius: 0 8px 0 0;
-}
-.andro_category-mm-banner {
+} */
+/* .andro_category-mm-banner {
   position: relative;
   z-index: 1;
   width: 100%;
@@ -2440,7 +2439,7 @@ td.remove {
 .andro_category-mm-banner-desc p {
   margin-bottom: 0;
   color: #fff;
-}
+} */
 
 /* 6.5. Banners */
 .andro_banner {
@@ -2474,7 +2473,6 @@ td.remove {
 .andro_flex-menu > ul > li > a {
   padding: 0 10px 20px 10px;
   display: block;
-  /* font-weight: 600; */
   color: #18181d;
 }
 .andro_flex-menu > ul > li > a:hover {
@@ -2484,7 +2482,7 @@ td.remove {
   padding-left: 0;
 }
 
-.banner-2.andro_banner .andro_banner-slider-inner {
+/* .banner-2.andro_banner .andro_banner-slider-inner {
   padding: 120px 15px 150px;
   background-position: center;
   background-repeat: no-repeat;
@@ -2506,8 +2504,8 @@ td.remove {
   bottom: -40px;
   right: -70px;
   width: 210px;
-}
-.banner-2.andro_banner .andro_banner-slider-text p:first-child {
+} */
+/* .banner-2.andro_banner .andro_banner-slider-text p:first-child {
   margin-bottom: 10px;
 }
 .banner-2.andro_banner .andro_banner-slider-text p {
@@ -2519,19 +2517,19 @@ td.remove {
   font-size: 64px;
   max-width: 700px;
   margin: 0 auto 20px;
-  color: #fff; /* Fallback: assume this color ON TOP of image */
+  color: #fff; 
   background-repeat: no-repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
+} */
 
 /* Style 3 */
-.banner-3.andro_banner {
+/* .banner-3.andro_banner {
   padding: 60px 0 30px;
   background-color: #fff;
   background-image: url("../public/assets/img/banner.png");
   background-position: -110px 0;
-}
+} */
 
 /* 6.6. Icon Blocks */
 .andro_icon-block {
@@ -2597,7 +2595,7 @@ td.remove {
 }
 
 /* Style 2 */
-.andro_icon-block.icon-block-2 {
+/* .andro_icon-block.icon-block-2 {
   padding: 0;
   background-color: #fff;
   border: 0;
@@ -2605,7 +2603,7 @@ td.remove {
 }
 .andro_icon-block.icon-block-2 i {
   color: #50bd4d;
-}
+} */
 
 /* 6.7. Call to Actions */
 .andro_cta-notice {
@@ -2811,7 +2809,7 @@ td.remove {
 }
 
 /* 6.9. Error 404 */
-.andro_404-container {
+/* .andro_404-container {
   text-align: center;
 }
 .andro_404-container img {
@@ -2820,10 +2818,10 @@ td.remove {
 .andro_404-container p {
   max-width: 500px;
   margin: 0 auto 20px;
-}
+} */
 
 /* 6.10. Testimonials */
-
+/* 
 .andro_testimonials-inner {
   position: relative;
   padding: 20px;
@@ -2848,11 +2846,10 @@ td.remove {
   border-radius: 50%;
   width: 100px;
   margin: 0 auto 20px;
-}
-.andro_testimonials-inner span {
+} */
+/* .andro_testimonials-inner span {
   display: block;
   margin: 0 0 10px;
-  /* font-weight: 600; */
 }
 .andro_testimonials-inner p {
   margin: 0;
@@ -2885,14 +2882,14 @@ td.remove {
   justify-content: center;
   padding: 20px;
   color: #838383;
-}
-.andro_testimonials .andro_sm li a:hover {
+} */
+/* .andro_testimonials .andro_sm li a:hover {
   background-color: #5d5d5d;
   color: #fff;
-}
+} */
 
 /* Style 2 */
-.andro_testimonial {
+/* .andro_testimonial {
   margin-bottom: 30px;
 }
 .andro_testimonial-body {
@@ -2953,12 +2950,11 @@ td.remove {
 .andro_testimonial-author-inner span {
   line-height: 20px;
   font-size: 13px;
-  /* font-weight: 600; */
   color: #848486;
-}
+} */
 
 /* 6.11. Companies */
-.andro_companies {
+/* .andro_companies {
   height: 100%;
   position: relative;
   display: flex;
@@ -2986,8 +2982,8 @@ td.remove {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-.andro_companies .andro_companies-item-name span {
+} */
+/* .andro_companies .andro_companies-item-name span {
   font-weight: 600;
   display: block;
   opacity: 0;
@@ -3004,11 +3000,11 @@ td.remove {
   transform: translateY(0);
   opacity: 1;
   visibility: visible;
-}
+} */
 
 /* 6.12. Newsletter Popup */
 
-#androNewsletterPopup .modal-dialog {
+/* #androNewsletterPopup .modal-dialog {
   max-width: 600px;
   margin: 0.5rem auto;
 }
@@ -3038,16 +3034,13 @@ td.remove {
 }
 .andro_newsletter-popup-text-wrapper {
   text-align: center;
-}
+} */
 /* .andro_newsletter-popup-modal .close-btn {
   position: absolute;
   top: 10px;
   right: 10px;
 } */
-.andro_newsletter-popup-modal .form-control {
-  width: 300px;
-  margin-bottom: 10px;
-}
+/* .andro_ns */
 /* .andro_newsletter-popup-modal .mc4wp-form-fields .btn-custom {
   width: 100%;
 }
@@ -3072,7 +3065,7 @@ td.remove {
 }
 
 /* pagination */
-.pagination {
+/* .pagination {
   margin-top: 20px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -3097,7 +3090,6 @@ td.remove {
   font-size: 14px;
   font-weight: 600;
   padding: 15px 20px;
-  /* margin-left: 15px; */
   margin: 0 10px;
 }
 .pagination .page-item.active .page-link {
@@ -3109,14 +3101,14 @@ td.remove {
   outline: none;
   -webkit-box-shadow: none;
   box-shadow: none;
-}
+} */
 
 .tooltip {
   font-family: "Open Sans", sans-serif;
   font-size: 13px;
 }
 
-.load-more {
+/* .load-more {
   display: block;
   width: 100%;
   text-align: center;
@@ -3129,7 +3121,7 @@ td.remove {
 }
 .load-more:hover {
   background-color: #f0f2f3;
-}
+} */
 
 /* Accordion */
 .accordion .card {
@@ -3384,9 +3376,9 @@ td.remove {
   .load-more {
     margin: 40px 0 30px;
   }
-  .pagination {
+  /* .pagination {
     margin: 10px 0 30px;
-  }
+  } */
   .andro_icon-block svg {
     display: none;
   }
@@ -3759,11 +3751,10 @@ td.remove {
 } */
 
 /* .pagination  */
-.pagination {
+/* .pagination {
   margin-top: 50px;
 }
 .pagination li {
-  /* padding: 10px 15px; */
   border: 0;
   background-color: #f0f2f3;
   font-size: 14px;
@@ -3795,7 +3786,7 @@ td.remove {
 }
 .paginationContainer {
   padding-top: 50px;
-}
+} */
 /* Category page */
 .catg_card {
   margin: 20px;
