@@ -1359,7 +1359,7 @@ Version: 1.0.0
 3. Footer
 ========================*/
 
-.andro_instagram {
+/* .andro_instagram {
   height: 100%;
   width: 100%;
   display: flex;
@@ -1369,8 +1369,8 @@ Version: 1.0.0
   max-width: 300px;
   margin: 0 auto;
   text-align: center;
-}
-.andro_ig-item {
+} */
+/* .andro_ig-item {
   display: block;
   overflow: hidden;
 }
@@ -1379,7 +1379,7 @@ Version: 1.0.0
 }
 .andro_ig-item img {
   transition: 0.3s;
-}
+} */
 
 /*======================
 5. Subheader
@@ -1442,7 +1442,7 @@ Version: 1.0.0
 ========================*/
 
 /* 6.1. Blog Posts */
-.andro_post {
+/* .andro_post {
   position: relative;
   margin-bottom: 30px;
 }
@@ -1488,7 +1488,6 @@ Version: 1.0.0
   font-size: 13px;
   line-height: 1.7;
   border-radius: 8px;
-  /* font-weight: 600; */
   margin: 0 3px 3px 0;
 }
 .andro_post .andro_post-categories a:hover {
@@ -1529,7 +1528,7 @@ Version: 1.0.0
 }
 
 /* 6.1.1. Blog Posts list */
-.andro_post.andro_post-list {
+/* .andro_post.andro_post-list {
   display: flex;
   align-items: center;
   background-color: #fff;
@@ -1551,10 +1550,10 @@ Version: 1.0.0
 .andro_post.andro_post-list .andro_post-thumb a,
 .andro_post.andro_post-list .andro_post-thumb a img {
   border-radius: 8px 0 0 8px;
-}
+} */
 
 /* 6.1.2. Blog Post Details */
-.comment-form {
+/* .comment-form {
   margin-bottom: 50px;
 }
 .comments-list ul {
@@ -1602,11 +1601,10 @@ Version: 1.0.0
 }
 .comments-list .comment-item p {
   margin-bottom: 15px;
-}
-.reply-link {
+} */
+/* .reply-link {
   position: relative;
   color: #18181d;
-  /* font-weight: 600; */
 }
 
 .andro_post-single .andro_post-share {
@@ -1625,9 +1623,8 @@ Version: 1.0.0
   border-radius: 50%;
   margin-right: 10px;
   margin-bottom: 0;
-}
-.andro_post-single-author-content p {
-  /* font-weight: 600; */
+} */
+/* .andro_post-single-author-content p {
   color: #18181d;
   margin-bottom: 0;
 }
@@ -1663,8 +1660,9 @@ Version: 1.0.0
 }
 .andro_post-share .andro_sm li a:hover {
   background-color: #f0f2f3;
-}
-.andro_single-pagination {
+} */
+
+/* .andro_single-pagination {
   margin: 30px 0;
 }
 .andro_single-pagination-item + .andro_single-pagination-item {
@@ -1716,7 +1714,7 @@ Version: 1.0.0
 }
 .andro_single-pagination-next:hover i {
   transform: translateX(3px);
-}
+} */
 
 /* 6.2. Sidebar */
 .sidebar-widget + .sidebar-widget {
