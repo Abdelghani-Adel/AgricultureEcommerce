@@ -7,7 +7,7 @@ const MainHeader = (props) => {
   const [isTop, setIsTop] = useState(true);
   return (
     <Fragment>
-      <ToggleNav />
+      {/* <ToggleNav /> */}
 
       <header className={`main_header header-3 can-sticky`}>
         <HeaderMiddle changeLang={props.changeLang} lang={props.lang} />

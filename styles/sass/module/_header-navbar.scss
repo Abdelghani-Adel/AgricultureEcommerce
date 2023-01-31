@@ -110,3 +110,33 @@
 .andro_header .sub-menu label:hover {
   background-color: #f0f2f3;
 }
+
+@media screen and (max-width: 991px) {
+  .mobilemenu-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    background-color: #5d5d5d57;
+  }
+  .header-nav {
+    // padding-top: 5vh;
+    align-items: flex-start;
+    flex-direction: column;
+    text-align: left;
+    background-color: #5d5d5d;
+    height: 100vh;
+    width: 40vw;
+    margin: 0;
+    // z-index: 3;
+    // transition: 3s;
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+  }
+  .header-nav .menu-item {
+    margin-top: 10px;
+  }
+}

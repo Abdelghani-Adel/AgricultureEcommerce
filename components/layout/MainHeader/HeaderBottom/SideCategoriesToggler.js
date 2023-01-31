@@ -16,8 +16,10 @@ const SideCategoriesToggler = (props) => {
         <SideCategoriesList />
       </aside>
 
+      {/* Dark overlay shown when displaying the right sub categories */}
       <div className="andro_aside-overlay aside-trigger-right" onClick={toggleSideCategoriesTags} />
 
+      {/* Toggler for side sub categories menu */}
       <div
         className="aside-toggler aside-trigger-right desktop-toggler"
         onClick={toggleSideCategoriesTags}
