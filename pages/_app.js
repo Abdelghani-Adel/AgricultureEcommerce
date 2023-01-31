@@ -4,12 +4,12 @@ import { setDefaultLanguage, setTranslations } from "react-multi-lang";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import MainLayout from "../components/layout/MainLayout";
+import "../styles/sass/main.css";
 import "../styles/globals.css";
 import "../styles/style.css";
 // import "../styles/registration.css";
 // import "../styles/headerNav.css";
 import "../styles/homeBanner.css";
-import "../styles/sass/main.css";
 import ar from "../translations/ar.json";
 import en from "../translations/en.json";
 

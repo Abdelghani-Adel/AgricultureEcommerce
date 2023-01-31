@@ -177,7 +177,7 @@ Version: 1.0.0
   animation-delay: -1s;
 }
 
-.opacity-0 {
+/* .opacity-0 {
   opacity: 0;
 }
 
@@ -215,13 +215,13 @@ Version: 1.0.0
 }
 .dark-overlay.dark-overlay-2::before {
   background-color: rgba(0, 0, 0, 0.6);
-}
-.andro_sticky-section {
+} */
+/* .andro_sticky-section {
   position: sticky;
   top: 30px;
-}
+} */
 
-.imgs-wrapper {
+/* .imgs-wrapper {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -245,7 +245,7 @@ Version: 1.0.0
 }
 .andro_single-img-wrapper img {
   border-radius: 8px;
-}
+} */
 .andro_dots {
   width: 100%;
   height: 100%;
@@ -272,9 +272,9 @@ Version: 1.0.0
   margin-bottom: 20px;
 }
 
-.cursor-pointer {
+/* .cursor-pointer {
   cursor: pointer;
-}
+} */
 
 .close-btn {
   border: 0;
@@ -358,7 +358,7 @@ Version: 1.0.0
   font-size: 4rem;
 }
 
-.border-0 {
+/* .border-0 {
   border: 0;
 }
 
@@ -390,7 +390,7 @@ Version: 1.0.0
 }
 .bg-bottom {
   background-position: bottom;
-}
+} */
 
 .andro_list li {
   margin: 0;
@@ -439,7 +439,7 @@ Version: 1.0.0
 /*======================
 1.2 Section Spacings
 ========================*/
-.section {
+/* .section {
   position: relative;
   padding: 50px 0 80px 0;
 }
@@ -496,7 +496,7 @@ Version: 1.0.0
 }
 .section-title.flex-title .nav-item .nav-link {
   margin: 0;
-}
+} */
 
 /*==================
 1.3. Forms
@@ -3314,7 +3314,7 @@ td.remove {
   .mr-lg-30 {
     margin-left: 0;
   }
-  .section.section-padding.category_section {
+  /* .section.section-padding.category_section {
     margin-top: 0;
     padding-top: 40px;
   }
@@ -3326,7 +3326,7 @@ td.remove {
   }
   .andro_section-fw {
     padding: 0 15px;
-  }
+  } */
   .checkout-billing {
     margin-top: 40px;
   }
@@ -3604,10 +3604,10 @@ td.remove {
   .banner-2.andro_banner .andro_banner-slider-text h1 {
     font-size: 34px;
   }
-  .section-title.flex-title .nav {
+  /* .section-title.flex-title .nav {
     width: 100%;
     margin: 20px 0 0;
-  }
+  } */
   .modal-body {
     padding: 20px;
   }

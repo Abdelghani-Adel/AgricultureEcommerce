@@ -7,7 +7,7 @@ const settings = {
   arrows: true,
   dots: false,
   dotsClass: "slick-dots d-flex",
-  autoplay: true,
+  // autoplay: true,
   variableWidth: true,
 };
 
@@ -21,10 +21,7 @@ export default function HomeAdvertiseSlider() {
       </div>
       <div>
         <div className="advertise">
-          <img
-            src="../img/slider.jpg"
-            alt=""
-          />
+          <img src="../img/slider.jpg" alt="" />
         </div>
       </div>
       {/* <div>
