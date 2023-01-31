@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Link from "next/Link";
 import Slider from "react-slick";
 import { withTranslation } from "react-multi-lang";
-import { FaArrowRight, FaArrowLeft, FaStar ,FaRegEye ,FaShoppingBasket } from "react-icons/fa";
+import { FaArrowRight, FaArrowLeft, FaStar, FaRegEye, FaShoppingBasket } from "react-icons/fa";
 
 const settings = {
   slidesToShow: 6,
@@ -136,11 +136,8 @@ class BestProducts extends Component {
                     </div>
                     <div className="andro_product-footer">
                       <div className="andro_product-buttons">
-                        <Link
-                          href={"/product-single/" + item.id}
-                          className="andro_btn-custom primary"
-                        >
-                          <FaShoppingBasket/>
+                        <Link href={"/products/" + item.slug} className="andro_btn-custom primary">
+                          <FaShoppingBasket />
                           {/* {this.props.t("Products.AddToCart")} */}
                         </Link>
                         <Link href={"/products/" + item.slug} className="andro_btn-custom light">

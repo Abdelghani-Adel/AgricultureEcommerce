@@ -9,6 +9,8 @@ import Products from "../../../data/products.json";
 function Slug(props) {
   const router = useRouter();
 
+  console.log(props.test);
+
   return (
     <>
       <Breadcrumbs breadcrumb={{ pagename: router.query.productSlug }} />
@@ -22,6 +24,7 @@ export const getServerSideProps = async (context) => {
   return {
     props: {
       productDetails: productDetails,
+      test: process.env.API_SERVER,
     },
   };
 };

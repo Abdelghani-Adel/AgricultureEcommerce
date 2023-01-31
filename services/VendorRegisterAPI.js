@@ -1,21 +1,24 @@
 class VendorRegisterAPI {
   async fetchRegistrationSteps() {
     const response = await fetch(
-      "http://192.168.10.251:800/api/ECommerceSetting/GetRegistartion_Step"
+      `http://192.168.10.251:800/api/ECommerceSetting/GetRegistartion_Step`
     );
     const data = await response.json();
     return data;
   }
 
   async fetchBusinessTypes() {
-    const response = await fetch("http://192.168.10.251:800/api/ECommerceSetting/GetBusinessType");
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/GetBusinessType`
+    );
     const data = await response.json();
     return data;
   }
 
   async fetchCountries() {
+    console.log(process.env.NEXT_PUBLIC_API_SERVER);
     const response = await fetch(
-      "http://192.168.10.251:800/api/ECommerceSetting/GetEI_Country_Main"
+      `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/GetEI_Country_Main`
     );
     const data = await response.json();
     return data;
@@ -23,7 +26,7 @@ class VendorRegisterAPI {
 
   async fetchGovernments(countryID) {
     const response = await fetch(
-      "http://192.168.10.251:800/api/ECommerceSetting/GetEI_Governorate",
+      `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/GetEI_Governorate`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -37,43 +40,62 @@ class VendorRegisterAPI {
   }
 
   async fetchCities(govID) {
-    const response = await fetch("http://192.168.10.251:800/api/ECommerceSetting/GetEI_City_Main", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        Gover_Id: govID,
-      }),
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/GetEI_City_Main`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          Gover_Id: govID,
+        }),
+      }
+    );
     const data = await response.json();
     return data;
   }
 
   async fetchDestricts(cityID) {
-    const response = await fetch("http://192.168.10.251:800/api/ECommerceSetting/GetEI_District", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        City_Id: cityID,
-      }),
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/GetEI_District`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          City_Id: cityID,
+        }),
+      }
+    );
     const data = await response.json();
     return data;
   }
 
   async fetchAddresses(vendorID) {
-    const response = await fetch("http://192.168.10.251:800/api/ECommerceSetting/getAddressList", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        vendorId: vendorID,
-      }),
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getAddressList`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          vendorId: vendorID,
+        }),
+      }
+    );
     const data = await response.json();
     return data;
   }
 
   async fetchClassificationTree() {
-    const response = await fetch("http://192.168.10.251:800/api/EAdmin/GetClassificationTree");
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_SERVER}/api/EAdmin/GetClassificationTree`
+    );
+    const data = await response.json();
+    return data;
+  }
+
+  async fetchCategories() {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getCategoriesWChd`
+    );
     const data = await response.json();
     return data;
   }
