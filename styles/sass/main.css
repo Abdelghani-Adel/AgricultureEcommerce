@@ -774,6 +774,328 @@ video {
     margin: 20px 0 0;
   }
 }
+.andro_product {
+  position: relative;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #f0f2f3;
+  box-shadow: 0 3px 24px rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.andro_product .andro_product-thumb {
+  margin: 0 0 20px;
+  overflow: hidden;
+}
+
+.andro_product .andro_product-thumb.thumb-sm {
+  max-width: 200px;
+  margin: 0 auto 20px;
+}
+
+.andro_product .andro_product-thumb img {
+  transition: 0.3s;
+  max-height: 200px;
+  margin: auto;
+}
+
+.andro_product .andro_product-thumb:hover img {
+  transform: scale(1.1) rotate(3deg);
+}
+
+.andro_product .andro_product-body h5 {
+  margin: 0 0 15px;
+  word-break: break-word;
+}
+
+.andro_product .andro_product-body .category_badge {
+  display: block;
+  width: 100%;
+  height: 30px;
+}
+
+.andro_product .andro_product-body .category_badge .badge {
+  background-color: #454545;
+  padding: 10px;
+  color: white;
+  float: right;
+  clear: both;
+}
+
+.andro_product .andro_product-body .andro_product-title a {
+  color: #18181d;
+}
+
+.andro_product .andro_product-body .andro_product-title a:hover {
+  color: #40a13d;
+}
+
+.andro_product .andro_badge-featured {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ffa80a;
+  color: #fff;
+  border-radius: 8px 0 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  font-size: 13px;
+  padding: 3px 12px;
+}
+
+.andro_product .andro_badge-featured i {
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.andro_product .andro_badge-sale {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  background-color: #5d5d5d;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.7;
+  padding: 3px 12px;
+  border-radius: 0 0 8px 8px;
+}
+
+.andro_product .andro_rating-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.andro_product .andro_rating-wrapper span {
+  font-weight: 600;
+}
+
+.andro_product .andro_product-footer {
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid #f0f2f3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.andro_product-price span {
+  display: block;
+}
+
+.andro_product-price span:first-child {
+  font-size: 18px;
+  line-height: 1.2;
+  font-family: "Montserrat", sans-serif;
+  color: #18181d;
+  font-weight: 700;
+}
+
+.andro_product-price span + span {
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  color: #50bd4d;
+  font-weight: 700;
+  text-decoration: line-through;
+}
+
+.andro_product.andro_product-has-controls .andro_product-body .andro_product-price {
+  margin-bottom: 10px;
+}
+
+.andro_product.andro_product-has-controls .andro_product-body .andro_product-price span {
+  display: inline-block;
+}
+
+.andro_product.andro_product-has-controls .andro_product-body .andro_product-price span:first-child {
+  font-size: 16px;
+}
+
+.andro_product.andro_product-has-controls .andro_product-body .andro_product-price span + span {
+  margin-left: 5px;
+}
+
+.andro_product.andro_product-has-buttons .andro_product-footer {
+  border-top: 0;
+  padding: 0;
+  margin: 20px -20px -20px -20px;
+}
+
+.andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons {
+  width: 100%;
+  display: flex;
+  /* display: block; */
+  flex-wrap: wrap;
+}
+
+.andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a {
+  flex: 1;
+  box-shadow: none;
+}
+
+.andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a {
+  border-radius: 0;
+}
+
+.andro_product-stock.instock {
+  color: #58da58;
+}
+
+.andro_product-stock.outofstock {
+  color: #f54978;
+}
+
+.andro_product .andro_rating {
+  margin-bottom: 0;
+}
+
+.andro_product-controls {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.andro_product-controls a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #f0f2f3;
+  text-align: center;
+  line-height: 35px;
+}
+
+.andro_product-controls a svg {
+  font-size: 20px;
+  margin: auto;
+  vertical-align: middle;
+}
+
+.andro_product-controls a:hover {
+  background-color: #50bd4d;
+  color: #fff;
+  box-shadow: 0 3px 24px rgba(0, 0, 0, 0.04);
+}
+
+.andro_product.andro_product-list {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.andro_product.andro_product-list .andro_product-thumb {
+  width: 125px;
+  margin-right: 15px;
+}
+
+.andro_product.andro_product-list .andro_product-body {
+  flex: 1;
+}
+
+.andro_product.andro_product-list .andro_product-footer {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.andro_product.andro_product-list .andro_rating-wrapper {
+  margin-bottom: 10px;
+}
+
+.andro_product.andro_product-list .andro_product-controls {
+  justify-content: space-between;
+}
+
+.andro_product.andro_product-list.andro_product-has-buttons .andro_product-footer {
+  width: calc(100% + 40px);
+}
+
+.andro_product.andro_product-list.andro_product-has-buttons .andro_product-footer {
+  margin: 10px -20px -20px -20px;
+}
+
+.andro_product.andro_product-minimal {
+  text-align: center;
+}
+
+.andro_product.andro_product-minimal .andro_product-title {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.andro_product.andro_product-minimal .andro_product-footer {
+  border: 0;
+  padding-top: 0;
+  margin-top: 5px;
+  display: block;
+  text-align: center;
+}
+
+.andro_product.andro_product-minimal .andro_product-price {
+  margin: 15px 0;
+}
+
+.andro_product.andro_product-minimal .andro_product-price span {
+  font-size: 14px;
+  display: inline-block;
+  line-height: 1.7;
+}
+
+.andro_product.andro_product-minimal .andro_product-price span + span {
+  margin-left: 5px;
+  font-size: 13px;
+}
+
+.andro_product.andro_product-minimal .andro_rating-wrapper {
+  justify-content: center;
+}
+
+.andro_product.andro_product-minimal.andro_product-has-buttons .andro_product-footer .andro_product-buttons {
+  margin-top: 20px;
+}
+
+@media (max-width: 991px) {
+  .andro_product-additional-info .tab-content {
+    margin-top: 30px;
+  }
+}
+@media (max-width: 575px) {
+  .andro_product-atc-form .qty-outter,
+.andro_product-atc-form .qty-outter .andro_btn-custom {
+    display: block;
+  }
+  .andro_product-atc-form .qty-outter .andro_btn-custom + .qty {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  .qty input {
+    width: 100%;
+  }
+  .andro_product.andro_product-list {
+    display: block;
+  }
+  .andro_product.andro_product-list .andro_product-thumb {
+    width: auto;
+    margin-right: 0;
+  }
+  .andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a {
+    flex: 0 100%;
+    width: 100%;
+  }
+  .andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a:first-child {
+    border-radius: 0;
+  }
+  .andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a + a {
+    border-radius: 0 0 8px 8px;
+  }
+  .andro_product-additional-info .tab-content {
+    padding: 20px;
+  }
+}
 .close-btn {
   border: 0;
   background-color: transparent;

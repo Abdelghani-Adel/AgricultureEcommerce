@@ -1904,7 +1904,7 @@ Version: 1.0.0
 }
 
 /* 6.3. Products */
-.andro_product {
+/* .andro_product {
   position: relative;
   padding: 20px;
   background-color: #fff;
@@ -1976,7 +1976,6 @@ Version: 1.0.0
   transform: translateX(-50%);
   z-index: 3;
   background-color: #5d5d5d;
-  /* font-weight: 600; */
   color: #fff;
   font-size: 13px;
   line-height: 1.7;
@@ -2039,7 +2038,6 @@ Version: 1.0.0
 .andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons {
   width: 100%;
   display: flex;
-  /* display: block; */
   flex-wrap: wrap;
 }
 .andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a {
@@ -2048,11 +2046,9 @@ Version: 1.0.0
 }
 .andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a {
   border-radius: 0;
-}
-.andro_product-stock {
-  /* font-weight: 600; */
-}
-.andro_product-stock.instock {
+} */
+
+/* .andro_product-stock.instock {
   color: #58da58;
 }
 .andro_product-stock.outofstock {
@@ -2075,13 +2071,13 @@ Version: 1.0.0
   border: 1px solid #f0f2f3;
   text-align: center;
   line-height: 35px;
-}
-.andro_product-controls a svg {
-  /* display: flex;
+} */
+/* .andro_product-controls a svg {
+  display: flex;
   align-items: center;
-  justify-content: center; */
-  /* width: 100%;
-  height: 100%; */
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   font-size: 20px;
   margin: auto;
   vertical-align: middle;
@@ -2090,10 +2086,10 @@ Version: 1.0.0
   background-color: #50bd4d;
   color: #fff;
   box-shadow: 0 3px 24px rgba(0, 0, 0, 0.04);
-}
+} */
 
 /* 6.3.1 Products (List View) */
-.andro_product.andro_product-list {
+/* .andro_product.andro_product-list {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -2120,10 +2116,10 @@ Version: 1.0.0
 }
 .andro_product.andro_product-list.andro_product-has-buttons .andro_product-footer {
   margin: 10px -20px -20px -20px;
-}
+} */
 
 /* 6.3.2 Products (Minimal View) */
-.andro_product.andro_product-minimal {
+/* .andro_product.andro_product-minimal {
   text-align: center;
 }
 .andro_product.andro_product-minimal .andro_product-title {
@@ -2156,7 +2152,7 @@ Version: 1.0.0
   .andro_product-footer
   .andro_product-buttons {
   margin-top: 20px;
-}
+} */
 
 /* 6.3. Products */
 
@@ -2175,7 +2171,7 @@ Version: 1.0.0
   margin-bottom: 0;
 }
 
-.irs--flat .irs-from,
+/* .irs--flat .irs-from,
 .irs--flat .irs-to,
 .irs--flat .irs-single,
 .irs--flat .irs-bar,
@@ -2190,7 +2186,7 @@ Version: 1.0.0
 .irs--flat .irs-handle.state_hover > i:first-child,
 .irs--flat .irs-handle:hover > i:first-child {
   background-color: #383838;
-}
+} */
 
 .qty {
   display: -webkit-box;
@@ -3415,9 +3411,9 @@ td.remove {
   .andro_post.andro_post-list .andro_post-thumb a img {
     border-radius: 8px;
   }
-  .andro_product-additional-info .tab-content {
+  /* .andro_product-additional-info .tab-content {
     margin-top: 30px;
-  }
+  } */
   .andro_auth-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -3607,7 +3603,7 @@ td.remove {
   .modal-body {
     padding: 20px;
   }
-  .andro_product-atc-form .qty-outter,
+  /* .andro_product-atc-form .qty-outter,
   .andro_product-atc-form .qty-outter .andro_btn-custom {
     display: block;
   }
@@ -3624,11 +3620,11 @@ td.remove {
   .andro_product.andro_product-list .andro_product-thumb {
     width: auto;
     margin-right: 0;
-  }
+  } */
   .andro_cta-notice {
     padding: 20px;
   }
-  .andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a {
+  /* .andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a {
     flex: 0 100%;
     width: 100%;
   }
@@ -3640,7 +3636,7 @@ td.remove {
   }
   .andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a + a {
     border-radius: 0 0 8px 8px;
-  }
+  } */
   .main_header-cart-content,
   .main_header-controls-inner li.main_header-favorites,
   .andro_current-currency-text {
@@ -3665,9 +3661,9 @@ td.remove {
   .andro_shop-global p {
     margin-bottom: 20px;
   }
-  .andro_product-additional-info .tab-content {
+  /* .andro_product-additional-info .tab-content {
     padding: 20px;
-  }
+  } */
   .comments-list .comment-item span {
     position: relative;
     top: auto;
