@@ -2236,7 +2236,7 @@ Version: 1.0.0
 td.remove {
   width: 30px;
 }
-.andro_cart-product-wrapper {
+/* .andro_cart-product-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2268,7 +2268,7 @@ td.remove {
   font-size: 13px;
   line-height: 21px;
   color: #848486;
-}
+} */
 
 /* 6.3.5. Checkout */
 .andro_notice {
@@ -3499,7 +3499,7 @@ td.remove {
     border-bottom: 1px solid #f0f2f3;
   }
 
-  .andro_responsive-table .cart-product-wrapper {
+  /* .andro_responsive-table .cart-product-wrapper {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
     -ms-flex-direction: row-reverse;
@@ -3509,7 +3509,7 @@ td.remove {
   .andro_responsive-table .cart-product-wrapper img {
     margin-right: 0;
     margin-left: 10px;
-  }
+  } */
   .andro_quick-view-modal .andro_product-single-content {
     padding: 0;
   }

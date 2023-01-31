@@ -1455,6 +1455,50 @@ video {
   line-height: 23px;
 }
 
+.andro_cart-product-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.andro_cart-product-wrapper img {
+  width: 50px;
+  margin-right: 15px;
+}
+
+.andro_cart-product-body {
+  flex: 1;
+}
+
+.andro_cart-product-wrapper h6 {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.andro_cart-product-wrapper h6 a {
+  color: #18181d;
+}
+
+.andro_cart-product-wrapper h6 a:hover {
+  color: #50bd4d;
+}
+
+.andro_cart-product-wrapper p {
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 21px;
+  color: #848486;
+}
+
+@media (max-width: 768px) {
+  .andro_responsive-table .cart-product-wrapper {
+    flex-direction: row-reverse;
+    padding: 0;
+  }
+  .andro_responsive-table .cart-product-wrapper img {
+    margin-right: 0;
+    margin-left: 10px;
+  }
+}
 .slick-list {
   margin: 0 -15px;
 }
