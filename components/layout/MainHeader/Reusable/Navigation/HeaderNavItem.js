@@ -1,9 +1,9 @@
 import CategoryNavItem from "./CategoryNavItem";
 
 const HeaderNavItem = (props) => {
-  const { link, lang } = props;
+  const { link } = props;
 
-  return <CategoryNavItem lang={lang} link={link} />;
+  return <CategoryNavItem link={link} />;
 };
 
 export default HeaderNavItem;

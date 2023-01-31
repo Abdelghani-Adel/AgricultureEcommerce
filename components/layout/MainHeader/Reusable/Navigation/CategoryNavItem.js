@@ -3,17 +3,15 @@ import { useState } from "react";
 import { FaAngleDown, FaAngleLeft, FaAngleRight, FaAngleUp } from "react-icons/fa";
 
 const CategoryNavItem = (props) => {
-  const { link, isChild, lang } = props;
+  const { link, isChild } = props;
   const [subMenuIsShown, setSubMenuIsShown] = useState(false);
-
-  console.log(link.Cate_Id);
 
   const itemStyle = link.ClassificationChildren.length > 0 ? "menu-item-has-children" : "";
   const itemLink =
     link.ClassificationChildren.length > 0
-      ? `/categories/${"mopidat"}?lang=${lang}&id=${link.FAClassificationId}`
-      : `/categories/${"organic"}?lang=${lang}&id=${link.FAClassificationId}`;
-  // const itemLink = `/categories/${link.FAClassificationSlug}?lang=${"en"}&id=${
+      ? `/categories/${"mopidat"}?id=${link.FAClassificationId}`
+      : `/categories/${"organic"}?id=${link.FAClassificationId}`;
+  // const itemLink = `/categories/${link.FAClassificationSlug}?&id=${
   //   link.FAClassificationId
   // }`;
 

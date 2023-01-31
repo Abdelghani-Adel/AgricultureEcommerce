@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { withTranslation } from "react-multi-lang";
+import { CategoryApi } from "../../../../../services/CategoryAPI";
 import HeaderNavItem from "./HeaderNavItem";
+
+const CategoryAPI = new CategoryApi();
 
 const HeaderNav = (props) => {
   const { lang } = props;
@@ -8,26 +11,12 @@ const HeaderNav = (props) => {
 
   useEffect(() => {
     const getNavLinks = async () => {
-      const response = await fetch(
-        "http://192.168.10.251:800/api/ECommerceSetting/GetCategoriesMenu",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            lang: "ar",
-            FAClassification_ParentId: 81,
-          }),
-        }
-      );
-
-      const data = await response.json();
+      const data = await CategoryAPI.GetCategoriesMenu();
       setNavLinks(data);
     };
 
     getNavLinks();
-  }, [lang]);
+  }, []);
 
   return (
     <ul className="header-nav">
