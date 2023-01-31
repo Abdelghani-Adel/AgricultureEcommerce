@@ -24,7 +24,7 @@ const CategorySingle = (props) => {
 export const getServerSideProps = async (ctx) => {
   // API fetch to get the array of sub_categories
   const subCategoriesRes = await fetch(
-    "http://192.168.10.251:800/api/ECommerceSetting/GetCategoriesMenu",
+    "http://192.168.10.251:800/api/ECommerceSetting/getSubCategories",
     {
       method: "POST",
       headers: {
@@ -36,6 +36,7 @@ export const getServerSideProps = async (ctx) => {
       }),
     }
   );
+  const subCategories = await subCategoriesRes.json();
   const categories = [
     {
       FAClassificationName: "مبيدات",
@@ -103,10 +104,10 @@ export const getServerSideProps = async (ctx) => {
       ClassificationChildren: [],
     },
   ];
-  const subCategories = categories.filter(
-    (cat) => cat.FAClassificationSlug == ctx.params.categorySlug
-  );
-  if (subCategories[0].ClassificationChildren.length > 0) {
+  // const subCategories = categories.filter(
+  //   (cat) => cat.FAClassificationSlug == ctx.params.categorySlug
+  // );
+  if (subCategories.length > 0) {
     return {
       props: {
         categories: subCategories,

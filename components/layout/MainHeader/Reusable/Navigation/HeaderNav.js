@@ -4,6 +4,7 @@ import HeaderNavItem from "./HeaderNavItem";
 
 const HeaderNav = (props) => {
   const { lang } = props;
+  console.log(props.test);
   const [navLinks, setNavLinks] = useState([]);
 
   useEffect(() => {
@@ -16,7 +17,7 @@ const HeaderNav = (props) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            lang: lang,
+            lang: "ar",
             FAClassification_ParentId: 81,
           }),
         }
