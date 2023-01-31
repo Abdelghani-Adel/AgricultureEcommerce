@@ -846,6 +846,11 @@ Version: 1.0.0
   display: flex;
   align-items: center;
 }
+
+.main_header-controls-inner .language-change {
+  color: #40a13d;
+}
+
 .main_header-controls-inner li.main_header-cart a svg {
   font-size: 16px;
   color: #838383;
@@ -3271,7 +3276,7 @@ td.remove {
 }
 
 @media (max-width: 991px) {
-  .banner-3.andro_banner .andro_arrows {
+  /* .banner-3.andro_banner .andro_arrows {
     margin-top: 10px;
   }
 
@@ -3286,7 +3291,7 @@ td.remove {
     padding: 30px 15px;
     background-color: #f0f2f3;
     border-radius: 0;
-  }
+  } */
 
   .mb-lg-20 {
     margin-bottom: 20px;
@@ -3391,7 +3396,7 @@ td.remove {
   .footer-widget {
     padding-bottom: 40px;
   }
-  .andro_instagram {
+  /* .andro_instagram {
     max-width: 400px;
     padding: 40px;
   }
@@ -3402,11 +3407,11 @@ td.remove {
   .andro_post.andro_post-list .andro_post-thumb a,
   .andro_post.andro_post-list .andro_post-thumb a img {
     border-radius: 8px;
-  }
+  } */
   /* .andro_product-additional-info .tab-content {
     margin-top: 30px;
   } */
-  .andro_auth-wrapper {
+  /* .andro_auth-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -3417,7 +3422,7 @@ td.remove {
   }
   .andro_companies .andro_companies-item {
     min-height: 110px;
-  }
+  } */
 }
 
 @media (max-width: 768px) {
@@ -3575,12 +3580,12 @@ td.remove {
 }
 
 @media (max-width: 575px) {
-  .andro_newsletter-popup-modal .modal-body {
+  /* .andro_newsletter-popup-modal .modal-body {
     padding: 20px;
   }
   .andro_newsletter-popup-modal .form-control {
     width: 100%;
-  }
+  } */
   .main_header.header-2 .main_header-middle .navbar {
     padding: 10px 0;
   }
@@ -3656,7 +3661,7 @@ td.remove {
   /* .andro_product-additional-info .tab-content {
     padding: 20px;
   } */
-  .comments-list .comment-item span {
+  /* .comments-list .comment-item span {
     position: relative;
     top: auto;
     right: auto;
@@ -3674,16 +3679,15 @@ td.remove {
   }
   .andro_auth-form {
     padding: 30px;
-  }
+  } */
   .andro_cta-content p {
     margin-bottom: 10px;
     max-width: 100%;
   }
 }
-.info_slider {
+/* .info_slider {
   margin-bottom: 20px;
   text-align: center;
-  /* background-color: #f1f1f1; */
   height: 700px;
   box-shadow: none;
   padding: 15px 0;
@@ -3693,7 +3697,6 @@ td.remove {
   visibility: visible !important;
   opacity: 1 !important;
   background-color: transparent;
-  /* font-size: 30px; */
 }
 .info_slider .slick-prev:before,
 .info_slider .slick-next:before {
@@ -3716,7 +3719,7 @@ td.remove {
   left: 25px;
   opacity: 1;
   visibility: visible;
-}
+} */
 
 .andro_fresh-arrivals-slider {
   height: 550px;
@@ -3802,7 +3805,7 @@ td.remove {
   animation: pointy 1.5s infinite;
 }
 
-@keyframes pointy {
+/* @keyframes pointy {
   0% {
     transform: translate(0px, 0px);
   }
@@ -3818,7 +3821,7 @@ td.remove {
   100% {
     transform: translate(0px, 0px);
   }
-}
+} */
 
 .header_left_offers {
   background-color: #fada5e;
