@@ -16,7 +16,6 @@ class VendorRegisterAPI {
   }
 
   async fetchCountries() {
-    console.log(process.env.NEXT_PUBLIC_API_SERVER);
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/GetEI_Country_Main`
     );

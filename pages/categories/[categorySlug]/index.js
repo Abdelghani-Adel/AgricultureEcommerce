@@ -7,7 +7,6 @@ import SubCategories from "../../../components/Sections/categories/SubCategories
 const CategorySingle = (props) => {
   const { categories, showProducts, products } = props;
   const router = useRouter();
-  console.log(products);
   return (
     <>
       <Breadcrumbs breadcrumb={{ pagename: router.query.categorySlug }} />

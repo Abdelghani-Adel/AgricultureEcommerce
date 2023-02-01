@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "next/Link";
 import MobileViewNavToggler from "./MobileViewNavToggler";
 import LanguageChange from "../LanguageChange";
 import { FaShoppingBasket, FaRegHeart, FaUserAlt, FaCommentAlt } from "react-icons/fa";

@@ -10,6 +10,6 @@ export const getStaticProps = async () => {
     props: {
       ProductList: Products,
       BooksInfoList: Products,
-    }, // will be passed to the page component as props
+    },
   };
 };

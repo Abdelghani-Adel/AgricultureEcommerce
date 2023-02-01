@@ -39,12 +39,7 @@ const CategoryNavItem = (props) => {
       {subMenuIsShown && (
         <ul className="sub-menu" role="menu">
           {link.ClassificationChildren.map((subItem) => (
-            <CategoryNavItem
-              lang={lang}
-              link={subItem}
-              key={subItem.FAClassificationId}
-              isChild={true}
-            />
+            <CategoryNavItem link={subItem} key={subItem.FAClassificationId} isChild={true} />
           ))}
         </ul>
       )}

@@ -7,7 +7,7 @@ const AdditionalInfo = (props) => {
       <div className="col-lg-4">
         <ul className="nav nav-pills andro_sticky-section" id="myTab" role="tablist">
           <li
-            class="nav-link active mb-2"
+            className="nav-link active mb-2"
             id="v-pills-home-tab"
             data-bs-toggle="pill"
             data-bs-target="#v-pills-home"
@@ -19,7 +19,7 @@ const AdditionalInfo = (props) => {
             {props.t("Products.ItemDesc")}
           </li>
           <li
-            class="nav-link mb-2"
+            className="nav-link mb-2"
             id="v-pills-profile-tab"
             data-bs-toggle="pill"
             data-bs-target="#v-pills-profile"
@@ -31,7 +31,7 @@ const AdditionalInfo = (props) => {
             {props.t("Products.AddInfo")}
           </li>
           <li
-            class="nav-link mb-2"
+            className="nav-link mb-2"
             id="v-pills-messages-tab"
             data-bs-toggle="pill"
             data-bs-target="#v-pills-messages"
@@ -47,7 +47,7 @@ const AdditionalInfo = (props) => {
       <div className="col-lg-8">
         <div className="tab-content">
           <div
-            class="tab-pane fade show active"
+            className="tab-pane fade show active"
             id="v-pills-home"
             role="tabpanel"
             aria-labelledby="v-pills-home-tab"
@@ -55,7 +55,7 @@ const AdditionalInfo = (props) => {
             <div dangerouslySetInnerHTML={{ __html: item.longdescription }} />
           </div>
           <div
-            class="tab-pane fade"
+            className="tab-pane fade"
             id="v-pills-profile"
             role="tabpanel"
             aria-labelledby="v-pills-profile-tab"
@@ -63,7 +63,7 @@ const AdditionalInfo = (props) => {
             infoooooooo
           </div>
           <div
-            class="tab-pane fade"
+            className="tab-pane fade"
             id="v-pills-messages"
             role="tabpanel"
             aria-labelledby="v-pills-messages-tab"
