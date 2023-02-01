@@ -2270,14 +2270,6 @@ table img {
   display: block;
 }
 
-.social-login {
-  margin-bottom: 20px;
-}
-
-.social-login + p a {
-  display: inline-block;
-}
-
 .auth-form {
   flex: 1;
   background-color: #f0f2f3;
