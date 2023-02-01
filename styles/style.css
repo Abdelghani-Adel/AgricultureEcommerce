@@ -2675,7 +2675,7 @@ td.remove {
 }
 
 /* 6.8. Login & Signup */
-.andro_auth-wrapper {
+/* .andro_auth-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2706,8 +2706,8 @@ td.remove {
 .andro_auth-description-inner h2 {
   margin: 0;
   color: #fff;
-}
-.andro_auth-description-inner p {
+} */
+/* .andro_auth-description-inner p {
   margin: 30px 0;
   color: #fff;
 }
@@ -2720,8 +2720,8 @@ td.remove {
 }
 .andro_social-login {
   margin-bottom: 20px;
-}
-.andro_social-login + p a {
+} */
+/* .andro_social-login + p a {
   display: inline-block;
 }
 .andro_auth-form {
@@ -2738,11 +2738,11 @@ td.remove {
 .andro_auth-form form {
   max-width: 400px;
   margin: 0 auto;
-}
+} */
 /* .andro_auth-form .andro_btn-custom {
   margin-top: 20px;
 } */
-.andro_auth-form a {
+/* .andro_auth-form a {
   display: block;
   color: #18181d;
   text-decoration: underline;
@@ -2780,7 +2780,7 @@ td.remove {
   background-color: rgba(0, 0, 0, 0.1);
   height: 1px;
   margin-left: 20px;
-}
+} */
 /* .andro_social-login-btn {
   cursor: pointer;
   display: block;
@@ -2801,7 +2801,7 @@ td.remove {
 .andro_social-login-btn i {
   margin-right: 5px;
 } */
-.andro_auth-mini {
+/* .andro_auth-mini {
   background-color: #f0f2f3;
   padding: 20px;
   border-radius: 8px;
@@ -2816,7 +2816,7 @@ td.remove {
 }
 .andro_auth-mini a:hover {
   color: #50bd4d;
-}
+} */
 
 /* 6.9. Error 404 */
 /* .andro_404-container {

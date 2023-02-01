@@ -29,7 +29,7 @@ const HeaderControls = (props) => {
           </Link>
         </li>
         <li className="main_header-favorites">
-          <Link href="/vendor-registration" title="Vendor Registration">
+          <Link href="/login" title="Login">
             <FaUserAlt />
           </Link>
         </li>

@@ -1,0 +1,57 @@
+import Link from "next/Link";
+
+const Login = (props) => {
+  return (
+    <div className="section">
+      <div className="container">
+        <div className="auth-wrapper">
+          <div
+            className="auth-description bg-cover bg-center dark-overlay dark-overlay-2"
+            style={{ backgroundImage: "url(assets/img/auth.jpg)" }}
+          >
+            <div className="auth-description-inner">
+              <i className="flaticon-diet" />
+              <h2>Welcome Back!</h2>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+          </div>
+          <div className="auth-form">
+            <h2>Log in</h2>
+            <form>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Username"
+                  name="username"
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Password"
+                  name="password"
+                />
+              </div>
+              <Link href="#">Forgot Password?</Link>
+              <button type="submit" className="andro_btn-custom primary">
+                Login
+              </button>
+
+              <div className="auth-seperator">
+                <span>OR</span>
+              </div>
+
+              <p>
+                Don't have an account? <Link href="/sign-up">Create One</Link>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
