@@ -13,8 +13,8 @@ const AreaInput = (props) => {
           Select Areas
         </option>
         {districts &&
-          districts.map((district) => (
-            <option value={district.District_Id}>{district.DistrictName_EN}</option>
+          districts.map((district,index) => (
+            <option key={index} value={district.District_Id}>{district.DistrictName_EN}</option>
           ))}
       </select>
     </div>

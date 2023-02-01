@@ -139,7 +139,7 @@ const BillingAddressCountry = (props) => {
         <option value="Kazakhstan">Kazakhstan</option>
         <option value="Kenya">Kenya</option>
         <option value="Kiribati">Kiribati</option>
-        <option value="Korea, Democratic People's Republic of">
+        <option value="Korea, Democratic Peoples Republic of">
           Korea, Democratic People's Republic of
         </option>
         <option value="Korea, Republic of">Korea, Republic of</option>

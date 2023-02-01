@@ -41,4 +41,5 @@ const UpSellsSlider = React.forwardRef((props, ref) => {
   );
 });
 
+
 export default withTranslation(UpSellsSlider);
