@@ -221,3 +221,25 @@
 .footer.footer-dark .footer-bottom ul {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+.back-to-top svg {
+  animation: pointy 1.5s infinite;
+}
+
+@keyframes pointy {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  15% {
+    transform: translate(0px, -10px);
+  }
+  30% {
+    transform: translate(0px, -5px);
+  }
+  45% {
+    transform: translate(0px, -10px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}

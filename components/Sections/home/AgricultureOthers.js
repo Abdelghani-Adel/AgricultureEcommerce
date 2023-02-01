@@ -39,7 +39,7 @@ class AgricultureOthers extends Component {
                   </h6>
                 </div>
                 <div className="andro_product-footer">
-                  <div className="andro_product-buttons">
+                  <div className="andro_product-buttons" style={{display:"block"}}>
                     <Link href={"/product-single/" + item.id} className="agri-btn-rounded primary">
                       {this.props.t("Products.ReadMore")}
                     </Link>

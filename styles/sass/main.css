@@ -1292,7 +1292,7 @@ video {
 
 .header_left_offers {
   background-color: #fada5e;
-  height: 60px;
+  height: 40px;
   padding: 0 10px;
   display: flex;
   align-items: center;
@@ -1603,16 +1603,23 @@ video {
 }
 
 .offer_banner {
-  padding: 0;
+  padding: 0 !important;
   height: 100%;
   height: 100%;
-  padding: 30px 10px;
+  /* padding: 30px 10px; */
 }
 
 .offer_banner img {
   min-height: 100px;
 }
 
+.other_banner{
+  padding: 10px 5px !important;
+  
+}
+.other_banner img{
+  min-height: 100px;
+}
 @media screen and (min-width: 700px) {
   .home-banner {
     height: 500px;
@@ -2096,7 +2103,27 @@ video {
   background-color: #50bd4d;
   color: #fff;
 }
+.back-to-top svg {
+  animation: pointy 1.5s infinite;
+}
 
+@keyframes pointy {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  15% {
+    transform: translate(0px, -10px);
+  }
+  30% {
+    transform: translate(0px, -5px);
+  }
+  45% {
+    transform: translate(0px, -10px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
 .footer-widget {
   padding-bottom: 50px;
 }

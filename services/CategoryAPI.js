@@ -1,5 +1,6 @@
 export class CategoryApi {
   async GetCategoriesMenu() {
+    console.log("process.env.NEXT_PUBLIC_API_SERVER " ,process.env.NEXT_PUBLIC_API_SERVER);
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/GetCategoriesMenu`,
       {
