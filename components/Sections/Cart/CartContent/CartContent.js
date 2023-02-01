@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import CartItemsTable from "./CartItemsTable";
 import CouponCodeApply from "./CouponCodeApply";
 

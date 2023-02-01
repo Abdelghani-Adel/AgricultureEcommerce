@@ -1,6 +1,6 @@
 export class AuthenticationAPI {
   async Register(reqBody) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/Register`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/Auth/Register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

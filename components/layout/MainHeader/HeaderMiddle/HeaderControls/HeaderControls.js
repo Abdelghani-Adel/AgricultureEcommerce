@@ -1,11 +1,14 @@
 import Link from "next/Link";
-import MobileViewNavToggler from "./MobileViewNavToggler";
+import { useEffect, useState } from "react";
+import { FaCommentAlt, FaRegHeart, FaShoppingBasket, FaUserAlt } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import LanguageChange from "../LanguageChange";
-import { FaShoppingBasket, FaRegHeart, FaUserAlt, FaCommentAlt } from "react-icons/fa";
-import { useState } from "react";
-import { useEffect } from "react";
+import MobileViewNavToggler from "./MobileViewNavToggler";
 
 const HeaderControls = (props) => {
+  const cartState = useSelector((state) => state.cart);
+  console.log(cartState.test);
+
   const [isMobileView, setIsMobileView] = useState(false);
   const updateWindowSize = () => {
     setIsMobileView(window.innerWidth < 991);
@@ -42,8 +45,10 @@ const HeaderControls = (props) => {
           <Link href="/cart" title="Cart">
             <FaShoppingBasket />
             <div className="main_header-cart-content">
-              <span>9 Items</span>
-              <span>249.99$</span>
+              <span>{cartState.items.length} Items</span>
+              <span>
+                {cartState.total} {cartState.currency}
+              </span>
             </div>
           </Link>
         </li>

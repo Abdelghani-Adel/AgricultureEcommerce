@@ -71,6 +71,15 @@ const SignUp = (props) => {
                   onChange={inputChangeHandler}
                 />
               </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Phone Number"
+                  name="phoneNumber"
+                  onChange={inputChangeHandler}
+                />
+              </div>
               <button type="submit" className="andro_btn-custom primary">
                 Sign Up
               </button>
