@@ -1,6 +1,23 @@
 import Link from "next/Link";
+import { useCallback, useState } from "react";
+import { AuthenticationAPI } from "../../services/AuthenticationAPI";
+
+const authApi = new AuthenticationAPI();
 
 const SignUp = (props) => {
+  const [reqBody, setReqBody] = useState();
+
+  const inputChangeHandler = useCallback((e) => {
+    const fieldName = e.target.name;
+    const fieldValue = e.target.value;
+    setReqBody((prev) => ({ ...prev, [fieldName]: fieldValue }));
+  });
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const res = await authApi.Register(reqBody);
+    console.log(res);
+  };
   return (
     <div className="section">
       <div className="container">
@@ -17,13 +34,14 @@ const SignUp = (props) => {
           </div>
           <div className="auth-form">
             <h2>Sign Up</h2>
-            <form>
+            <form onSubmit={submitHandler}>
               <div className="form-group">
                 <input
                   type="text"
                   className="form-control"
                   placeholder="Username"
                   name="username"
+                  onChange={inputChangeHandler}
                 />
               </div>
               <div className="form-group">
@@ -32,6 +50,7 @@ const SignUp = (props) => {
                   className="form-control form-control-light"
                   placeholder="Email Address"
                   name="email"
+                  onChange={inputChangeHandler}
                 />
               </div>
               <div className="form-group">
@@ -40,6 +59,16 @@ const SignUp = (props) => {
                   className="form-control"
                   placeholder="Password"
                   name="password"
+                  onChange={inputChangeHandler}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Confirm Password"
+                  name="confirmPassword"
+                  onChange={inputChangeHandler}
                 />
               </div>
               <button type="submit" className="andro_btn-custom primary">
