@@ -6,17 +6,29 @@ const authApi = new AuthenticationAPI();
 
 const SignUp = (props) => {
   const [reqBody, setReqBody] = useState();
+  const [data, setData] = useState();
 
   const inputChangeHandler = useCallback((e) => {
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
     setReqBody((prev) => ({ ...prev, [fieldName]: fieldValue }));
+    setData();
   });
 
   const submitHandler = async (e) => {
     e.preventDefault();
     const res = await authApi.Register(reqBody);
-    console.log(res);
+    if (!res.token) {
+      setData(res);
+    }
+
+    if (res.token) {
+      const expiration = new Date();
+      expiration.setHours(expiration.getHours() + 1);
+
+      localStorage.setItem("Agri_Token", res.token);
+      localStorage.setItem("Agri_Expiration", expiration);
+    }
   };
   return (
     <div className="section">
@@ -35,6 +47,14 @@ const SignUp = (props) => {
           <div className="auth-form">
             <h2>Sign Up</h2>
             <form onSubmit={submitHandler}>
+              {data && (
+                <ul>
+                  {Object.values(data).map((err) => (
+                    <li key={err}>{err}</li>
+                  ))}
+                </ul>
+              )}
+
               <div className="form-group">
                 <input
                   type="text"

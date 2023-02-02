@@ -1,10 +1,12 @@
 import cart from "../../../data/cart.json";
 import { withTranslation } from "react-multi-lang";
 import Link from "next/Link";
+import { useSelector } from "react-redux";
 
 const priceTotal = cart.reduce((totalPrice, item) => totalPrice + item.price * item.qty, 0);
 
 const CartTotal = (props) => {
+  const cartState = useSelector((state) => state.cart);
   return (
     <div className="col-lg-6">
       <div className="section-title">
@@ -14,7 +16,7 @@ const CartTotal = (props) => {
         <tbody>
           <tr>
             <th>Subtotal</th>
-            <td>{new Intl.NumberFormat().format(priceTotal.toFixed(2))}$</td>
+            <td>{new Intl.NumberFormat().format(cartState.total.toFixed(2))}$</td>
           </tr>
           <tr>
             <th>{props.t("Cart.Tax")}</th>

@@ -1,4 +1,8 @@
+import { getAuthToken } from "../helper/auth";
+
 export class CategoryApi {
+  authToken = getAuthToken();
+
   async GetCategoriesMenu() {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/GetCategoriesMenu`,
@@ -6,6 +10,7 @@ export class CategoryApi {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: this.authToken,
         },
         body: JSON.stringify({
           lang: "ar",
