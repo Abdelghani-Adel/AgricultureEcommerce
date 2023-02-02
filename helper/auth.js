@@ -14,8 +14,11 @@ export function getAuthToken() {
     const token = localStorage.getItem("Agri_Token");
     const authToken = `Bearer ${token}`;
 
-    const tokenDuration = getTokenDuration();
+    if (!token) {
+      return;
+    }
 
+    const tokenDuration = getTokenDuration();
     if (tokenDuration < 0) {
       return "EXPIRED";
     }

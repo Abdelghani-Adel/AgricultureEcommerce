@@ -13,7 +13,7 @@ export class AuthenticationAPI {
   }
 
   async Login(reqBody) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/Login`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/Auth/Login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,6 +26,7 @@ export class AuthenticationAPI {
     });
 
     const result = await res.json();
+    console.log(result);
     return result;
   }
 }
