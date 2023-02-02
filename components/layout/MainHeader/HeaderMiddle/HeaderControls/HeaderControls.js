@@ -7,13 +7,12 @@ import MobileViewNavToggler from "./MobileViewNavToggler";
 
 const HeaderControls = (props) => {
   const cartState = useSelector((state) => state.cart);
-  console.log(cartState.test);
 
+  // Start watching the size to unmount the mobile navigation from the dom completely in desktop view
   const [isMobileView, setIsMobileView] = useState(false);
   const updateWindowSize = () => {
     setIsMobileView(window.innerWidth < 991);
   };
-
   useEffect(() => {
     updateWindowSize();
     window.addEventListener("resize", updateWindowSize);
@@ -22,6 +21,7 @@ const HeaderControls = (props) => {
       window.removeEventListener("resize", updateWindowSize);
     };
   }, []);
+  // End watching the size to unmount the mobile navigation from the dom completely in desktop view
 
   return (
     <div className="main_header-controls">
