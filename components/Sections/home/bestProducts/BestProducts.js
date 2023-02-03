@@ -9,7 +9,7 @@ const settings = {
   slidesToScroll: 1,
   arrows: false,
   dots: false,
-  autoplay: true,
+  // autoplay: true,
   responsive: [
     {
       breakpoint: 991,
@@ -109,9 +109,11 @@ class BestProducts extends Component {
                         <span className="badge badge-secondary ">{item.CategoryName}</span>
                       </div>
 
-                      <h6 className="andro_product-title">
-                        <Link href={"/products/" + item.slug}> {item.title} </Link>
-                      </h6>
+                      <h5>
+                        <Link className="text-dark" href={"/products/" + item.slug}>
+                          {item.title}
+                        </Link>
+                      </h5>
                       <div className="andro_product-price">
                         {item.discount > 0 || item.discount !== "" ? (
                           <span>
@@ -125,8 +127,7 @@ class BestProducts extends Component {
                         )}
                         <span>{new Intl.NumberFormat().format(item.price.toFixed(2))}$</span>
                       </div>
-                      {/* <p>{item.shortdesc}</p> */}
-                      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed, facere.</p>
+                      <p>{item.shortdesc}</p>
                       <div className="andro_rating-wrapper">
                         <div className="andro_rating">{this.Rating(item.rating)}</div>
                         <span>
