@@ -5,9 +5,7 @@ body {
   /* font-family: 'Open Sans', sans-serif; */
   margin: 0;
   padding: 0;
-  font-size: 14px;
   line-height: 1.8;
-  font-weight: 400;
   color: #86858c;
   overflow-x: hidden;
 }
@@ -103,7 +101,6 @@ video {
   padding: 0;
   border: 0;
   font: inherit;
-  font-size: 100%;
 }
 
 h1,
@@ -113,17 +110,16 @@ h4,
 h5,
 h6 {
   margin: 0 0 20px;
-  font-family: "Montserrat", serif;
   font-weight: 700;
   line-height: 1.2;
   color: #18181d;
 }
-h1 {
-  // font-size: 50px;
-}
-h2 {
-  // font-size: 42px;
-}
+// h1 {
+//   font-size: 50px;
+// }
+// h2 {
+//   font-size: 42px;
+// }
 // h3 {
 //   // font-size: 34px;
 //   line-height: 1.4;

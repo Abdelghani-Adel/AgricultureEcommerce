@@ -54,10 +54,10 @@ const ProductsSlider = (props) => {
                     Use code <strong className="custom-primary">{item.couponcode}</strong> during
                     checkout
                   </p>
-                  <h1>
+                  <h5>
                     {" "}
                     {item.title} <span className="fw-400">{item.titlespan}</span>{" "}
-                  </h1>
+                  </h5>
                   <p>{item.para}</p>
                   <Link href="/shop-v1" className="andro_btn-custom">
                     Shop Now

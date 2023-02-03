@@ -9,7 +9,7 @@ const settings = {
   slidesToScroll: 1,
   arrows: false,
   dots: false,
-  // autoplay: true,
+  autoplay: true,
   responsive: [
     {
       breakpoint: 991,
