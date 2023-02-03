@@ -9,7 +9,7 @@ const settings = {
   slidesToScroll: 1,
   arrows: false,
   dots: false,
-  autoplay: true,
+  // autoplay: true,
   responsive: [
     {
       breakpoint: 991,
@@ -109,9 +109,9 @@ class BestProducts extends Component {
                         <span className="badge badge-secondary ">{item.CategoryName}</span>
                       </div>
 
-                      <h5 className="andro_product-title">
+                      <h6 className="andro_product-title">
                         <Link href={"/products/" + item.slug}> {item.title} </Link>
-                      </h5>
+                      </h6>
                       <div className="andro_product-price">
                         {item.discount > 0 || item.discount !== "" ? (
                           <span>
@@ -125,7 +125,8 @@ class BestProducts extends Component {
                         )}
                         <span>{new Intl.NumberFormat().format(item.price.toFixed(2))}$</span>
                       </div>
-                      <p>{item.shortdesc}</p>
+                      {/* <p>{item.shortdesc}</p> */}
+                      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed, facere.</p>
                       <div className="andro_rating-wrapper">
                         <div className="andro_rating">{this.Rating(item.rating)}</div>
                         <span>
@@ -152,31 +153,6 @@ class BestProducts extends Component {
             {/* Product End */}
           </Slider>
         </div>
-
-        {/* <div className="modal fade" id="detailsModal"  role="dialog" aria-labelledby="detailsModalLabel">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                      
-                        <div className="modal-body">
-                        <div className="close-btn close-dark close" data-dismiss="modal" aria-label="Close">
-                            <span />
-                            <span />
-                        </div>
-                        <Quickview />
-                        </div>
-                        
-                        </div>
-                    </div>
-                    </div> */}
-        {/* <Modal show={this.state.modalshow} className="andro_quick-view-modal p-0" onHide={this.modalClose} aria-labelledby="contained-modal-title-vcenter" size="lg" centered>
-                    <Modal.Body>
-                        <div className="close-btn close-dark close" onClick={this.modalClose}>
-                            <span />
-                            <span />
-                        </div>
-                        <Quickview />
-                    </Modal.Body>
-                </Modal> */}
       </div>
     );
   }
