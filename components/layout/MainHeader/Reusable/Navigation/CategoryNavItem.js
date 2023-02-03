@@ -4,7 +4,7 @@ import { FaAngleDown, FaAngleLeft, FaAngleRight, FaAngleUp } from "react-icons/f
 
 const CategoryNavItem = (props) => {
   const { link, isChild } = props;
-  const [subMenuIsShown, setSubMenuIsShown] = useState(false);
+  const [subMenuIsShown, setSubMenuIsShown] = useState(true);
 
   const itemStyle = link.ClassificationChildren.length > 0 ? "menu-item-has-children" : "";
   const itemLink =
@@ -22,7 +22,7 @@ const CategoryNavItem = (props) => {
   };
 
   const blurHandler = () => {
-    setSubMenuIsShown(false);
+    // setSubMenuIsShown(false);
   };
   return (
     <li className={`menu-item ${itemStyle}`} onMouseLeave={blurHandler} onClick={blurHandler}>
