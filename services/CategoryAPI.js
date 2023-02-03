@@ -24,7 +24,7 @@ export class CategoryApi {
 
   async fetchCategoryProducts(lang, cate_id) {
     const response = await fetch(
-      "http://192.168.10.251:800/api/ECommerceSetting/getItemMainByCategory",
+      `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getItemMainByCategory`,
       {
         method: "POST",
         headers: {

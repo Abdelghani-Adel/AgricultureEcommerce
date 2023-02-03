@@ -1,7 +1,7 @@
 class VendorRegisterAPI {
   async fetchRegistrationSteps() {
     const response = await fetch(
-      `http://192.168.10.251:800/api/ECommerceSetting/GetRegistartion_Step`
+      `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/GetRegistartion_Step`
     );
     const data = await response.json();
     return data;

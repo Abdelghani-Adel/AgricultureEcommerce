@@ -1,6 +1,5 @@
 import Link from "next/Link";
-import { useCallback } from "react";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { AuthenticationAPI } from "../../services/AuthenticationAPI";
 
 const authApi = new AuthenticationAPI();

@@ -1,5 +1,4 @@
 import React from "react";
-// import Breadcrumbs from "../../components/Breadcrumbs";
 import { useRouter } from "next/router";
 import { withTranslation } from "react-multi-lang";
 import Breadcrumbs from "../../../components/layout/Reusable/Breadcrumbs";
