@@ -2429,9 +2429,7 @@ td.remove {
 .andro_banner .card {
   height: 100%;
 }
-.andro_banner h1 {
-  /* font-size: 28px; */
-}
+
 .andro_banner p:first-child {
   margin-bottom: 10px;
 }
@@ -2532,11 +2530,8 @@ td.remove {
 .andro_icon-block a {
   display: block;
 }
-.andro_icon-block a h5 {
-  /* font-size: 14px; */
-}
+
 .andro_icon-block h5 {
-  /* font-size: 18px; */
   margin-bottom: 0;
 }
 .andro_icon-block h5 + p {
@@ -3616,11 +3611,10 @@ td.remove {
   .main_header-controls-inner li.main_header-cart a i {
     /* font-size: 21px; */
 }
-*/
-  /* .main_header-middle .navbar {
+/* .main_header-middle .navbar {
     padding: 10px 0;
   } */
-  .andro_shop-global {
+.andro_shop-global {
   display: block;
 }
 .andro_shop-global p {
