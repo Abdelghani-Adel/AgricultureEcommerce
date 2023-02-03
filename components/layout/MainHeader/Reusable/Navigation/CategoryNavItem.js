@@ -25,17 +25,11 @@ const CategoryNavItem = (props) => {
     setSubMenuIsShown(false);
   };
 
-  // const icon = new Buffer(link.Icon, "base64");
-  // let image = new Image();
-  console.log(link.Icon);
-  // image.src = link.Icon;
-  // console.log(image);
-
   return (
     <li className={`menu-item ${itemStyle}`} onMouseLeave={blurHandler} onClick={blurHandler}>
       <Link href={itemLink}>
         {link.FAClassificationName}
-        {/* {icon} */}
+        <img className="ms-2" src={`data:image/png;base64,${link.Icon}`} />
         {link.ClassificationChildren.length > 0 && (
           <span onClick={arrowClickHandler} className="icon">
             {!isChild && (!subMenuIsShown ? <FaAngleDown /> : <FaAngleUp />)}

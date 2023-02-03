@@ -522,6 +522,7 @@ table img {
 :root {
   font-size: 13px;
   font-family: "Montserrat", serif;
+  font-weight: 400;
 }
 
 h1 {
