@@ -1888,28 +1888,71 @@ table img {
     background-color: #50bd4d;
   }
 }
-.mobilemenu-overlay {
-  position: fixed;
+.main_header .sub-menu {
+  position: absolute;
+  top: 100%;
   left: 0;
+  width: 100%;
+  background-color: #fff;
+  transition: 0.3s;
+  opacity: 0;
+  transform-style: preserve-3d;
+  transform: rotateX(-75deg);
+  transform-origin: 0% 0%;
+  visibility: hidden;
+  z-index: 998;
+  min-width: 230px;
+  box-shadow: 0 3px 24px rgba(0, 0, 0, 0.04);
+}
+
+.main_header .sub-menu .sub-menu {
   top: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 10;
-  background-color: rgba(93, 93, 93, 0.3411764706);
+  left: 100%;
+}
+
+.main_header .sub-menu li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 10px;
+  color: #838383;
+  font-weight: 400;
+  border-bottom: 1px solid #f0f2f3;
+  cursor: pointer;
+}
+
+.main_header .sub-menu li:hover {
+  background-color: #f0f2f3;
+}
+
+.main_header .sub-menu.sub-menu-left {
+  left: auto;
+  right: 0;
+}
+
+.main_header-middle .navbar-nav .menu-item-has-children:hover > .sub-menu,
+.navbar-nav .menu-item-has-children:hover > .sub-menu,
+.andro_search-adv-cats:hover .sub-menu,
+.main_header-top-links .menu-item-has-children:hover .sub-menu,
+.andro_flex-menu .menu-item-has-children:hover .sub-menu,
+.main_header .menu-item-has-children:hover .sub-menu {
+  transform: rotateX(0deg);
+  opacity: 1;
+  visibility: visible;
 }
 
 .header-nav {
   display: flex;
-  align-items: flex-start;
-  flex-direction: column;
   text-align: left;
   background-color: #5d5d5d;
-  height: 100vh;
-  width: 40vw;
+  align-items: center;
+  flex-direction: row;
+  height: initial;
+  width: initial;
 }
 
 .header-nav .menu-item {
-  margin-top: 10px;
+  margin-top: 0;
 }
 
 .header-nav > .menu-item > a {
@@ -1944,23 +1987,6 @@ table img {
   position: relative;
 }
 
-.main_header .sub-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: #fff;
-  transition: 0.3s;
-  opacity: 0;
-  transform-style: preserve-3d;
-  transform: rotateX(-75deg);
-  transform-origin: 0% 0%;
-  visibility: hidden;
-  z-index: 998;
-  min-width: 230px;
-  box-shadow: 0 3px 24px rgba(0, 0, 0, 0.04);
-}
-
 .header-nav .sub-menu {
   position: absolute;
   top: 100%;
@@ -1972,85 +1998,28 @@ table img {
   transform-origin: 0% 0%;
   z-index: 998;
   min-width: 230px;
+  border: 1px solid #f0f2f3;
   box-shadow: 0 3px 24px rgba(0, 0, 0, 0.04);
   transform: rotateX(0deg);
   opacity: 1;
   visibility: visible;
 }
 
-.main_header .sub-menu .sub-menu {
+.mobilemenu-overlay {
+  position: fixed;
+  left: 0;
   top: 0;
-  left: 100%;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background-color: rgba(93, 93, 93, 0.3411764706);
 }
 
-.main_header .sub-menu li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 3px 10px;
-  color: #838383;
-  font-weight: 400;
-  border-bottom: 1px solid #f0f2f3;
-  cursor: pointer;
-}
-
-.main_header .sub-menu li:hover {
-  background-color: #f0f2f3;
-}
-
-.main_header .sub-menu.sub-menu-left {
-  left: auto;
-  right: 0;
-}
-
-@media screen and (min-width: 991px) {
-  .header-nav {
-    align-items: center;
-    flex-direction: row;
-    height: initial;
-    width: initial;
-  }
-  .header-nav .menu-item {
-    margin: 0;
-  }
-  .header-nav .sub-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    transition: 0.3s;
-    transform-style: preserve-3d;
-    transform-origin: 0% 0%;
-    z-index: 998;
-    min-width: 230px;
-    border: 1px solid #f0f2f3;
-    box-shadow: 0 3px 24px rgba(0, 0, 0, 0.04);
-    transform: rotateX(0deg);
-    opacity: 1;
-    visibility: visible;
-  }
-  .main_header .sub-menu .sub-menu {
-    top: 0;
-    left: 100%;
-  }
-}
 .mobile_nav {
   width: 40vw;
   background-color: #5d5d5d;
   height: 100vh;
   padding: 10px;
-}
-
-.main_header-middle .navbar-nav .menu-item-has-children:hover > .sub-menu,
-.navbar-nav .menu-item-has-children:hover > .sub-menu,
-.andro_search-adv-cats:hover .sub-menu,
-.main_header-top-links .menu-item-has-children:hover .sub-menu,
-.andro_flex-menu .menu-item-has-children:hover .sub-menu,
-.main_header .menu-item-has-children:hover .sub-menu {
-  transform: rotateX(0deg);
-  opacity: 1;
-  visibility: visible;
 }
 
 .footer {
