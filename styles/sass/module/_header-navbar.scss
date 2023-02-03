@@ -66,7 +66,6 @@
   visibility: hidden;
   z-index: 998;
   min-width: 230px;
-  border: 1px solid #f0f2f3;
   box-shadow: 0 3px 24px rgba(0, 0, 0, 0.04);
 }
 
@@ -82,7 +81,6 @@
   transform-origin: 0% 0%;
   z-index: 998;
   min-width: 230px;
-  border: 1px solid #f0f2f3;
   box-shadow: 0 3px 24px rgba(0, 0, 0, 0.04);
 
   -webkit-transform: rotateX(0deg);
@@ -109,6 +107,11 @@
 
 .main_header .sub-menu li:hover {
   background-color: #f0f2f3;
+}
+
+.main_header .sub-menu.sub-menu-left {
+  left: auto;
+  right: 0;
 }
 
 @media screen and (min-width: 991px) {
@@ -147,4 +150,23 @@
     top: 0;
     left: 100%;
   }
+}
+
+.mobile_nav {
+  width: 40vw;
+  background-color: #5d5d5d;
+  height: 100vh;
+  padding: 10px;
+}
+
+.main_header-middle .navbar-nav .menu-item-has-children:hover > .sub-menu,
+.navbar-nav .menu-item-has-children:hover > .sub-menu,
+.andro_search-adv-cats:hover .sub-menu,
+.main_header-top-links .menu-item-has-children:hover .sub-menu,
+.andro_flex-menu .menu-item-has-children:hover .sub-menu,
+.main_header .menu-item-has-children:hover .sub-menu {
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  opacity: 1;
+  visibility: visible;
 }

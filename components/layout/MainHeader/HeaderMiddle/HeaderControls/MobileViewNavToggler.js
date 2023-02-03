@@ -15,7 +15,7 @@ const MobileViewNavToggler = (props) => {
 
   useEffect(() => {
     const getCategories = async () => {
-      const categories = await CategoryAPI.GetCategoriesMenu();
+      const categories = await categoryApi.GetCategoriesMenu();
       setCategories(categories);
     };
     getCategories();
@@ -31,24 +31,18 @@ const MobileViewNavToggler = (props) => {
 
       {navIsShown && (
         <div className="mobilemenu-overlay" onClick={clickHandler}>
-          <div className="sidebar d-block">
-            <div className="sidebar-widget widget-categories-icons">
-              <h5 className="widget-title">Popular Categories</h5>
-              <div className="row"></div>
-            </div>
-            <div className="sidebar-widget">
-              <h5 className="widget-title">Popular Tags</h5>
-              <div className="tagcloud">
-                {categories &&
-                  categories.map((category) => (
-                    <Link
-                      key={category.FAClassificationId}
-                      href={`/categories/${category.FAClassificationSlug}?id=${category.FAClassificationId}`}
-                    >
-                      {category.FAClassificationName}
-                    </Link>
-                  ))}
-              </div>
+          <div className="mobile_nav">
+            <h4 className="text-center text-white">Categories</h4>
+            <div className="tagcloud">
+              {categories &&
+                categories.map((category) => (
+                  <Link
+                    key={category.FAClassificationId}
+                    href={`/categories/${category.FAClassificationSlug}?id=${category.FAClassificationId}`}
+                  >
+                    {category.FAClassificationName}
+                  </Link>
+                ))}
             </div>
           </div>
         </div>
