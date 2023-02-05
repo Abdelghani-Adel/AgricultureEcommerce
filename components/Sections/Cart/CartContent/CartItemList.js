@@ -7,7 +7,7 @@ const CartItemList = () => {
   return (
     <Fragment>
       {cartState.items.map((item) => (
-        <CartItem key={item.id} item={item} />
+        <CartItem key={item.Item_Id} item={item} />
       ))}
     </Fragment>
   );

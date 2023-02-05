@@ -28,8 +28,9 @@ const CategoryNavItem = (props) => {
   return (
     <li className={`menu-item ${itemStyle}`} onMouseLeave={blurHandler} onClick={blurHandler}>
       <Link href={itemLink}>
+      <img className="ms-2" src={`data:image/png;base64,${link.Icon}`} width="16" height="16"/>
         {link.FAClassificationName}
-        <img className="ms-2" src={`data:image/png;base64,${link.Icon}`} />
+       
         {link.ClassificationChildren.length > 0 && (
           <span onClick={arrowClickHandler} className="icon">
             {!isChild && (!subMenuIsShown ? <FaAngleDown /> : <FaAngleUp />)}

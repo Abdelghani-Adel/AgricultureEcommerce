@@ -46,7 +46,7 @@
 }
 @media screen and (min-width: 700px) {
   .home-banner {
-    height: 500px;
+    // height: 500px;
     position: relative;
   }
   .advertise-slider {
@@ -60,11 +60,25 @@
     max-height: initial;
   }
 
+  .other_banner{
+    text-align: center;
+  }
   .home-banner--content {
     position: absolute;
     width: 100%;
     z-index: 2;
     // bottom: 10px;
     bottom: -30%;
+  }
+}
+
+
+@media screen and (max-width: 700px) {
+  .home-banner--content {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    // bottom: 10px;
+    // bottom: -30%;
   }
 }

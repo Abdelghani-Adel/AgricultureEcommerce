@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
-
+import {AuthHeaders , handleError} from "../../helper/apiHelper";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
@@ -9,49 +9,46 @@ const cartSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getCartDetails.fulfilled, (state, { payload }) => {
+      console.log("state " ,payload);
       state.items = payload.items;
-      state.total = payload.total;
+       state.total = payload.total;
     });
     builder.addCase(editCart.fulfilled, (state, { payload }) => {
       state.items = payload.items;
-      state.total = payload.total;
+       state.total = payload.total;
     });
   },
+  reducers: {
+    save: (state, param) => {
+        const { payload } = param;
+        state.location = [...state.location, payload];
+    },
+}
 });
 
 export const getCartDetails = createAsyncThunk("cart/getCartDetails", async () => {
+  const Req ={
+    "lang": "AR"
+  }
+ const res =  await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/getCartItem`, {
+  method: "POST",
+  headers: AuthHeaders(),
+  body: JSON.stringify(Req),
+})
+  
+    .then((resp) => {
+      var result =  resp.json();
+      console.log("result cart " ,result);
+      return result;
+    })
+    .catch(function (error) {
+      console.log("result cart error" ,error);
+      handleError(error, dispatch);
+    });
+
   const data = {
-    items: [
-      {
-        id: 1,
-        img: "assets/img/products/1.png",
-        title: "Kiwi",
-        qty: 2,
-        price: 12.99,
-      },
-      {
-        id: 2,
-        img: "assets/img/products/2.png",
-        title: "Watermelons",
-        qty: 1,
-        price: 12.99,
-      },
-      {
-        id: 3,
-        img: "assets/img/products/3.png",
-        title: "Cucumbers",
-        qty: 3,
-        price: 12.99,
-      },
-      {
-        id: 4,
-        img: "assets/img/products/3.png",
-        title: "Cucumbers",
-        qty: 3,
-        price: 12.99,
-      },
-    ],
-    total: 99,
+    items: res.items,
+    total: res.totalPrice,
     currency: "$",
   };
   return data;
@@ -64,4 +61,5 @@ export const editCart = createAsyncThunk("cart/editCart", async () => {
 });
 
 export const cartActions = cartSlice.actions;
+export const cartReducers = cartSlice.reducer;
 export default cartSlice;

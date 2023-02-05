@@ -14,7 +14,7 @@ const settings = {
     {
       breakpoint: 991,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 1,
       },
     },
     {
@@ -23,6 +23,12 @@ const settings = {
         slidesToShow: 1,
       },
     },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+      },
+    }
   ],
 };
 class BestProducts extends Component {

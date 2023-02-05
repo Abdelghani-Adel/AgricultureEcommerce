@@ -27,6 +27,11 @@
   margin: 0 0 15px;
   word-break: break-word;
 }
+.andro_product .andro_product-body p{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 .andro_product .andro_product-body .category_badge {
   display: block;
   width: 100%;

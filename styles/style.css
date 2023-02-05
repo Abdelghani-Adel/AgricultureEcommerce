@@ -3232,6 +3232,9 @@ td.remove {
 }
 
 @media (max-width: 991px) {
+  .carousel_bg{
+    margin-bottom: 25% !important;
+  }
   /* .banner-3.andro_banner .andro_arrows {
     margin-top: 10px;
   }
@@ -3396,6 +3399,7 @@ td.remove {
   }
   .andro_banner {
     padding: 15px;
+    text-align:  center !important;
   }
   .banner-2.andro_banner .andro_banner-slider-text h1 {
     /* font-size: 44px; */
@@ -3684,6 +3688,7 @@ td.remove {
 
 .andro_fresh-arrivals-slider {
   height: 550px;
+  /* height: 100% !important; */
 }
 /* .agri-btn-rounded {
   width: 80%;
@@ -3833,6 +3838,23 @@ td.remove {
 .dynamic_content {
   margin-top: -25%;
 }
+/* .carousel_bg .slick-slider {
+  overflow: hidden !important;
+} */
+@media (max-width: 991px) {
+  .andro_fresh-arrivals .slick-track{
+    width: 9000px !important;
+    height: 550px !important; 
+  }
+  .andro_fresh-arrivals .slick-list{
+    height: 550px !important; 
+  }
+  .andro_fresh-arrivals-slider{
+    /* height: 400px; */
+    overflow: hidden;
+  }
+}
+
 .info_slider .slick-slider {
   /* height: 500px; */
   /* background-image: url("https://plasticseurope.org/wp-content/uploads/2021/10/5.6._aaheader.png");

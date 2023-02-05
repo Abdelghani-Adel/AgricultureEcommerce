@@ -24,6 +24,12 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap"
           rel="stylesheet"
         ></link>
+       
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+
         <script
           src="https://code.jquery.com/jquery-3.5.1.min.js"
           integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -44,10 +50,6 @@ export default function Document() {
           integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
           crossorigin="anonymous"
         ></script>
-      </Head>
-      <body>
-        <Main />
-        <NextScript />
       </body>
     </Html>
   );

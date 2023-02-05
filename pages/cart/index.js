@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 const Cart = () => {
   const cartState = useSelector((state) => state.cart);
-
+console.log("cartState " ,cartState);
   return (
     <Fragment>
       <Breadcrumbs breadcrumb={{ pagename: "Cart" }} />

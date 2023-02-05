@@ -1,3 +1,6 @@
+
+
+
 export function getTokenDuration() {
   if (typeof window !== "undefined") {
     const storedExpirationDate = localStorage.getItem("Agri_Expiration");
@@ -15,7 +18,8 @@ export function getAuthToken() {
     const authToken = `Bearer ${token}`;
 
     if (!token) {
-      return;
+     return;
+     // history.push("/POS/");
     }
 
     const tokenDuration = getTokenDuration();
