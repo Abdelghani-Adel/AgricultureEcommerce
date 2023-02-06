@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
-import {AuthHeaders , handleError} from "../../helper/apiHelper";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { getAuthHeaders } from "../../helper/auth";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
@@ -9,57 +9,41 @@ const cartSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getCartDetails.fulfilled, (state, { payload }) => {
-      console.log("state " ,payload);
+      console.log("state ", payload);
       state.items = payload.items;
-       state.total = payload.total;
+      state.total = payload.total;
     });
     builder.addCase(editCart.fulfilled, (state, { payload }) => {
       state.items = payload.items;
-       state.total = payload.total;
+      state.total = payload.totalPrice;
     });
   },
   reducers: {
     save: (state, param) => {
-        const { payload } = param;
-        state.location = [...state.location, payload];
+      const { payload } = param;
+      state.location = [...state.location, payload];
     },
-}
+  },
 });
 
 export const getCartDetails = createAsyncThunk("cart/getCartDetails", async () => {
-  const Req ={
-    "lang": "AR"
-  }
- const res =  await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/getCartItem`, {
-  method: "POST",
-  headers: AuthHeaders(),
-  body: JSON.stringify(Req),
-})
-  
-    .then((resp) => {
-      var result =  resp.json();
-      console.log("result cart " ,result);
-      return result;
-    })
-    .catch(function (error) {
-      console.log("result cart error" ,error);
-      handleError(error, dispatch);
-    });
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/getCartItem`, {
+    method: "POST",
+    headers: getAuthHeaders(),
+    body: JSON.stringify({ lang: "AR" }),
+  });
 
-  const data = {
-    items: res.items,
-    total: res.totalPrice,
-    currency: "$",
-  };
-  return data;
+  const cartData = await res.json();
+  console.log(cartData);
+
+  return cartData;
 });
 
-export const editCart = createAsyncThunk("cart/editCart", async () => {
+export const editCart = createAsyncThunk("cart/editCart", async (item) => {
   // fetch api to edit the cart details
   // the return of the api will be the new cart details
   // return the cart details that came from the database
 });
 
 export const cartActions = cartSlice.actions;
-export const cartReducers = cartSlice.reducer;
 export default cartSlice;

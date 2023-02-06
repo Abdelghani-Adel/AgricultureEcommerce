@@ -1,10 +1,12 @@
 import Link from "next/Link";
+import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
 import { AuthenticationAPI } from "../../services/AuthenticationAPI";
 
 const authApi = new AuthenticationAPI();
 
 const SignUp = (props) => {
+  const router = useRouter();
   const [reqBody, setReqBody] = useState();
   const [data, setData] = useState();
 
@@ -28,6 +30,8 @@ const SignUp = (props) => {
 
       localStorage.setItem("Agri_Token", res.token);
       localStorage.setItem("Agri_Expiration", expiration);
+
+      router.push("/");
     }
   };
   return (

@@ -1,12 +1,14 @@
 import Link from "next/Link";
+import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
 import { AuthenticationAPI } from "../../services/AuthenticationAPI";
 
 const authApi = new AuthenticationAPI();
 
 const Login = (props) => {
+  const router = useRouter();
   const [reqBody, setReqBody] = useState({ rememberMe: false });
-  const [data, setData] = useState();
+  const [errors, setErrors] = useState();
 
   const inputChangeHandler = useCallback((e) => {
     const fieldName = e.target.name;
@@ -19,7 +21,7 @@ const Login = (props) => {
     const res = await authApi.Login(reqBody);
 
     if (!res.token) {
-      setData(res);
+      setErrors(res);
     }
 
     if (res.token) {
@@ -28,6 +30,8 @@ const Login = (props) => {
 
       localStorage.setItem("Agri_Token", res.token);
       localStorage.setItem("Agri_Expiration", expiration);
+
+      router.push("/");
     }
   };
   return (
@@ -47,6 +51,14 @@ const Login = (props) => {
           <div className="auth-form">
             <h2>Log in</h2>
             <form onSubmit={submitHandler}>
+              {errors && (
+                <ul>
+                  {Object.values(errors).map((err) => (
+                    <li key={err}>{err}</li>
+                  ))}
+                </ul>
+              )}
+
               <div className="form-group">
                 <input
                   type="text"

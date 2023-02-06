@@ -28,7 +28,7 @@ const settings = {
       settings: {
         slidesToShow: 2,
       },
-    }
+    },
   ],
 };
 class BestProducts extends Component {

@@ -1,6 +1,3 @@
-
-
-
 export function getTokenDuration() {
   if (typeof window !== "undefined") {
     const storedExpirationDate = localStorage.getItem("Agri_Expiration");
@@ -18,14 +15,24 @@ export function getAuthToken() {
     const authToken = `Bearer ${token}`;
 
     if (!token) {
-     return;
-     // history.push("/POS/");
+      return;
+      // history.push("/POS/");
     }
 
     const tokenDuration = getTokenDuration();
     if (tokenDuration < 0) {
       return "EXPIRED";
     }
+
     return authToken;
   }
+}
+
+export function getAuthHeaders() {
+  return {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Origin",
+    Authorization: getAuthToken(),
+  };
 }

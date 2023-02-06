@@ -1,11 +1,14 @@
+import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getAuthToken, getTokenDuration } from "../../helper/auth";
+import { authStateActions } from "../../redux/slices/authSlice";
 import { getCartDetails } from "../../redux/slices/cartSlice";
 import Footer from "./Footer/Footer";
 import MainHeader from "./MainHeader/MainHeader";
 
 export default function MainLayout(props) {
+  const router = useRouter();
   const dispatch = useDispatch();
   const token = getAuthToken();
 
@@ -17,12 +20,16 @@ export default function MainLayout(props) {
     dispatch(getCartDetails());
 
     if (!token) {
+      authStateActions.changeAuthState(false);
+      router.push("/login");
       return;
     }
 
     if (token === "EXPIRED") {
+      authStateActions.changeAuthState(false);
       localStorage.removeItem("Agri_Token");
       localStorage.removeItem("Agri_Expiration");
+      router.push("/login");
       return;
     }
 
@@ -31,7 +38,10 @@ export default function MainLayout(props) {
       localStorage.removeItem("Agri_Token");
       localStorage.removeItem("Agri_Expiration");
     }, tokenDuration);
+
+    authStateActions.changeAuthState(true);
   }, [token]);
+
   return (
     <>
       <MainHeader changeLang={changeLang} lang={props.lang} />
