@@ -20,13 +20,13 @@ export default function MainLayout(props) {
     dispatch(getCartDetails());
 
     if (!token) {
-      authStateActions.changeAuthState(false);
+      dispatch(authStateActions.changeAuthState(false));
       router.push("/login");
       return;
     }
 
     if (token === "EXPIRED") {
-      authStateActions.changeAuthState(false);
+      dispatch(authStateActions.changeAuthState(false));
       localStorage.removeItem("Agri_Token");
       localStorage.removeItem("Agri_Expiration");
       router.push("/login");
@@ -39,7 +39,7 @@ export default function MainLayout(props) {
       localStorage.removeItem("Agri_Expiration");
     }, tokenDuration);
 
-    authStateActions.changeAuthState(true);
+    dispatch(authStateActions.changeAuthState(true));
   }, [token]);
 
   return (

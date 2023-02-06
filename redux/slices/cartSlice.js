@@ -9,7 +9,6 @@ const cartSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getCartDetails.fulfilled, (state, { payload }) => {
-      console.log("state ", payload);
       state.items = payload.items;
       state.total = payload.total;
     });
@@ -34,7 +33,6 @@ export const getCartDetails = createAsyncThunk("cart/getCartDetails", async () =
   });
 
   const cartData = await res.json();
-  console.log(cartData);
 
   return cartData;
 });
