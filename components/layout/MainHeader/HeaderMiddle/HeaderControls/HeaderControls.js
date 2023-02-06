@@ -1,12 +1,15 @@
 import Link from "next/Link";
 import { useEffect, useState } from "react";
 import { FaCommentAlt, FaRegHeart, FaShoppingBasket, FaUserAlt } from "react-icons/fa";
+import { BsFillArrowRightSquareFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import LanguageChange from "../LanguageChange";
 import MobileViewNavToggler from "./MobileViewNavToggler";
+import { Logout } from "../../../../../helper/auth";
 
 const HeaderControls = (props) => {
   const cartState = useSelector((state) => state.cart);
+  const authState = useSelector((state) => state.auth);
 
   // Start watching the size to unmount the mobile navigation from the dom completely in desktop view
   const [isMobileView, setIsMobileView] = useState(false);
@@ -23,6 +26,10 @@ const HeaderControls = (props) => {
   }, []);
   // End watching the size to unmount the mobile navigation from the dom completely in desktop view
 
+  const logoutHandler = () => {
+    Logout();
+  };
+
   return (
     <div className="main_header-controls">
       <ul className="main_header-controls-inner">
@@ -32,9 +39,15 @@ const HeaderControls = (props) => {
           </Link>
         </li>
         <li className="main_header-favorites">
-          <Link href="/login" title="Login">
-            <FaUserAlt />
-          </Link>
+          {authState.isAuthenticated ? (
+            <Link href="" title="logout" onClick={logoutHandler}>
+              <BsFillArrowRightSquareFill />
+            </Link>
+          ) : (
+            <Link href="/login" title="Login">
+              <FaUserAlt />
+            </Link>
+          )}
         </li>
         <li className="main_header-favorites">
           <Link href="/wishlist" title="Wish List">

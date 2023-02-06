@@ -7,7 +7,6 @@ const authSlice = createSlice({
   },
   reducers: {
     changeAuthState: (state, params) => {
-      console.log(params);
       return { isAuthenticated: params.payload };
     },
   },

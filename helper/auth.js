@@ -36,3 +36,10 @@ export function getAuthHeaders() {
     Authorization: getAuthToken(),
   };
 }
+
+export function Logout() {
+  if (typeof window !== "undefined") {
+    localStorage.removeItem("Agri_Token");
+    localStorage.removeItem("Agri_Expiration");
+  }
+}

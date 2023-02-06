@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getAuthToken, getTokenDuration } from "../../helper/auth";
 import { authStateActions } from "../../redux/slices/authSlice";
-import { getCartDetails } from "../../redux/slices/cartSlice";
+import { cartActions, getCartDetails } from "../../redux/slices/cartSlice";
 import Footer from "./Footer/Footer";
 import MainHeader from "./MainHeader/MainHeader";
 
@@ -21,7 +21,9 @@ export default function MainLayout(props) {
 
     if (!token) {
       dispatch(authStateActions.changeAuthState(false));
+      dispatch(cartActions.clearCart());
       router.push("/login");
+
       return;
     }
 
@@ -29,6 +31,7 @@ export default function MainLayout(props) {
       dispatch(authStateActions.changeAuthState(false));
       localStorage.removeItem("Agri_Token");
       localStorage.removeItem("Agri_Expiration");
+      dispatch(cartActions.clearCart());
       router.push("/login");
       return;
     }
