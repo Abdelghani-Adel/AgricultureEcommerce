@@ -1,3 +1,4 @@
+import { useSession } from "next-auth/react";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getCartDetails } from "../../redux/slices/cartSlice";
@@ -6,6 +7,7 @@ import MainHeader from "./MainHeader/MainHeader";
 
 export default function MainLayout(props) {
   const dispatch = useDispatch();
+  const session = useSession();
 
   const changeLang = (lang) => {
     props.changeLang(lang);

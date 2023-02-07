@@ -1,5 +1,6 @@
 import { useSession } from "next-auth/react";
 import Link from "next/Link";
+import { useRouter } from "next/router";
 import { useCallback } from "react";
 import { FaShoppingBasket } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
@@ -8,10 +9,16 @@ import { editCart } from "../../../redux/slices/cartSlice";
 
 const AddToCart = (props) => {
   const session = useSession();
+  const router = useRouter();
   const dispatch = useDispatch();
   const { item } = props;
 
   const addToCartHandler = useCallback((e) => {
+    e.preventDefault();
+    if (session.status != "authenticated") {
+      router.push("/login");
+      return;
+    }
     const payload = {
       action: "plus",
       item: item,
@@ -21,7 +28,7 @@ const AddToCart = (props) => {
   });
   return (
     <Link
-      href={session.status == "authenticated" ? "javascript:;" : "/login"}
+      href="#"
       className={props.style}
       title={props.t("Products.AddToCart")}
       onClick={addToCartHandler}

@@ -2,24 +2,21 @@ import Link from "next/Link";
 
 const OrderItem = (props) => {
   const { item } = props;
+  console.log(item);
   return (
     <tr>
       <td data-title="Product">
         <div className="andro_cart-product-wrapper">
           <div className="andro_cart-product-body">
             <h6>
-              <Link href="#">{item.productname}</Link>
+              <Link href="#">{item.Item_Name}</Link>
             </h6>
-
-            <p>{item.qty} Kilos</p>
           </div>
         </div>
       </td>
-      <td data-title="Quantity">x{item.qty}</td>
+      <td data-title="Quantity">x {item.Qty}</td>
       <td data-title="Total">
-        <strong>
-          {new Intl.NumberFormat().format((item.qty * item.price).toFixed(2))}$
-        </strong>
+        <strong>{(item.Qty * item.UnitPrice).toFixed(2)} $</strong>
       </td>
     </tr>
   );

@@ -1,11 +1,7 @@
-import checkout from "../../../../data/checkout.json";
-
-const priceTotal = checkout.reduce(
-  (totalPrice, item) => totalPrice + item.price * item.qty,
-  0
-);
+import { useSelector } from "react-redux";
 
 const OrderTotal = (props) => {
+  const cartState = useSelector((state) => state.cart);
   return (
     <tr className="total">
       <td>
@@ -13,9 +9,7 @@ const OrderTotal = (props) => {
       </td>
       <td />
       <td>
-        <strong>
-          {new Intl.NumberFormat().format(priceTotal.toFixed(2))}$
-        </strong>
+        <strong>{cartState.total.toFixed(2)} $</strong>
       </td>
     </tr>
   );
