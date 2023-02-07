@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { editCart } from "../../../../redux/slices/cartSlice";
 
 const Best_Product = (props) => {
-  console.log(props);
   const { item } = props;
   const dispatch = useDispatch();
 

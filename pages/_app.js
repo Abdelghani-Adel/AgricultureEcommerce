@@ -11,6 +11,7 @@ import "../styles/sass/main.css";
 import "../styles/style.css";
 import ar from "../translations/ar.json";
 import en from "../translations/en.json";
+import { SessionProvider } from "next-auth/react";
 
 setTranslations({ ar, en });
 setDefaultLanguage("en");

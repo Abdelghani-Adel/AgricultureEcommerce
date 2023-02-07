@@ -5,6 +5,7 @@ import { Rating } from "../../../../helper/helper";
 
 const ProductDetails = (props) => {
   const { item } = props;
+  console.log(item);
   return (
     <Fragment>
       {/* Add to wishlist */}
@@ -25,7 +26,7 @@ const ProductDetails = (props) => {
       </div>
 
       {/* Product Title */}
-      <h3>{item.title}</h3>
+      <h3>{item.Item_Name}</h3>
 
       {/* Product Price */}
       <div className="andro_product-price">{item.price} $</div>

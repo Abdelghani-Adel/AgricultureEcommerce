@@ -7,13 +7,13 @@ const CategoryNavItem = (props) => {
   const [subMenuIsShown, setSubMenuIsShown] = useState(false);
 
   const itemStyle = link.ClassificationChildren.length > 0 ? "menu-item-has-children" : "";
-  const itemLink =
-    link.ClassificationChildren.length > 0
-      ? `/categories/${"mopidat"}?id=${link.FAClassificationId}`
-      : `/categories/${"organic"}?id=${link.FAClassificationId}`;
-  // const itemLink = `/categories/${link.FAClassificationSlug}?&id=${
-  //   link.FAClassificationId
-  // }`;
+  // const itemLink =
+  //   link.ClassificationChildren.length > 0
+  //     ? `/categories/${"mopidat"}?id=${link.FAClassificationId}`
+  //     : `/categories/${"organic"}?id=${link.FAClassificationId}`;
+  const itemLink = `/categories/${link.FAClassificationSlug || "SlugNotFound"}?&id=${
+    link.FAClassificationId
+  }`;
 
   const arrowClickHandler = (e) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ const CategoryNavItem = (props) => {
   return (
     <li className={`menu-item ${itemStyle}`} onMouseLeave={blurHandler} onClick={blurHandler}>
       <Link href={itemLink}>
-        <img className="ms-2" src={`data:image/png;base64,${link.Icon}`} width="16" height="16" />
+        <img className="me-2" src={`data:image/png;base64,${link.Icon}`} />
         {link.FAClassificationName}
 
         {link.ClassificationChildren.length > 0 && (

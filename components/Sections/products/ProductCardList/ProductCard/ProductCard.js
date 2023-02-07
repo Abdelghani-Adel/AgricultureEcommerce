@@ -6,7 +6,7 @@ import ProductThumb from "./ProductThumb";
 
 const ProductCard = (props) => {
   const { product } = props;
-  const productPath = `/products/${product.Item_Slug}`;
+  const productPath = `/products/${product.Item_Slug || "slugNotFound"}?id=${product.Item_Id}`;
 
   return (
     <div className="col-md-4 col-sm-6 col-xs-12 masonry-item">

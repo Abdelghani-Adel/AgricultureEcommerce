@@ -1,10 +1,13 @@
 import Link from "next/Link";
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { editCart } from "../../../../redux/slices/cartSlice";
 
 const BuyNow = (props) => {
   const { item } = props;
   const [clicks, setClicks] = useState(1);
+  const dispatch = useDispatch();
 
   const IncrementItem = () => {
     setClicks(clicks + 1);
@@ -16,12 +19,21 @@ const BuyNow = (props) => {
   const handleChange = (event) => {
     setClicks(event.target.value);
   };
+
+  const addToCartHandler = () => {
+    const payload = {
+      action: "plus",
+      item: item,
+    };
+
+    dispatch(editCart(payload));
+  };
   return (
-    <form className="andro_product-atc-form">
+    <div className="andro_product-atc-form">
       <div className="qty-outter">
-        <Link href={"/product-single/" + item.id} className="andro_btn-custom">
+        <button href="" className="andro_btn-custom mb-3" onClick={addToCartHandler}>
           Buy Now
-        </Link>
+        </button>
         <div className="qty">
           <span className="qty-subtract" onClick={DecreaseItem} data-type="minus" data-field>
             <FaMinus />
@@ -32,7 +44,7 @@ const BuyNow = (props) => {
           </span>
         </div>
       </div>
-    </form>
+    </div>
   );
 };
 

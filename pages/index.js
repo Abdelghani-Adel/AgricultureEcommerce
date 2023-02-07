@@ -1,3 +1,4 @@
+import { useSession } from "next-auth/react";
 import HomeContent from "../components/Sections/home/HomeContent";
 import Products from "../data/products.json";
 

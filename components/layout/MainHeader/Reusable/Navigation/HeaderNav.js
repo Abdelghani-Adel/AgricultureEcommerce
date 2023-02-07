@@ -26,10 +26,6 @@ const HeaderNav = (props) => {
       {navLinks.map((link) => (
         <HeaderNavItem lang={lang} link={link} key={link.FAClassificationId} />
       ))}
-
-      <li className="ms-5 text-primary">
-        {authState.isAuthenticated ? "Authenticated" : "Not Authenticated"}
-      </li>
     </ul>
   );
 };
