@@ -21,7 +21,7 @@ const AddToCart = (props) => {
   });
   return (
     <Link
-      href={session.status == "authenticated" ? "#" : "/login"}
+      href={session.status == "authenticated" ? "javascript:;" : "/login"}
       className={props.style}
       title={props.t("Products.AddToCart")}
       onClick={addToCartHandler}

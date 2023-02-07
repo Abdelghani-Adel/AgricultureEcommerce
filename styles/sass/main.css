@@ -785,6 +785,9 @@ p {
 .andro_product .andro_product-body h5 {
   margin: 0 0 15px;
   word-break: break-word;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .andro_product .andro_product-body p {
@@ -1037,7 +1040,7 @@ p {
 }
 @media (max-width: 575px) {
   .andro_product-atc-form .qty-outter,
-  .andro_product-atc-form .qty-outter .andro_btn-custom {
+.andro_product-atc-form .qty-outter .andro_btn-custom {
     display: block;
   }
   .andro_product-atc-form .qty-outter .andro_btn-custom + .qty {
@@ -1341,18 +1344,18 @@ p {
 }
 @media (min-width: 768px) {
   .main_header-cart-content,
-  .main_header-favorites {
+.main_header-favorites {
     display: block;
   }
 }
 @media (max-width: 575px) {
   .main_header-cart-content,
-  .main_header-favorites {
+.main_header-favorites {
     display: none;
   }
   .main_header-controls-inner li.main_header-cart a,
-  .main_header-controls-inner li a,
-  .main_header-controls .aside-toggler {
+.main_header-controls-inner li a,
+.main_header-controls .aside-toggler {
     padding: 0;
     width: 40px;
     height: 40px;
@@ -1955,7 +1958,7 @@ p {
 
 @media (max-width: 991px) {
   .andro_grid-slider .slick-prev,
-  .andro_grid-slider .slick-next {
+.andro_grid-slider .slick-next {
     display: none;
   }
   .banner-3 .slick-arrow {
@@ -2577,5 +2580,3 @@ p {
     font-size: 2rem;
   }
 }
-
-/*# sourceMappingURL=main.css.map */

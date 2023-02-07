@@ -26,8 +26,11 @@
 .andro_product .andro_product-body h5 {
   margin: 0 0 15px;
   word-break: break-word;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-.andro_product .andro_product-body p{
+.andro_product .andro_product-body p {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

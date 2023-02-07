@@ -1,25 +1,10 @@
-import { FaCompressAlt, FaRegEye, FaRegHeart, FaShoppingBasket, FaStar } from "react-icons/fa";
 import Link from "next/Link";
+import { FaRegEye, FaRegHeart } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
-import { useCallback } from "react";
-import { useDispatch } from "react-redux";
-import { cartActions, editCart } from "../../../../../redux/slices/cartSlice";
-import { useSession } from "next-auth/react";
 import AddToCart from "../../AddToCart";
 
 const ProductFooter = (props) => {
   const { product } = props;
-  const dispatch = useDispatch();
-  const session = useSession();
-
-  const addToCartHandler = useCallback((e) => {
-    const payload = {
-      action: "plus",
-      item: product,
-    };
-
-    dispatch(editCart(payload));
-  });
   return (
     <div className="andro_product-footer">
       <div className="andro_product-controls">
