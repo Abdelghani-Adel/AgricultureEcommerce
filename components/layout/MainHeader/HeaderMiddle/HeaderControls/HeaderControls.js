@@ -1,12 +1,12 @@
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/Link";
 import { useEffect, useState } from "react";
-import { FaCommentAlt, FaRegHeart, FaShoppingBasket, FaUserAlt } from "react-icons/fa";
 import { BsFillArrowRightSquareFill } from "react-icons/bs";
+import { FiLogOut } from "react-icons/fi";
+import { FaCommentAlt, FaRegHeart, FaShoppingBasket, FaUserAlt } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import LanguageChange from "../LanguageChange";
 import MobileViewNavToggler from "./MobileViewNavToggler";
-import { Logout } from "../../../../../helper/auth";
-import { signOut, useSession } from "next-auth/react";
 
 const HeaderControls = (props) => {
   const cartState = useSelector((state) => state.cart);
@@ -46,7 +46,7 @@ const HeaderControls = (props) => {
         <li className="main_header-favorites">
           {session.status == "authenticated" ? (
             <Link href="" title="logout" onClick={logoutHandler}>
-              <BsFillArrowRightSquareFill />
+              <FiLogOut />
             </Link>
           ) : (
             <Link href="/login" title="Login">

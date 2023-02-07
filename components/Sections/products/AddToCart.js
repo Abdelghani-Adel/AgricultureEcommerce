@@ -28,7 +28,7 @@ const AddToCart = (props) => {
   });
   return (
     <Link
-      href="#"
+      href="/login"
       className={props.style}
       title={props.t("Products.AddToCart")}
       onClick={addToCartHandler}
