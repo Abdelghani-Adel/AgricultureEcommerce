@@ -22,7 +22,7 @@ const CategorySingle = (props) => {
 export const getServerSideProps = async (ctx) => {
   // API fetch to get the array of sub_categories
   const subCategoriesRes = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getSubCategories`,
+    `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/GetCategoriesMenu`,
     {
       method: "POST",
       headers: {

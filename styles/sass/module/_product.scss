@@ -123,12 +123,7 @@
 .andro_product.andro_product-has-controls .andro_product-body .andro_product-price span {
   display: inline-block;
 }
-.andro_product.andro_product-has-controls
-  .andro_product-body
-  .andro_product-price
-  span:first-child {
-  // font-size: 16px;
-}
+
 .andro_product.andro_product-has-controls .andro_product-body .andro_product-price span + span {
   margin-left: 5px;
 }
@@ -146,8 +141,6 @@
 .andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a {
   flex: 1;
   box-shadow: none;
-}
-.andro_product.andro_product-has-buttons .andro_product-footer .andro_product-buttons a {
   border-radius: 0;
 }
 
@@ -216,8 +209,6 @@
 }
 .andro_product.andro_product-list.andro_product-has-buttons .andro_product-footer {
   width: calc(100% + 40px);
-}
-.andro_product.andro_product-list.andro_product-has-buttons .andro_product-footer {
   margin: 10px -20px -20px -20px;
 }
 

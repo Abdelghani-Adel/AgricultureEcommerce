@@ -3232,7 +3232,7 @@ td.remove {
 }
 
 @media (max-width: 991px) {
-  .carousel_bg{
+  .carousel_bg {
     margin-bottom: 25% !important;
   }
   /* .banner-3.andro_banner .andro_arrows {
@@ -3399,7 +3399,7 @@ td.remove {
   }
   .andro_banner {
     padding: 15px;
-    text-align:  center !important;
+    text-align: center !important;
   }
   .banner-2.andro_banner .andro_banner-slider-text h1 {
     /* font-size: 44px; */
@@ -3842,14 +3842,14 @@ td.remove {
   overflow: hidden !important;
 } */
 @media (max-width: 991px) {
-  .andro_fresh-arrivals .slick-track{
+  .andro_fresh-arrivals .slick-track {
     width: 9000px !important;
-    height: 550px !important; 
+    height: 550px !important;
   }
-  .andro_fresh-arrivals .slick-list{
-    height: 550px !important; 
+  .andro_fresh-arrivals .slick-list {
+    height: 550px !important;
   }
-  .andro_fresh-arrivals-slider{
+  .andro_fresh-arrivals-slider {
     /* height: 400px; */
     overflow: hidden;
   }

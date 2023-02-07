@@ -3,6 +3,7 @@ import { withTranslation } from "react-multi-lang";
 
 const SubCategories = (props) => {
   const { categories } = props;
+  console.log(categories);
   return (
     <div className="section">
       <div className="container">
@@ -22,9 +23,7 @@ const SubCategories = (props) => {
                     card's content.
                   </p>
                   <Link
-                    href={
-                      subCategory.FAClassificationSlug + `?id=${subCategory.FAClassificationId}`
-                    }
+                    href={`categories/?id=${subCategory.FAClassificationId}`}
                     className="agri-btn-rounded primary"
                   >
                     {props.t("Products.ShopNow")}
