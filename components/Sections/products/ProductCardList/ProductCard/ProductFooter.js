@@ -5,6 +5,7 @@ import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { cartActions, editCart } from "../../../../../redux/slices/cartSlice";
 import { useSession } from "next-auth/react";
+import AddToCart from "../../AddToCart";
 
 const ProductFooter = (props) => {
   const { product } = props;
@@ -22,15 +23,7 @@ const ProductFooter = (props) => {
   return (
     <div className="andro_product-footer">
       <div className="andro_product-controls">
-        <Link
-          href={session.status == "authenticated" ? "" : "/login"}
-          data-toggle="tooltip"
-          data-placement="top"
-          title={props.t("Products.AddToCart")}
-          onClick={addToCartHandler}
-        >
-          <FaShoppingBasket />
-        </Link>
+        <AddToCart item={product} />
 
         <Link
           href={props.productPath}
@@ -41,14 +34,14 @@ const ProductFooter = (props) => {
           <FaRegEye />
         </Link>
 
-        <Link
+        {/* <Link
           href="#"
           data-toggle="tooltip"
           data-placement="top"
           title={props.t("Products.Compare")}
         >
           <FaCompressAlt />
-        </Link>
+        </Link> */}
 
         <Link
           href="#"

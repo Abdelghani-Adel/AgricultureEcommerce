@@ -4,6 +4,7 @@ import Link from "next/Link";
 import { useDispatch } from "react-redux";
 import { editCart } from "../../../../redux/slices/cartSlice";
 import { useSession } from "next-auth/react";
+import AddToCart from "../../products/AddToCart";
 
 const Best_Product = (props) => {
   const { item } = props;
@@ -85,13 +86,7 @@ const Best_Product = (props) => {
       </div>
       <div className="andro_product-footer">
         <div className="andro_product-buttons">
-          <Link
-            href={session.status == "authenticated" ? "" : "/login"}
-            className="andro_btn-custom primary"
-            onClick={addToCartHandler}
-          >
-            <FaShoppingBasket />
-          </Link>
+          <AddToCart style={"andro_btn-custom primary"} item={item} />
 
           <Link href={"/products/" + item.slug} className="andro_btn-custom light">
             <FaRegEye />

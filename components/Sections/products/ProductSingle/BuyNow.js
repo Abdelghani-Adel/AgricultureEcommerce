@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { editCart } from "../../../../redux/slices/cartSlice";
+import AddToCart from "../AddToCart";
 
 const BuyNow = (props) => {
   const { item } = props;
@@ -33,13 +34,9 @@ const BuyNow = (props) => {
   return (
     <div className="andro_product-atc-form">
       <div className="qty-outter">
-        <Link
-          href={session.status == "authenticated" ? "" : "/login"}
-          className="andro_btn-custom mb-3"
-          onClick={addToCartHandler}
-        >
+        <AddToCart style={"andro_btn-custom mb-3"} item={item}>
           Buy Now
-        </Link>
+        </AddToCart>
         <div className="qty">
           <span className="qty-subtract" onClick={DecreaseItem} data-type="minus" data-field>
             <FaMinus />

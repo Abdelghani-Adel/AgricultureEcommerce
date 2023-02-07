@@ -13,14 +13,14 @@ const ProductDetails = (props) => {
         {product.discount > 0 ||
           (product.discount !== "" && (
             <span>
-              {new Intl.NumberFormat().format(
+              {/* {new Intl.NumberFormat().format(
                 ((product.price * (100 - product.discount)) / 100).toFixed(2)
-              )}
-              $
+              )} */}
+              10 $
             </span>
           ))}
       </div>
-      <p>{product.shortdesc}</p>
+      <p>{product.shortdesc ? product.shortdesc : "No descriptiton found"}</p>
       <div className="andro_rating-wrapper">
         <div className="andro_rating">{Rating(product.rating)}</div>
         <span>
