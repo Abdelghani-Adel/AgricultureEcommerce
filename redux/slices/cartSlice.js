@@ -52,7 +52,7 @@ const cartSlice = createSlice({
 export const getCartDetails = createAsyncThunk("cart/getCartDetails", async (payload, thunkAPI) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/getCartItem`, {
     method: "POST",
-    headers: getAuthHeaders(),
+    headers: await getAuthHeaders(),
     body: JSON.stringify({ lang: "AR" }),
   });
 
@@ -87,7 +87,7 @@ export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkA
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/addToCart`, {
     method: "POST",
-    headers: getAuthHeaders(),
+    headers: await getAuthHeaders(),
     body: JSON.stringify({
       success: true,
       Message: "string",
@@ -126,7 +126,7 @@ export const deleteItem = createAsyncThunk("cart/deleteItem", async (payload, th
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/deleteFromCart`, {
     method: "POST",
-    headers: getAuthHeaders(),
+    headers: await getAuthHeaders(),
     body: JSON.stringify({ ...item, Cart_Id: currentState.cart_id }),
   });
 

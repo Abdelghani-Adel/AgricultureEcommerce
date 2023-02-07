@@ -2,6 +2,7 @@ import Link from "next/Link";
 import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
 import { AuthenticationAPI } from "../../services/AuthenticationAPI";
+import { signIn, useSession } from "next-auth/react";
 
 const authApi = new AuthenticationAPI();
 
@@ -16,24 +17,42 @@ const Login = (props) => {
     setReqBody((prev) => ({ ...prev, [fieldName]: fieldValue }));
   });
 
+  const data = useSession();
+  console.log(data);
+  console.log(reqBody);
+
+  // const submitHandler = async (e) => {
+  //   e.preventDefault();
+  //   const res = await authApi.Login(reqBody);
+
+  //   if (!res.token) {
+  //     setErrors(res);
+  //   }
+
+  //   if (res.token) {
+  //     const expiration = new Date();
+  //     expiration.setHours(expiration.getHours() + 1);
+
+  //     localStorage.setItem("Agri_Token", res.token);
+  //     localStorage.setItem("Agri_Expiration", expiration);
+
+  //     router.push("/");
+  //   }
+  // };
+
   const submitHandler = async (e) => {
     e.preventDefault();
-    const res = await authApi.Login(reqBody);
 
-    if (!res.token) {
-      setErrors(res);
-    }
+    const res = await signIn("credentials", {
+      email: reqBody.email,
+      password: reqBody.password,
+      redirect: false,
+    });
 
-    if (res.token) {
-      const expiration = new Date();
-      expiration.setHours(expiration.getHours() + 1);
-
-      localStorage.setItem("Agri_Token", res.token);
-      localStorage.setItem("Agri_Expiration", expiration);
-
-      router.push("/");
-    }
+    // const result = await res.json();
+    console.log(res);
   };
+
   return (
     <div className="section">
       <div className="container">
@@ -77,9 +96,9 @@ const Login = (props) => {
                   onChange={inputChangeHandler}
                 />
               </div>
-              <div class="d-flex align-content-center">
-                <input class="form-check-input" type="checkbox" name="rememberMe" />
-                <label class="form-check-label ms-1">Remember Me</label>
+              <div className="d-flex align-content-center">
+                <input className="form-check-input" type="checkbox" name="rememberMe" />
+                <label className="form-check-label ms-1">Remember Me</label>
               </div>
               <Link href="#">Forgot Password?</Link>
               <button type="submit" className="andro_btn-custom primary">

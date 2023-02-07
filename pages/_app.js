@@ -25,11 +25,13 @@ export default function App({ Component, pageProps }) {
 
   return (
     <Fragment>
-      <Provider store={store}>
-        <MainLayout changeLang={changeLang} lang={lang}>
-          <Component {...pageProps} />
-        </MainLayout>
-      </Provider>
+      <SessionProvider session={pageProps.session}>
+        <Provider store={store}>
+          <MainLayout changeLang={changeLang} lang={lang}>
+            <Component {...pageProps} />
+          </MainLayout>
+        </Provider>
+      </SessionProvider>
     </Fragment>
   );
 }
