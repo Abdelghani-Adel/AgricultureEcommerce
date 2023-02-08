@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { withTranslation } from "react-multi-lang";
 import { useSelector } from "react-redux";
+import { getAuthHeaders } from "../../../helper/auth";
 import BillingAddress from "./BillingDetails/BillingAddress";
 import CheckoutDetails from "./CheckoutDetails/CheckoutDetails";
 
@@ -47,13 +48,27 @@ const CheckoutContent = (props) => {
     setReqBody({ ...reqBody, cart: { ...cartState } });
   }, [cartState]);
 
+  const inputChangeHandler = useCallback((e) => {
+    setReqBody({ ...reqBody, addr: { ...reqBody.addr, [e.target.name]: e.target.value } });
+  });
+
+  const placeOrderHandler = async () => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/UPSSalesOrder`, {
+      method: "POST",
+      headers: await getAuthHeaders(),
+      body: JSON.stringify(reqBody),
+    });
+
+    console.log(res);
+  };
+
   return (
     <div className="section">
       <div className="container">
         <form method="post">
           <div className="row">
-            <BillingAddress />
-            <CheckoutDetails />
+            <BillingAddress inputChangeHandler={inputChangeHandler} />
+            <CheckoutDetails placeOrderHandler={placeOrderHandler} />
           </div>
         </form>
       </div>

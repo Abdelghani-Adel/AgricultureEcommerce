@@ -9,7 +9,11 @@ const CheckoutDetails = (props) => {
       <OrderItemList />
       <PaymentMethods />
       <PrivacyPolicy />
-      <button type="submit" className="andro_btn-custom primary btn-block">
+      <button
+        type="button"
+        className="andro_btn-custom primary btn-block"
+        onClick={props.placeOrderHandler}
+      >
         {props.t("Checkout.PlaceOrder")}
       </button>
     </div>

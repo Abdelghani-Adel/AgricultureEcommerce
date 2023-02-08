@@ -5,9 +5,10 @@ import VendorRegisterAPI from "../../../../../services/VendorRegisterAPI";
 const vendorRegApi = new VendorRegisterAPI();
 
 const BillingAddressForm = (props) => {
-  const { fieldChangeHandler, hydrateReqBody, vendorID, showPreviousAddress } = props;
+  const { fieldChangeHandler, hydrateReqBody, vendorID } = props;
+  // let showPreviousAddress = props.showPreviousAddress;
+  const [showPreviousAddress, setShowPreviousAddress] = useState(props.showPreviousAddress);
   const [showAddingForm, setShowAddingForm] = useState(!showPreviousAddress);
-  // const [showPreviousAddress, setShowPreviousAddress] = useState(props.showPreviousAddress);
 
   const [addresses, setAddresses] = useState();
   const [countries, setCountries] = useState();
@@ -24,7 +25,11 @@ const BillingAddressForm = (props) => {
       const data = await vendorRegApi.fetchAddresses(vendorID);
       setAddresses(data);
 
-      data.length == 0 && setShowAddingForm(true);
+      if (data.length == 0) {
+        const data = await vendorRegApi.fetchGovernments(1); // need dynamic countryID
+        setShowAddingForm(true);
+        setGovernments(data);
+      }
     };
 
     showPreviousAddress && vendorID > 0 ? fetchAddresses() : fetchCountries();
@@ -103,6 +108,7 @@ const BillingAddressForm = (props) => {
             optionID="EI_Add_Id"
             optionTitle="FullAddress"
             firstOptionChoosen={true}
+            required={addresses && addresses.length > 0 ? true : false}
           />
         </div>
       )}

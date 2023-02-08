@@ -8,8 +8,6 @@ import BillingAddressInput from "./BillingAddressInput";
 
 const BillingAddress = (props) => {
   const [session, setSession] = useState();
-  // const session = useSession();
-  console.log(session);
 
   useEffect(() => {
     const fetchSession = async () => {
@@ -19,9 +17,6 @@ const BillingAddress = (props) => {
     fetchSession();
   }, []);
 
-  const inputChangeHandler = useCallback((e) => {
-    setReqBody({ ...requestBody, [e.target.name]: e.target.value });
-  });
   const hydrateReqBodyWithAddress = useCallback((address) => {
     setReqBody({ ...requestBody, ...address });
   });
@@ -60,7 +55,7 @@ const BillingAddress = (props) => {
             />
 
             <BillingAddressForm
-              fieldChangeHandler={inputChangeHandler}
+              fieldChangeHandler={props.inputChangeHandler}
               hydrateReqBody={hydrateReqBodyWithAddress}
               vendorID={session.custId}
               showPreviousAddress={true}

@@ -32,7 +32,12 @@ const InputField = (props) => {
 
         {/* If the input type is SELECT */}
         {optionID && (
-          <select className={inputStyle} name={fieldName} onChange={changeHandler} required>
+          <select
+            className={inputStyle}
+            name={fieldName}
+            onChange={changeHandler}
+            required={props.required}
+          >
             {!firstOptionChoosen && (
               <option selected disabled value="">
                 Choose {title}

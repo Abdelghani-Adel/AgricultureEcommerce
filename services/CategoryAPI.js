@@ -10,7 +10,7 @@ export class CategoryApi {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: this.authToken,
+          Authorization: await this.authToken,
         },
         body: JSON.stringify({
           lang: "ar",
