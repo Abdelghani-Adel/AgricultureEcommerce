@@ -13,7 +13,6 @@ import SearchCategory from "./SearchCategory";
 
 const CategoryProducts = (props) => {
   const [products, setProducts] = useState(props.products.data);
-
   console.log("rerendered");
   console.log(products);
 
@@ -24,9 +23,9 @@ const CategoryProducts = (props) => {
   const [itemsPerPage, setItemsPerPage] = useState(6);
   const [loading, setLoading] = useState(false);
   const [itemOffset, setItemOffset] = useState(0);
-  const [pageCount, setPageCount] = useState(Math.ceil(products.length / itemsPerPage));
+  const [pageCount, setPageCount] = useState(Math.ceil(products!=null ? products.length : 0 / itemsPerPage));
   const [endOffset, setEndOffset] = useState(itemOffset + itemsPerPage);
-  const [currentItems, setCurrentItems] = useState(products.slice(itemOffset, endOffset));
+  const [currentItems, setCurrentItems] = useState(products !=null ? products.slice(itemOffset, endOffset) : []);
 
   const [currentStart, setCurrentStart] = useState(0);
 
@@ -49,7 +48,9 @@ const CategoryProducts = (props) => {
     setCurrentItems(products.slice(newOffset, newEndOffset));
     setLoading(false);
   };
-
+   
+  
+  
   return (
     <div className="section pagination-content">
       <div className="andro_section-fw">

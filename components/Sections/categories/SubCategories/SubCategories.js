@@ -9,27 +9,31 @@ const SubCategories = (props) => {
       <div className="container">
         <div className="row">
           {categories.map((subCategory, index) => (
-            <div className="col-lg-4 col-xs-12" key={index}>
+            <div className="col-lg-3 col-xs-12" key={index}>
+              <Link
+                    href={`/categories/${subCategory.FAClassificationSlug}?id=${subCategory.FAClassificationId}`}>
               <div className="card catg_card">
                 <img
                   className="card-img-top"
-                  src={`../assets/img/products/${index + 1}.png`}
+                  src={subCategory.FAClassificationImage}
                   alt="Card image cap"
                 />
                 <div className="card-body">
                   <h5 className="card-title">{subCategory.FAClassificationName}</h5>
-                  <p className="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the
-                    card's content.
-                  </p>
-                  <Link
+                  {/* <p className="card-text"> */}
+                  <div className="card-text"
+                      dangerouslySetInnerHTML={{__html: subCategory.FAClassificationDesc}}
+                    />
+                  {/* </p> */}
+                  {/* <Link
                     href={`/categories/${subCategory.FAClassificationSlug}?id=${subCategory.FAClassificationId}`}
                     className="agri-btn-rounded primary"
                   >
                     {props.t("Products.ShopNow")}
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
+              </Link>
             </div>
           ))}
         </div>

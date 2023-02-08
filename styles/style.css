@@ -3763,7 +3763,13 @@ td.remove {
   box-shadow: 0 3px 24px rgb(0 0 0 / 4%);
   border-radius: 8px;
 }
-
+.catg_card  img{
+  max-width: 200px;
+  margin: auto;
+}
+.catg_card p{
+  color: #838383;
+}
 .andro_back-to-top svg {
   animation: pointy 1.5s infinite;
 }
