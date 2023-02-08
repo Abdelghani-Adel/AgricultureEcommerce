@@ -5,30 +5,30 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: {
     items: [],
-    total: 0,
-    currency: "$",
-    cart_id: 0,
+    totalPrice: 0,
+    Cart_Id: 0,
   },
   extraReducers: (builder) => {
     builder.addCase(getCartDetails.fulfilled, (state, { payload }) => {
       if (payload) {
-        state.items = payload.items;
-        state.total = payload.totalPrice;
-        state.cart_id = payload.Cart_Id;
+        // state.items = payload.items;
+        // state.total = payload.totalPrice;
+        // state.cart_id = payload.Cart_Id;
+        return { ...payload };
       }
     });
     builder.addCase(editCart.fulfilled, (state, { payload }) => {
       if (payload) {
         state.items = payload.items;
-        state.total = payload.totalPrice;
-        state.cart_id = payload.Cart_Id;
+        state.totalPrice = payload.totalPrice;
+        state.Cart_Id = payload.Cart_Id;
       }
     });
     builder.addCase(deleteItem.fulfilled, (state, { payload }) => {
       if (payload) {
         state.items = payload.items;
-        state.total = payload.totalPrice;
-        state.cart_id = payload.Cart_Id;
+        state.totalPrice = payload.totalPrice;
+        state.Cart_Id = payload.Cart_Id;
       }
       if (!payload) {
         state.items = [];
@@ -43,8 +43,8 @@ const cartSlice = createSlice({
     },
     clearCart: (state) => {
       state.items = [];
-      state.total = 0;
-      state.cart_id = 0;
+      state.totalPrice = 0;
+      state.Cart_Id = 0;
     },
   },
 });
@@ -87,7 +87,7 @@ export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkA
       totalPrice: 0,
       Cart_Ref: "string",
       Cust_Id: 30,
-      Cart_Id: currentState.cart_id,
+      Cart_Id: currentState.Cart_Id,
       lang: "AR",
       items: [
         {
@@ -99,7 +99,7 @@ export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkA
           Quote_Date: "string",
           UOM_Id: 2,
           UOM_Name: "string",
-          Cart_Id: currentState.cart_id,
+          Cart_Id: currentState.Cart_Id,
           Supp_Id: 1,
           lang: "AR",
         },
@@ -118,7 +118,7 @@ export const deleteItem = createAsyncThunk("cart/deleteItem", async (payload, th
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/deleteFromCart`, {
     method: "POST",
     headers: await getAuthHeaders(),
-    body: JSON.stringify({ ...item, Cart_Id: currentState.cart_id }),
+    body: JSON.stringify({ ...item, Cart_Id: currentState.Cart_Id }),
   });
 
   const cartDetails = await res.json();

@@ -64,9 +64,7 @@ const HeaderControls = (props) => {
             <FaShoppingBasket />
             <div className="main_header-cart-content fs-800">
               <span>{cartState.items.length} Items</span>
-              <span>
-                {cartState.total} {cartState.currency}
-              </span>
+              <span>{cartState.totalPrice} $</span>
             </div>
           </Link>
         </li>

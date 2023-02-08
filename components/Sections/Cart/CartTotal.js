@@ -16,7 +16,7 @@ const CartTotal = (props) => {
         <tbody>
           <tr>
             <th>Subtotal</th>
-            <td>{new Intl.NumberFormat().format(cartState.total.toFixed(2))}$</td>
+            <td>{new Intl.NumberFormat().format(cartState.totalPrice.toFixed(2))}$</td>
           </tr>
           {/* <tr>
             <th>{props.t("Cart.Tax")}</th>

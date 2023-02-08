@@ -17,7 +17,7 @@ const OrderItemList = (props) => {
       </thead>
       <tbody>
         {cartSlice.items.map((item, i) => (
-          <OrderItem key={item.id} item={item} />
+          <OrderItem key={item.Item_Id} item={item} />
         ))}
         <OrderTotal />
       </tbody>

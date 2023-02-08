@@ -2,7 +2,6 @@ import Link from "next/Link";
 
 const OrderItem = (props) => {
   const { item } = props;
-  console.log(item);
   return (
     <tr>
       <td data-title="Product">
