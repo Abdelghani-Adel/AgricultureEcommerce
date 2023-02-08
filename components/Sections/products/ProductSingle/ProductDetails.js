@@ -32,7 +32,10 @@ const ProductDetails = (props) => {
       <div className="andro_product-price">{item.price} $</div>
 
       {/* Product Description */}
-      <p className="andro_product-excerpt">{item.shortdesc}</p>
+      <div
+        className="andro_product-excerpt mb-3"
+        dangerouslySetInnerHTML={{ __html: item.Item_Desc }}
+      ></div>
     </Fragment>
   );
 };

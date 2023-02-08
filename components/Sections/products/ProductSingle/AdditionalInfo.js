@@ -5,7 +5,7 @@ const AdditionalInfo = (props) => {
   return (
     <div className="row">
       <div className="col-lg-4">
-        <ul className="nav nav-pills andro_sticky-section" id="myTab" role="tablist">
+        <ul className="nav nav-pills d-flex flex-column" id="myTab" role="tablist">
           <li
             className="nav-link active mb-2"
             id="v-pills-home-tab"
@@ -16,7 +16,8 @@ const AdditionalInfo = (props) => {
             aria-controls="v-pills-home"
             aria-selected="true"
           >
-            {props.t("Products.ItemDesc")}
+            {/* {props.t("Products.ItemDesc")} */}
+            Ingredients
           </li>
           <li
             className="nav-link mb-2"
@@ -28,7 +29,8 @@ const AdditionalInfo = (props) => {
             aria-controls="v-pills-profile"
             aria-selected="false"
           >
-            {props.t("Products.AddInfo")}
+            {/* {props.t("Products.AddInfo")} */}
+            Facilities
           </li>
           <li
             className="nav-link mb-2"
@@ -40,7 +42,8 @@ const AdditionalInfo = (props) => {
             aria-controls="v-pills-messages"
             aria-selected="false"
           >
-            {props.t("Products.reviews")}
+            {/* {props.t("Products.reviews")} */}
+            Warnings
           </li>
         </ul>
       </div>
@@ -52,7 +55,7 @@ const AdditionalInfo = (props) => {
             role="tabpanel"
             aria-labelledby="v-pills-home-tab"
           >
-            <div dangerouslySetInnerHTML={{ __html: item.longdescription }} />
+            No Ingredients Found
           </div>
           <div
             className="tab-pane fade"
@@ -60,7 +63,7 @@ const AdditionalInfo = (props) => {
             role="tabpanel"
             aria-labelledby="v-pills-profile-tab"
           >
-            infoooooooo
+            No Facilities Found
           </div>
           <div
             className="tab-pane fade"
@@ -68,7 +71,7 @@ const AdditionalInfo = (props) => {
             role="tabpanel"
             aria-labelledby="v-pills-messages-tab"
           >
-            reviewwwwwwwwww
+            No Warnings Found
           </div>
         </div>
       </div>

@@ -8,7 +8,6 @@ import { getAuthHeaders } from "../../../helper/auth";
 
 function Slug(props) {
   const router = useRouter();
-  console.log(props);
 
   return (
     <>
@@ -23,10 +22,10 @@ export const getServerSideProps = async (context) => {
     `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getItemsDetails`,
     {
       method: "POST",
-      headers: getAuthHeaders(),
+      headers: await getAuthHeaders(),
       body: JSON.stringify({
         Item_Id: context.query.id,
-        lang: "AR",
+        lang: "ar",
       }),
     }
   );
@@ -34,7 +33,7 @@ export const getServerSideProps = async (context) => {
   const details = await productDetails.json();
   return {
     props: {
-      productDetails: details,
+      productDetails: details[0],
     },
   };
 };

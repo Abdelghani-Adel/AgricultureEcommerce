@@ -37,7 +37,7 @@ const BuyNow = (props) => {
         <AddToCart style={"andro_btn-custom mb-3"} item={item}>
           Buy Now
         </AddToCart>
-        <div className="qty">
+        {/* <div className="qty">
           <span className="qty-subtract" onClick={DecreaseItem} data-type="minus" data-field>
             <FaMinus />
           </span>
@@ -45,7 +45,7 @@ const BuyNow = (props) => {
           <span className="qty-add" onClick={IncrementItem} data-type="plus" data-field>
             <FaPlus />
           </span>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ const ProductDetails = (props) => {
             </span>
           ))}
       </div>
-      <p>{product.shortdesc ? product.shortdesc : "No descriptiton found"}</p>
+      <div dangerouslySetInnerHTML={{ __html: product.Item_HTML }}></div>
       <div className="andro_rating-wrapper">
         <div className="andro_rating">{Rating(product.rating)}</div>
         <span>
