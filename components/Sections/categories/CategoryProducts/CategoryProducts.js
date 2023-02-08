@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
 import ReactPaginate from "react-paginate";
@@ -10,8 +11,12 @@ import FilterState from "./FilterState";
 import ProductCount from "./ProductCount";
 import SearchCategory from "./SearchCategory";
 
-const CategoryContent = (props) => {
-  const products = props.products.data ? props.products.data : [];
+const CategoryProducts = (props) => {
+  const [products, setProducts] = useState(props.products.data);
+
+  console.log("rerendered");
+  console.log(products);
+
   const productsTotal = props.products.total;
   const router = useRouter();
 
@@ -87,4 +92,4 @@ const CategoryContent = (props) => {
   );
 };
 
-export default withTranslation(CategoryContent);
+export default withTranslation(CategoryProducts);

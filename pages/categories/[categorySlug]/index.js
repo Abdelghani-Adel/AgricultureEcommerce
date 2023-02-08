@@ -7,11 +7,13 @@ import SubCategories from "../../../components/Sections/categories/SubCategories
 const CategorySingle = (props) => {
   const { categories, showProducts, products } = props;
   const router = useRouter();
+
+  // console.log(props.products);
   return (
     <>
       <Breadcrumbs breadcrumb={{ pagename: router.query.categorySlug }} />
       {showProducts ? (
-        <CategoryProducts products={products} slug={router.query.categorySlug} />
+        <CategoryProducts products={props.products} slug={router.query.categorySlug} />
       ) : (
         <SubCategories categories={categories} />
       )}
@@ -68,6 +70,8 @@ export const getServerSideProps = async (ctx) => {
     props: {
       products: products,
       categorySlug: ctx.params.categorySlug,
+      id: ctx.query.id,
+      test: products,
       showProducts: true,
     },
   };

@@ -6,7 +6,6 @@ import ProductThumb from "./ProductThumb";
 
 const ProductCard = (props) => {
   const { product } = props;
-  console.log(product);
   const productPath = `/products/${product.Item_Slug || "slugNotFound"}?id=${product.Item_Id}`;
 
   return (

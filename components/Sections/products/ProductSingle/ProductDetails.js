@@ -29,7 +29,7 @@ const ProductDetails = (props) => {
       <h3>{item.Item_Name}</h3>
 
       {/* Product Price */}
-      <div className="andro_product-price">{item.price} $</div>
+      <div className="andro_product-price">{item.price} 49 $</div>
 
       {/* Product Description */}
       <div

@@ -16,7 +16,7 @@ const ProductDetails = (props) => {
               {/* {new Intl.NumberFormat().format(
                 ((product.price * (100 - product.discount)) / 100).toFixed(2)
               )} */}
-              {product.price} $
+              {product.price} 49 $
             </span>
           ))}
       </div>

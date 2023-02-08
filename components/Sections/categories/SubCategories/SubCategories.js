@@ -23,7 +23,7 @@ const SubCategories = (props) => {
                     card's content.
                   </p>
                   <Link
-                    href={`categories?id=${subCategory.FAClassificationId}`}
+                    href={`/categories/${subCategory.FAClassificationSlug}?id=${subCategory.FAClassificationId}`}
                     className="agri-btn-rounded primary"
                   >
                     {props.t("Products.ShopNow")}
