@@ -1,13 +1,23 @@
-import { useCallback } from "react";
+import { useSession, getSession } from "next-auth/react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { Fragment, useCallback } from "react";
 import { withTranslation } from "react-multi-lang";
 import BillingAddressForm from "../../VendorRegistration/Reusable/BillingAddressForm/BillingAddressForm";
-import BillingAddressCountry from "./BillingAddressCountry";
 import BillingAddressInput from "./BillingAddressInput";
-import { useSession } from "next-auth/react";
 
 const BillingAddress = (props) => {
-  const session = useSession();
+  const [session, setSession] = useState();
+  // const session = useSession();
   console.log(session);
+
+  useEffect(() => {
+    const fetchSession = async () => {
+      const session = await getSession();
+      setSession(session.user.user);
+    };
+    fetchSession();
+  }, []);
 
   const inputChangeHandler = useCallback((e) => {
     setReqBody({ ...requestBody, [e.target.name]: e.target.value });
@@ -17,48 +27,46 @@ const BillingAddress = (props) => {
   });
 
   return (
-    <div className="col-xl-7">
-      <h4>{props.t("Checkout.BillingDetails")}</h4>
-      <div className="row">
-        <BillingAddressInput
-          requiredField={true}
-          fieldName="fname"
-          transTitle="Checkout.Firstname"
-          fieldWidth="6"
-        />
-        <BillingAddressInput
-          requiredField={true}
-          fieldName="lname"
-          transTitle="Checkout.Lastname"
-          fieldWidth="6"
-        />
+    <Fragment>
+      {session && (
+        <div className="col-xl-7">
+          <h4>{props.t("Checkout.BillingDetails")}</h4>
+          <div className="row">
+            <BillingAddressInput
+              requiredField={true}
+              fieldName="userName"
+              transTitle="Username"
+              fieldWidth="6"
+              defaultValue={session.username}
+              disabled={true}
+            />
 
-        <BillingAddressInput
-          requiredField={true}
-          fieldName="email"
-          transTitle="Checkout.Email"
-          fieldWidth="6"
-          defaultValue={session.data.user.user.email}
-          disabled={true}
-        />
+            <BillingAddressInput
+              requiredField={true}
+              fieldName="email"
+              transTitle="Checkout.Email"
+              fieldWidth="6"
+              defaultValue={session.email}
+              disabled={true}
+            />
 
-        <BillingAddressInput
-          requiredField={true}
-          fieldName="phone"
-          transTitle="Checkout.Phone"
-          fieldWidth="6"
-          defaultValue={session.data.user.user.phoneNumber}
-          disabled={true}
-        />
+            <BillingAddressInput
+              requiredField={true}
+              fieldName="phone"
+              transTitle="Checkout.Phone"
+              fieldWidth="6"
+              defaultValue={session.phoneNumber}
+              disabled={true}
+            />
 
-        <BillingAddressForm
-          fieldChangeHandler={inputChangeHandler}
-          hydrateReqBody={hydrateReqBodyWithAddress}
-          vendorID={1}
-          showPreviousAddress={true}
-        />
+            <BillingAddressForm
+              fieldChangeHandler={inputChangeHandler}
+              hydrateReqBody={hydrateReqBodyWithAddress}
+              vendorID={session.custId}
+              showPreviousAddress={true}
+            />
 
-        {/* <BillingAddressCountry />
+            {/* <BillingAddressCountry />
 
         <BillingAddressInput
           requiredField={true}
@@ -79,8 +87,10 @@ const BillingAddress = (props) => {
           transTitle="Checkout.TownCity"
           fieldWidth="6"
         /> */}
-      </div>
-    </div>
+          </div>
+        </div>
+      )}
+    </Fragment>
   );
 };
 

@@ -7,6 +7,7 @@ const vendorRegApi = new VendorRegisterAPI();
 const BillingAddressForm = (props) => {
   const { fieldChangeHandler, hydrateReqBody, vendorID, showPreviousAddress } = props;
   const [showAddingForm, setShowAddingForm] = useState(!showPreviousAddress);
+  // const [showPreviousAddress, setShowPreviousAddress] = useState(props.showPreviousAddress);
 
   const [addresses, setAddresses] = useState();
   const [countries, setCountries] = useState();
@@ -22,6 +23,8 @@ const BillingAddressForm = (props) => {
     const fetchAddresses = async () => {
       const data = await vendorRegApi.fetchAddresses(vendorID);
       setAddresses(data);
+
+      data.length == 0 && setShowAddingForm(true);
     };
 
     showPreviousAddress && vendorID > 0 ? fetchAddresses() : fetchCountries();
