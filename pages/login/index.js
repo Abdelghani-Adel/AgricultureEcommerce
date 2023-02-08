@@ -27,7 +27,7 @@ const Login = (props) => {
       const res = await signIn("credentials", {
         email: reqBody.email,
         password: reqBody.password,
-        callbackUrl: "localhost:8080",
+        callbackUrl: "https://devsdiamond.com/",
       });
     } else {
       setErrors(dbLookup);

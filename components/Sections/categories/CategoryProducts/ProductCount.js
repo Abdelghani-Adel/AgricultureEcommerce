@@ -24,7 +24,7 @@ const ProductCount = (props) => {
   return (
     <div className="andro_shop-global">
       <p>
-        Showing <b>{itemsPerPage}</b> of <b>{total}</b> products
+        Showing <b>{itemsPerPage}</b> of <b>{total > 0 ? total : itemsPerPage }</b> products
       </p>
       {/* <form method="post">
         <select className="form-control" name="orderby">
