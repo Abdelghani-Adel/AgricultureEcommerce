@@ -3,7 +3,7 @@ import { getSession } from "next-auth/react";
 export async function getAuthToken() {
   if (typeof window !== "undefined") {
     const session = await getSession();
-    const token = session != null && session.user != null ? session.user.name : "";
+    const token = session != null && session.user != null ? session.user.token : "";
 
     const authToken = `Bearer ${token}`;
     return authToken;

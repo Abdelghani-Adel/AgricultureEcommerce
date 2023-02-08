@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { withTranslation } from "react-multi-lang";
 import { useSelector } from "react-redux";
 import BillingAddress from "./BillingDetails/BillingAddress";
 import CheckoutDetails from "./CheckoutDetails/CheckoutDetails";
@@ -46,6 +46,7 @@ const CheckoutContent = (props) => {
   useEffect(() => {
     setReqBody({ ...reqBody, cart: { ...cartState } });
   }, [cartState]);
+
   return (
     <div className="section">
       <div className="container">
@@ -60,4 +61,4 @@ const CheckoutContent = (props) => {
   );
 };
 
-export default CheckoutContent;
+export default withTranslation(CheckoutContent);

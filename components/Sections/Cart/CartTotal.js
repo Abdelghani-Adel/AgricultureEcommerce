@@ -27,7 +27,7 @@ const CartTotal = (props) => {
           <tr>
             <th>{props.t("Cart.Total")}</th>
             <td>
-              <b>{new Intl.NumberFormat().format(cartState.total.toFixed(2))}$</b>
+              <b>{new Intl.NumberFormat().format(cartState.totalPrice.toFixed(2))}$</b>
             </td>
           </tr>
         </tbody>

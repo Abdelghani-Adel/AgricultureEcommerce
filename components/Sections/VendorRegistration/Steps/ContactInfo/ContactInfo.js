@@ -21,7 +21,6 @@ const ContactInfo = (props) => {
   const [expirationDate, setExpirationDate] = useState(new Date());
 
   const inputChangeHandler = useCallback((e) => {
-    console.log("render");
     setRequestBody({ ...requestBody, [e.target.name]: e.target.value });
   });
   const dateChangeHandler = useCallback((date) => {

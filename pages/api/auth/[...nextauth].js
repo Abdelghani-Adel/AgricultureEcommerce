@@ -1,7 +1,6 @@
 import NextAuth from "next-auth";
 import { AuthenticationAPI } from "../../../services/AuthenticationAPI";
 import CredentialsProvider from "next-auth/providers/credentials";
-// import Provider from "next-auth/providers";
 
 const authApi = new AuthenticationAPI();
 
@@ -24,7 +23,7 @@ export const authOptions = {
         };
         const res = await authApi.Login(reqBody);
         if (res.token) {
-          return { email: credentials.email, name: res.token };
+          return { user: { ...res } };
         }
 
         throw new Error("Incorrect Credentials");
@@ -32,18 +31,14 @@ export const authOptions = {
     }),
   ],
   callbacks: {
-    async session({ session, token, user }) {
-      session.user.id = token.id;
-      session.accessToken = token.accessToken;
-      return session;
+    async jwt({ token, user }) {
+      // the user present here gets the same data as received from DB call  made above -> fetchUserInfo(credentials.opt)
+
+      return { ...token, ...user };
     },
-    async jwt({ token, user, account, profile, isNewUser }) {
-      if (user) {
-        token.id = user.id;
-      }
-      if (account) {
-        token.accessToken = account.access_token;
-      }
+    async session({ session, user, token }) {
+      // user param present in the session(function) does not recive all the data from DB call -> fetchUserInfo(credentials.opt)
+
       return token;
     },
   },

@@ -6,6 +6,8 @@ const BillingAddressInput = (props) => {
   const transTitle = props.transTitle;
   const transTitle2 = props.transTitle2;
   const fieldWidth = props.fieldWidth;
+  const defaultValue = props.defaultValue;
+  const disabled = props.disabled;
 
   return (
     <div className={`form-group col-xl-${fieldWidth}`}>
@@ -19,6 +21,8 @@ const BillingAddressInput = (props) => {
         name={fieldName}
         className="form-control"
         required={requiredField}
+        defaultValue={defaultValue ? defaultValue : ""}
+        disabled={disabled ? true : false}
       />
     </div>
   );
