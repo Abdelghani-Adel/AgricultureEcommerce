@@ -1,15 +1,26 @@
-import { useState } from "react";
+import { useState ,useEffect } from "react";
 import { withTranslation } from "react-multi-lang";
 
 const ProductCount = (props) => {
-  const { Items, total } = props;
+    // const { Items, total } = props;
+   const [itemsPerPage, setItemsPerPage] = useState(0);
+   const [Items, setItems] = useState([])
+   const [total, settotal] = useState(0)
 
-  let itemsPerPage = props.itemsPerPage;
 
-  if (total < itemsPerPage) {
-    itemsPerPage = total;
-  }
-
+  // if (total < itemsPerPage) {
+  //   itemsPerPage = total;
+  // }
+  useEffect(() => {
+    setItemsPerPage(props.itemsPerPage)
+    settotal(props.total);
+    setItems(props.Items);
+  }, []);
+  useEffect(() => {
+    setItemsPerPage(props.itemsPerPage)
+    settotal(props.total);
+    setItems(props.Items);
+  }, [props]);
   return (
     <div className="andro_shop-global">
       <p>

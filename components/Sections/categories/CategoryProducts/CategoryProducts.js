@@ -13,10 +13,11 @@ import SearchCategory from "./SearchCategory";
 
 const CategoryProducts = (props) => {
   const [products, setProducts] = useState(props.products.data);
+  const [productsTotal, setproductsTotal] = useState(props.products.total);
   console.log("rerendered");
-  console.log(products);
+  console.log(props.products);
 
-  const productsTotal = props.products.total;
+  // const productsTotal = props.products.total;
   const router = useRouter();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -49,14 +50,14 @@ const CategoryProducts = (props) => {
     setLoading(false);
   };
    
-  
+
   
   return (
     <div className="section pagination-content">
       <div className="andro_section-fw">
         <div className="row">
           <div className="col-lg-9 col-xs-12">
-            <ProductCount Items={products} itemsPerPage={itemsPerPage} total={productsTotal} />
+            <ProductCount Items={products} itemsPerPage={currentItems.length} total={productsTotal} />
 
             <div className="row">
               {loading === false ? (

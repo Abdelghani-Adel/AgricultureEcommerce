@@ -1437,6 +1437,7 @@ p {
 
 .andro_btn-custom {
   cursor: pointer;
+  margin: 20px auto;
   display: inline-block;
   text-align: center;
   white-space: nowrap;
@@ -1453,6 +1454,7 @@ p {
   text-transform: uppercase;
   border-radius: 25px;
   z-index: 1;
+  width: 200px;
   box-shadow: 0 3px 24px rgba(0, 0, 0, 0.1);
 }
 
