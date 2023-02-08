@@ -622,6 +622,10 @@ Version: 1.0.0
 .pattern-bg {
   position: relative;
   z-index: 1;
+  background-image: url("../public/img/banner_bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .pattern-bg::before {
   content: "";
@@ -630,10 +634,8 @@ Version: 1.0.0
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("../public/assets/img/bg.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.3);
+
   z-index: -1;
 }
 

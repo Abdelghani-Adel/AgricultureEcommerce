@@ -40,7 +40,7 @@ const SignUp = (props) => {
         <div className="auth-wrapper">
           <div
             className="auth-description bg-cover bg-center dark-overlay dark-overlay-2"
-            style={{ backgroundImage: "url(assets/img/auth.jpg)" }}
+            style={{ backgroundImage: "url(../img/login_bg.jpg)" }}
           >
             <div className="auth-description-inner">
               <i className="flaticon-diet" />

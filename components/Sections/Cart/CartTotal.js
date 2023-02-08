@@ -3,7 +3,7 @@ import { withTranslation } from "react-multi-lang";
 import Link from "next/Link";
 import { useSelector } from "react-redux";
 
-const priceTotal = cart.reduce((totalPrice, item) => totalPrice + item.price * item.qty, 0);
+// const priceTotal = cart.reduce((totalPrice, item) => totalPrice + item.price * item.qty, 0);
 
 const CartTotal = (props) => {
   const cartState = useSelector((state) => state.cart);
@@ -18,16 +18,16 @@ const CartTotal = (props) => {
             <th>Subtotal</th>
             <td>{new Intl.NumberFormat().format(cartState.total.toFixed(2))}$</td>
           </tr>
-          <tr>
+          {/* <tr>
             <th>{props.t("Cart.Tax")}</th>
             <td>
               9.99$ <span className="small">(11%)</span>
             </td>
-          </tr>
+          </tr> */}
           <tr>
             <th>{props.t("Cart.Total")}</th>
             <td>
-              <b>{new Intl.NumberFormat().format((priceTotal + 9.99).toFixed(2))}$</b>
+              <b>{new Intl.NumberFormat().format(cartState.total.toFixed(2))}$</b>
             </td>
           </tr>
         </tbody>

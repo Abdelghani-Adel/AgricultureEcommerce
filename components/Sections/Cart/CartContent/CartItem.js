@@ -44,7 +44,9 @@ const CartItem = (props) => {
       </td>
       <td data-title="Product">
         <div className="andro_cart-product-wrapper">
+          <div>
           <img src={item.img} alt={item.Item_Name} />
+          </div>
           <div className="andro_cart-product-body">
             <h6>
               <Link href="#">{item.Item_Name}</Link>
