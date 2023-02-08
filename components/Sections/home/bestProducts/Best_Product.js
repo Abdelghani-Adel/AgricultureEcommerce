@@ -3,10 +3,12 @@ import { FaArrowRight, FaArrowLeft, FaStar, FaRegEye, FaShoppingBasket } from "r
 import Link from "next/Link";
 import { useDispatch } from "react-redux";
 import { editCart } from "../../../../redux/slices/cartSlice";
+import { useSession } from "next-auth/react";
 
 const Best_Product = (props) => {
   const { item } = props;
   const dispatch = useDispatch();
+  const session = useSession();
 
   const Rating = (rating) => {
     let stars = [];
@@ -83,9 +85,13 @@ const Best_Product = (props) => {
       </div>
       <div className="andro_product-footer">
         <div className="andro_product-buttons">
-          <button className="andro_btn-custom primary" onClick={addToCartHandler}>
+          <Link
+            href={session.status == "authenticated" ? "" : "/login"}
+            className="andro_btn-custom primary"
+            onClick={addToCartHandler}
+          >
             <FaShoppingBasket />
-          </button>
+          </Link>
 
           <Link href={"/products/" + item.slug} className="andro_btn-custom light">
             <FaRegEye />

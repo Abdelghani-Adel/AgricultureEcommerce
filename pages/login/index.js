@@ -15,42 +15,23 @@ const Login = (props) => {
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
     setReqBody((prev) => ({ ...prev, [fieldName]: fieldValue }));
+    setErrors();
   });
-
-  const data = useSession();
-  console.log(data);
-  console.log(reqBody);
-
-  // const submitHandler = async (e) => {
-  //   e.preventDefault();
-  //   const res = await authApi.Login(reqBody);
-
-  //   if (!res.token) {
-  //     setErrors(res);
-  //   }
-
-  //   if (res.token) {
-  //     const expiration = new Date();
-  //     expiration.setHours(expiration.getHours() + 1);
-
-  //     localStorage.setItem("Agri_Token", res.token);
-  //     localStorage.setItem("Agri_Expiration", expiration);
-
-  //     router.push("/");
-  //   }
-  // };
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    const res = await signIn("credentials", {
-      email: reqBody.email,
-      password: reqBody.password,
-      redirect: false,
-    });
+    const dbLookup = await authApi.Login(reqBody);
 
-    // const result = await res.json();
-    console.log(res);
+    if (dbLookup.token) {
+      const res = await signIn("credentials", {
+        email: reqBody.email,
+        password: reqBody.password,
+        callbackUrl: "localhost:8080",
+      });
+    } else {
+      setErrors(dbLookup);
+    }
   };
 
   return (

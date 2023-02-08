@@ -4,10 +4,12 @@ import { withTranslation } from "react-multi-lang";
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { cartActions, editCart } from "../../../../../redux/slices/cartSlice";
+import { useSession } from "next-auth/react";
 
 const ProductFooter = (props) => {
   const { product } = props;
   const dispatch = useDispatch();
+  const session = useSession();
 
   const addToCartHandler = useCallback((e) => {
     const payload = {
@@ -21,7 +23,7 @@ const ProductFooter = (props) => {
     <div className="andro_product-footer">
       <div className="andro_product-controls">
         <Link
-          href={"#"}
+          href={session.status == "authenticated" ? "" : "/login"}
           data-toggle="tooltip"
           data-placement="top"
           title={props.t("Products.AddToCart")}

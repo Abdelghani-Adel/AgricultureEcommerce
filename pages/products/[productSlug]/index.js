@@ -34,8 +34,7 @@ export const getServerSideProps = async (context) => {
   const details = await productDetails.json();
   return {
     props: {
-      productDetails: details[0],
-      test: "test",
+      productDetails: details,
     },
   };
 };

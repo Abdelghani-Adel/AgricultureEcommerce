@@ -1,3 +1,4 @@
+import { useSession } from "next-auth/react";
 import Link from "next/Link";
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
@@ -8,6 +9,7 @@ const BuyNow = (props) => {
   const { item } = props;
   const [clicks, setClicks] = useState(1);
   const dispatch = useDispatch();
+  const session = useSession();
 
   const IncrementItem = () => {
     setClicks(clicks + 1);
@@ -31,9 +33,13 @@ const BuyNow = (props) => {
   return (
     <div className="andro_product-atc-form">
       <div className="qty-outter">
-        <button href="" className="andro_btn-custom mb-3" onClick={addToCartHandler}>
+        <Link
+          href={session.status == "authenticated" ? "" : "/login"}
+          className="andro_btn-custom mb-3"
+          onClick={addToCartHandler}
+        >
           Buy Now
-        </button>
+        </Link>
         <div className="qty">
           <span className="qty-subtract" onClick={DecreaseItem} data-type="minus" data-field>
             <FaMinus />

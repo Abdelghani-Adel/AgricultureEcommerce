@@ -32,7 +32,7 @@ const HeaderControls = (props) => {
   // End watching the size to unmount the mobile navigation from the dom completely in desktop view
 
   const logoutHandler = () => {
-    signOut({ redirect: false });
+    signOut();
   };
 
   return (
