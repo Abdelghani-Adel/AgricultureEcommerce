@@ -1,21 +1,11 @@
-import { useSession, getSession } from "next-auth/react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useSession } from "next-auth/react";
 import { Fragment, useCallback } from "react";
 import { withTranslation } from "react-multi-lang";
 import BillingAddressForm from "../../VendorRegistration/Reusable/BillingAddressForm/BillingAddressForm";
 import BillingAddressInput from "./BillingAddressInput";
 
 const BillingAddress = (props) => {
-  const [session, setSession] = useState();
-
-  useEffect(() => {
-    const fetchSession = async () => {
-      const session = await getSession();
-      setSession(session.user.user);
-    };
-    fetchSession();
-  }, []);
+  const { data: session } = useSession();
 
   const hydrateReqBodyWithAddress = useCallback((address) => {
     setReqBody({ ...requestBody, ...address });
@@ -32,7 +22,7 @@ const BillingAddress = (props) => {
               fieldName="userName"
               transTitle="Username"
               fieldWidth="6"
-              defaultValue={session.username}
+              defaultValue={session.user.user.username}
               disabled={true}
             />
 
