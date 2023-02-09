@@ -26,9 +26,8 @@ const CategoryNavItem = (props) => {
   return (
     <li className={`menu-item ${itemStyle}`} onMouseLeave={blurHandler} onClick={blurHandler}>
       <Link href={itemLink}>
-        {link.IconTypeId == 2 && <img className="category_icon" src={`${link.Icon}`} />}
-
         {link.IconTypeId == 1 && <img className="category_icon svg" src={`${link.Icon}`} />}
+        {link.IconTypeId == 2 && <img className="category_icon" src={`${link.Icon}`} />}
 
         {link.FAClassificationName}
 
