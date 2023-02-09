@@ -52,6 +52,10 @@ const CheckoutContent = (props) => {
     setReqBody({ ...reqBody, addr: { ...reqBody.addr, [e.target.name]: e.target.value } });
   });
 
+  const hydrateReqBodyWithAddress = useCallback((address) => {
+    setReqBody({ ...reqBody, addr: address });
+  });
+
   const placeOrderHandler = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/UPSSalesOrder`, {
       method: "POST",
@@ -67,7 +71,10 @@ const CheckoutContent = (props) => {
       <div className="container">
         <form method="post">
           <div className="row">
-            <BillingAddress inputChangeHandler={inputChangeHandler} />
+            <BillingAddress
+              inputChangeHandler={inputChangeHandler}
+              hydrateReqBodyWithAddress={hydrateReqBodyWithAddress}
+            />
             <CheckoutDetails placeOrderHandler={placeOrderHandler} />
           </div>
         </form>

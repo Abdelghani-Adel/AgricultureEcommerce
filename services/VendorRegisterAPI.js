@@ -68,7 +68,7 @@ class VendorRegisterAPI {
     return data;
   }
 
-  async fetchAddresses(vendorID) {
+  async fetchAddresses(vendorID, EntityId) {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getAddressList`,
       {
@@ -76,6 +76,7 @@ class VendorRegisterAPI {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           vendorId: vendorID,
+          EntityId: EntityId,
         }),
       }
     );

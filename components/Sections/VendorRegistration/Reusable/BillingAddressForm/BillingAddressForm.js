@@ -5,10 +5,10 @@ import VendorRegisterAPI from "../../../../../services/VendorRegisterAPI";
 const vendorRegApi = new VendorRegisterAPI();
 
 const BillingAddressForm = (props) => {
-  const { fieldChangeHandler, hydrateReqBody, vendorID } = props;
-  // let showPreviousAddress = props.showPreviousAddress;
-  const [showPreviousAddress, setShowPreviousAddress] = useState(props.showPreviousAddress);
-  const [showAddingForm, setShowAddingForm] = useState(!showPreviousAddress);
+  const { fieldChangeHandler, hydrateReqBody, vendorID, EntityId } = props;
+
+  const [showPreviousAddress, setShowPreviousAddress] = useState();
+  const [showAddingForm, setShowAddingForm] = useState();
 
   const [addresses, setAddresses] = useState();
   const [countries, setCountries] = useState();
@@ -17,87 +17,69 @@ const BillingAddressForm = (props) => {
   const [districts, setDistricts] = useState();
 
   useEffect(() => {
-    const fetchCountries = async () => {
-      const data = await vendorRegApi.fetchCountries();
-      setCountries(data);
-    };
     const fetchAddresses = async () => {
-      const data = await vendorRegApi.fetchAddresses(vendorID);
-      setAddresses(data);
+      // Check if there are previous address
+      const addresses = await vendorRegApi.fetchAddresses(vendorID, EntityId);
 
-      if (data.length == 0) {
-        const data = await vendorRegApi.fetchGovernments(1); // need dynamic countryID
+      // If no previous address found, don't show empty droplist, show the adding form
+      if (addresses.length == 0) {
+        setShowPreviousAddress(false);
         setShowAddingForm(true);
-        setGovernments(data);
+
+        const countries = await vendorRegApi.fetchCountries();
+        setCountries(countries);
+      }
+
+      // if previous address found, show it and hide adding form temporarely,
+      // also set the addresses state to be shown in the droplist
+      // also hydrate the parent's request body state with the first previous address found
+      if (addresses.length > 0) {
+        setShowPreviousAddress(true);
+        setShowAddingForm(false);
+        setAddresses(addresses);
+
+        hydrateReqBody(addresses[0]);
       }
     };
 
-    showPreviousAddress && vendorID > 0 ? fetchAddresses() : fetchCountries();
-    // If showPreviousAddress is true, that means this component is being used to show
-    // the previous address to user and give him an option to add more addresses
-    // and if not showPreviousAddress that means it's being used for the first time which the user
-    // will enter his full address starting from the country, so I fetch the countries to hydrate the dropdown
+    fetchAddresses();
   }, []);
 
-  // Once the address is fetched, I hydrate the parent's requestBody state with the incoming address to be sent again
-  useEffect(() => {
-    if (addresses && addresses.length > 0) {
-      const address = {
-        Country_Id: addresses[0].Country_Id,
-        City_Id: addresses[0].City_Id,
-        Gover_Id: addresses[0].Gover_Id,
-        District_Id: addresses[0].District_Id,
-        streetAdd: addresses[0].FullAddress,
-        buildingNo: addresses[0].BuildingNo,
-      };
-      hydrateReqBody(address);
-    }
-  }, [addresses]);
+  const showAddingNewAddressForm = useCallback(async () => {
+    const countries = await vendorRegApi.fetchCountries();
+    setCountries(countries);
+    setShowAddingForm(true);
+  });
 
-  // If the user wants to add new address ?
-  // show the form, starting from adding the government, so go and fetch the governments
-  const showAddingNewAddressForm = () => {
-    const fetchGovernments = async () => {
-      const data = await vendorRegApi.fetchGovernments(1); // need dynamic countryID
-      setShowAddingForm(true);
-      setGovernments(data);
-    };
-    fetchGovernments();
-  };
-
-  const countryChangeHandler = useCallback((e) => {
+  const countryChangeHandler = useCallback(async (e) => {
     const countryID = e.target.value;
-    const fetchGovernments = async () => {
-      const data = await vendorRegApi.fetchGovernments(countryID);
-      setGovernments(data);
-    };
+    const governments = await vendorRegApi.fetchGovernments(countryID);
+    setGovernments(governments);
+
+    // update the parent's requestBody
     fieldChangeHandler(e);
-    fetchGovernments();
   });
 
-  const governmentChangeHandler = useCallback((e) => {
+  const governmentChangeHandler = useCallback(async (e) => {
     const govID = e.target.value;
-    const fetchCities = async () => {
-      const data = await vendorRegApi.fetchCities(govID);
-      setCities(data);
-    };
+    const cities = await vendorRegApi.fetchCities(govID);
+    setCities(cities);
+
+    // update the parent's requestBody
     fieldChangeHandler(e);
-    fetchCities();
   });
 
-  const cityChangeHandler = useCallback((e) => {
+  const cityChangeHandler = useCallback(async (e) => {
     const cityID = e.target.value;
-    const fetchDestricts = async () => {
-      const data = await vendorRegApi.fetchDestricts(cityID);
-      setDistricts(data);
-    };
+    const districts = await vendorRegApi.fetchDestricts(cityID);
+    setDistricts(districts);
+
+    // update the parent's requestBody
     fieldChangeHandler(e);
-    fetchDestricts();
   });
 
   return (
     <Fragment>
-      {/* /////////////     DropDown with previous address     ///////////// */}
       {showPreviousAddress && (
         <div className="row">
           <InputField
@@ -108,12 +90,10 @@ const BillingAddressForm = (props) => {
             optionID="EI_Add_Id"
             optionTitle="FullAddress"
             firstOptionChoosen={true}
-            required={addresses && addresses.length > 0 ? true : false}
           />
         </div>
       )}
 
-      {/* /////////////     add new address ?     ///////////// */}
       {showPreviousAddress && !showAddingForm && (
         <div className="row">
           <div className="col">
@@ -124,19 +104,16 @@ const BillingAddressForm = (props) => {
         </div>
       )}
 
-      {/* /////////////     Billing_Address_Form Inputs     ///////////// */}
       {showAddingForm && (
         <div className="row row-cols-2">
-          {!showPreviousAddress && (
-            <InputField
-              title="Country"
-              fieldName="Country_Id"
-              changeHandler={countryChangeHandler}
-              options={countries}
-              optionID="Country_Id"
-              optionTitle="CountryName_EN"
-            />
-          )}
+          <InputField
+            title="Country"
+            fieldName="Country_Id"
+            changeHandler={countryChangeHandler}
+            options={countries}
+            optionID="Country_Id"
+            optionTitle="CountryName_EN"
+          />
 
           <InputField
             title="Government"

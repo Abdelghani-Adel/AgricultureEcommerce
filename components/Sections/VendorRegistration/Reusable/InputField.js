@@ -16,7 +16,10 @@ const InputField = (props) => {
   return (
     <div className={customeStyle ? customeStyle : "col"}>
       <div className="form-group">
-        <label>{title}</label>
+        <label>
+          {title}
+          <span className="text-danger">*</span>
+        </label>
 
         {/* Normal input NOT select */}
         {!options && !optionID && (
@@ -32,12 +35,7 @@ const InputField = (props) => {
 
         {/* If the input type is SELECT */}
         {optionID && (
-          <select
-            className={inputStyle}
-            name={fieldName}
-            onChange={changeHandler}
-            required={props.required}
-          >
+          <select className={inputStyle} name={fieldName} onChange={changeHandler} required>
             {!firstOptionChoosen && (
               <option selected disabled value="">
                 Choose {title}

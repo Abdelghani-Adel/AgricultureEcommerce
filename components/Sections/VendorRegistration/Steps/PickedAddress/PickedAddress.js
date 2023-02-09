@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 import VendorRegisterAPI from "../../../../../services/VendorRegisterAPI";
 import BillingAddressForm from "../../Reusable/BillingAddressForm/BillingAddressForm";
 import SubmitStepButton from "../../Reusable/SubmitStepButton";
@@ -36,6 +36,7 @@ const PickedAddress = (props) => {
           fieldChangeHandler={inputChangeHandler}
           hydrateReqBody={hydrateReqBody}
           vendorID={vendorID}
+          EntityId={17}
           showPreviousAddress={true}
         />
         <SubmitStepButton />

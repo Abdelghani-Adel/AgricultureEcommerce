@@ -1,15 +1,11 @@
 import { useSession } from "next-auth/react";
-import { Fragment, useCallback } from "react";
+import { Fragment } from "react";
 import { withTranslation } from "react-multi-lang";
 import BillingAddressForm from "../../VendorRegistration/Reusable/BillingAddressForm/BillingAddressForm";
 import BillingAddressInput from "./BillingAddressInput";
 
 const BillingAddress = (props) => {
   const { data: session } = useSession();
-
-  const hydrateReqBodyWithAddress = useCallback((address) => {
-    setReqBody({ ...requestBody, ...address });
-  });
 
   return (
     <Fragment>
@@ -31,7 +27,7 @@ const BillingAddress = (props) => {
               fieldName="email"
               transTitle="Checkout.Email"
               fieldWidth="6"
-              defaultValue={session.email}
+              defaultValue={session.user.user.email}
               disabled={true}
             />
 
@@ -40,14 +36,15 @@ const BillingAddress = (props) => {
               fieldName="phone"
               transTitle="Checkout.Phone"
               fieldWidth="6"
-              defaultValue={session.phoneNumber}
+              defaultValue={session.user.user.phoneNumber}
               disabled={true}
             />
 
             <BillingAddressForm
               fieldChangeHandler={props.inputChangeHandler}
-              hydrateReqBody={hydrateReqBodyWithAddress}
+              hydrateReqBody={props.hydrateReqBodyWithAddress}
               vendorID={session.custId}
+              EntityId={16}
               showPreviousAddress={true}
             />
 
