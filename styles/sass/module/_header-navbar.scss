@@ -21,6 +21,19 @@
   // font-size: 16px;
 }
 
+.header-nav > .menu-item .category_icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+.header-nav > .menu-item .category_icon.svg {
+  // https://codepen.io/sosuke/pen/Pjoqqp to get the filter
+  filter: invert(100%) sepia(32%) saturate(5117%) hue-rotate(316deg) brightness(110%) contrast(70%);
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
 .header-nav > .menu-item > a:hover {
   color: #50bd4d;
 }
@@ -33,6 +46,7 @@
 .header-nav > .menu-item > a:hover > .icon:hover {
   color: #50bd4d;
 }
+
 .header-nav > .menu-item:first-child > a {
   padding-left: 10px;
 }

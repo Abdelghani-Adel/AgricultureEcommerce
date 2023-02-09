@@ -6,6 +6,8 @@ const CategoryNavItem = (props) => {
   const { link, isChild } = props;
   const [subMenuIsShown, setSubMenuIsShown] = useState(false);
 
+  console.log(link);
+
   const itemStyle = link.ClassificationChildren.length > 0 ? "menu-item-has-children" : "";
   const itemLink = `/categories/${link.FAClassificationSlug || "SlugNotFound"}?id=${
     link.FAClassificationId
@@ -24,7 +26,10 @@ const CategoryNavItem = (props) => {
   return (
     <li className={`menu-item ${itemStyle}`} onMouseLeave={blurHandler} onClick={blurHandler}>
       <Link href={itemLink}>
-        <img className="me-2" src={`data:image/png;base64,${link.Icon}`} />
+        {link.IconTypeId == 2 && <img className="category_icon" src={`${link.Icon}`} />}
+
+        {link.IconTypeId == 1 && <img className="category_icon svg" src={`${link.Icon}`} />}
+
         {link.FAClassificationName}
 
         {link.ClassificationChildren.length > 0 && (

@@ -1034,7 +1034,7 @@ p {
 }
 @media (max-width: 575px) {
   .andro_product-atc-form .qty-outter,
-.andro_product-atc-form .qty-outter .andro_btn-custom {
+  .andro_product-atc-form .qty-outter .andro_btn-custom {
     display: block;
   }
   .andro_product-atc-form .qty-outter .andro_btn-custom + .qty {
@@ -1338,18 +1338,18 @@ p {
 }
 @media (min-width: 768px) {
   .main_header-cart-content,
-.main_header-favorites {
+  .main_header-favorites {
     display: block;
   }
 }
 @media (max-width: 575px) {
   .main_header-cart-content,
-.main_header-favorites {
+  .main_header-favorites {
     display: none;
   }
   .main_header-controls-inner li.main_header-cart a,
-.main_header-controls-inner li a,
-.main_header-controls .aside-toggler {
+  .main_header-controls-inner li a,
+  .main_header-controls .aside-toggler {
     padding: 0;
     width: 40px;
     height: 40px;
@@ -1437,7 +1437,6 @@ p {
 
 .andro_btn-custom {
   cursor: pointer;
-  margin: 20px auto;
   display: inline-block;
   text-align: center;
   white-space: nowrap;
@@ -1454,7 +1453,6 @@ p {
   text-transform: uppercase;
   border-radius: 25px;
   z-index: 1;
-  width: 200px;
   box-shadow: 0 3px 24px rgba(0, 0, 0, 0.1);
 }
 
@@ -1748,12 +1746,8 @@ p {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  justify-content: space-between;
-  justify-items: stretch;
 }
-.andro_cart-product-wrapper div{
-  flex: 1;
-}
+
 .andro_cart-product-wrapper img {
   width: 50px;
   margin-right: 15px;
@@ -1766,7 +1760,7 @@ p {
 }
 
 .andro_cart-product-wrapper h6 {
-  margin-bottom: 3px;
+  margin-bottom: 0;
 }
 
 .andro_cart-product-wrapper h6 a {
@@ -1958,7 +1952,7 @@ p {
 
 @media (max-width: 991px) {
   .andro_grid-slider .slick-prev,
-.andro_grid-slider .slick-next {
+  .andro_grid-slider .slick-next {
     display: none;
   }
   .banner-3 .slick-arrow {
@@ -2043,6 +2037,19 @@ p {
   padding: 0 10px;
   color: #fff;
   display: block;
+}
+
+.header-nav > .menu-item .category_icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+.header-nav > .menu-item .category_icon.svg {
+  filter: invert(100%) sepia(32%) saturate(5117%) hue-rotate(316deg) brightness(110%) contrast(70%);
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
 }
 
 .header-nav > .menu-item > a:hover {

@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 import { withTranslation } from "react-multi-lang";
 import { useSelector } from "react-redux";
 import { getAuthHeaders } from "../../../helper/auth";
@@ -14,39 +14,11 @@ const initReqBody = {
     streetAdd: "string",
     buildingNo: "string",
   },
-  cart: {
-    success: true,
-    Message: "string",
-    totalPrice: 0,
-    Cart_Ref: "string",
-    Cust_Id: 0,
-    Cart_Id: 0,
-    lang: "string",
-    items: [
-      {
-        Quote_S_Id: 0,
-        Item_Id: 0,
-        Item_Name: "string",
-        Qty: 0,
-        UnitPrice: 0,
-        Quote_Date: "string",
-        UOM_Id: 0,
-        UOM_Name: "string",
-        Cart_Id: 0,
-        Supp_Id: 0,
-        lang: "string",
-      },
-    ],
-  },
 };
 
 const CheckoutContent = (props) => {
-  const [reqBody, setReqBody] = useState(initReqBody);
   const cartState = useSelector((state) => state.cart);
-
-  useEffect(() => {
-    setReqBody({ ...reqBody, cart: { ...cartState } });
-  }, [cartState]);
+  const [reqBody, setReqBody] = useState({ ...initReqBody, cart: { ...cartState } });
 
   const inputChangeHandler = useCallback((e) => {
     setReqBody({ ...reqBody, addr: { ...reqBody.addr, [e.target.name]: e.target.value } });
@@ -56,26 +28,28 @@ const CheckoutContent = (props) => {
     setReqBody({ ...reqBody, addr: address });
   });
 
-  const placeOrderHandler = async () => {
+  const submitHandler = async (e) => {
+    e.preventDefault();
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/UPSSalesOrder`, {
       method: "POST",
       headers: await getAuthHeaders(),
       body: JSON.stringify(reqBody),
     });
 
-    console.log(res);
+    const data = await res.json();
+    console.log(data);
   };
 
   return (
     <div className="section">
       <div className="container">
-        <form method="post">
+        <form method="post" onSubmit={submitHandler}>
           <div className="row">
             <BillingAddress
               inputChangeHandler={inputChangeHandler}
               hydrateReqBodyWithAddress={hydrateReqBodyWithAddress}
             />
-            <CheckoutDetails placeOrderHandler={placeOrderHandler} />
+            <CheckoutDetails />
           </div>
         </form>
       </div>
