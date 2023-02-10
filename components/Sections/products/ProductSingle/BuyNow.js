@@ -25,7 +25,7 @@ const BuyNow = (props) => {
   return (
     <div className="andro_product-atc-form">
       <div className="qty-outter">
-        <AddToCart style={"andro_btn-custom mb-3"} item={item}>
+        <AddToCart uom={true} style={"andro_btn-custom mb-3"} item={item}>
           Add To Cart
         </AddToCart>
 
