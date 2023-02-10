@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 import { BsFillArrowRightSquareFill } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
 import { FaCommentAlt, FaRegHeart, FaShoppingBasket, FaUserAlt } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LanguageChange from "../LanguageChange";
 import MobileViewNavToggler from "./MobileViewNavToggler";
+import { loaderActions } from "../../../../../redux/slices/loaderSlice";
 
 const HeaderControls = (props) => {
   const cartState = useSelector((state) => state.cart);
-  const authState = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   const session = useSession();
   // console.log(session.status);
 
@@ -32,7 +33,9 @@ const HeaderControls = (props) => {
   // End watching the size to unmount the mobile navigation from the dom completely in desktop view
 
   const logoutHandler = () => {
-    signOut({ callbackUrl: "localhost:8080" });
+    dispatch(loaderActions.showLoader());
+    signOut();
+    dispatch(loaderActions.hideLoader());
   };
 
   return (

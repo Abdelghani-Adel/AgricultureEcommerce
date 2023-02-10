@@ -8,6 +8,7 @@ import AddToCart from "../AddToCart";
 
 const BuyNow = (props) => {
   const { item } = props;
+  console.log(item);
   const [clicks, setClicks] = useState(1);
   const dispatch = useDispatch();
   const session = useSession();
@@ -15,28 +16,22 @@ const BuyNow = (props) => {
   const IncrementItem = () => {
     setClicks(clicks + 1);
   };
-
   const DecreaseItem = () => {
     clicks < 1 ? setClicks(0) : setClicks(clicks - 1);
   };
   const handleChange = (event) => {
     setClicks(event.target.value);
   };
-
-  const addToCartHandler = () => {
-    const payload = {
-      action: "plus",
-      item: item,
-    };
-
-    dispatch(editCart(payload));
-  };
   return (
     <div className="andro_product-atc-form">
       <div className="qty-outter">
         <AddToCart style={"andro_btn-custom mb-3"} item={item}>
-          Buy Now
+          Add To Cart
         </AddToCart>
+
+        <Link href={"/checkout"} className="andro_btn-custom">
+          BUY NOW
+        </Link>
         {/* <div className="qty">
           <span className="qty-subtract" onClick={DecreaseItem} data-type="minus" data-field>
             <FaMinus />

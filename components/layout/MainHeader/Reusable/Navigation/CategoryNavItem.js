@@ -6,8 +6,6 @@ const CategoryNavItem = (props) => {
   const { link, isChild } = props;
   const [subMenuIsShown, setSubMenuIsShown] = useState(false);
 
-  console.log(link);
-
   const itemStyle = link.ClassificationChildren.length > 0 ? "menu-item-has-children" : "";
   const itemLink = `/categories/${link.FAClassificationSlug || "SlugNotFound"}?id=${
     link.FAClassificationId

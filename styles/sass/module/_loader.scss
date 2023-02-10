@@ -1,0 +1,19 @@
+.pagination-loader {
+  position: absolute;
+  z-index: 4;
+  height: 100vh;
+  width: 100vw;
+  background: #a3a2a236;
+  top: 0;
+}
+
+.pagination-loader svg {
+  margin: "auto";
+  background: "#fff";
+  display: "block";
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  //   shaperendering: "auto";
+}

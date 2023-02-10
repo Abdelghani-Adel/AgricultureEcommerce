@@ -7,6 +7,8 @@ const authApi = new AuthenticationAPI();
 export const authOptions = {
   session: {
     strategy: "jwt",
+    jwt: true,
+    maxAge: 60 * 60,
   },
   pages: {
     signIn: "/login",
@@ -28,14 +30,24 @@ export const authOptions = {
 
         throw new Error("Incorrect Credentials");
       },
+      secret: "8F8D1546C2C1A23FECE7FCEE13E542DCA4F4B6613A072DE63B7F7F9C1F13263F",
     }),
   ],
+  secret: "mvOHAEhOWjGtUo7tS6VuAUByEWnTh67AzdrP1HRvNOA=",
   callbacks: {
-    async jwt({ token, user }) {
-      return { ...token, ...user };
-    },
     async session({ session, user, token }) {
-      return token;
+      return { ...token };
+    },
+    async jwt({ token, user }) {
+      const object = {
+        ...token,
+        ...user,
+      };
+      return object;
+      // return { ...token, ...user };
+    },
+    async redirect({ url, baseUrl }) {
+      return "http://localhost:8080";
     },
   },
 };

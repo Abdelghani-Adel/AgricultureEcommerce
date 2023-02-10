@@ -8,7 +8,6 @@ export default function Document() {
         <meta name="description" content="Created by RTS Solutions" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <link href="https://devsdiamond.com" rel="canonical" />
 
         <link
           rel="stylesheet"

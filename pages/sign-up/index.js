@@ -1,6 +1,9 @@
+import { signIn } from "next-auth/react";
 import Link from "next/Link";
 import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
+import { loaderActions } from "../../redux/slices/loaderSlice";
 import { AuthenticationAPI } from "../../services/AuthenticationAPI";
 
 const authApi = new AuthenticationAPI();
@@ -8,31 +11,34 @@ const authApi = new AuthenticationAPI();
 const SignUp = (props) => {
   const router = useRouter();
   const [reqBody, setReqBody] = useState();
-  const [data, setData] = useState();
+  const [errors, setErrors] = useState();
+  const dispatch = useDispatch();
 
   const inputChangeHandler = useCallback((e) => {
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
     setReqBody((prev) => ({ ...prev, [fieldName]: fieldValue }));
-    setData();
+    setErrors();
   });
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const res = await authApi.Register(reqBody);
-    if (!res.token) {
-      setData(res);
+    dispatch(loaderActions.showLoader());
+
+    const dblookup = await authApi.Register(reqBody);
+    if (!dblookup.token) {
+      setErrors(dblookup);
     }
 
-    if (res.token) {
-      const expiration = new Date();
-      expiration.setHours(expiration.getHours() + 1);
-
-      localStorage.setItem("Agri_Token", res.token);
-      localStorage.setItem("Agri_Expiration", expiration);
-
-      router.push("/");
+    if (dblookup.token) {
+      const res = await signIn("credentials", {
+        email: dblookup.user.email,
+        password: dblookup.user.password,
+        callbackUrl: "/",
+      });
     }
+
+    dispatch(loaderActions.hideLoader());
   };
   return (
     <div className="section">
@@ -51,9 +57,9 @@ const SignUp = (props) => {
           <div className="auth-form">
             <h2>Sign Up</h2>
             <form onSubmit={submitHandler}>
-              {data && (
+              {errors && (
                 <ul>
-                  {Object.values(data).map((err) => (
+                  {Object.values(errors).map((err) => (
                     <li key={err}>{err}</li>
                   ))}
                 </ul>
