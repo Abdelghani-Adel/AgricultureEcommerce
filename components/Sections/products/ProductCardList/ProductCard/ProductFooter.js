@@ -1,5 +1,6 @@
 import Link from "next/Link";
 import { FaRegEye, FaRegHeart } from "react-icons/fa";
+import { BiLike } from "react-icons/bi";
 import { withTranslation } from "react-multi-lang";
 import AddToCart from "../../AddToCart";
 
@@ -35,7 +36,7 @@ const ProductFooter = (props) => {
           data-placement="top"
           title={props.t("Products.AddToWish")}
         >
-          <FaRegHeart />
+          <BiLike />
         </Link>
       </div>
     </div>

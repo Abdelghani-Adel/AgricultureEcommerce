@@ -55,8 +55,8 @@ const AddToCart = (props) => {
   }, []);
   return (
     <Fragment>
-      <div className="d-flex align-items-center col-5">
-        {measureUnits.length > 0 && (
+      {measureUnits.length > 0 && (
+        <div className="d-flex align-items-center col-5">
           <select className="form-select me-3" onChange={UOMchangeHandler}>
             {measureUnits.map((unit, i) => (
               <option key={i} value={unit}>
@@ -64,7 +64,18 @@ const AddToCart = (props) => {
               </option>
             ))}
           </select>
-        )}
+          <Link
+            href="/"
+            className={props.style}
+            title={props.t("Products.AddToCart")}
+            onClick={addToCartHandler}
+          >
+            {props.children ? props.children : <FaShoppingBasket />}
+          </Link>
+        </div>
+      )}
+
+      {measureUnits.length < 1 && (
         <Link
           href="/"
           className={props.style}
@@ -73,7 +84,7 @@ const AddToCart = (props) => {
         >
           {props.children ? props.children : <FaShoppingBasket />}
         </Link>
-      </div>
+      )}
     </Fragment>
   );
 };

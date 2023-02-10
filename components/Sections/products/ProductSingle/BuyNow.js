@@ -29,9 +29,11 @@ const BuyNow = (props) => {
           Add To Cart
         </AddToCart>
 
-        <Link href={"/checkout"} className="andro_btn-custom">
-          BUY NOW
-        </Link>
+        <div className="qty-outter">
+          <Link href={"/checkout"} className="andro_btn-custom">
+            BUY NOW
+          </Link>
+        </div>
         {/* <div className="qty">
           <span className="qty-subtract" onClick={DecreaseItem} data-type="minus" data-field>
             <FaMinus />
