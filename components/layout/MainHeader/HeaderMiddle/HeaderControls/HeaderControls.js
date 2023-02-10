@@ -41,12 +41,12 @@ const HeaderControls = (props) => {
   return (
     <div className="main_header-controls">
       <ul className="main_header-controls-inner">
-        <li className="main_header-favorites">
+        <li className="header_control d-none d-md-flex">
           <Link href="/chat" title="Chat">
             <FaCommentAlt />
           </Link>
         </li>
-        <li className="main_header-favorites">
+        {/* <li className="main_header-favorites">
           {session.status == "authenticated" ? (
             <Link href="" title="logout" onClick={logoutHandler}>
               <FiLogOut />
@@ -56,13 +56,32 @@ const HeaderControls = (props) => {
               <FaUserAlt />
             </Link>
           )}
-        </li>
-        <li className="main_header-favorites">
+        </li> */}
+
+        <ul className="header_control me-2">
+          <li className="menu-item menu-item-has-children">
+            {session.status == "authenticated" ? (
+              <Link href="" title="logout">
+                <FiLogOut /> 5555555
+              </Link>
+            ) : (
+              <Link href="" title="Login">
+                <FaUserAlt />
+              </Link>
+            )}
+            <ul className="sub-menu sub-menu-left">
+              <span className="ms-2">{session.data && session.data.user.user.email}</span>
+              <li>Logout</li>
+            </ul>
+          </li>
+        </ul>
+
+        <li className="header_control d-none d-md-flex">
           <Link href="/wishlist" title="Wish List">
             <FaRegHeart />
           </Link>
         </li>
-        <li className="main_header-cart">
+        <li className="header_control main_header-cart d-none d-md-flex">
           <Link href="/cart" title="Cart">
             <FaShoppingBasket />
             <div className="main_header-cart-content fs-800">
@@ -72,8 +91,8 @@ const HeaderControls = (props) => {
           </Link>
         </li>
         <LanguageChange changeLang={props.changeLang} lang={props.lang} />
+        {isMobileView && <MobileViewNavToggler />}
       </ul>
-      {isMobileView && <MobileViewNavToggler />}
     </div>
   );
 };

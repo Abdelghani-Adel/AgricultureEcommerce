@@ -11,7 +11,7 @@ const LanguageChange = (props) => {
   };
 
   return (
-    <ul className="language-change">
+    <ul className="header_control language-change">
       <li className="menu-item menu-item-has-children">
         <Link href="">{props.t("Navbar." + language)}</Link>
         <ul className="sub-menu sub-menu-left">

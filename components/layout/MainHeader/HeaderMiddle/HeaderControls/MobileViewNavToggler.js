@@ -23,7 +23,7 @@ const MobileViewNavToggler = (props) => {
 
   return (
     <>
-      <div className="aside-toggler aside-trigger-left" onClick={clickHandler}>
+      <div className="header_control aside-toggler" onClick={clickHandler}>
         <span />
         <span />
         <span />

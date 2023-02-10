@@ -5,6 +5,7 @@ const HeaderSearchFromLabel = (props) => {
         type="checkbox"
         name={props.name}
         defaultValue={props.defaultValue}
+        onClick={props.categorySelectHandler}
       />
       {props.title}
       <i className="fas fa-check" />

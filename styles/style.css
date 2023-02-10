@@ -784,7 +784,6 @@ Version: 1.0.0
 }
 .main_header-middle {
   background-color: #fff;
-  height: 60px;
 }
 .main_header-middle .navbar {
   padding: 0;
@@ -990,7 +989,8 @@ Version: 1.0.0
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: 60px;
+  /* width: 60px; */
+  width: 20%;
 }
 .andro_search-adv-cats label {
   display: flex;
@@ -3765,11 +3765,11 @@ td.remove {
   box-shadow: 0 3px 24px rgb(0 0 0 / 4%);
   border-radius: 8px;
 }
-.catg_card  img{
+.catg_card img {
   max-width: 200px;
   margin: auto;
 }
-.catg_card p{
+.catg_card p {
   color: #838383;
 }
 .andro_back-to-top svg {

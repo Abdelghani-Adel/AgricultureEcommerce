@@ -1,48 +1,44 @@
 import HeaderSearchFromLabel from "./HeaderSearchFormLabel";
-import {FaAngleDown} from "react-icons/fa";
+import { FaAngleDown } from "react-icons/fa";
+import { useState } from "react";
+import { useEffect } from "react";
+import { CategoryApi } from "../../../../../services/CategoryAPI";
+
+const CategoryAPI = new CategoryApi();
+
 const HeaderSearchFormLabelList = (props) => {
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const categorySelectHandler = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+
+  useEffect(() => {
+    const getCategories = async () => {
+      const categories = await CategoryAPI.GetCategoriesMenu();
+      setCategories(categories);
+    };
+
+    getCategories();
+  }, []);
   return (
     <div className="andro_search-adv-cats">
-      <span>All <FaAngleDown/></span>
-      {/* <div className="sub-menu">
+      <span>
+        {selectedCategory} <FaAngleDown />
+      </span>
+      <div className="sub-menu">
         <div className="andro_dropdown-scroll">
-          <HeaderSearchFromLabel
-            name="category1"
-            defaultValue="food"
-            title="Food"
-          />
-          <HeaderSearchFromLabel
-            name="category2"
-            defaultValue="home-care"
-            title="Home Care"
-          />
-          <HeaderSearchFromLabel
-            name="category3"
-            defaultValue="keto"
-            title="Keto"
-          />
-          <HeaderSearchFromLabel
-            name="category4"
-            defaultValue="baskets"
-            title="Baskets"
-          />
-          <HeaderSearchFromLabel
-            name="category5"
-            defaultValue="supplements"
-            title="Supplements"
-          />
-          <HeaderSearchFromLabel
-            name="category6"
-            defaultValue="baby-kids"
-            title="Baby &amp; Kids care"
-          />
-          <HeaderSearchFromLabel
-            name="category7"
-            defaultValue="serum"
-            title="Serum"
-          />
+          {categories.map((category) => (
+            <HeaderSearchFromLabel
+              name={category.FAClassificationName}
+              defaultValue={category.FAClassificationName}
+              title={category.FAClassificationName}
+              categorySelectHandler={categorySelectHandler}
+            />
+          ))}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
