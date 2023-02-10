@@ -29,8 +29,9 @@ const HeaderSearchFormLabelList = (props) => {
       </span>
       <div className="sub-menu">
         <div className="andro_dropdown-scroll">
-          {categories.map((category) => (
+          {categories.map((category, i) => (
             <HeaderSearchFromLabel
+              key={i}
               name={category.FAClassificationName}
               defaultValue={category.FAClassificationName}
               title={category.FAClassificationName}

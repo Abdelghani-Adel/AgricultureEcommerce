@@ -47,7 +47,7 @@ export const authOptions = {
       // return { ...token, ...user };
     },
     async redirect({ url, baseUrl }) {
-      return "http://localhost:8080";
+      return "https://devsdiamond.com/";
     },
   },
 };
