@@ -5,12 +5,13 @@ import ProductStickers from "./ProductStickers";
 import ProductThumb from "./ProductThumb";
 
 const ProductCard = (props) => {
-  const { product } = props;
+  const { product, style } = props;
+  console.log(product);
   const productPath = `/products/${product.Item_Slug || "slugNotFound"}?id=${product.Item_Id}`;
 
   return (
-    <div className="col-md-4 col-sm-6 col-xs-12 masonry-item">
-      <div className="andro_product andro_product-has-controls">
+    <div className={style}>
+      <div className="product_card">
         <ProductStickers product={product} productPath={productPath} />
         <ProductThumb product={product} productPath={productPath} />
         <ProductDetails product={product} productPath={productPath} />

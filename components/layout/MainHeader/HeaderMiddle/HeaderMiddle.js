@@ -11,10 +11,10 @@ const HeaderMiddle = (props) => {
           <div className="col-4 col-md-2">
             <BrandLogo />
           </div>
-          <div className="col-6 d-none d-md-block">
+          <div className="col-5 d-none d-md-block">
             <HeaderSearchForm />
           </div>
-          <div className="col-4">
+          <div className="col-5">
             <HeaderControls changeLang={props.changeLang} lang={props.lang} />
           </div>
         </div>

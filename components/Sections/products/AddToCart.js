@@ -47,7 +47,7 @@ const AddToCart = (props) => {
       );
 
       const UOMs = await res.json();
-      setMeasureUnits(UOMs);
+      // setMeasureUnits(UOMs);
       console.log(UOMs);
     };
 
@@ -55,12 +55,12 @@ const AddToCart = (props) => {
   }, []);
   return (
     <Fragment>
-      {measureUnits.length > 0 && (
+      {/* {measureUnits.length > 0 && (
         <div className="d-flex align-items-center col-5">
           <select className="form-select me-3" onChange={UOMchangeHandler}>
             {measureUnits.map((unit, i) => (
-              <option key={i} value={unit}>
-                {unit}
+              <option key={i} value={unit.UOMName}>
+                {unit.UOMName}
               </option>
             ))}
           </select>
@@ -73,18 +73,16 @@ const AddToCart = (props) => {
             {props.children ? props.children : <FaShoppingBasket />}
           </Link>
         </div>
-      )}
+      )} */}
 
-      {measureUnits.length < 1 && (
-        <Link
-          href="/"
-          className={props.style}
-          title={props.t("Products.AddToCart")}
-          onClick={addToCartHandler}
-        >
-          {props.children ? props.children : <FaShoppingBasket />}
-        </Link>
-      )}
+      <Link
+        href="/"
+        className={props.style}
+        title={props.t("Products.AddToCart")}
+        onClick={addToCartHandler}
+      >
+        {props.children ? props.children : <FaShoppingBasket />}
+      </Link>
     </Fragment>
   );
 };

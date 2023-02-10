@@ -4,13 +4,15 @@ import Slider from "react-slick";
 import { withTranslation } from "react-multi-lang";
 import { FaArrowRight, FaArrowLeft, FaStar, FaRegEye, FaShoppingBasket } from "react-icons/fa";
 import Best_Product from "./Best_Product";
+import ProductCard from "../../products/ProductCardList/ProductCard/ProductCard";
 
 const settings = {
-  slidesToShow: 6,
+  slidesToShow: 2,
   slidesToScroll: 1,
   arrows: false,
   dots: false,
-  // autoplay: true,
+  infinite: true,
+  autoplay: true,
   responsive: [
     {
       breakpoint: 991,
@@ -37,7 +39,31 @@ class BestProducts extends Component {
     super(props);
     this.state = {
       modalshow: false,
+      products: [],
     };
+  }
+
+  componentDidMount() {
+    const getProducts = async () => {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getItemMainByBestProducts`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ lang: "ar", Cate_Id: 0, limit: 10, start: 0 }),
+        }
+      );
+
+      const data = await res.json();
+      const products = data.data;
+
+      console.log("products", data);
+      this.setState({ ...this.state, products: products });
+    };
+
+    getProducts();
   }
   next = () => {
     this.slider.slickNext();
@@ -86,8 +112,8 @@ class BestProducts extends Component {
             {...settings}
           >
             {/* Product Start */}
-            {this.props.ProductList && this.props.ProductList.length > 0
-              ? this.props.ProductList.map((item, i) => <Best_Product key={i} item={item} />)
+            {this.state.products && this.state.products.length > 0
+              ? this.state.products.map((product, i) => <ProductCard product={product} key={i} />)
               : null}
             {/* Product End */}
           </Slider>

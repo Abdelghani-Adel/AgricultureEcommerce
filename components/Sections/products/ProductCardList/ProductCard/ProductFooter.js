@@ -7,14 +7,15 @@ import AddToCart from "../../AddToCart";
 const ProductFooter = (props) => {
   const { product } = props;
   return (
-    <div className="andro_product-footer">
-      <div className="andro_product-controls">
-        <AddToCart item={product} />
+    <div className="product_card--footer">
+      <div className="product_card--buttons">
+        <AddToCart item={product} style={"andro_btn-custom primary"} />
 
         <Link
           href={props.productPath}
           data-toggle="tooltip"
           data-placement="top"
+          className="andro_btn-custom light"
           title={props.t("Products.ViewDetails")}
         >
           <FaRegEye />
@@ -22,22 +23,13 @@ const ProductFooter = (props) => {
 
         {/* <Link
           href="#"
-          data-toggle="tooltip"
-          data-placement="top"
-          title={props.t("Products.Compare")}
-        >
-          <FaCompressAlt />
-        </Link> */}
-
-        <Link
-          href="#"
-          className="favorite"
+          className="andro_btn-custom light"
           data-toggle="tooltip"
           data-placement="top"
           title={props.t("Products.AddToWish")}
         >
           <BiLike />
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

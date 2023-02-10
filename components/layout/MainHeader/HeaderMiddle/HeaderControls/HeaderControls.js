@@ -40,39 +40,33 @@ const HeaderControls = (props) => {
 
   return (
     <div className="main_header-controls">
-      <ul className="main_header-controls-inner">
+      <ul className="d-flex justify-content-end ">
         <li className="header_control d-none d-md-flex">
           <Link href="/chat" title="Chat">
             <FaCommentAlt />
           </Link>
         </li>
-        {/* <li className="main_header-favorites">
-          {session.status == "authenticated" ? (
-            <Link href="" title="logout" onClick={logoutHandler}>
-              <FiLogOut />
-            </Link>
-          ) : (
-            <Link href="/login" title="Login">
-              <FaUserAlt />
-            </Link>
-          )}
-        </li> */}
 
         <ul className="header_control me-2">
-          <li className="menu-item menu-item-has-children">
+          <li className="menu-item menu-item-has-children ps-1 pe-1">
             {session.status == "authenticated" ? (
-              <Link href="" title="logout">
-                <FiLogOut /> 5555555
-              </Link>
+              <>
+                <Link href="">{session.data.user.user.username}</Link>
+                <ul className="sub-menu sub-menu-left">
+                  <span className="ms-2 text-muted">
+                    {session.data && session.data.user.user.email}
+                  </span>
+                  <li onClick={logoutHandler} className="justify-content-start align-items-center">
+                    <FiLogOut />
+                    <span className="ms-2">Logout</span>
+                  </li>
+                </ul>
+              </>
             ) : (
-              <Link href="" title="Login">
+              <Link href="/login" title="Login">
                 <FaUserAlt />
               </Link>
             )}
-            <ul className="sub-menu sub-menu-left">
-              <span className="ms-2">{session.data && session.data.user.user.email}</span>
-              <li>Logout</li>
-            </ul>
           </li>
         </ul>
 

@@ -3,10 +3,9 @@ import Link from "next/Link";
 const ProductThumb = (props) => {
   const { product } = props;
   return (
-    <div className="andro_product-thumb text-center">
+    <div className="product_card--thumb">
       <Link href={props.productPath}>
-        {/* <img src={"../assets/img/products/7.png"} alt={product.title} /> */}
-        <img src={product.Item_Image} alt={product.title} />
+        <img src="assets/img/products/1.png" alt={product.title} />
       </Link>
     </div>
   );

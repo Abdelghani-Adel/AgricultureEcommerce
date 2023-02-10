@@ -33,9 +33,9 @@ const Best_Product = (props) => {
     dispatch(editCart(payload));
   };
   return (
-    <div className="andro_product andro_product-has-controls andro_product-has-buttons">
+    <div className="product_card">
       {item.featured === true ? (
-        <div className="andro_product-badge andro_badge-featured">
+        <div className="featured-badge">
           <FaStar />
           <span>{props.t("Products.Featured")}</span>
         </div>
@@ -43,40 +43,39 @@ const Best_Product = (props) => {
         ""
       )}
       {item.discount > 0 || item.discount !== "" ? (
-        <div className="andro_product-badge andro_badge-sale">{item.discount}% Off</div>
+        <div className="sale-badge">{item.discount}% Off</div>
       ) : (
         ""
       )}
-      <div className="andro_product-thumb">
+      <div className="product_card--thumb">
         <Link href={"/products" + item.slug}>
           <img src={item.img} alt={item.title} />
         </Link>
       </div>
-      <div className="andro_product-body">
+      <div className="product_card--body">
         <div className="category_badge">
           <span className="badge badge-secondary ">{item.CategoryName}</span>
         </div>
 
-        <h5>
-          <Link className="text-dark" href={"/products/" + item.slug}>
-            {item.title}
-          </Link>
+        <h5 className="product_card--title">
+          <Link href={"/products/" + item.slug}>{item.title}</Link>
         </h5>
-        <div className="andro_product-price">
-          {item.discount > 0 || item.discount !== "" ? (
-            <span>
-              {new Intl.NumberFormat().format(
-                ((item.price * (100 - item.discount)) / 100).toFixed(2)
-              )}
-              $
-            </span>
-          ) : (
-            ""
-          )}
-          <span>{new Intl.NumberFormat().format(item.price.toFixed(2))}$</span>
+        <div className="product_card--price">
+          {item.discount > 0 ||
+            (item.discount !== "" && (
+              <span>
+                {new Intl.NumberFormat().format(
+                  ((product.price * (100 - product.discount)) / 100).toFixed(2)
+                )}
+                {item.price} 49 $
+              </span>
+            ))}
+          <span>49 $</span>
         </div>
-        <p>{item.shortdesc}</p>
-        <div className="andro_rating-wrapper">
+        <div className="product_card--desc">
+          <p>{item.shortdesc}</p>
+        </div>
+        <div className="product_card--rating">
           <div className="andro_rating">{Rating(item.rating)}</div>
           <span>
             {item.rating}
@@ -84,11 +83,17 @@ const Best_Product = (props) => {
           </span>
         </div>
       </div>
-      <div className="andro_product-footer">
-        <div className="andro_product-buttons">
+      <div className="product_card--footer">
+        <div className="product_card--buttons">
           <AddToCart style={"andro_btn-custom primary"} item={item} />
 
-          <Link href={"/products/" + item.slug} className="andro_btn-custom light">
+          <Link
+            href={"/products/" + item.slug}
+            data-toggle="tooltip"
+            data-placement="top"
+            className="andro_btn-custom light"
+            title={props.t("Products.ViewDetails")}
+          >
             <FaRegEye />
           </Link>
         </div>

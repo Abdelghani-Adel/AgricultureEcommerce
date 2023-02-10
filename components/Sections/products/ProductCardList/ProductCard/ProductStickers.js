@@ -6,14 +6,14 @@ const ProductStickers = (props) => {
   return (
     <Fragment>
       {product.featured === true && (
-        <div className="andro_product-badge andro_badge-featured">
+        <div className="featured-badge">
           <FaStar />
           <span>Featured</span>
         </div>
       )}
 
       {(product.discount > 0 || product.discount !== "") && (
-        <div className="andro_product-badge andro_badge-sale">{product.discount}% Off </div>
+        <div className="sale-badge">{product.discount}% Off </div>
       )}
     </Fragment>
   );
