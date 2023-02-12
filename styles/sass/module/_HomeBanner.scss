@@ -21,7 +21,6 @@
   background-color: transparent;
   position: absolute;
   top: 30% !important;
-  // transform: translateY(-50%);
 }
 .advertise-slider .advertise img {
   width: 100%;
@@ -38,13 +37,13 @@
     min-height: 100px;
   }
 }
-.other_banner{
+.other_banner {
   padding: 10px 5px !important;
-  img{
+  img {
     min-height: 100px;
   }
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 991px) {
   .home-banner {
     // height: 500px;
     position: relative;
@@ -60,7 +59,7 @@
     max-height: initial;
   }
 
-  .other_banner{
+  .other_banner {
     text-align: center;
   }
   .home-banner--content {
@@ -69,16 +68,5 @@
     z-index: 2;
     // bottom: 10px;
     bottom: -30%;
-  }
-}
-
-
-@media screen and (max-width: 700px) {
-  .home-banner--content {
-    position: relative;
-    width: 100%;
-    z-index: 2;
-    // bottom: 10px;
-    // bottom: -30%;
   }
 }

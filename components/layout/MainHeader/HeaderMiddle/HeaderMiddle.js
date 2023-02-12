@@ -11,7 +11,7 @@ const HeaderMiddle = (props) => {
           <div className="col-4 col-md-2">
             <BrandLogo />
           </div>
-          <div className="col-6 d-none d-md-block">
+          <div className="col-6 d-none d-lg-block">
             <HeaderSearchForm />
           </div>
           <div className="col-8 col-lg-4">

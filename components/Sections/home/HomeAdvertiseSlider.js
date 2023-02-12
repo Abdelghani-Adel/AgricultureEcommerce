@@ -24,14 +24,6 @@ export default function HomeAdvertiseSlider() {
           <img src="../img/slider.jpg" alt="" />
         </div>
       </div>
-      {/* <div>
-        <div className="advertise">
-          <img
-            src="https://www.gisp-group.com/wp-content/uploads/2016/10/Agriculture-Banner.jpg"
-            alt=""
-          />
-        </div>
-      </div> */}
     </Slider>
   );
 }

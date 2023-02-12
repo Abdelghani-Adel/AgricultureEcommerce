@@ -1454,7 +1454,7 @@ p {
   min-height: 100px;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 991px) {
   .home-banner {
     position: relative;
   }
@@ -1476,13 +1476,6 @@ p {
     width: 100%;
     z-index: 2;
     bottom: -30%;
-  }
-}
-@media screen and (max-width: 700px) {
-  .home-banner--content {
-    position: relative;
-    width: 100%;
-    z-index: 2;
   }
 }
 .pagination-loader {
