@@ -864,6 +864,7 @@ p {
   white-space: nowrap;
   text-overflow: ellipsis;
   max-height: 30px;
+  height: 30px;
   direction: rtl;
 }
 
@@ -2393,5 +2394,3 @@ p {
     font-size: 2rem;
   }
 }
-
-/*# sourceMappingURL=main.css.map */
