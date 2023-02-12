@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { useEffect } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
 import ReactPaginate from "react-paginate";
@@ -14,8 +13,6 @@ import SearchCategory from "./SearchCategory";
 const CategoryProducts = (props) => {
   const [products, setProducts] = useState(props.products.data);
   const [productsTotal, setproductsTotal] = useState(props.products.total);
-
-  // const productsTotal = props.products.total;
   const router = useRouter();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -38,10 +35,6 @@ const CategoryProducts = (props) => {
 
     // router.push(`${basePath}&start=${itemOffset}`);
 
-    console.log(itemOffset);
-    console.log(endOffset);
-
-    console.log(basePath);
     const newOffset = (event.selected * itemsPerPage) % products.length;
     const newEndOffset = newOffset + itemsPerPage;
 

@@ -34,7 +34,8 @@
     "Brand": "الماركة",
     "UOM": "وحده القياس",
     "AddInfo": "معلومات اضافية",
-    "reviews": "تقييم مستخدمين"
+    "reviews": "تقييم مستخدمين",
+    "NoProducts": "! لا يوجد منتجات لهذه القائمة"
   },
   "Footer": {
     "TopCategories": "أعلي الاقسام",
@@ -52,7 +53,8 @@
     "EnterCoupon": "أدخل كود الخصم",
     "Tax": "ضرائب",
     "CheckoutProceed": "قم بالدفع",
-    "AddToCart": "أضف الي العربة"
+    "AddToCart": "أضف الي العربة",
+    "EmptyCart": "! لم تقم بإضافة أي منتجات لعربة التسوق"
   },
   "Wishlist": {
     "Availability": "المتاح",

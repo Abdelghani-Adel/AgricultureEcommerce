@@ -35,7 +35,8 @@
     "UOM": "UOM",
     "AddInfo": "Additional Information",
     "reviews": "reviews",
-    "ItemDesc": "Item Description"
+    "ItemDesc": "Item Description",
+    "NoProducts": "No Products Found !"
   },
   "Footer": {
     "TopCategories": "Top Categories",
@@ -53,7 +54,8 @@
     "EnterCoupon": "Enter Coupon Code",
     "Tax": "Tax",
     "CheckoutProceed": "PROCEED TO CHECKOUT",
-    "AddToCart": "ADD TO CART"
+    "AddToCart": "ADD TO CART",
+    "EmptyCart": "You have not added any items to the cart !"
   },
   "Wishlist": {
     "Availability": "Availability",

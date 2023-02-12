@@ -14,7 +14,7 @@ import en from "../translations/en.json";
 import { SessionProvider } from "next-auth/react";
 
 setTranslations({ ar, en });
-setDefaultLanguage("en");
+setDefaultLanguage("ar");
 
 export default function App({ Component, pageProps }) {
   const [lang, setLang] = useState("ar");

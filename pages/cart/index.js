@@ -6,7 +6,7 @@ import UpSells from "../../components/Sections/Cart/Upsells/UpSells";
 import { withTranslation } from "react-multi-lang";
 import { useSelector } from "react-redux";
 
-const Cart = () => {
+const Cart = (props) => {
   const cartState = useSelector((state) => state.cart);
   return (
     <Fragment>
@@ -25,7 +25,7 @@ const Cart = () => {
             </div>
           </>
         ) : (
-          <h4 className="text-center m-5">You have not added any items to the cart!</h4>
+          <h4 className="text-center m-5">{props.t("Cart.EmptyCart")}</h4>
         )}
       </div>
     </Fragment>
