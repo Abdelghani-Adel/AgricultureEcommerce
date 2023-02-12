@@ -87,7 +87,7 @@
   color: #fff;
   // font-size: 14px;
   font-weight: 600;
-  padding: 12px 30px;
+  // padding: 12px 30px;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
@@ -95,6 +95,9 @@
   border-radius: 25px;
   z-index: 1;
   box-shadow: 0 3px 24px rgba(0, 0, 0, 0.1);
+  height: 40px;
+  width: 200px;
+  line-height: 40px;
 }
 
 .andro_btn-custom:hover,

@@ -12,7 +12,7 @@ const settings = {
   arrows: false,
   dots: false,
   infinite: true,
-  autoplay: true,
+  autoplay: false,
   responsive: [
     {
       breakpoint: 991,

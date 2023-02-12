@@ -3889,3 +3889,11 @@ td.remove {
 .slick-prev {
   left: 20px;
 } */
+.andro_product-excerpt p{
+  margin-bottom: 50px;
+}
+.andro_product-price{
+  font-weight: bold;
+  color: #50bd49;
+  font-size: 20px;
+}

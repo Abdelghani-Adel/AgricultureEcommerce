@@ -54,18 +54,25 @@ const AddToCart = (props) => {
   }, []);
   return (
     <Fragment>
-      {measureUnits.length > 0 && (
-        <div className="d-flex align-items-center col-5">
-          {props.uom && (
-            <select className="form-select me-3" onChange={UOMchangeHandler}>
-              {measureUnits.map((unit, i) => (
-                <option key={i} value={unit.UOMName}>
-                  {unit.UOMName}
-                </option>
-              ))}
+        <div className="d-flex align-items-center col-lg-8 col-xs-12">
+          <div className="row">
+            <div className="col-lg-6 col-xs-12">
+             {/* {props.uom && ( */}
+              <select className="form-select me-3" onChange={UOMchangeHandler}>
+                <option  value={0} >{props.t("Products.SelectUom")}</option>
+               {measureUnits.length > 0 && (
+                  measureUnits.map((unit, i) => (
+                    <option key={i} value={unit.UOMName}>
+                      {unit.UOMName}
+                    </option>
+                  ))
+               )}
+             
             </select>
-          )}
-          <Link
+          {/* // )} */}
+            </div>
+            <div className="col-lg-6 col-xs-12">
+            <Link
             href="/"
             className={props.style}
             title={props.t("Products.AddToCart")}
@@ -73,10 +80,13 @@ const AddToCart = (props) => {
           >
             {props.children ? props.children : <FaShoppingBasket />}
           </Link>
+            </div>
+          </div>
+         
+         
         </div>
-      )}
 
-      {measureUnits.length < 1 && (
+      {/* {measureUnits.length < 1 && (
         <Link
           href="/"
           className={props.style}
@@ -85,7 +95,7 @@ const AddToCart = (props) => {
         >
           {props.children ? props.children : <FaShoppingBasket />}
         </Link>
-      )}
+      )} */}
     </Fragment>
   );
 };

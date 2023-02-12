@@ -36,7 +36,8 @@
     "AddInfo": "Additional Information",
     "reviews": "reviews",
     "ItemDesc": "Item Description",
-    "NoProducts": "No Products Found !"
+    "NoProducts": "No Products Found !",
+    "SelectUom":"select uom"
   },
   "Footer": {
     "TopCategories": "Top Categories",
