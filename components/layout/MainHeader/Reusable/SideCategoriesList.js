@@ -1,7 +1,7 @@
 import Link from "next/Link";
 import React, { useEffect, useState } from "react";
 import { CategoryApi } from "../../../../services/CategoryAPI";
-
+import {withTranslation} from "react-multi-lang";
 const CategoryAPI = new CategoryApi();
 
 const SideCategoriesList = (props) => {
@@ -47,4 +47,4 @@ const SideCategoriesList = (props) => {
   );
 };
 
-export default SideCategoriesList;
+export default withTranslation(SideCategoriesList);

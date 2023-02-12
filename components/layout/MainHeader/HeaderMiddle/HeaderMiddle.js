@@ -2,7 +2,7 @@ import React from "react";
 import BrandLogo from "../../Reusable/BrandLogo";
 import HeaderControls from "./HeaderControls/HeaderControls";
 import HeaderSearchForm from "../Reusable/HeaderSearchForm/HeaderSearchForm";
-
+import  {withTranslation} from "react-multi-lang";
 const HeaderMiddle = (props) => {
   return (
     <div className="main_header-middle">
@@ -23,4 +23,4 @@ const HeaderMiddle = (props) => {
   );
 };
 
-export default HeaderMiddle;
+export default withTranslation(HeaderMiddle);

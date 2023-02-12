@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import SideCategoriesList from "../Reusable/SideCategoriesList";
 import classNames from "classnames";
+import {withTranslation} from "react-multi-lang"
 
 const SideCategoriesToggler = (props) => {
   const [showSideCategoriesTags, setShowSideCategoriesTags] = useState();
@@ -32,4 +33,4 @@ const SideCategoriesToggler = (props) => {
   );
 };
 
-export default SideCategoriesToggler;
+export default withTranslation(SideCategoriesToggler);

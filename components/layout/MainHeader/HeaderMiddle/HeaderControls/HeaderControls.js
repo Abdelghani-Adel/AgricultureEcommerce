@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import LanguageChange from "../LanguageChange";
 import MobileViewNavToggler from "./MobileViewNavToggler";
 import { loaderActions } from "../../../../../redux/slices/loaderSlice";
-
+import {withTranslation} from "react-multi-lang";
 const HeaderControls = (props) => {
   const cartState = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -89,4 +89,4 @@ const HeaderControls = (props) => {
   );
 };
 
-export default HeaderControls;
+export default withTranslation(HeaderControls);

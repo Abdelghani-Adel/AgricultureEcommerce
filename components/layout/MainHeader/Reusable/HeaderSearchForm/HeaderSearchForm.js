@@ -1,6 +1,6 @@
 import HeaderSearchFormLabelList from "./HeaderSearchFormLabelList";
 import { FaSearch } from "react-icons/fa";
-
+import {withTranslation} from "react-multi-lang";
 const HeaderSearchForm = (props) => {
   return (
     <div className="andro_search-adv">
@@ -10,7 +10,7 @@ const HeaderSearchForm = (props) => {
           <input
             type="text"
             className="form-control"
-            placeholder="Look for Fruits, Vegetables"
+            placeholder={props.t("Navbar.Search")}
             name="search"
           />
           <button type="submit" name="button">
@@ -22,4 +22,4 @@ const HeaderSearchForm = (props) => {
   );
 };
 
-export default HeaderSearchForm;
+export default withTranslation(HeaderSearchForm);
