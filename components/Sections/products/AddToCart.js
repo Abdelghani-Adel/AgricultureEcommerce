@@ -54,6 +54,7 @@ const AddToCart = (props) => {
   }, []);
   return (
     <Fragment>
+      {props.uom ?
         <div className="d-flex align-items-center col-lg-8 col-xs-12">
           <div className="row">
             <div className="col-lg-6 col-xs-12">
@@ -85,8 +86,9 @@ const AddToCart = (props) => {
          
          
         </div>
+      :
 
-      {/* {measureUnits.length < 1 && (
+      
         <Link
           href="/"
           className={props.style}
@@ -95,7 +97,7 @@ const AddToCart = (props) => {
         >
           {props.children ? props.children : <FaShoppingBasket />}
         </Link>
-      )} */}
+}
     </Fragment>
   );
 };

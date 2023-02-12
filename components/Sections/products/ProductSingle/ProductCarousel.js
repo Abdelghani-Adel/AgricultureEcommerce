@@ -12,21 +12,36 @@ export default class ProductCarousel extends Component {
     super(props);
 
     this.state = {
-      images: [
-        {
-          original: "../assets/img/products/7.png",
-          thumbnail: "../assets/img/products/7.png",
-        },
-        {
-          original: "../assets/img/products/7.png",
-          thumbnail: "../assets/img/products/7.png",
-        },
-        {
-          original: "../assets/img/products/7.png",
-          thumbnail: "../assets/img/products/7.png",
-        },
-      ],
+      images: []
+      
+      // [
+      //   {
+      //     original: "../assets/img/products/7.png",
+      //     thumbnail: "../assets/img/products/7.png",
+      //   },
+      //   {
+      //     original: "../assets/img/products/7.png",
+      //     thumbnail: "../assets/img/products/7.png",
+      //   },
+      //   {
+      //     original: "../assets/img/products/7.png",
+      //     thumbnail: "../assets/img/products/7.png",
+      //   },
+      // ],
     };
+  }
+  
+  componentDidMount =()=>{
+    this.setState({
+      images:this.props.item ? this.props.item.imgs : []
+    })
+  }
+  componentDidUpdate =(prevProps)=>{
+    if(this.props.item != prevProps.item){
+      this.setState({
+        images:this.props.item ? this.props.item.imgs : []
+      })
+    }
   }
   render() {
     return (
