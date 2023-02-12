@@ -59,7 +59,6 @@ class BestProducts extends Component {
       const data = await res.json();
       const products = data.data;
 
-      console.log("products", data);
       this.setState({ ...this.state, products: products });
     };
 

@@ -4,7 +4,6 @@ import HeaderMiddle from "./HeaderMiddle/HeaderMiddle";
 import ToggleNav from "./Reusable/ToggleNav";
 
 const MainHeader = (props) => {
-  const [isTop, setIsTop] = useState(true);
   return (
     <Fragment>
       <header className={`main_header`}>

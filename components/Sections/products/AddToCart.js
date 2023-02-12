@@ -48,7 +48,6 @@ const AddToCart = (props) => {
 
       const UOMs = await res.json();
       setMeasureUnits(UOMs);
-      console.log(UOMs);
     };
 
     fetchMeasureUnits();

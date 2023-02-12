@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import authSlice from "./slices/authSlice";
 import cartSlice from "./slices/cartSlice";
 import loaderSlice from "./slices/loaderSlice";
+import navBarSlice from "./slices/navbarSlice";
 
 const store = configureStore(
   {
@@ -9,6 +10,7 @@ const store = configureStore(
       cart: cartSlice.reducer,
       auth: authSlice.reducer,
       loader: loaderSlice.reducer,
+      navbarLinks: navBarSlice.reducer,
     },
   },
   typeof window !== "undefined" &&

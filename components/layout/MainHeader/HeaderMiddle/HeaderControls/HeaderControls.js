@@ -51,11 +51,9 @@ const HeaderControls = (props) => {
           <li className="menu-item menu-item-has-children ps-1 pe-1">
             {session.status == "authenticated" ? (
               <>
-                <Link href="">{session.data.user.user.username}</Link>
+                <Link href="">{session.data.user.username}</Link>
                 <ul className="sub-menu sub-menu-left">
-                  <span className="ms-2 text-muted">
-                    {session.data && session.data.user.user.email}
-                  </span>
+                  <span className="ms-2 text-muted">{session.data && session.data.user.email}</span>
                   <li onClick={logoutHandler} className="justify-content-start align-items-center">
                     <FiLogOut />
                     <span className="ms-2">Logout</span>

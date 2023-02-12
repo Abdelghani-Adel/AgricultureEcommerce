@@ -4,7 +4,6 @@ import { Rating } from "../../../../../helper/helper";
 
 const ProductDetails = (props) => {
   const { product } = props;
-  console.log(product);
   return (
     <div className="product_card--body">
       <div className="category_badge">

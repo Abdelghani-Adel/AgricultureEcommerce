@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import { AuthenticationAPI } from "../../../services/AuthenticationAPI";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { signIn } from "next-auth/react";
 
 const authApi = new AuthenticationAPI();
 
@@ -8,7 +9,6 @@ export const authOptions = {
   session: {
     strategy: "jwt",
     jwt: true,
-    maxAge: 60 * 60,
   },
   pages: {
     signIn: "/login",
@@ -25,29 +25,30 @@ export const authOptions = {
         };
         const res = await authApi.Login(reqBody);
         if (res.token) {
-          return { user: { ...res } };
+          return { ...res };
         }
 
-        throw new Error("Incorrect Credentials");
+        // throw new Error("Incorrect Credentials");
+        return null;
       },
       secret: "8F8D1546C2C1A23FECE7FCEE13E542DCA4F4B6613A072DE63B7F7F9C1F13263F",
     }),
   ],
   secret: "mvOHAEhOWjGtUo7tS6VuAUByEWnTh67AzdrP1HRvNOA=",
   callbacks: {
+    async jwt({ token, user, account }) {
+      // token.exp = 1676200560000;
+      // token.expires = 1676200560000;
+      return { ...token, ...user };
+    },
     async session({ session, user, token }) {
-      return { ...token };
+      session.accessToken = token.accessToken;
+      return { ...session, ...token };
+      // return { ...token };
     },
-    async jwt({ token, user }) {
-      const object = {
-        ...token,
-        ...user,
-      };
-      return object;
-      // return { ...token, ...user };
-    },
+
     async redirect({ url, baseUrl }) {
-      return "https://devsdiamond.com/";
+      return `http://localhost:8080`;
     },
   },
 };
