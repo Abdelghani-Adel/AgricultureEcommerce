@@ -15,7 +15,7 @@ const AddToCart = (props) => {
   const [item, setItem] = useState(props.item);
 
   const UOMchangeHandler = (e) => {
-    setItem({ ...item, UOMName: e.target.value });
+    setItem({ ...item, UOM_Id: e.target.value });
   };
 
   const addToCartHandler = useCallback((e) => {
@@ -63,7 +63,7 @@ const AddToCart = (props) => {
                 <option  value={0} >{props.t("Products.SelectUom")}</option>
                {measureUnits.length > 0 && (
                   measureUnits.map((unit, i) => (
-                    <option key={i} value={unit.UOMName}>
+                    <option key={i} value={unit.UOM_Id_To}>
                       {unit.UOMName}
                     </option>
                   ))
