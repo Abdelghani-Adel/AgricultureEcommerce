@@ -17,7 +17,7 @@ setTranslations({ ar, en });
 setDefaultLanguage("en");
 
 export default function App({ Component, pageProps }) {
-  const [lang, setLang] = useState("en");
+  const [lang, setLang] = useState("ar");
   const changeLang = useCallback((lang) => {
     setLang(lang);
     setDefaultLanguage(lang);

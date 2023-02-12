@@ -6,19 +6,19 @@ import HeaderSearchForm from "../Reusable/HeaderSearchForm/HeaderSearchForm";
 const HeaderMiddle = (props) => {
   return (
     <div className="main_header-middle">
-      {/* <div className="container"> */}
+      <div className="container-fluid">
         <div className="row align-items-center justify-content-between header_middle--inner">
-          <div className="col-lg-2 col-md-2">
+          <div className="col-4 col-md-2">
             <BrandLogo />
           </div>
-          <div className="col-lg-6 d-none d-md-block">
+          <div className="col-6 d-none d-md-block">
             <HeaderSearchForm />
           </div>
-          <div className="col-lg-4">
+          <div className="col-8 col-lg-4">
             <HeaderControls changeLang={props.changeLang} lang={props.lang} />
           </div>
         </div>
-      {/* </div> */}
+      </div>
     </div>
   );
 };
