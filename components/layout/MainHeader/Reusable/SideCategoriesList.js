@@ -4,7 +4,7 @@ import { CategoryApi } from "../../../../services/CategoryAPI";
 
 const CategoryAPI = new CategoryApi();
 
-const SideCategoriesList = () => {
+const SideCategoriesList = (props) => {
   const [categories, setCategories] = useState();
 
   useEffect(() => {
@@ -25,11 +25,15 @@ const SideCategoriesList = () => {
         <div className="tagcloud">
           {categories &&
             categories.map((category) => (
+              
               <Link
-                key={category.FAClassificationId}
-                href={`/categories/${category.FAClassificationSlug}?id=${category.FAClassificationId}`}
+                onClick={props.toggleSideCategoriesTags}
+                 key={category.FAClassificationId}
+                 href={`/categories/${category.FAClassificationSlug}?id=${category.FAClassificationId}`}
               >
+                
                 {category.FAClassificationName}
+                
               </Link>
             ))}
 

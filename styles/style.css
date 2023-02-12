@@ -784,6 +784,7 @@ Version: 1.0.0
 }
 .main_header-middle {
   background-color: #fff;
+  padding: 0 10px;
 }
 .main_header-middle .navbar {
   padding: 0;
@@ -990,12 +991,20 @@ Version: 1.0.0
   justify-content: center;
   cursor: pointer;
   /* width: 60px; */
-  width: 20%;
+  width:25%;
+  font-size: 13px;
+}
+.andro_search-adv-cats span{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  direction: rtl;
+
 }
 .andro_search-adv-cats label {
   display: flex;
   align-items: center;
-  padding: 15px 20px;
+  padding: 10px;
   color: #838383;
   font-weight: 400;
   border-bottom: 1px solid #f0f2f3;

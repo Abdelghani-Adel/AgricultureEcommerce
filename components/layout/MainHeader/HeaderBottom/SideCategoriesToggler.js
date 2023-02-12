@@ -13,7 +13,7 @@ const SideCategoriesToggler = (props) => {
           open: showSideCategoriesTags,
         })}
       >
-        <SideCategoriesList />
+        <SideCategoriesList toggleSideCategoriesTags={toggleSideCategoriesTags}/>
       </aside>
 
       {/* Dark overlay shown when displaying the right sub categories */}

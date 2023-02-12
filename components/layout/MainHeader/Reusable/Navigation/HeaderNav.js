@@ -15,7 +15,8 @@ const HeaderNav = (props) => {
   useEffect(() => {
     const getNavLinks = async () => {
       const data = await CategoryAPI.GetCategoriesMenu();
-      setNavLinks(data.slice(0, 4));
+      // setNavLinks(data);
+      setNavLinks(data.slice(0, 6));
     };
 
     getNavLinks();
