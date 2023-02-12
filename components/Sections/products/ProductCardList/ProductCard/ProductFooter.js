@@ -9,7 +9,7 @@ const ProductFooter = (props) => {
   return (
     <div className="product_card--footer">
       <div className="product_card--buttons">
-        <AddToCart item={product} style={"andro_btn-custom primary"} />
+        <AddToCart item={product} style={"andro_btn-custom light"} />
 
         <Link
           href={props.productPath}
@@ -21,15 +21,15 @@ const ProductFooter = (props) => {
           <FaRegEye />
         </Link>
 
-        {/* <Link
+        <Link
           href="#"
           className="andro_btn-custom light"
           data-toggle="tooltip"
           data-placement="top"
-          title={props.t("Products.AddToWish")}
+          title={props.t("Products.Likes")}
         >
           <BiLike />
-        </Link> */}
+        </Link>
       </div>
     </div>
   );

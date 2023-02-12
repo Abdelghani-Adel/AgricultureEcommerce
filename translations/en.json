@@ -37,7 +37,8 @@
     "reviews": "reviews",
     "ItemDesc": "Item Description",
     "NoProducts": "No Products Found !",
-    "SelectUom":"select uom"
+    "SelectUom":"select uom",
+    "Likes":"Likes"
   },
   "Footer": {
     "TopCategories": "Top Categories",
