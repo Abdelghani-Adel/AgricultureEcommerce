@@ -48,7 +48,7 @@ export const authOptions = {
     },
 
     async redirect({ url, baseUrl }) {
-      return `http://localhost:8080`;
+      return `${process.env.NEXT_PUBLIC_CURRENT_HOST}`;
     },
   },
 };

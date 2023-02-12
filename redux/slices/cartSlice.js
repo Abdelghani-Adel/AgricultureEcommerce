@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { getSession } from "next-auth/react";
 import { useDispatch } from "react-redux";
 import { getAuthHeaders } from "../../helper/auth";
 const cartSlice = createSlice({
@@ -11,9 +12,6 @@ const cartSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getCartDetails.fulfilled, (state, { payload }) => {
       if (payload) {
-        // state.items = payload.items;
-        // state.total = payload.totalPrice;
-        // state.cart_id = payload.Cart_Id;
         return { ...payload };
       }
     });
@@ -50,14 +48,17 @@ const cartSlice = createSlice({
 });
 
 export const getCartDetails = createAsyncThunk("cart/getCartDetails", async (payload, thunkAPI) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/getCartItem`, {
-    method: "POST",
-    headers: await getAuthHeaders(),
-    body: JSON.stringify({ lang: "AR" }),
-  });
+  const session = await getSession();
+  if (session) {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/getCartItem`, {
+      method: "POST",
+      headers: await getAuthHeaders(),
+      body: JSON.stringify({ lang: "AR" }),
+    });
 
-  const cartData = await res.json();
-  return cartData;
+    const cartData = await res.json();
+    return cartData;
+  }
 });
 
 export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkAPI) => {

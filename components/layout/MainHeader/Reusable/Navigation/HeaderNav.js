@@ -9,7 +9,8 @@ const CategoryAPI = new CategoryApi();
 
 const HeaderNav = (props) => {
   const { lang } = props;
-  const navLinks = useSelector((state) => state.navbarLinks);
+  const navLinksState = useSelector((state) => state.navbarLinks);
+  const navLinks = navLinksState.slice(0, 4);
 
   return (
     <ul className="header-nav">

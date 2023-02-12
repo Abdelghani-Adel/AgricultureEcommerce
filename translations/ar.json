@@ -15,9 +15,9 @@
     "ContactUs": "تواصل معنا",
     "Chat": "دردشة عامة"
   },
-  "Home":{
-    "JoinChat":"الانضمام للدردشة"
-   },
+  "Home": {
+    "JoinChat": "الانضمام للدردشة"
+  },
   "Products": {
     "BestProducts": "أفضل المنتجات",
     "AddToCart": "أضف الي العربة",
@@ -89,5 +89,19 @@
     "Organic": "المنتجات العضوية",
     "Farms": "منتجات المزارع",
     "Supplements": "المكملات"
+  },
+  "Auth": {
+    "Login": "تسجيل الدخول",
+    "Signup": "إنشاء حساب",
+    "Email": "البريد الالكتروني",
+    "Password": "كلمة السر",
+    "Remember": "تذكرني",
+    "Forget": "هل نسيت كلمة السر ؟",
+    "DontHave": "ليس لديك حساب ؟",
+    "Create": "إنشاء حساب",
+    "Username": "إسم المستخدم",
+    "PasswordConfirm": "تأكيد كلمة السر",
+    "PhoneNumber": "رقم الهاتف",
+    "AlreadyHave": "لديك حساب ؟"
   }
 }

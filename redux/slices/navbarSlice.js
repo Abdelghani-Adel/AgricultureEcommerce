@@ -12,7 +12,6 @@ const navBarSlice = createSlice({
 });
 
 export const getNavbarLinks = createAsyncThunk("navbar/getNavbarLinks", async () => {
-  console.log("ddd");
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/GetCategoriesMenu`,
     {
@@ -28,7 +27,6 @@ export const getNavbarLinks = createAsyncThunk("navbar/getNavbarLinks", async ()
     }
   );
   const links = await res.json();
-  console.log(links);
   return links;
 });
 

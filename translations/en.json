@@ -15,8 +15,8 @@
     "ContactUs": "Contact Us",
     "Chat": "Chat"
   },
-  "Home":{
-   "JoinChat":"Join Chat"
+  "Home": {
+    "JoinChat": "Join Chat"
   },
   "Products": {
     "BestProducts": "Best Products",
@@ -90,5 +90,19 @@
     "Organic": "Organic",
     "Farms": "Farms",
     "Supplements": "Supplements"
+  },
+  "Auth": {
+    "Login": "Login",
+    "Signup": "Sign Up",
+    "Email": "Email",
+    "Password": "Password",
+    "Remember": "Remember Me",
+    "Forget": "Forget Your Password ?",
+    "DontHave": "Don't have an account ?",
+    "Create": "Create One",
+    "Username": "Username",
+    "PasswordConfirm": "Confirm Your Password",
+    "PhoneNumber": "Phone Number",
+    "AlreadyHave": "Already have an account ?"
   }
 }

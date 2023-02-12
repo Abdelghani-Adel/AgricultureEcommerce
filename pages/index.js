@@ -5,12 +5,8 @@ import Products from "../data/products.json";
 export default function Home(props) {
   const session = useSession();
   // debugger;
-  session.data && console.log(session);
+  // session.data && console.log(session);
 
-  // const nnn = new Date();
-
-  // nnn.setHours(nnn.getHours() + 1);
-  // console.log(nnn.getTime());
   return <HomeContent ProductList={Products} BooksInfoList={props.BooksInfoList} />;
 }
 

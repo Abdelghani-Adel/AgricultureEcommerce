@@ -5,6 +5,7 @@ import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { loaderActions } from "../../redux/slices/loaderSlice";
 import { AuthenticationAPI } from "../../services/AuthenticationAPI";
+import { withTranslation } from "react-multi-lang";
 
 const authApi = new AuthenticationAPI();
 
@@ -50,12 +51,12 @@ const SignUp = (props) => {
           >
             <div className="auth-description-inner">
               <i className="flaticon-diet" />
-              <h2>Sign up!</h2>
+              <h2>{props.t("Auth.Signup")}</h2>
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
           </div>
           <div className="auth-form">
-            <h2>Sign Up</h2>
+            <h2>{props.t("Auth.Signup")}</h2>
             <form onSubmit={submitHandler}>
               {errors && (
                 <ul>
@@ -69,7 +70,7 @@ const SignUp = (props) => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Username"
+                  placeholder={props.t("Auth.Username")}
                   name="username"
                   onChange={inputChangeHandler}
                 />
@@ -78,7 +79,7 @@ const SignUp = (props) => {
                 <input
                   type="email"
                   className="form-control form-control-light"
-                  placeholder="Email Address"
+                  placeholder={props.t("Auth.Email")}
                   name="email"
                   onChange={inputChangeHandler}
                 />
@@ -87,7 +88,7 @@ const SignUp = (props) => {
                 <input
                   type="password"
                   className="form-control"
-                  placeholder="Password"
+                  placeholder={props.t("Auth.Password")}
                   name="password"
                   onChange={inputChangeHandler}
                 />
@@ -96,7 +97,7 @@ const SignUp = (props) => {
                 <input
                   type="password"
                   className="form-control"
-                  placeholder="Confirm Password"
+                  placeholder={props.t("Auth.PasswordConfirm")}
                   name="confirmPassword"
                   onChange={inputChangeHandler}
                 />
@@ -105,13 +106,13 @@ const SignUp = (props) => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Phone Number"
+                  placeholder={props.t("Auth.PhoneNumber")}
                   name="phoneNumber"
                   onChange={inputChangeHandler}
                 />
               </div>
               <button type="submit" className="andro_btn-custom primary">
-                Sign Up
+                {props.t("Auth.Signup")}
               </button>
 
               <div className="auth-seperator">
@@ -119,7 +120,7 @@ const SignUp = (props) => {
               </div>
 
               <p>
-                Already have an account? <Link href="/login">Login</Link>{" "}
+                {props.t("Auth.AlreadyHave")} <Link href="/login">{props.t("Auth.Login")}</Link>{" "}
               </p>
             </form>
           </div>
@@ -129,4 +130,4 @@ const SignUp = (props) => {
   );
 };
 
-export default SignUp;
+export default withTranslation(SignUp);

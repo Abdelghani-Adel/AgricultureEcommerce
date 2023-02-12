@@ -6,6 +6,7 @@ import { signIn, useSession } from "next-auth/react";
 import Loader from "../../components/layout/Reusable/Loader";
 import { useDispatch } from "react-redux";
 import { loaderActions } from "../../redux/slices/loaderSlice";
+import { withTranslation } from "react-multi-lang";
 
 const authApi = new AuthenticationAPI();
 
@@ -58,7 +59,7 @@ const Login = (props) => {
               </div>
             </div>
             <div className="auth-form">
-              <h2>Log in</h2>
+              <h2>{props.t("Auth.Login")}</h2>
               <form onSubmit={submitHandler}>
                 {errors && (
                   <ul>
@@ -72,7 +73,7 @@ const Login = (props) => {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Email"
+                    placeholder={props.t("Auth.Email")}
                     name="email"
                     onChange={inputChangeHandler}
                   />
@@ -81,18 +82,18 @@ const Login = (props) => {
                   <input
                     type="password"
                     className="form-control"
-                    placeholder="Password"
+                    placeholder={props.t("Auth.Password")}
                     name="password"
                     onChange={inputChangeHandler}
                   />
                 </div>
                 <div className="d-flex align-content-center">
                   <input className="form-check-input" type="checkbox" name="rememberMe" />
-                  <label className="form-check-label ms-1">Remember Me</label>
+                  <label className="form-check-label ms-1">{props.t("Auth.Remember")}</label>
                 </div>
-                <Link href="#">Forgot Password?</Link>
+                <Link href="#">{props.t("Auth.Forget")}</Link>
                 <button type="submit" className="andro_btn-custom primary">
-                  Login
+                  {props.t("Auth.Login")}
                 </button>
 
                 <div className="auth-seperator">
@@ -100,7 +101,7 @@ const Login = (props) => {
                 </div>
 
                 <p>
-                  Don't have an account? <Link href="/sign-up">Create One</Link>
+                  {props.t("Auth.DontHave")} <Link href="/sign-up">{props.t("Auth.Create")}</Link>
                 </p>
               </form>
             </div>
@@ -111,4 +112,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default withTranslation(Login);
