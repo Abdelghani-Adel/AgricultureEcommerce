@@ -5,9 +5,12 @@ const HeaderBottom = (props) => {
   return (
     <div className="main_header-bottom">
       <div className="main_header-bottom-inner mt-0">
-        <div className="d-flex">
+        <div className="d-flex" style={{ height: "40px" }}>
           <SideCategoriesToggler />
           <HeaderNav lang={props.lang} />
+          {/* <div className="header_left_offers">
+            <HeaderOffers />
+          </div> */}
         </div>
         <div className="header_left_offers">
           <HeaderOffers />

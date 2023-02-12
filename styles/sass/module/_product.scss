@@ -101,6 +101,8 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  max-height: 30px;
+  direction: rtl;
 }
 
 .product_card--rating {

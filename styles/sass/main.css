@@ -479,11 +479,16 @@ table img {
 }
 
 :root {
-  font-size: 13px;
+  font-size: 12px;
   font-family: "Montserrat", serif;
   font-weight: 400;
 }
 
+@media screen and (min-width: 768px) {
+  :root {
+    font-size: 16px;
+  }
+}
 h1 {
   font-size: 2.2rem;
 }
@@ -532,11 +537,6 @@ p {
   font-size: 0.9rem;
 }
 
-@media screen and (min-width: 765px) {
-  :root {
-    font-size: 16px;
-  }
-}
 .opacity-0 {
   opacity: 0;
 }
@@ -863,6 +863,8 @@ p {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  max-height: 30px;
+  direction: rtl;
 }
 
 .product_card--rating {
@@ -1066,19 +1068,16 @@ p {
   padding: 0 10px;
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
 }
 
-.header_left_offers ul li {
+.header_left_offers a {
   display: inline-block;
   margin: 0 10px;
   color: #222;
 }
 
-.header_left_offers ul li a {
-  color: #222;
-}
-
-.header_left_offers ul li img {
+.header_left_offers img {
   vertical-align: middle;
   margin: 0 3px;
 }
@@ -1826,6 +1825,7 @@ p {
 
 .header-nav {
   display: flex;
+  flex-wrap: wrap;
   text-align: left;
   background-color: #5d5d5d;
   align-items: center;

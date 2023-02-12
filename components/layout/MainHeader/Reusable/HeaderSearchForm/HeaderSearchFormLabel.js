@@ -1,15 +1,11 @@
+import Link from "next/link";
+
 const HeaderSearchFromLabel = (props) => {
+  const { category } = props;
   return (
-    <label>
-      <input
-        type="checkbox"
-        name={props.name}
-        defaultValue={props.defaultValue}
-        onClick={props.categorySelectHandler}
-      />
-      {props.title}
-      <i className="fas fa-check" />
-    </label>
+    <Link href={`/categories/${category.FAClassificationSlug}?id=${category.FAClassificationId}`}>
+      {category.FAClassificationName}
+    </Link>
   );
 };
 

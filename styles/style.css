@@ -991,17 +991,32 @@ Version: 1.0.0
   justify-content: center;
   cursor: pointer;
   /* width: 60px; */
-  width:25%;
+  width: 25%;
   font-size: 13px;
 }
-.andro_search-adv-cats span{
+.andro_search-adv-cats a {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #848486;
+  padding-left: 10px;
+  line-height: 40px;
+  margin: 10px auto;
+
+  /* direction: rtl; */
+  display: block;
+}
+.andro_search-adv-cats a:hover {
+  color: #fff;
+  background-color: #848486;
+}
+/* .andro_search-adv-cats span {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   direction: rtl;
-
-}
-.andro_search-adv-cats label {
+} */
+/* .andro_search-adv-cats label {
   display: flex;
   align-items: center;
   padding: 10px;
@@ -1011,11 +1026,11 @@ Version: 1.0.0
   cursor: pointer;
   margin: 0;
   transition: 0.3s;
-}
+} */
 /* .main_header .sub-menu label:hover {
   background-color: #f0f2f3;
 } */
-.andro_search-adv-cats label input {
+/* .andro_search-adv-cats label input {
   position: absolute;
   opacity: 0;
   visibility: hidden;
@@ -1028,8 +1043,7 @@ Version: 1.0.0
   opacity: 0;
   visibility: hidden;
   transform: scale(0);
-  /* font-size: 12px; */
-}
+} */
 .andro_search-adv-cats label input:checked + i {
   opacity: 1;
   visibility: visible;
@@ -1037,8 +1051,6 @@ Version: 1.0.0
 }
 .andro_search-adv-cats > span {
   color: #18181d;
-  /* font-size: 13px; */
-  /* font-weight: 600; */
 }
 .andro_search-adv-cats > span .svg {
   color: #18181d;
@@ -1204,7 +1216,7 @@ Version: 1.0.0
 .aside-toggler.desktop-toggler {
   display: flex;
   height: 40px;
-  width: 40px;
+  min-width: 40px;
   align-items: center;
   justify-content: center;
   background-color: #50bd4d;

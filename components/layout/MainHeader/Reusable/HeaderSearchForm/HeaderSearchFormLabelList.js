@@ -10,10 +10,6 @@ const HeaderSearchFormLabelList = (props) => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const categorySelectHandler = (e) => {
-    setSelectedCategory(e.target.value);
-  };
-
   useEffect(() => {
     const getCategories = async () => {
       const categories = await CategoryAPI.GetCategoriesMenu();
@@ -30,13 +26,7 @@ const HeaderSearchFormLabelList = (props) => {
       <div className="sub-menu">
         <div className="andro_dropdown-scroll">
           {categories.map((category, i) => (
-            <HeaderSearchFromLabel
-              key={i}
-              name={category.FAClassificationName}
-              defaultValue={category.FAClassificationName}
-              title={category.FAClassificationName}
-              categorySelectHandler={categorySelectHandler}
-            />
+            <HeaderSearchFromLabel key={i} category={category} />
           ))}
         </div>
       </div>

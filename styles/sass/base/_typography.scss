@@ -1,7 +1,12 @@
 :root {
-  font-size: 13px;
+  font-size: 12px;
   font-family: "Montserrat", serif;
   font-weight: 400;
+}
+@media screen and (min-width: 768px) {
+  :root {
+    font-size: 16px;
+  }
 }
 
 h1 {
@@ -39,10 +44,4 @@ p {
 }
 .fs-900 {
   font-size: 0.9rem;
-}
-
-@media screen and (min-width: 765px) {
-  :root {
-    font-size: 16px;
-  }
 }

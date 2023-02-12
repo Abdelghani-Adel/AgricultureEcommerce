@@ -1,19 +1,18 @@
 .header_left_offers {
   background-color: #fada5e;
-  height:40px;
+  height: 40px;
   padding: 0 10px;
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
 }
-.header_left_offers ul li {
+.header_left_offers a {
   display: inline-block;
   margin: 0 10px;
   color: #222;
 }
-.header_left_offers ul li a {
-  color: #222;
-}
-.header_left_offers ul li img {
+
+.header_left_offers img {
   vertical-align: middle;
   margin: 0 3px;
 }
