@@ -20,7 +20,7 @@ const AddToCart = (props) => {
     }
     const payload = {
       action: "plus",
-      item: item,
+      item: props.item,
     };
 
     dispatch(editCart(payload));
@@ -32,7 +32,6 @@ const AddToCart = (props) => {
       className={props.style}
       title={props.t("Products.AddToCart")}
       onClick={addToCartHandler}
-      disabled
     >
       {props.children ? props.children : <FaShoppingBasket />}
     </Link>

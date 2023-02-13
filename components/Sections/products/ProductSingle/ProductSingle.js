@@ -24,7 +24,7 @@ const ProductSingle = (props) => {
             <div className="row">
               {/* Product Thumbnail */}
               <div className="col-md-5">
-                <ProductCarousel item={item}/>
+                <ProductCarousel item={item} />
               </div>
 
               {/* Product Details */}

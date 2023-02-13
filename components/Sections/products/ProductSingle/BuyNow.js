@@ -53,7 +53,6 @@ const BuyNow = (props) => {
         }
       );
       const UOMs = await res.json();
-      console.log(UOMs);
       setMeasureUnits(UOMs);
     };
 
@@ -65,8 +64,10 @@ const BuyNow = (props) => {
       <div>
         <div className="d-flex">
           {/* {props.uom && ( */}
-          <select className="form-select me-3" onChange={UOMchangeHandler}>
-            <option value={0}>{props.t("Products.SelectUom")}</option>
+          <select defaultValue={0} className="form-select me-3" onChange={UOMchangeHandler}>
+            <option value={0} disabled>
+              {props.t("Products.SelectUom")}
+            </option>
             {measureUnits.length > 0 &&
               measureUnits.map((unit, i) => (
                 <option key={i} value={unit.UOM_Id_To}>
