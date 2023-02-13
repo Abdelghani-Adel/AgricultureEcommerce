@@ -26,7 +26,6 @@ export class AuthenticationAPI {
     });
 
     const result = await res.json();
-    console.log(result);
     return result;
   }
 }

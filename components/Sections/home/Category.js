@@ -13,7 +13,6 @@ const Category = (props) => {
     }
     fetchData();
   }, []);
-  console.log("data ", data);
   return (
     <>
       {data &&

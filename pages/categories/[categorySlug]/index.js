@@ -8,10 +8,6 @@ const CategorySingle = (props) => {
   const { categories, showProducts, products } = props;
   const router = useRouter();
 
-  // console.log(decodeURIComponent(escape(window.atob(props.test))));
-  console.log(props.test);
-
-  // console.log(props.products);
   return (
     <>
       <Breadcrumbs breadcrumb={{ pagename: router.query.categorySlug }} />

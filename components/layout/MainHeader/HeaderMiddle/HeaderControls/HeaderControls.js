@@ -13,9 +13,6 @@ const HeaderControls = (props) => {
   const cartState = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const session = useSession();
-  // console.log(session.status);
-
-  // console.log(session);
 
   // Start watching the size to unmount the mobile navigation from the dom completely in desktop view
   const [isMobileView, setIsMobileView] = useState(false);

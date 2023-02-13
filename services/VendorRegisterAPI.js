@@ -107,7 +107,6 @@ class VendorRegisterAPI {
       body: JSON.stringify(requestBody),
     });
     const data = await response.json();
-    console.log("response ", data);
     return data;
   }
 }

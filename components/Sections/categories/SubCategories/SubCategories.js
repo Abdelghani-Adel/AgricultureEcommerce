@@ -3,7 +3,6 @@ import { withTranslation } from "react-multi-lang";
 
 const SubCategories = (props) => {
   const { categories } = props;
-  console.log(categories);
   return (
     <div className="section">
       <div className="container">

@@ -5,7 +5,6 @@ import { Rating } from "../../../../helper/helper";
 
 const ProductDetails = (props) => {
   const { item } = props;
-  console.log(item);
   return (
     <Fragment>
       {/* Add to wishlist */}

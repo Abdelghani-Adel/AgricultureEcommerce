@@ -5,7 +5,6 @@ import Products from "../data/products.json";
 export default function Home(props) {
   const session = useSession();
   // debugger;
-  // session.data && console.log(session);
 
   return <HomeContent ProductList={Products} BooksInfoList={props.BooksInfoList} />;
 }

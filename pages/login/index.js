@@ -34,8 +34,6 @@ const Login = (props) => {
         password: reqBody.password,
         callbackUrl: "/",
       });
-
-      console.log(res);
     } else {
       setErrors(dbLookup);
     }
