@@ -47,6 +47,7 @@ const BuyNow = (props) => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             Item_Id: item.Item_Id,
+            // Item_Id: 129,
             lang: "ar",
           }),
         }
