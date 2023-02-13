@@ -905,6 +905,30 @@ p {
   border-radius: 0;
 }
 
+.andro_product-single-content .btn {
+  flex: 0 0 auto;
+  cursor: pointer;
+  background-color: #50bd4d;
+  border: 0;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.3s;
+  text-transform: uppercase;
+  border-radius: 25px;
+  z-index: 1;
+  box-shadow: 0 3px 24px rgba(0, 0, 0, 0.1);
+  height: 40px;
+  width: 200px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.andro_product-single-content .btn:hover {
+  background-color: #33da2d;
+}
+
 .pagination {
   margin-top: 20px;
   -webkit-box-pack: center;

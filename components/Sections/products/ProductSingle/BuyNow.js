@@ -1,18 +1,22 @@
 import { useSession } from "next-auth/react";
 import Link from "next/Link";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { cartActions, editCart } from "../../../../redux/slices/cartSlice";
 import AddToCart from "../AddToCart";
+import { withTranslation } from "react-multi-lang";
 
 const BuyNow = (props) => {
-  const { item } = props;
   const [clicks, setClicks] = useState(1);
+  const [item, setItem] = useState(props.item);
+  const [measureUnits, setMeasureUnits] = useState([]);
+  const [buttonDisabled, setButtonsDisabled] = useState(true);
+
   const dispatch = useDispatch();
   const router = useRouter();
-  const session = useSession();
 
   const IncrementItem = () => {
     setClicks(clicks + 1);
@@ -29,15 +33,54 @@ const BuyNow = (props) => {
     router.push("/checkout");
   };
 
+  const UOMchangeHandler = (e) => {
+    setButtonsDisabled(false);
+    setItem({ ...item, UOM_Id: e.target.value });
+  };
+
+  useEffect(() => {
+    const fetchMeasureUnits = async () => {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getItemUOMs`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            Item_Id: item.Item_Id,
+            lang: "ar",
+          }),
+        }
+      );
+      const UOMs = await res.json();
+      console.log(UOMs);
+      setMeasureUnits(UOMs);
+    };
+
+    fetchMeasureUnits();
+  }, []);
+
   return (
     <div className="andro_product-atc-form">
-      <div className="qty-outter">
-        <AddToCart uom={true} style={"andro_btn-custom mb-3"} item={item}>
-          Add To Cart
-        </AddToCart>
+      <div>
+        <div className="d-flex">
+          {/* {props.uom && ( */}
+          <select className="form-select me-3" onChange={UOMchangeHandler}>
+            <option value={0}>{props.t("Products.SelectUom")}</option>
+            {measureUnits.length > 0 &&
+              measureUnits.map((unit, i) => (
+                <option key={i} value={unit.UOM_Id_To}>
+                  {unit.UOMName}
+                </option>
+              ))}
+          </select>
 
-        <div onClick={buyNowHandler} className="qty-outter">
-          <button className="andro_btn-custom">BUY NOW</button>
+          <AddToCart uom={true} style={`btn me-2 ${buttonDisabled && "disabled"}`} item={item}>
+            Add To Cart
+          </AddToCart>
+
+          <button onClick={buyNowHandler} className={`btn ${buttonDisabled && "disabled"}`}>
+            BUY NOW
+          </button>
         </div>
         {/* <div className="qty">
           <span className="qty-subtract" onClick={DecreaseItem} data-type="minus" data-field>
@@ -53,4 +96,4 @@ const BuyNow = (props) => {
   );
 };
 
-export default BuyNow;
+export default withTranslation(BuyNow);
