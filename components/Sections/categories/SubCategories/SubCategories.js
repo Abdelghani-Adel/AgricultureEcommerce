@@ -11,28 +11,34 @@ const SubCategories = (props) => {
           {categories.map((subCategory, index) => (
             <div className="col-lg-3 col-xs-12" key={index}>
               <Link
-                    href={`/categories/${subCategory.FAClassificationSlug}?id=${subCategory.FAClassificationId}`}>
-              <div className="card catg_card">
-                <img
-                  className="card-img-top"
-                  src={subCategory.FAClassificationImage}
-                  alt="Card image cap"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{subCategory.FAClassificationName}</h5>
-                  {/* <p className="card-text"> */}
-                  <div className="card-text"
-                      dangerouslySetInnerHTML={{__html: subCategory.FAClassificationDesc}}
+                href={{
+                  pathname: `/categories/${subCategory.FAClassificationSlug}`,
+                  query: { id: `${subCategory.FAClassificationId}` },
+                }}
+                as={`/categories/${subCategory.FAClassificationSlug}`}
+              >
+                <div className="card catg_card">
+                  <img
+                    className="card-img-top"
+                    src={subCategory.FAClassificationImage}
+                    alt="Card image cap"
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">{subCategory.FAClassificationName}</h5>
+                    {/* <p className="card-text"> */}
+                    <div
+                      className="card-text"
+                      dangerouslySetInnerHTML={{ __html: subCategory.FAClassificationDesc }}
                     />
-                  {/* </p> */}
-                  {/* <Link
+                    {/* </p> */}
+                    {/* <Link
                     href={`/categories/${subCategory.FAClassificationSlug}?id=${subCategory.FAClassificationId}`}
                     className="agri-btn-rounded primary"
                   >
                     {props.t("Products.ShopNow")}
                   </Link> */}
+                  </div>
                 </div>
-              </div>
               </Link>
             </div>
           ))}
