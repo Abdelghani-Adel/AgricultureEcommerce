@@ -59,13 +59,15 @@ const HeaderControls = (props) => {
               </>
             ) : (
               <>
-                <Link href="/login" title="Login">
+                <span title="Login">
                   <FaUserAlt />
-                </Link>
+                </span>
                 <ul className="sub-menu sub-menu-left">
-                  <li onClick={logoutHandler} className="justify-content-start align-items-center">
-                    <FiLogOut />
-                    <span className="ms-2">Login</span>
+                  <li className="justify-content-start align-items-center">
+                    <Link href="/login" className="ms-2">
+                      <FiLogOut />
+                      Login
+                    </Link>
                   </li>
                 </ul>
               </>
