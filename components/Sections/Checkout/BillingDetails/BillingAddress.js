@@ -18,7 +18,7 @@ const BillingAddress = (props) => {
               fieldName="userName"
               transTitle="Username"
               fieldWidth="6"
-              defaultValue={session.user.user.username}
+              defaultValue={session.user.username}
               disabled={true}
             />
 
@@ -27,7 +27,7 @@ const BillingAddress = (props) => {
               fieldName="email"
               transTitle="Checkout.Email"
               fieldWidth="6"
-              defaultValue={session.user.user.email}
+              defaultValue={session.user.email}
               disabled={true}
             />
 
@@ -36,7 +36,7 @@ const BillingAddress = (props) => {
               fieldName="phone"
               transTitle="Checkout.Phone"
               fieldWidth="6"
-              defaultValue={session.user.user.phoneNumber}
+              defaultValue={session.user.phoneNumber}
               disabled={true}
             />
 

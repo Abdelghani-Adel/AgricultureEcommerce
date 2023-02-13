@@ -8,6 +8,9 @@ const CategorySingle = (props) => {
   const { categories, showProducts, products } = props;
   const router = useRouter();
 
+  // console.log(decodeURIComponent(escape(window.atob(props.test))));
+  console.log(props.test);
+
   // console.log(props.products);
   return (
     <>
@@ -60,7 +63,6 @@ export const getServerSideProps = async (ctx) => {
         Cate_Id: ctx.query.id,
         limit: 6,
         start: 1,
-        // start: ctx.query.start ? ctx.query.start : 1,
       }),
     }
   );

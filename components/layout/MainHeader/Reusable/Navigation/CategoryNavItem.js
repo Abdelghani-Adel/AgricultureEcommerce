@@ -9,6 +9,8 @@ const CategoryNavItem = (props) => {
   const itemStyle = link.ClassificationChildren.length > 0 ? "menu-item-has-children" : "";
   const itemLink = `/categories/${link.FAClassificationSlug}?id=${link.FAClassificationId}`;
 
+  const encoded = window.btoa(unescape(encodeURIComponent(link.FAClassificationId)));
+
   const arrowClickHandler = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -26,7 +28,6 @@ const CategoryNavItem = (props) => {
           pathname: `/categories/${link.FAClassificationSlug}`,
           query: { id: `${link.FAClassificationId}` },
         }}
-        as={`/categories/${link.FAClassificationSlug}`}
       >
         {link.IconTypeId == 1 && <img className="category_icon svg" src={`${link.Icon}`} />}
         {link.IconTypeId == 2 && <img className="category_icon" src={`${link.Icon}`} />}

@@ -15,7 +15,6 @@ const SubCategories = (props) => {
                   pathname: `/categories/${subCategory.FAClassificationSlug}`,
                   query: { id: `${subCategory.FAClassificationId}` },
                 }}
-                as={`/categories/${subCategory.FAClassificationSlug}`}
               >
                 <div className="card catg_card">
                   <img

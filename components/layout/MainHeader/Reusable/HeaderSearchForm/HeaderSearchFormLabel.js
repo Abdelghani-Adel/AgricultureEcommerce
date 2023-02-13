@@ -8,7 +8,6 @@ const HeaderSearchFromLabel = (props) => {
         pathname: `/categories/${category.FAClassificationSlug}`,
         query: { id: `${category.FAClassificationId}` },
       }}
-      as={`/categories/${category.FAClassificationSlug}`}
     >
       {category.FAClassificationName}
     </Link>

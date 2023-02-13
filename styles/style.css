@@ -793,7 +793,12 @@ Version: 1.0.0
 .navbar-brand {
   padding: 10px 0;
   width: 170px;
+  display: block;
 }
+
+/* .navbar-brand img {
+  max-width: 80%;
+} */
 /* .main_header-controls {
   display: flex;
   align-items: center;
@@ -3901,10 +3906,10 @@ td.remove {
 .slick-prev {
   left: 20px;
 } */
-.andro_product-excerpt p{
+.andro_product-excerpt p {
   margin-bottom: 50px;
 }
-.andro_product-price{
+.andro_product-price {
   font-weight: bold;
   color: #50bd49;
   font-size: 20px;
