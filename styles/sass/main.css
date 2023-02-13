@@ -1824,6 +1824,11 @@ p {
   height: 60px;
 }
 
+.page_not_found {
+  position: relative;
+  background-color: #fff;
+}
+
 .header-nav {
   display: flex;
   flex-wrap: wrap;
@@ -2394,5 +2399,3 @@ p {
     font-size: 2rem;
   }
 }
-
-/*# sourceMappingURL=main.css.map */
