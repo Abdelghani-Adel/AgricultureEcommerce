@@ -19,25 +19,32 @@ const initReqBody = {
 
 const CheckoutContent = (props) => {
   const cartState = useSelector((state) => state.cart);
+  const [reqBody, setReqBody] = useState();
   const [cartContent, setCartContent] = useState();
 
   useEffect(() => {
     const newCartContent = cartState.tempCheckoutCart ? cartState.tempCheckoutCart : cartState;
+    console.log(newCartContent);
     setCartContent(newCartContent);
+
+    setReqBody({ ...initReqBody, cart: { ...newCartContent } });
   }, []);
 
-  const [reqBody, setReqBody] = useState({ ...initReqBody, cart: { ...cartContent } });
-
   const inputChangeHandler = useCallback((e) => {
-    setReqBody({ ...reqBody, addr: { ...reqBody.addr, [e.target.name]: e.target.value } });
+    setReqBody((prev) => {
+      return { ...prev, addr: { ...prev.addr, [e.target.name]: e.target.value } };
+    });
   });
 
   const hydrateReqBodyWithAddress = useCallback((address) => {
-    setReqBody({ ...reqBody, addr: address });
+    setReqBody((prev) => {
+      return { ...prev, addr: { ...address } };
+    });
   });
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    console.log(reqBody);
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/UPSSalesOrder`, {
       method: "POST",
       headers: await getAuthHeaders(),
@@ -45,6 +52,7 @@ const CheckoutContent = (props) => {
     });
 
     const data = await res.json();
+    console.log(data);
   };
 
   return (
