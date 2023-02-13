@@ -1,16 +1,17 @@
 import { useSession } from "next-auth/react";
 import Link from "next/Link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { editCart } from "../../../../redux/slices/cartSlice";
+import { cartActions, editCart } from "../../../../redux/slices/cartSlice";
 import AddToCart from "../AddToCart";
 
 const BuyNow = (props) => {
   const { item } = props;
-  console.log(item);
   const [clicks, setClicks] = useState(1);
   const dispatch = useDispatch();
+  const router = useRouter();
   const session = useSession();
 
   const IncrementItem = () => {
@@ -22,6 +23,12 @@ const BuyNow = (props) => {
   const handleChange = (event) => {
     setClicks(event.target.value);
   };
+
+  const buyNowHandler = () => {
+    dispatch(cartActions.hydrateTempCart(item));
+    router.push("/checkout");
+  };
+
   return (
     <div className="andro_product-atc-form">
       <div className="qty-outter">
@@ -29,10 +36,8 @@ const BuyNow = (props) => {
           Add To Cart
         </AddToCart>
 
-        <div className="qty-outter">
-          <Link href={"/checkout"} className="andro_btn-custom">
-            BUY NOW
-          </Link>
+        <div onClick={buyNowHandler} className="qty-outter">
+          <button className="andro_btn-custom">BUY NOW</button>
         </div>
         {/* <div className="qty">
           <span className="qty-subtract" onClick={DecreaseItem} data-type="minus" data-field>

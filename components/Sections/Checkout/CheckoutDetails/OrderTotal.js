@@ -9,7 +9,7 @@ const OrderTotal = (props) => {
       </td>
       <td />
       <td>
-        <strong>{cartState.totalPrice.toFixed(2)} $</strong>
+        <strong>{props.totalPrice.toFixed(2)} $</strong>
       </td>
     </tr>
   );

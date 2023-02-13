@@ -1,18 +1,51 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getSession } from "next-auth/react";
-import { useDispatch } from "react-redux";
 import { getAuthHeaders } from "../../helper/auth";
+
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
     items: [],
     totalPrice: 0,
     Cart_Id: 0,
+    // tempCheckoutCart: {
+    //   items: [],
+    // },
+  },
+  reducers: {
+    save: (state, param) => {
+      const { payload } = param;
+      state.location = [...state.location, payload];
+    },
+    clearCart: (state) => {
+      state.items = [];
+      state.totalPrice = 0;
+      state.Cart_Id = 0;
+    },
+    hydrateTempCart: (state, params) => {
+      const item = {
+        Quote_S_Id: 0,
+        Item_Id: 0,
+        Item_Name: params.payload.Item_Name,
+        Qty: 1,
+        UnitPrice: params.payload.UnitPrice || 0,
+        Quote_Date: "string",
+        UOM_Id: 0,
+        UOM_Name: "string",
+        Cart_Id: 0,
+        Supp_Id: 0,
+        lang: "string",
+      };
+      return { ...state, tempCheckoutCart: { totalPrice: 0, items: [item] } };
+    },
+    deleteTempCart: (state) => {
+      return { ...state, tempCheckoutCart: null };
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getCartDetails.fulfilled, (state, { payload }) => {
       if (payload) {
-        return { ...payload };
+        return { ...state, ...payload };
       }
     });
     builder.addCase(editCart.fulfilled, (state, { payload }) => {
@@ -33,17 +66,9 @@ const cartSlice = createSlice({
         state.total = 0;
       }
     });
-  },
-  reducers: {
-    save: (state, param) => {
-      const { payload } = param;
-      state.location = [...state.location, payload];
-    },
-    clearCart: (state) => {
-      state.items = [];
-      state.totalPrice = 0;
-      state.Cart_Id = 0;
-    },
+    // builder.addCase(hydrateTempCart.fulfilled, (state, { payload }) => {
+    //   return { ...state, tempCheckoutCart: { items: [params.payload] } };
+    // });
   },
 });
 

@@ -1,7 +1,8 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { withTranslation } from "react-multi-lang";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getAuthHeaders } from "../../../helper/auth";
+import { cartActions } from "../../../redux/slices/cartSlice";
 import BillingAddress from "./BillingDetails/BillingAddress";
 import CheckoutDetails from "./CheckoutDetails/CheckoutDetails";
 
@@ -18,7 +19,14 @@ const initReqBody = {
 
 const CheckoutContent = (props) => {
   const cartState = useSelector((state) => state.cart);
-  const [reqBody, setReqBody] = useState({ ...initReqBody, cart: { ...cartState } });
+  const [cartContent, setCartContent] = useState();
+
+  useEffect(() => {
+    const newCartContent = cartState.tempCheckoutCart ? cartState.tempCheckoutCart : cartState;
+    setCartContent(newCartContent);
+  }, []);
+
+  const [reqBody, setReqBody] = useState({ ...initReqBody, cart: { ...cartContent } });
 
   const inputChangeHandler = useCallback((e) => {
     setReqBody({ ...reqBody, addr: { ...reqBody.addr, [e.target.name]: e.target.value } });
@@ -37,7 +45,6 @@ const CheckoutContent = (props) => {
     });
 
     const data = await res.json();
-    console.log(data);
   };
 
   return (
@@ -49,7 +56,7 @@ const CheckoutContent = (props) => {
               inputChangeHandler={inputChangeHandler}
               hydrateReqBodyWithAddress={hydrateReqBodyWithAddress}
             />
-            <CheckoutDetails />
+            {cartContent && <CheckoutDetails cartItems={cartContent} />}
           </div>
         </form>
       </div>
