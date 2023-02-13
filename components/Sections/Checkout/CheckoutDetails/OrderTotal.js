@@ -1,7 +1,4 @@
-import { useSelector } from "react-redux";
-
 const OrderTotal = (props) => {
-  const cartState = useSelector((state) => state.cart);
   return (
     <tr className="total">
       <td>

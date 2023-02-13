@@ -1,21 +1,9 @@
-import { useCallback, useState, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { withTranslation } from "react-multi-lang";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getAuthHeaders } from "../../../helper/auth";
-import { cartActions } from "../../../redux/slices/cartSlice";
 import BillingAddress from "./BillingDetails/BillingAddress";
 import CheckoutDetails from "./CheckoutDetails/CheckoutDetails";
-
-const initReqBody = {
-  addr: {
-    Country_Id: 0,
-    City_Id: 0,
-    Gover_Id: 0,
-    District_Id: 0,
-    streetAdd: "string",
-    buildingNo: "string",
-  },
-};
 
 const CheckoutContent = (props) => {
   const cartState = useSelector((state) => state.cart);
@@ -23,11 +11,12 @@ const CheckoutContent = (props) => {
   const [cartContent, setCartContent] = useState();
 
   useEffect(() => {
-    const newCartContent = cartState.tempCheckoutCart ? cartState.tempCheckoutCart : cartState;
-    console.log(newCartContent);
-    setCartContent(newCartContent);
+    const cartContent = cartState.tempCheckoutCart ? cartState.tempCheckoutCart : cartState;
+    setCartContent(cartContent);
 
-    setReqBody({ ...initReqBody, cart: { ...newCartContent } });
+    setReqBody((prev) => {
+      return { ...prev, cart: { ...cartContent } };
+    });
   }, []);
 
   const inputChangeHandler = useCallback((e) => {
@@ -44,7 +33,6 @@ const CheckoutContent = (props) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(reqBody);
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/UPSSalesOrder`, {
       method: "POST",
       headers: await getAuthHeaders(),
@@ -52,7 +40,6 @@ const CheckoutContent = (props) => {
     });
 
     const data = await res.json();
-    console.log(data);
   };
 
   return (
@@ -64,7 +51,7 @@ const CheckoutContent = (props) => {
               inputChangeHandler={inputChangeHandler}
               hydrateReqBodyWithAddress={hydrateReqBodyWithAddress}
             />
-            {cartContent && <CheckoutDetails cartItems={cartContent} />}
+            {cartContent && <CheckoutDetails cartContent={cartContent} />}
           </div>
         </form>
       </div>
