@@ -16,7 +16,10 @@ const OrderItemList = (props) => {
         {props.cartContent.items.map((item, i) => (
           <OrderItem key={item.Item_Id} item={item} />
         ))}
-        <OrderTotal totalPrice={props.cartContent.totalPrice} />
+        <OrderTotal
+          totalPrice={props.cartContent.totalPrice}
+          currency={props.cartContent.currency.CurrBaseCode}
+        />
       </tbody>
     </table>
   );

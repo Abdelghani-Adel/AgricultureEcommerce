@@ -98,7 +98,10 @@ const CartItem = (props) => {
         </div>
       </td>
       <td data-title="Price">
-        <strong>{new Intl.NumberFormat().format(item.UnitPrice.toFixed(2))}$</strong>
+        <strong>
+          {new Intl.NumberFormat().format(item.UnitPrice.toFixed(2))}{" "}
+          {cartState.currency.CurrBaseCode}
+        </strong>
       </td>
       <td className="quantity" data-title="Quantity">
         <div className="d-flex justify-content-between align-items-center">
@@ -114,7 +117,10 @@ const CartItem = (props) => {
         </div>
       </td>
       <td data-title="Total">
-        <strong>{new Intl.NumberFormat().format((item.Qty * item.UnitPrice).toFixed(2))}$</strong>
+        <strong>
+          {new Intl.NumberFormat().format((item.Qty * item.UnitPrice).toFixed(2))}{" "}
+          {cartState.currency.CurrBaseCode}
+        </strong>
       </td>
     </tr>
   );

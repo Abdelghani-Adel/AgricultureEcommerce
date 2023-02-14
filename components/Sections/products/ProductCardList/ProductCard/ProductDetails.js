@@ -1,9 +1,12 @@
 import Link from "next/Link";
 import { withTranslation } from "react-multi-lang";
 import { Rating } from "../../../../../helper/helper";
+import { useSelector } from "react-redux";
 
 const ProductDetails = (props) => {
   const { product } = props;
+  const cartState = useSelector((state) => state.cart);
+
   return (
     <div className="product_card--body">
       <div className="category_badge">
@@ -21,7 +24,7 @@ const ProductDetails = (props) => {
               {/* {new Intl.NumberFormat().format(
                 ((product.price * (100 - product.discount)) / 100).toFixed(2)
               )} */}
-              {product.price} 49 $
+              {product.price} 49 {cartState.currency.CurrBaseCode}
             </span>
           ))}
       </div>

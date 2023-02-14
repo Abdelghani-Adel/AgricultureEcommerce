@@ -21,7 +21,7 @@ export default function MainLayout(props) {
     const navbarLinks = dispatch(getNavbarLinks());
 
     Promise.all([cartDetails, navbarLinks]).then(() => {
-      // dispatch(loaderActions.hideLoader());
+      dispatch(loaderActions.hideLoader());
     });
   }, []);
 

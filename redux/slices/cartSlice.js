@@ -10,9 +10,6 @@ const cartSlice = createSlice({
     Cart_Id: 0,
     checkedCartItems: [],
     checkedCartItemsTotalPrice: 0,
-    // tempCheckoutCart: {
-    //   items: [],
-    // },
   },
   reducers: {
     checkCartItem: (state, params) => {
@@ -91,15 +88,17 @@ const cartSlice = createSlice({
         state.total = 0;
       }
     });
-    // builder.addCase(hydrateTempCart.fulfilled, (state, { payload }) => {
-    //   return { ...state, tempCheckoutCart: { items: [params.payload] } };
-    // });
   },
 });
 
 export const getCartDetails = createAsyncThunk("cart/getCartDetails", async (payload, thunkAPI) => {
   const session = await getSession();
   if (session) {
+    const currencyRequest = await fetch(
+      `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getCurrBase`
+    );
+    const currency = await currencyRequest.json();
+
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/getCartItem`, {
       method: "POST",
       headers: await getAuthHeaders(),
@@ -107,7 +106,7 @@ export const getCartDetails = createAsyncThunk("cart/getCartDetails", async (pay
     });
 
     const cartData = await res.json();
-    return cartData;
+    return { ...cartData, currency: { ...currency } };
   }
 });
 

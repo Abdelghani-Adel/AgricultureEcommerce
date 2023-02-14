@@ -19,6 +19,7 @@ const CheckoutContent = (props) => {
       Cust_Id: cartState.Cust_Id,
       Cart_Id: cartState.Cart_Id,
       lang: cartState.lang,
+      currency: cartState.currency,
       items: [],
     };
 

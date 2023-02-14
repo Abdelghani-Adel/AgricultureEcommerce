@@ -6,7 +6,9 @@ const OrderTotal = (props) => {
       </td>
       <td />
       <td>
-        <strong>{props.totalPrice.toFixed(2)} $</strong>
+        <strong>
+          {props.totalPrice.toFixed(2)} {props.currency}
+        </strong>
       </td>
     </tr>
   );

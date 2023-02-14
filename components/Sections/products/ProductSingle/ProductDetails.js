@@ -2,9 +2,12 @@ import Link from "next/Link";
 import { Fragment } from "react";
 import { FaCompressAlt, FaRegHeart } from "react-icons/fa";
 import { Rating } from "../../../../helper/helper";
+import { useSelector } from "react-redux";
 
 const ProductDetails = (props) => {
   const { item } = props;
+  const cartState = useSelector((state) => state.cart);
+
   return (
     <Fragment>
       {/* Add to wishlist */}
@@ -28,7 +31,9 @@ const ProductDetails = (props) => {
       <h3>{item.Item_Name}</h3>
 
       {/* Product Price */}
-      <div className="andro_product-price">{item.price} 49 $</div>
+      <div className="andro_product-price">
+        {item.price} 49 {cartState.currency.CurrBaseCode}
+      </div>
 
       {/* Product Description */}
       <div

@@ -1,7 +1,9 @@
 import Link from "next/Link";
+import { useSelector } from "react-redux";
 
 const OrderItem = (props) => {
   const { item } = props;
+  const cartState = useSelector((state) => state.cart);
   return (
     <tr>
       <td data-title="Product">
@@ -15,7 +17,9 @@ const OrderItem = (props) => {
       </td>
       <td data-title="Quantity">x {item.Qty}</td>
       <td data-title="Total">
-        <strong>{(item.Qty * item.UnitPrice).toFixed(2)} $</strong>
+        <strong>
+          {(item.Qty * item.UnitPrice).toFixed(2)} {cartState.currency.CurrBaseCode}
+        </strong>
       </td>
     </tr>
   );
