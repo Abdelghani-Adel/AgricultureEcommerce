@@ -18,7 +18,7 @@ const CheckoutContent = (props) => {
       Cart_Ref: cartState.Cart_Ref,
       Cust_Id: cartState.Cust_Id,
       Cart_Id: cartState.Cart_Id,
-      lang: cartState.lang,
+      lang: "ar",
       currency: cartState.currency,
       items: [],
     };
@@ -68,7 +68,11 @@ const CheckoutContent = (props) => {
     });
 
     const data = await res.json();
-    // console.log(data);
+
+    console.log(reqBody);
+    console.log(data);
+    alert(data.Message);
+    window.location = "/";
   };
 
   return (

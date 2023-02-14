@@ -929,6 +929,35 @@ p {
   background-color: #33da2d;
 }
 
+.like_button {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  position: relative;
+  background-color: #50bd4d;
+  border: 0;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  z-index: 1;
+  height: 40px;
+  width: 200px;
+  line-height: 40px;
+  background-color: #fff;
+  color: #50bd4d;
+  flex: 1 1;
+}
+
+.like_button:hover {
+  background-color: #f0f2f3;
+}
+
+.like_button.checked {
+  color: blue;
+}
+
 .pagination {
   margin-top: 20px;
   -webkit-box-pack: center;

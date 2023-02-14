@@ -1006,7 +1006,7 @@ Version: 1.0.0
   color: #848486;
   padding-left: 10px;
   line-height: 40px;
-  margin: 10px auto;
+  /* margin: 10px auto; */
 
   /* direction: rtl; */
   display: block;

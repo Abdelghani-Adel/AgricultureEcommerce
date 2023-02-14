@@ -43,7 +43,7 @@ const BillingAddress = (props) => {
             <BillingAddressForm
               fieldChangeHandler={props.inputChangeHandler}
               hydrateReqBody={props.hydrateReqBodyWithAddress}
-              vendorID={session.custId}
+              vendorID={session.user.custId}
               EntityId={16}
               showPreviousAddress={true}
             />

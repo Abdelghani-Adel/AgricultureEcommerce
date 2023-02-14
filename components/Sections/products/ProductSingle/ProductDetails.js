@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 const ProductDetails = (props) => {
   const { item } = props;
   const cartState = useSelector((state) => state.cart);
+  console.log(item.price);
 
   return (
     <Fragment>
@@ -32,7 +33,7 @@ const ProductDetails = (props) => {
 
       {/* Product Price */}
       <div className="andro_product-price">
-        {item.price} 49 {cartState.currency && cartState.currency.CurrBaseCode}
+        {item.Price} {cartState.currency && cartState.currency.CurrBaseCode}
       </div>
 
       {/* Product Description */}

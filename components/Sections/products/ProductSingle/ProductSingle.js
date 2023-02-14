@@ -15,6 +15,7 @@ import ProductDetails from "./ProductDetails";
 const ProductSingle = (props) => {
   const { ItemDetails } = props;
   const [item, setItem] = useState(ItemDetails);
+  console.log(item);
 
   return (
     <Fragment>

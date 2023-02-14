@@ -9,7 +9,7 @@ import { useState } from "react";
 import { createAction } from "@reduxjs/toolkit";
 
 const CartItem = (props) => {
-  const { item } = props;
+  const thisItem = { ...props.item, lang: "ar" };
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cart);
   const [itemChecked, setItemChecked] = useState(false);
@@ -17,7 +17,7 @@ const CartItem = (props) => {
   useEffect(() => {
     const checkedItemsArray = cartState.checkedCartItems;
     const itemIsChecked = checkedItemsArray.findIndex(
-      (checkedItem) => checkedItem.Item_Id == item.Item_Id
+      (checkedItem) => checkedItem.Item_Id == thisItem.Item_Id
     );
 
     if (itemIsChecked != -1) {
@@ -28,7 +28,7 @@ const CartItem = (props) => {
   const increaseItem = useCallback((e) => {
     const payload = {
       action: "plus",
-      item: item,
+      item: thisItem,
     };
     dispatch(editCart(payload));
   });
@@ -36,32 +36,33 @@ const CartItem = (props) => {
   const decreaseItem = useCallback(() => {
     const payload = {
       action: "minus",
-      item: item,
+      item: thisItem,
     };
 
     dispatch(editCart(payload));
   });
 
   const deleteItemHandler = useCallback((e) => {
-    dispatch(deleteItem(item));
+    console.log(thisItem);
+    dispatch(deleteItem(thisItem));
     return;
   });
   const checkItemHandler = useCallback((e) => {
     if (e.target.checked) {
       setItemChecked(true);
-      dispatch(cartActions.checkCartItem(item));
+      dispatch(cartActions.checkCartItem(thisItem));
     } else {
       setItemChecked(false);
-      dispatch(cartActions.unCheckCartItem(item));
+      dispatch(cartActions.unCheckCartItem(thisItem));
     }
   });
 
   return (
     <tr>
       <td>
-        <div class="form-check">
+        <div className="form-check">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value=""
             onChange={checkItemHandler}
@@ -84,28 +85,26 @@ const CartItem = (props) => {
       </td>
       <td data-title="Product">
         <div className="andro_cart-product-wrapper">
-          <div>
+          {/* <div>
             <img src={item.img} alt={item.Item_Name} />
-          </div>
+          </div> */}
           <div className="andro_cart-product-body">
-            <h6>
-              <Link href="#">{item.Item_Name}</Link>
-            </h6>
-            <p>
+            <h6>{thisItem.Item_Name}</h6>
+            {/* <p>
               {item.Qty} {item.UOM_Name}
-            </p>
+            </p> */}
           </div>
         </div>
       </td>
       <td data-title="Price">
         <strong>
-          {new Intl.NumberFormat().format(item.UnitPrice.toFixed(2))}{" "}
+          {new Intl.NumberFormat().format(thisItem.UnitPrice.toFixed(2))}{" "}
           {cartState.currency && cartState.currency.CurrBaseCode}
         </strong>
       </td>
       <td className="quantity" data-title="Quantity">
         <div className="d-flex justify-content-between align-items-center">
-          <span>{item.Qty}</span>
+          <span>{thisItem.Qty}</span>
           <span className="d-flex flex-column">
             <button className="btn btn-success m-1" onClick={increaseItem}>
               <FaAngleUp />
@@ -118,7 +117,7 @@ const CartItem = (props) => {
       </td>
       <td data-title="Total">
         <strong>
-          {new Intl.NumberFormat().format((item.Qty * item.UnitPrice).toFixed(2))}{" "}
+          {new Intl.NumberFormat().format((thisItem.Qty * thisItem.UnitPrice).toFixed(2))}{" "}
           {cartState.currency && cartState.currency.CurrBaseCode}
         </strong>
       </td>

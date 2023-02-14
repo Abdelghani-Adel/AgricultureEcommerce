@@ -168,7 +168,7 @@ export const deleteItem = createAsyncThunk("cart/deleteItem", async (payload, th
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/deleteFromCart`, {
     method: "POST",
     headers: await getAuthHeaders(),
-    body: JSON.stringify({ ...item, Cart_Id: currentState.Cart_Id }),
+    body: JSON.stringify({ ...item, Cart_Id: currentState.Cart_Id, lang: "ar" }),
   });
 
   const cartDetails = await res.json();

@@ -18,7 +18,7 @@ const OrderItemList = (props) => {
         ))}
         <OrderTotal
           totalPrice={props.cartContent.totalPrice}
-          currency={props.cartContent.currency.CurrBaseCode}
+          currency={props.cartContent.currency && props.cartContent.currency.CurrBaseCode}
         />
       </tbody>
     </table>
