@@ -11,11 +11,38 @@ const CheckoutContent = (props) => {
   const [cartContent, setCartContent] = useState();
 
   useEffect(() => {
-    const cartContent = cartState.tempCheckoutCart ? cartState.tempCheckoutCart : cartState;
-    setCartContent(cartContent);
+    let cart = {
+      success: cartState.success,
+      Message: cartState.Message,
+      totalPrice: cartState.totalPrice,
+      Cart_Ref: cartState.Cart_Ref,
+      Cust_Id: cartState.Cust_Id,
+      Cart_Id: cartState.Cart_Id,
+      lang: cartState.lang,
+      items: [],
+    };
 
+    if (cartState.tempCheckoutCart) {
+      cart = {
+        ...cart,
+        Cart_Id: 0,
+        totalPrice: cartState.tempCheckoutCart.totalPrice,
+        items: [...cartState.tempCheckoutCart.items],
+      };
+    } else {
+      cart = {
+        ...cart,
+        totalPrice: cartState.checkedCartItemsTotalPrice,
+        items: [...cartState.checkedCartItems],
+      };
+    }
+
+    // const cartContent = cartState.tempCheckoutCart ? cartState.tempCheckoutCart : cartState;
+    // console.log(cartContent);
+
+    setCartContent(cart);
     setReqBody((prev) => {
-      return { ...prev, cart: { ...cartContent } };
+      return { ...prev, cart: { ...cart } };
     });
   }, []);
 

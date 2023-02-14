@@ -16,7 +16,9 @@ const CartTotal = (props) => {
         <tbody>
           <tr>
             <th>Subtotal</th>
-            <td>{new Intl.NumberFormat().format(cartState.totalPrice.toFixed(2))}$</td>
+            <td>
+              {new Intl.NumberFormat().format(cartState.checkedCartItemsTotalPrice.toFixed(2))}$
+            </td>
           </tr>
           {/* <tr>
             <th>{props.t("Cart.Tax")}</th>
@@ -27,7 +29,9 @@ const CartTotal = (props) => {
           <tr>
             <th>{props.t("Cart.Total")}</th>
             <td>
-              <b>{new Intl.NumberFormat().format(cartState.totalPrice.toFixed(2))}$</b>
+              <b>
+                {new Intl.NumberFormat().format(cartState.checkedCartItemsTotalPrice.toFixed(2))}$
+              </b>
             </td>
           </tr>
         </tbody>

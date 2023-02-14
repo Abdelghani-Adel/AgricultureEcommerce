@@ -9,20 +9,34 @@ const cartSlice = createSlice({
     totalPrice: 0,
     Cart_Id: 0,
     checkedCartItems: [],
+    checkedCartItemsTotalPrice: 0,
     // tempCheckoutCart: {
     //   items: [],
     // },
   },
   reducers: {
     checkCartItem: (state, params) => {
-      return { ...state, checkedCartItems: [...state.checkedCartItems, params.payload] };
+      const itemPrice = params.payload.Qty * params.payload.UnitPrice;
+      const checkedItemsPrice = state.checkedCartItemsTotalPrice + itemPrice;
+      return {
+        ...state,
+        checkedCartItems: [...state.checkedCartItems, params.payload],
+        checkedCartItemsTotalPrice: checkedItemsPrice,
+      };
     },
     unCheckCartItem: (state, params) => {
+      const itemPrice = params.payload.Qty * params.payload.UnitPrice;
+      const checkedItemsPrice = state.checkedCartItemsTotalPrice - itemPrice;
+
       const filteredCheckedItems = state.checkedCartItems.filter(
         (item) => item.Item_Id != params.payload.Item_Id
       );
 
-      return { ...state, checkedCartItems: [...filteredCheckedItems] };
+      return {
+        ...state,
+        checkedCartItems: [...filteredCheckedItems],
+        checkedCartItemsTotalPrice: checkedItemsPrice,
+      };
     },
     save: (state, param) => {
       const { payload } = param;

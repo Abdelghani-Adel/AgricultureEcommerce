@@ -36,6 +36,13 @@ export const getServerSideProps = async (ctx) => {
     }
   );
   const subCategories = await subCategoriesRes.json();
+
+  if (!subCategories) {
+    return {
+      notFound: true,
+    };
+  }
+
   if (subCategories.length > 0) {
     return {
       props: {
@@ -63,6 +70,12 @@ export const getServerSideProps = async (ctx) => {
     }
   );
   const products = await productsRes.json();
+
+  if (!products) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
