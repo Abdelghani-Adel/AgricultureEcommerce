@@ -32,7 +32,7 @@ const ProductDetails = (props) => {
 
       {/* Product Price */}
       <div className="andro_product-price">
-        {item.price} 49 {cartState.currency.CurrBaseCode}
+        {item.price} 49 {cartState.currency && cartState.currency.CurrBaseCode}
       </div>
 
       {/* Product Description */}

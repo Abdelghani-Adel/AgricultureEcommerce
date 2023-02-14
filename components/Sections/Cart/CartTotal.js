@@ -18,7 +18,7 @@ const CartTotal = (props) => {
             <th>Subtotal</th>
             <td>
               {new Intl.NumberFormat().format(cartState.checkedCartItemsTotalPrice.toFixed(2))}{" "}
-              {cartState.currency.CurrBaseCode}
+              {cartState.currency && cartState.currency.CurrBaseCode}
             </td>
           </tr>
           {/* <tr>
@@ -32,7 +32,7 @@ const CartTotal = (props) => {
             <td>
               <b>
                 {new Intl.NumberFormat().format(cartState.checkedCartItemsTotalPrice.toFixed(2))}{" "}
-                {cartState.currency.CurrBaseCode}
+                {cartState.currency && cartState.currency.CurrBaseCode}
               </b>
             </td>
           </tr>

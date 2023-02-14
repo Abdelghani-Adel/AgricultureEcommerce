@@ -18,7 +18,8 @@ const OrderItem = (props) => {
       <td data-title="Quantity">x {item.Qty}</td>
       <td data-title="Total">
         <strong>
-          {(item.Qty * item.UnitPrice).toFixed(2)} {cartState.currency.CurrBaseCode}
+          {(item.Qty * item.UnitPrice).toFixed(2)}{" "}
+          {cartState.currency && cartState.currency.CurrBaseCode}
         </strong>
       </td>
     </tr>

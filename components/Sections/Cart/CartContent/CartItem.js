@@ -100,7 +100,7 @@ const CartItem = (props) => {
       <td data-title="Price">
         <strong>
           {new Intl.NumberFormat().format(item.UnitPrice.toFixed(2))}{" "}
-          {cartState.currency.CurrBaseCode}
+          {cartState.currency && cartState.currency.CurrBaseCode}
         </strong>
       </td>
       <td className="quantity" data-title="Quantity">
@@ -119,7 +119,7 @@ const CartItem = (props) => {
       <td data-title="Total">
         <strong>
           {new Intl.NumberFormat().format((item.Qty * item.UnitPrice).toFixed(2))}{" "}
-          {cartState.currency.CurrBaseCode}
+          {cartState.currency && cartState.currency.CurrBaseCode}
         </strong>
       </td>
     </tr>

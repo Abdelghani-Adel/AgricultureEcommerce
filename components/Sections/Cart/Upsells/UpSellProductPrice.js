@@ -8,13 +8,14 @@ const UpSellProductPrice = (props) => {
       {item.discount > 0 || item.discount !== "" ? (
         <span>
           {new Intl.NumberFormat().format(((item.price * (100 - item.discount)) / 100).toFixed(2))}{" "}
-          {cartState.currency.CurrBaseCode}
+          {cartState.currency && cartState.currency.CurrBaseCode}
         </span>
       ) : (
         ""
       )}
       <span>
-        {new Intl.NumberFormat().format(item.price.toFixed(2))} {cartState.currency.CurrBaseCode}
+        {new Intl.NumberFormat().format(item.price.toFixed(2))}{" "}
+        {cartState.currency && cartState.currency.CurrBaseCode}
       </span>
     </div>
   );
