@@ -1,6 +1,7 @@
 import Link from "next/Link";
+import Error from "next/error";
 
-const PageNotFound = (props) => {
+const Page = (props) => {
   return (
     <div className="page_not_found">
       <div className="section">
@@ -22,4 +23,4 @@ const PageNotFound = (props) => {
   );
 };
 
-export default PageNotFound;
+export default Page;

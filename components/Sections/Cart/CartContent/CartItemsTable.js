@@ -7,6 +7,7 @@ const CartItemsTable = (props) => {
     <table className="andro_responsive-table">
       <thead>
         <tr>
+          <th></th>
           <th className="remove-item" />
           <th>{props.t("Cart.Product")}</th>
           <th>{props.t("Cart.Price")}</th>
