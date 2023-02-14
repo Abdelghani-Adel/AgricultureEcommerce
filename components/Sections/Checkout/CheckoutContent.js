@@ -40,6 +40,7 @@ const CheckoutContent = (props) => {
     });
 
     const data = await res.json();
+    // console.log(data);
   };
 
   return (

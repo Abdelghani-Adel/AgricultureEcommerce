@@ -14,6 +14,7 @@ const BuyNow = (props) => {
   const [item, setItem] = useState(props.item);
   const [measureUnits, setMeasureUnits] = useState([]);
   const [buttonDisabled, setButtonsDisabled] = useState(true);
+  const session = useSession();
 
   const dispatch = useDispatch();
   const router = useRouter();
@@ -29,6 +30,11 @@ const BuyNow = (props) => {
   };
 
   const buyNowHandler = () => {
+    if (session.status != "authenticated") {
+      router.push("/login");
+      return;
+    }
+
     dispatch(cartActions.hydrateTempCart(item));
     router.push("/checkout");
   };
