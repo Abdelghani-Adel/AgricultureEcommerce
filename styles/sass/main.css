@@ -929,6 +929,52 @@ p {
   background-color: #33da2d;
 }
 
+.product_footer--button {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  position: relative;
+  background-color: #50bd4d;
+  border: 0;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  z-index: 1;
+  height: 40px;
+  width: 200px;
+  line-height: 40px;
+  background-color: #fff;
+  color: #50bd4d;
+  overflow: hidden;
+  flex: 1 1;
+}
+
+.product_footer--button:hover {
+  background-color: #f0f2f3;
+}
+
+.product_footer--button:after {
+  content: "";
+  background: #90ee90;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.product_footer--button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
 .like_button {
   cursor: pointer;
   display: inline-block;

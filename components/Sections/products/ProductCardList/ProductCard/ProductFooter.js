@@ -81,7 +81,7 @@ const ProductFooter = (props) => {
   return (
     <div className="product_card--footer">
       <div className="product_card--buttons">
-        <AddToCart item={product} style={"andro_btn-custom light"} />
+        <AddToCart item={product} />
 
         <Link
           href={props.productPath}

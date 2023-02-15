@@ -33,9 +33,11 @@ const AddToCart = (props) => {
       item: cartItem,
     };
 
+    toast(`Item has been added to you cart!`);
+
     if (session.status != "authenticated") {
       storeCartItemInCookie(cartItem);
-      toast(`${cartState.items.length} item in your cart`);
+
       return;
     }
 
@@ -43,14 +45,13 @@ const AddToCart = (props) => {
   });
 
   return (
-    <Link
-      href="/"
-      className={props.style}
+    <button
+      className={`product_footer--button ${props.style || ""}`}
       title={props.t("Products.AddToCart")}
       onClick={addToCartHandler}
     >
       {props.children ? props.children : <FaShoppingBasket />}
-    </Link>
+    </button>
   );
 };
 
