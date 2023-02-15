@@ -74,7 +74,7 @@ const ProductFooter = (props) => {
 
     // const data = await res.json();
 
-    console.log(requestBody);
+    // console.log(requestBody);
     // console.log(data);
   };
 

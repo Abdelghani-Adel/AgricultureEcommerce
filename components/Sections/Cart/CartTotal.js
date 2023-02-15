@@ -2,11 +2,12 @@ import cart from "../../../data/cart.json";
 import { withTranslation } from "react-multi-lang";
 import Link from "next/Link";
 import { useSelector } from "react-redux";
-
-// const priceTotal = cart.reduce((totalPrice, item) => totalPrice + item.price * item.qty, 0);
+import { useSession } from "next-auth/react";
 
 const CartTotal = (props) => {
   const cartState = useSelector((state) => state.cart);
+  const session = useSession();
+  console.log(session);
   return (
     <div className="col-lg-6">
       <div className="section-title">
@@ -38,7 +39,10 @@ const CartTotal = (props) => {
           </tr>
         </tbody>
       </table>
-      <Link href="/checkout" className="andro_btn-custom primary btn-block">
+      <Link
+        href={session.status == "authenticated" ? "/checkout" : "/login"}
+        className="andro_btn-custom primary btn-block"
+      >
         {props.t("Cart.CheckoutProceed")}
       </Link>
     </div>

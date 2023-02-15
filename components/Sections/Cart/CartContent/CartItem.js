@@ -9,7 +9,7 @@ import { useState } from "react";
 import { createAction } from "@reduxjs/toolkit";
 
 const CartItem = (props) => {
-  const thisItem = { ...props.item, lang: "ar" };
+  const { item } = props;
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cart);
   const [itemChecked, setItemChecked] = useState(false);
@@ -17,7 +17,7 @@ const CartItem = (props) => {
   useEffect(() => {
     const checkedItemsArray = cartState.checkedCartItems;
     const itemIsChecked = checkedItemsArray.findIndex(
-      (checkedItem) => checkedItem.Item_Id == thisItem.Item_Id
+      (checkedItem) => checkedItem.Item_Id == item.Item_Id
     );
 
     if (itemIsChecked != -1) {
@@ -28,7 +28,7 @@ const CartItem = (props) => {
   const increaseItem = useCallback((e) => {
     const payload = {
       action: "plus",
-      item: thisItem,
+      item: item,
     };
     dispatch(editCart(payload));
   });
@@ -36,24 +36,23 @@ const CartItem = (props) => {
   const decreaseItem = useCallback(() => {
     const payload = {
       action: "minus",
-      item: thisItem,
+      item: item,
     };
 
     dispatch(editCart(payload));
   });
 
   const deleteItemHandler = useCallback((e) => {
-    console.log(thisItem);
-    dispatch(deleteItem(thisItem));
+    dispatch(deleteItem(item));
     return;
   });
   const checkItemHandler = useCallback((e) => {
     if (e.target.checked) {
       setItemChecked(true);
-      dispatch(cartActions.checkCartItem(thisItem));
+      dispatch(cartActions.checkCartItem(item));
     } else {
       setItemChecked(false);
-      dispatch(cartActions.unCheckCartItem(thisItem));
+      dispatch(cartActions.unCheckCartItem(item));
     }
   });
 
@@ -85,11 +84,11 @@ const CartItem = (props) => {
       </td>
       <td data-title="Product">
         <div className="andro_cart-product-wrapper">
-          {/* <div>
-            <img src={item.img} alt={item.Item_Name} />
-          </div> */}
+          <div>
+            <img className="category_icon" src={`${item.Item_Image}`} alt={item.Item_Name} />
+          </div>
           <div className="andro_cart-product-body">
-            <h6>{thisItem.Item_Name}</h6>
+            <h6>{item.Item_Name}</h6>
             {/* <p>
               {item.Qty} {item.UOM_Name}
             </p> */}
@@ -98,13 +97,13 @@ const CartItem = (props) => {
       </td>
       <td data-title="Price">
         <strong>
-          {new Intl.NumberFormat().format(thisItem.UnitPrice.toFixed(2))}{" "}
+          {new Intl.NumberFormat().format(item.UnitPrice.toFixed(2))}{" "}
           {cartState.currency && cartState.currency.CurrBaseCode}
         </strong>
       </td>
       <td className="quantity" data-title="Quantity">
         <div className="d-flex justify-content-between align-items-center">
-          <span>{thisItem.Qty}</span>
+          <span>{item.Qty}</span>
           <span className="d-flex flex-column">
             <button className="btn btn-success m-1" onClick={increaseItem}>
               <FaAngleUp />
@@ -117,7 +116,7 @@ const CartItem = (props) => {
       </td>
       <td data-title="Total">
         <strong>
-          {new Intl.NumberFormat().format((thisItem.Qty * thisItem.UnitPrice).toFixed(2))}{" "}
+          {new Intl.NumberFormat().format((item.Qty * item.UnitPrice).toFixed(2))}{" "}
           {cartState.currency && cartState.currency.CurrBaseCode}
         </strong>
       </td>

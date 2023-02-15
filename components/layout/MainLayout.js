@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCartDetails } from "../../redux/slices/cartSlice";
+import { ToastContainer } from "react-toastify";
+import { getCookie } from "../../helper/cookiesHandlers";
+import { editCart, getCartDetails } from "../../redux/slices/cartSlice";
 import { loaderActions } from "../../redux/slices/loaderSlice";
 import { getNavbarLinks } from "../../redux/slices/navbarSlice";
 import Footer from "./Footer/Footer";
@@ -20,14 +22,42 @@ export default function MainLayout(props) {
     const cartDetails = dispatch(getCartDetails());
     const navbarLinks = dispatch(getNavbarLinks());
 
-    Promise.all([cartDetails, navbarLinks]).then(() => {
+    const addCartItemsFromCookies = async () => {
+      const cartCookie = getCookie("cartCookie");
+
+      if (cartCookie) {
+        console.log("function ran");
+        const cartFoundInTheCookie = JSON.parse(cartCookie);
+        const itemsFoundInTheCookie = cartFoundInTheCookie.items;
+
+        // Loop through the items and call the api on each one of them
+        for (let item of itemsFoundInTheCookie) {
+          const payload = {
+            action: "plus",
+            item: item,
+          };
+          await dispatch(editCart(payload));
+        }
+
+        // delete the cookie
+        document.cookie = `cartCookie=${cartCookie}; expires=Thu, 18 Dec 2013 12:00:00 UTC`;
+      }
+    };
+
+    const cartDetailsFromCookies = addCartItemsFromCookies();
+
+    Promise.all([cartDetails, navbarLinks, cartDetailsFromCookies]).then(() => {
+      console.log("dispatch hide");
       dispatch(loaderActions.hideLoader());
     });
+
+    console.log("use effect run");
   }, []);
 
   return (
     <>
       <MainHeader changeLang={changeLang} lang={props.lang} />
+      <ToastContainer position="top-center" autoClose={2500} hideProgressBar={true} theme="light" />
       {loaderState && <Loader />}
       {props.children}
       <Footer footer={{ style: "", logo: "img/logo.png" }} />

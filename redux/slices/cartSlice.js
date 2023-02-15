@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getSession } from "next-auth/react";
 import { getAuthHeaders } from "../../helper/auth";
+import { getCookie } from "../../helper/cookiesHandlers";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -108,14 +109,37 @@ export const getCartDetails = createAsyncThunk("cart/getCartDetails", async (pay
     const cartData = await res.json();
     return { ...cartData, currency: { ...currency } };
   }
+
+  if (!session) {
+    console.log("run");
+    // get the cookie
+    const foundCookie = getCookie("cartCookie");
+    if (foundCookie) {
+      // parse it
+      const cartItemsFoundInTheCookie = JSON.parse(foundCookie);
+
+      return {
+        totalPrice: cartItemsFoundInTheCookie.totalPrice,
+        items: cartItemsFoundInTheCookie.items,
+      };
+    } else {
+      return {
+        totalPrice: payload.UnitPrice,
+        items: [payload],
+      };
+    }
+  }
 });
 
 export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkAPI) => {
+  console.log(payload);
+
   const currentState = thunkAPI.getState().cart;
   const items = currentState.items.filter((item) => item.Item_Id == payload.item.Item_Id);
   const item = items[0] || {};
+
   let quoteSID = item.Quote_S_Id || 0;
-  let quantity = 1;
+  let quantity = payload.item.Qty || 1;
 
   if (payload.action == "minus" && item.Qty == "1") {
     thunkAPI.dispatch(deleteItem(item));
@@ -136,7 +160,7 @@ export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkA
       Message: "string",
       totalPrice: 0,
       Cart_Ref: "string",
-      Cust_Id: 30,
+      Cust_Id: 45,
       Cart_Id: currentState.Cart_Id,
       lang: "AR",
       items: [
@@ -145,7 +169,7 @@ export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkA
           Item_Id: payload.item.Item_Id,
           Item_Name: "",
           Qty: quantity,
-          UnitPrice: 5,
+          UnitPrice: payload.item.UnitPrice,
           Quote_Date: "",
           UOM_Id: payload.item.UOM_Id,
           UOM_Name: "",
@@ -158,6 +182,7 @@ export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkA
   });
 
   const cartDetails = await res.json();
+  console.log(cartDetails);
   return cartDetails;
 });
 
@@ -172,6 +197,7 @@ export const deleteItem = createAsyncThunk("cart/deleteItem", async (payload, th
   });
 
   const cartDetails = await res.json();
+  console.log(cartDetails);
 
   return cartDetails;
 });
