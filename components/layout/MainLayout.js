@@ -1,4 +1,4 @@
-import { useSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,8 +28,10 @@ export default function MainLayout(props) {
 
     const addCartItemsFromCookies = async () => {
       const cartCookie = getCookie("cartCookie");
+      const session = await getSession();
+      console.log(session);
 
-      if (cartCookie) {
+      if (cartCookie && session) {
         router.push("/cart");
         const cartFoundInTheCookie = JSON.parse(cartCookie);
         const itemsFoundInTheCookie = cartFoundInTheCookie.items;
@@ -61,7 +63,14 @@ export default function MainLayout(props) {
   return (
     <>
       <MainHeader changeLang={changeLang} lang={props.lang} />
-      <ToastContainer position="top-center" autoClose={1500} hideProgressBar={true} theme="light" />
+      <div style={{ width: "60px", height: "60px", position: "absolute" }}>
+        <ToastContainer
+          position="top-center"
+          autoClose={1500}
+          hideProgressBar={true}
+          theme="light"
+        />
+      </div>
       {loaderState && <Loader />}
       {props.children}
       <Footer footer={{ style: "", logo: "img/logo.png" }} />

@@ -53,6 +53,10 @@ const CartItem = (props) => {
       item: item,
     };
 
+    if (item.Qty == 1) {
+      toast.error("Item has been deleted");
+    }
+
     dispatch(editCart(payload));
   });
 

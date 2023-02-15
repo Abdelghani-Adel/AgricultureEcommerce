@@ -49,6 +49,7 @@ export const getServerSideProps = async (ctx) => {
         categories: subCategories,
         categorySlug: ctx.params.categorySlug,
         showProducts: false,
+        // test: ctx.process.btoa("test"),
       },
     };
   }
