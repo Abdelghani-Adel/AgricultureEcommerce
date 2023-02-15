@@ -7,12 +7,12 @@ const CartItemsTable = (props) => {
     <table className="andro_responsive-table">
       <thead>
         <tr>
-          <th></th>
-          <th className="remove-item" />
-          <th>{props.t("Cart.Product")}</th>
-          <th>{props.t("Cart.Price")}</th>
-          <th>{props.t("Cart.Quantity")}</th>
-          <th>{props.t("Cart.Total")}</th>
+          <th style={{ width: "5%" }}></th>
+          <th style={{ width: "5%" }} className="remove-item" />
+          <th style={{ width: "60%" }}>{props.t("Cart.Product")}</th>
+          <th style={{ width: "10%" }}>{props.t("Cart.Price")}</th>
+          <th style={{ width: "10%" }}>{props.t("Cart.Quantity")}</th>
+          <th style={{ width: "10%" }}>{props.t("Cart.Total")}</th>
         </tr>
       </thead>
       <tbody>
