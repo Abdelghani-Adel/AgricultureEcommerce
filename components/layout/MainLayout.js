@@ -59,7 +59,7 @@ export default function MainLayout(props) {
   return (
     <>
       <MainHeader changeLang={changeLang} lang={props.lang} />
-      <ToastContainer position="top-center" autoClose={2500} hideProgressBar={true} theme="light" />
+      <ToastContainer position="top-center" autoClose={1500} hideProgressBar={true} theme="light" />
       {loaderState && <Loader />}
       {props.children}
       <Footer footer={{ style: "", logo: "img/logo.png" }} />

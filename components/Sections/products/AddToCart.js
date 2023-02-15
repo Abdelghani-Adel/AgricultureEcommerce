@@ -33,7 +33,9 @@ const AddToCart = (props) => {
       item: cartItem,
     };
 
-    toast(`Item has been added to you cart!`);
+    let notification;
+    toast.dismiss(notification);
+    notification = toast.info(`Item has been added to you cart!`);
 
     if (session.status != "authenticated") {
       storeCartItemInCookie(cartItem);
