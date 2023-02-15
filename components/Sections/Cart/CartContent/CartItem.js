@@ -1,18 +1,17 @@
-import React, { useCallback } from "react";
-import Link from "next/Link";
+import { useSession } from "next-auth/react";
+import React, { useCallback, useEffect, useState } from "react";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
 import { useDispatch, useSelector } from "react-redux";
+import { deleteCartItemInCookie } from "../../../../helper/cookiesHandlers";
 import { cartActions, deleteItem, editCart } from "../../../../redux/slices/cartSlice";
-import { FaAngleDown, FaAngleLeft, FaAngleRight, FaAngleUp } from "react-icons/fa";
-import { useEffect } from "react";
-import { useState } from "react";
-import { createAction } from "@reduxjs/toolkit";
 
 const CartItem = (props) => {
   const { item } = props;
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cart);
   const [itemChecked, setItemChecked] = useState(false);
+  const session = useSession();
 
   useEffect(() => {
     const checkedItemsArray = cartState.checkedCartItems;
@@ -43,6 +42,11 @@ const CartItem = (props) => {
   });
 
   const deleteItemHandler = useCallback((e) => {
+    if (session.status != "authenticated") {
+      deleteCartItemInCookie(item);
+      return;
+    }
+
     dispatch(deleteItem(item));
     return;
   });

@@ -61,3 +61,26 @@ export function storeCartItemInCookie(itemBeingStored) {
   document.cookie = `cartCookie=${cartCookie}; SameSite=Strict`;
   store.dispatch(getCartDetails(itemBeingStored));
 }
+
+export function deleteCartItemInCookie(itemBeingDeleted) {
+  // get the cookie
+  const foundCookie = getCookie("cartCookie");
+
+  // parse the cookie object
+  let cartItemsFoundInTheCookie = JSON.parse(foundCookie);
+
+  const removedItemCost = itemBeingDeleted.Qty * itemBeingDeleted.UnitPrice;
+  const newTotalPrice = cartItemsFoundInTheCookie.totalPrice - removedItemCost;
+  const newItems = cartItemsFoundInTheCookie.items.filter(
+    (item) => item.Item_Id != itemBeingDeleted.Item_Id
+  );
+
+  const newCartItemsToStore = JSON.stringify({
+    totalPrice: newTotalPrice,
+    items: newItems,
+  });
+  // update the new cookie
+  document.cookie = `cartCookie=${newCartItemsToStore}; SameSite=Strict`;
+  // update the state
+  store.dispatch(getCartDetails());
+}

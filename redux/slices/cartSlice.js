@@ -111,7 +111,6 @@ export const getCartDetails = createAsyncThunk("cart/getCartDetails", async (pay
   }
 
   if (!session) {
-    console.log("run");
     // get the cookie
     const foundCookie = getCookie("cartCookie");
     if (foundCookie) {
@@ -132,8 +131,6 @@ export const getCartDetails = createAsyncThunk("cart/getCartDetails", async (pay
 });
 
 export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkAPI) => {
-  console.log(payload);
-
   const currentState = thunkAPI.getState().cart;
   const items = currentState.items.filter((item) => item.Item_Id == payload.item.Item_Id);
   const item = items[0] || {};
@@ -182,12 +179,13 @@ export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkA
   });
 
   const cartDetails = await res.json();
-  console.log(cartDetails);
   return cartDetails;
 });
 
 export const deleteItem = createAsyncThunk("cart/deleteItem", async (payload, thunkAPI) => {
+  const session = await getSession();
   const currentState = thunkAPI.getState().cart;
+
   const item = currentState.items.filter((item) => item.Item_Id == payload.Item_Id)[0];
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/deleteFromCart`, {

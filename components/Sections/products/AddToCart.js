@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { Fragment, useCallback, useEffect, useState } from "react";
 import { FaShoppingBasket } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getCookie, storeCartItemInCookie } from "../../../helper/cookiesHandlers";
 import { editCart, getCartDetails } from "../../../redux/slices/cartSlice";
 import { ToastContainer, toast } from "react-toastify";
@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const AddToCart = (props) => {
   const session = useSession();
-  const router = useRouter();
+  const cartState = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   const addToCartHandler = useCallback((e) => {
@@ -35,7 +35,7 @@ const AddToCart = (props) => {
 
     if (session.status != "authenticated") {
       storeCartItemInCookie(cartItem);
-      toast("Item has been added!");
+      toast(`${cartState.items.length} item in your cart`);
       return;
     }
 
@@ -43,16 +43,14 @@ const AddToCart = (props) => {
   });
 
   return (
-    <div>
-      <Link
-        href="/"
-        className={props.style}
-        title={props.t("Products.AddToCart")}
-        onClick={addToCartHandler}
-      >
-        {props.children ? props.children : <FaShoppingBasket />}
-      </Link>
-    </div>
+    <Link
+      href="/"
+      className={props.style}
+      title={props.t("Products.AddToCart")}
+      onClick={addToCartHandler}
+    >
+      {props.children ? props.children : <FaShoppingBasket />}
+    </Link>
   );
 };
 
