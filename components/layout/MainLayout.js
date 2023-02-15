@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
@@ -12,6 +13,7 @@ import Loader from "./Reusable/Loader";
 export default function MainLayout(props) {
   const dispatch = useDispatch();
   const loaderState = useSelector((state) => state.loader);
+  const router = useRouter();
 
   const changeLang = (lang) => {
     props.changeLang(lang);
@@ -26,7 +28,7 @@ export default function MainLayout(props) {
       const cartCookie = getCookie("cartCookie");
 
       if (cartCookie) {
-        console.log("function ran");
+        router.push("/cart");
         const cartFoundInTheCookie = JSON.parse(cartCookie);
         const itemsFoundInTheCookie = cartFoundInTheCookie.items;
 

@@ -1,4 +1,5 @@
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import HomeContent from "../components/Sections/home/HomeContent";
 import Products from "../data/products.json";
 
