@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { getCartDetails } from "../redux/slices/cartSlice";
 import store from "../redux/store";
 
@@ -79,6 +80,72 @@ export function deleteCartItemInCookie(itemBeingDeleted) {
     totalPrice: newTotalPrice,
     items: newItems,
   });
+  // update the new cookie
+  document.cookie = `cartCookie=${newCartItemsToStore}; SameSite=Strict`;
+  // update the state
+  store.dispatch(getCartDetails());
+}
+
+export function increaseCartItemInCookie(itemBeingIncreased) {
+  // get the cookie
+  const foundCookie = getCookie("cartCookie");
+
+  // parse the cookie object
+  let cartItemsFoundInTheCookie = JSON.parse(foundCookie);
+  let newCartItems = cartItemsFoundInTheCookie.items;
+
+  // find the item
+  const itemIndex = newCartItems.findIndex((item) => item.Item_Id == itemBeingIncreased.Item_Id);
+  newCartItems[itemIndex].Qty++;
+
+  // Stringify the cart
+  const newCartItemsToStore = JSON.stringify({
+    totalPrice: cartItemsFoundInTheCookie.totalPrice + itemBeingIncreased.UnitPrice,
+    items: newCartItems,
+  });
+
+  // update the new cookie
+  document.cookie = `cartCookie=${newCartItemsToStore}; SameSite=Strict`;
+  // update the state
+  store.dispatch(getCartDetails());
+}
+
+export function decreaseCartItemInCookie(itemBeingIncreased) {
+  // get the cookie
+  const foundCookie = getCookie("cartCookie");
+
+  // parse the cookie object
+  let cartItemsFoundInTheCookie = JSON.parse(foundCookie);
+  let newCartItems = cartItemsFoundInTheCookie.items;
+
+  // find the item
+  const itemIndex = newCartItems.findIndex((item) => item.Item_Id == itemBeingIncreased.Item_Id);
+
+  if (newCartItems[itemIndex].Qty == 1) {
+    newCartItems = newCartItems.filter((item) => item.Item_Id != newCartItems[itemIndex].Item_Id);
+
+    // Stringify the cart
+    const newCartItemsToStore = JSON.stringify({
+      totalPrice: cartItemsFoundInTheCookie.totalPrice - itemBeingIncreased.UnitPrice,
+      items: newCartItems,
+    });
+
+    // update the new cookie
+    document.cookie = `cartCookie=${newCartItemsToStore}; SameSite=Strict`;
+    // update the state
+    store.dispatch(getCartDetails());
+
+    toast.error("Item has been deleted");
+    return;
+  }
+  newCartItems[itemIndex].Qty--;
+
+  // Stringify the cart
+  const newCartItemsToStore = JSON.stringify({
+    totalPrice: cartItemsFoundInTheCookie.totalPrice - itemBeingIncreased.UnitPrice,
+    items: newCartItems,
+  });
+
   // update the new cookie
   document.cookie = `cartCookie=${newCartItemsToStore}; SameSite=Strict`;
   // update the state

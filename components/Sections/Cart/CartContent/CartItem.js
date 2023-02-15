@@ -3,7 +3,11 @@ import React, { useCallback, useEffect, useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteCartItemInCookie } from "../../../../helper/cookiesHandlers";
+import {
+  decreaseCartItemInCookie,
+  deleteCartItemInCookie,
+  increaseCartItemInCookie,
+} from "../../../../helper/cookiesHandlers";
 import { cartActions, deleteItem, editCart } from "../../../../redux/slices/cartSlice";
 
 const CartItem = (props) => {
@@ -25,6 +29,11 @@ const CartItem = (props) => {
   }, []);
 
   const increaseItem = useCallback((e) => {
+    if (session.status != "authenticated") {
+      increaseCartItemInCookie(item);
+      return;
+    }
+
     const payload = {
       action: "plus",
       item: item,
@@ -33,6 +42,11 @@ const CartItem = (props) => {
   });
 
   const decreaseItem = useCallback(() => {
+    if (session.status != "authenticated") {
+      decreaseCartItemInCookie(item);
+      return;
+    }
+
     const payload = {
       action: "minus",
       item: item,
@@ -48,8 +62,8 @@ const CartItem = (props) => {
     }
 
     dispatch(deleteItem(item));
-    return;
   });
+
   const checkItemHandler = useCallback((e) => {
     if (e.target.checked) {
       setItemChecked(true);

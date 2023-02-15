@@ -1,3 +1,4 @@
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,6 +15,7 @@ export default function MainLayout(props) {
   const dispatch = useDispatch();
   const loaderState = useSelector((state) => state.loader);
   const router = useRouter();
+  const session = useSession();
 
   const changeLang = (lang) => {
     props.changeLang(lang);
