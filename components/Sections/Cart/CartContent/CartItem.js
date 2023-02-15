@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import {
   decreaseCartItemInCookie,
   deleteCartItemInCookie,
@@ -61,6 +62,7 @@ const CartItem = (props) => {
       return;
     }
 
+    toast.error("Item has been deleted!");
     dispatch(deleteItem(item));
   });
 
