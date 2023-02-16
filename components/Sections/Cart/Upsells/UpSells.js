@@ -1,4 +1,5 @@
 import React, { createRef, useRef } from "react";
+import BestProducts from "../../home/bestProducts/BestProducts";
 import UpSellsHeader from "./UpSellsHeader";
 import UpSellsSlider from "./UpSellsSlider";
 
@@ -9,8 +10,9 @@ const UpSells = (props) => {
 
   return (
     <div className="col-lg-6 andro_upsells">
-      <UpSellsHeader test={next} />
-      <UpSellsSlider ref={sliderRef} />
+      {/* <UpSellsHeader test={next} /> */}
+      {/* <UpSellsSlider ref={sliderRef} /> */}
+      <BestProducts />
     </div>
   );
 };
