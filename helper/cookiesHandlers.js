@@ -84,8 +84,6 @@ export function deleteCartItemInCookie(itemBeingDeleted) {
   document.cookie = `cartCookie=${newCartItemsToStore}; SameSite=Strict`;
   // update the state
   store.dispatch(getCartDetails());
-
-  toast.error("Item has been deleted!");
 }
 
 export function increaseCartItemInCookie(itemBeingIncreased) {

@@ -13,28 +13,32 @@ import { cartActions, deleteItem, editCart } from "../../../../redux/slices/cart
 
 const CartItem = (props) => {
   const { item } = props;
+  const session = useSession();
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cart);
   const [itemChecked, setItemChecked] = useState(false);
-  const session = useSession();
 
   useEffect(() => {
+    // get the array of checkedItems to see if this item is checked
     const checkedItemsArray = cartState.checkedCartItems;
     const itemIsChecked = checkedItemsArray.findIndex(
       (checkedItem) => checkedItem.Item_Id == item.Item_Id
     );
 
+    // if the item exist in the array of checkedItems, update the state
     if (itemIsChecked != -1) {
       setItemChecked(true);
     }
   }, []);
 
-  const increaseItem = useCallback((e) => {
+  const increaseItem = useCallback(() => {
+    // If the user increase the item while he is not logged in
     if (session.status != "authenticated") {
       increaseCartItemInCookie(item);
       return;
     }
 
+    // Prepare the payload to be sent to the reduxThunk if the user is logged in
     const payload = {
       action: "plus",
       item: item,
@@ -43,30 +47,35 @@ const CartItem = (props) => {
   });
 
   const decreaseItem = useCallback(() => {
+    // If the user decrease the item while he is not logged in
     if (session.status != "authenticated") {
       decreaseCartItemInCookie(item);
       return;
     }
 
-    const payload = {
-      action: "minus",
-      item: item,
-    };
-
+    // If the user decreases the item with Qty = 1, show notification
     if (item.Qty == 1) {
       toast.error("Item has been deleted");
     }
 
+    // Prepare the payload to be sent to the reduxThunk if the user is logged in
+    const payload = {
+      action: "minus",
+      item: item,
+    };
     dispatch(editCart(payload));
   });
 
-  const deleteItemHandler = useCallback((e) => {
+  const deleteItemHandler = useCallback(() => {
+    toast.error("Item has been deleted!");
+
+    // If the user delete from the cart while he is not logged in
     if (session.status != "authenticated") {
       deleteCartItemInCookie(item);
       return;
     }
 
-    toast.error("Item has been deleted!");
+    // If the user delete from the cart while he is logged in
     dispatch(deleteItem(item));
   });
 

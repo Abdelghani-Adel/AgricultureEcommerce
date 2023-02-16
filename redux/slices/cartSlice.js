@@ -110,44 +110,61 @@ export const getCartDetails = createAsyncThunk("cart/getCartDetails", async (pay
     return { ...cartData, currency: { ...currency } };
   }
 
+  // Get the cart details from the cookies if the user is not authenticated
   if (!session) {
-    // get the cookie
     const foundCookie = getCookie("cartCookie");
     if (foundCookie) {
-      // parse it
       const cartItemsFoundInTheCookie = JSON.parse(foundCookie);
-
       return {
         totalPrice: cartItemsFoundInTheCookie.totalPrice,
         items: cartItemsFoundInTheCookie.items,
       };
-    } else {
-      return {
-        totalPrice: payload.UnitPrice,
-        items: [payload],
-      };
     }
+
+    // if the user is adding to the cookie for the first time
+    return {
+      totalPrice: payload.UnitPrice,
+      items: [payload],
+    };
   }
 });
 
 export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkAPI) => {
+  const session = await getSession();
+  const lang = thunkAPI.getState().lang;
   const currentState = thunkAPI.getState().cart;
-  const items = currentState.items.filter((item) => item.Item_Id == payload.item.Item_Id);
-  const item = items[0] || {};
 
-  let quoteSID = item.Quote_S_Id || 0;
-  let quantity = payload.item.Qty || 1;
+  const filteredItems = currentState.items.filter((item) => item.Item_Id == payload.item.Item_Id);
+  const cartItemBeingEdited = filteredItems[0] || {};
 
-  if (payload.action == "minus" && item.Qty == "1") {
-    thunkAPI.dispatch(deleteItem(item));
+  const Quote_S_Id = cartItemBeingEdited.Quote_S_Id || 0;
+  const Cart_Id = currentState.Cart_Id;
+  let Qty = payload.item.Qty;
+
+  if (payload.action == "minus" && cartItemBeingEdited.Qty == "1") {
+    thunkAPI.dispatch(deleteItem(cartItemBeingEdited));
   }
 
-  if (payload.action == "plus" && item.Qty) {
-    quantity = item.Qty + 1;
+  if (payload.action == "plus") {
+    Qty = cartItemBeingEdited.Qty + 1;
   }
-  if (payload.action == "minus" && item.Qty) {
-    quantity = item.Qty - 1;
+  if (payload.action == "minus") {
+    Qty = cartItemBeingEdited.Qty - 1;
   }
+
+  const editedCartItem = {
+    Qty: Qty,
+    Cart_Id: Cart_Id,
+    Quote_S_Id: Quote_S_Id,
+    Quote_Date: payload.item.Quote_Date,
+    UnitPrice: payload.item.UnitPrice,
+    Item_Name: payload.item.Item_Name,
+    UOM_Name: payload.item.UOM_Name,
+    Item_Id: payload.item.Item_Id,
+    Supp_Id: payload.item.Supp_Id,
+    UOM_Id: payload.item.UOM_Id,
+    lang: payload.item.lang,
+  };
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/addToCart`, {
     method: "POST",
@@ -157,24 +174,10 @@ export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkA
       Message: "string",
       totalPrice: 0,
       Cart_Ref: "string",
-      Cust_Id: 45,
+      Cust_Id: session.user.custId,
       Cart_Id: currentState.Cart_Id,
-      lang: "AR",
-      items: [
-        {
-          Quote_S_Id: quoteSID,
-          Item_Id: payload.item.Item_Id,
-          Item_Name: "",
-          Qty: quantity,
-          UnitPrice: payload.item.UnitPrice,
-          Quote_Date: "",
-          UOM_Id: payload.item.UOM_Id,
-          UOM_Name: "",
-          Cart_Id: currentState.Cart_Id,
-          Supp_Id: 1,
-          lang: "AR",
-        },
-      ],
+      lang: lang,
+      items: [editedCartItem],
     }),
   });
 
@@ -183,20 +186,16 @@ export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkA
 });
 
 export const deleteItem = createAsyncThunk("cart/deleteItem", async (payload, thunkAPI) => {
-  const session = await getSession();
+  const lang = thunkAPI.getState().lang;
   const currentState = thunkAPI.getState().cart;
-
   const item = currentState.items.filter((item) => item.Item_Id == payload.Item_Id)[0];
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/deleteFromCart`, {
     method: "POST",
     headers: await getAuthHeaders(),
-    body: JSON.stringify({ ...item, Cart_Id: currentState.Cart_Id, lang: "ar" }),
+    body: JSON.stringify({ ...item, Cart_Id: currentState.Cart_Id, lang: lang }),
   });
-
   const cartDetails = await res.json();
-  console.log(cartDetails);
-
   return cartDetails;
 });
 

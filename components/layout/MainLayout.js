@@ -30,7 +30,6 @@ export default function MainLayout(props) {
     const addCartItemsFromCookies = async () => {
       const cartCookie = getCookie("cartCookie");
       const session = await getSession();
-      console.log(session);
 
       if (cartCookie && session) {
         router.push("/cart");
