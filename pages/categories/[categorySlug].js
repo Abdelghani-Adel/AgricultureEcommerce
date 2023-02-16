@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import { withTranslation } from "react-multi-lang";
-import Breadcrumbs from "../../../components/layout/Reusable/Breadcrumbs";
-import CategoryProducts from "../../../components/Sections/categories/CategoryProducts/CategoryProducts";
-import SubCategories from "../../../components/Sections/categories/SubCategories/SubCategories";
-import { fetchCategoryProducts, fetchSubCategories } from "../../../services/categoryServices";
+import Breadcrumbs from "../../components/layout/Reusable/Breadcrumbs";
+import CategoryProducts from "../../components/Sections/categories/CategoryProducts/CategoryProducts";
+import SubCategories from "../../components/Sections/categories/SubCategories/SubCategories";
+import { fetchCategoryProducts, fetchSubCategories } from "../../services/categoryServices";
 
 const CategorySingle = (props) => {
   const { categories, showProducts, products } = props;

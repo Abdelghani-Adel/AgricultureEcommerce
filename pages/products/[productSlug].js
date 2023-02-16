@@ -1,11 +1,9 @@
-import React from "react";
 import { useRouter } from "next/router";
+import React from "react";
 import { withTranslation } from "react-multi-lang";
-import Breadcrumbs from "../../../components/layout/Reusable/Breadcrumbs";
-import ProductSingle from "../../../components/Sections/products/ProductSingle/ProductSingle";
-import Products from "../../../data/products.json";
-import { getAuthHeaders } from "../../../helper/auth";
-import { fetchItemDetails } from "../../../services/productServices";
+import Breadcrumbs from "../../components/layout/Reusable/Breadcrumbs";
+import ProductSingle from "../../components/Sections/products/ProductSingle/ProductSingle";
+import { fetchItemDetails } from "../../services/productServices";
 
 function Slug(props) {
   const router = useRouter();

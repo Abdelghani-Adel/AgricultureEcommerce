@@ -10,7 +10,6 @@ import { withTranslation } from "react-multi-lang";
 const authApi = new AuthenticationAPI();
 
 const SignUp = (props) => {
-  const router = useRouter();
   const [reqBody, setReqBody] = useState();
   const [errors, setErrors] = useState();
   const dispatch = useDispatch();
