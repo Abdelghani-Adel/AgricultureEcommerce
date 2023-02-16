@@ -64,7 +64,7 @@ const HeaderControls = (props) => {
                 </span>
                 <ul className="sub-menu sub-menu-left">
                   <li className="justify-content-start align-items-center">
-                    <Link href="/login" className="ms-2">
+                    <Link href="/login" className="ms-2 login_link">
                       <FiLogOut />
                       Login
                     </Link>

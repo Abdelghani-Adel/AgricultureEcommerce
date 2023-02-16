@@ -1243,6 +1243,10 @@ p {
   justify-content: center;
 }
 
+.header_control .login_link {
+  width: 100%;
+}
+
 .close-btn {
   border: 0;
   background-color: transparent;
