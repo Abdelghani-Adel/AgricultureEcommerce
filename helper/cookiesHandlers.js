@@ -1,5 +1,7 @@
+import { getSession } from "next-auth/react";
+import { Router, useRouter } from "next/router";
 import { toast } from "react-toastify";
-import { getCartDetails } from "../redux/slices/cartSlice";
+import { editCart, getCartDetails } from "../redux/slices/cartSlice";
 import store from "../redux/store";
 
 export function getCookie(cname) {
@@ -150,4 +152,25 @@ export function decreaseCartItemInCookie(itemBeingIncreased) {
   document.cookie = `cartCookie=${newCartItemsToStore}; SameSite=Strict`;
   // update the state
   store.dispatch(getCartDetails());
+}
+
+export async function addItemsFromCookiesToDB() {
+  const cartCookie = getCookie("cartCookie");
+  const session = await getSession();
+
+  if (cartCookie && session) {
+    const cartFoundInTheCookie = JSON.parse(cartCookie);
+    const itemsFoundInTheCookie = cartFoundInTheCookie.items;
+    for (let item of itemsFoundInTheCookie) {
+      const payload = {
+        action: "plus",
+        item: item,
+      };
+      await store.dispatch(editCart(payload));
+    }
+
+    window.location.replace("/cart");
+    // delete the cookie
+    document.cookie = `cartCookie=${cartCookie}; expires=Thu, 18 Dec 2013 12:00:00 UTC`;
+  }
 }

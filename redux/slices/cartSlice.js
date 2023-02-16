@@ -134,6 +134,8 @@ export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkA
   const lang = thunkAPI.getState().lang;
   const currentState = thunkAPI.getState().cart;
 
+  console.log(payload.item);
+
   const filteredItems = currentState.items.filter((item) => item.Item_Id == payload.item.Item_Id);
   const cartItemBeingEdited = filteredItems[0] || {};
 
@@ -145,10 +147,10 @@ export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkA
     thunkAPI.dispatch(deleteItem(cartItemBeingEdited));
   }
 
-  if (payload.action == "plus") {
+  if (payload.action == "plus" && cartItemBeingEdited.Qty) {
     Qty = cartItemBeingEdited.Qty + 1;
   }
-  if (payload.action == "minus") {
+  if (payload.action == "minus" && cartItemBeingEdited.Qty) {
     Qty = cartItemBeingEdited.Qty - 1;
   }
 
