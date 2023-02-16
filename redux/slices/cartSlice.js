@@ -1,7 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getSession } from "next-auth/react";
-import { getAuthHeaders } from "../../helper/auth";
-import { getCookie } from "../../helper/cookiesHandlers";
+import { getCartDetailsFromCookies } from "../../helper/cookiesHandlers";
+import {
+  deleteCartItem,
+  editCartItem,
+  fetchCartDetailsFromDB,
+  fetchCurrency,
+} from "../../services/cartServices";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -98,56 +103,31 @@ const cartSlice = createSlice({
 });
 
 export const getCurrency = createAsyncThunk("cart/getCurrency", async () => {
-  const currencyRequest = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getCurrBase`
-  );
-  const currency = await currencyRequest.json();
-  return currency;
+  return fetchCurrency();
 });
 
 export const getCartDetails = createAsyncThunk("cart/getCartDetails", async (payload, thunkAPI) => {
   const session = await getSession();
+  const lang = thunkAPI.getState().lang;
 
   if (session) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/getCartItem`, {
-      method: "POST",
-      headers: await getAuthHeaders(),
-      body: JSON.stringify({ lang: "AR" }),
-    });
-
-    const cartData = await res.json();
-    return { ...cartData };
+    return fetchCartDetailsFromDB(lang);
   }
 
-  // Get the cart details from the cookies if the user is not authenticated
   if (!session) {
-    const foundCookie = getCookie("cartCookie");
-    if (foundCookie) {
-      const cartItemsFoundInTheCookie = JSON.parse(foundCookie);
-      return {
-        totalPrice: cartItemsFoundInTheCookie.totalPrice,
-        items: cartItemsFoundInTheCookie.items,
-      };
-    }
-
-    // if the user is adding to the cookie for the first time
-    return {
-      totalPrice: payload.UnitPrice,
-      items: [payload],
-    };
+    return getCartDetailsFromCookies(payload);
   }
 });
 
 export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkAPI) => {
-  const session = await getSession();
   const lang = thunkAPI.getState().lang;
+  const session = await getSession();
+  const Cust_Id = session.user.custId;
   const currentState = thunkAPI.getState().cart;
-
+  const Cart_Id = currentState.Cart_Id;
   const filteredItems = currentState.items.filter((item) => item.Item_Id == payload.item.Item_Id);
   const cartItemBeingEdited = filteredItems[0] || {};
-
   const Quote_S_Id = cartItemBeingEdited.Quote_S_Id || 0;
-  const Cart_Id = currentState.Cart_Id;
   let Qty = payload.item.Qty;
 
   if (payload.action == "minus" && cartItemBeingEdited.Qty == "1") {
@@ -175,37 +155,15 @@ export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkA
     lang: payload.item.lang,
   };
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/addToCart`, {
-    method: "POST",
-    headers: await getAuthHeaders(),
-    body: JSON.stringify({
-      success: true,
-      Message: "string",
-      totalPrice: 0,
-      Cart_Ref: "string",
-      Cust_Id: session.user.custId,
-      Cart_Id: currentState.Cart_Id,
-      lang: lang,
-      items: [editedCartItem],
-    }),
-  });
-
-  const cartDetails = await res.json();
-  return cartDetails;
+  return editCartItem(editedCartItem, Cart_Id, lang, Cust_Id);
 });
 
 export const deleteItem = createAsyncThunk("cart/deleteItem", async (payload, thunkAPI) => {
   const lang = thunkAPI.getState().lang;
   const currentState = thunkAPI.getState().cart;
+  const Cart_Id = currentState.Cart_Id;
   const item = currentState.items.filter((item) => item.Item_Id == payload.Item_Id)[0];
-
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/deleteFromCart`, {
-    method: "POST",
-    headers: await getAuthHeaders(),
-    body: JSON.stringify({ ...item, Cart_Id: currentState.Cart_Id, lang: lang }),
-  });
-  const cartDetails = await res.json();
-  return cartDetails;
+  return deleteCartItem(item, Cart_Id, lang);
 });
 
 export const cartActions = cartSlice.actions;

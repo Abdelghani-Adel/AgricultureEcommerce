@@ -20,6 +20,10 @@ export function getCookie(cname) {
   return "";
 }
 
+function deleteCookie(cname) {
+  document.cookie = `${cname}=${cname}; expires=Thu, 18 Dec 2013 12:00:00 UTC`;
+}
+
 export function storeCartItemInCookie(itemBeingStored) {
   const isCookieEnabled = navigator.cookieEnabled;
 
@@ -154,6 +158,23 @@ export function decreaseCartItemInCookie(itemBeingIncreased) {
   store.dispatch(getCartDetails());
 }
 
+export function getCartDetailsFromCookies(item) {
+  const foundCookie = getCookie("cartCookie");
+  if (foundCookie) {
+    const cartItemsFoundInTheCookie = JSON.parse(foundCookie);
+    return {
+      totalPrice: cartItemsFoundInTheCookie.totalPrice,
+      items: cartItemsFoundInTheCookie.items,
+    };
+  }
+
+  // if the user is adding to the cookie for the first time
+  return {
+    totalPrice: payload.UnitPrice,
+    items: [payload],
+  };
+}
+
 export async function addItemsFromCookiesToDB() {
   const cartCookie = getCookie("cartCookie");
   const session = await getSession();
@@ -169,10 +190,7 @@ export async function addItemsFromCookiesToDB() {
       await store.dispatch(editCart(payload));
     }
 
-    // window.location.replace("/cart");
-    // delete the cookie
-    document.cookie = `cartCookie=${cartCookie}; expires=Thu, 18 Dec 2013 12:00:00 UTC`;
-
+    deleteCookie("cartCookie");
     return "done";
   }
 }
