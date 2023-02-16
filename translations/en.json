@@ -1,8 +1,8 @@
 {
   "Navbar": {
     "Lang": "Language",
-    "en": "(EN)",
-    "ar": "(AR)",
+    "en": "(English)",
+    "ar": "(Arabic)",
     "MyAccount": "My Account",
     "AllCategories": "All Categories",
     "Categories": "Categories",
@@ -37,8 +37,8 @@
     "reviews": "reviews",
     "ItemDesc": "Item Description",
     "NoProducts": "No Products Found !",
-    "SelectUom":"select uom",
-    "Likes":"Likes"
+    "SelectUom": "select uom",
+    "Likes": "Likes"
   },
   "Footer": {
     "TopCategories": "Top Categories",

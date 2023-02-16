@@ -18,6 +18,7 @@
     transition: 0.3s;
     max-height: 200px;
     margin: auto;
+    width: 15vw;
   }
   &:hover img {
     transform: scale(1.1) rotate(3deg);
@@ -250,4 +251,7 @@
   &.checked {
     color: blue;
   }
+}
+
+.image-gallery-thumbnail .image-gallery-thumbnail-image {
 }

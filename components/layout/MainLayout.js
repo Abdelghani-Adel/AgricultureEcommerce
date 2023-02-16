@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { getCookie } from "../../helper/cookiesHandlers";
 import { editCart, getCartDetails } from "../../redux/slices/cartSlice";
 import { loaderActions } from "../../redux/slices/loaderSlice";
@@ -66,7 +67,7 @@ export default function MainLayout(props) {
       <div style={{ width: "60px", height: "60px", position: "absolute" }}>
         <ToastContainer
           position="top-center"
-          autoClose={1500}
+          autoClose={500}
           hideProgressBar={true}
           theme="light"
         />

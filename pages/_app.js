@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }) {
     <Fragment>
       <SessionProvider session={pageProps.session}>
         <Provider store={store}>
-          <MainLayout changeLang={changeLang} lang={lang}>
+          <MainLayout changeLang={changeLang}>
             <Component {...pageProps} />
           </MainLayout>
         </Provider>

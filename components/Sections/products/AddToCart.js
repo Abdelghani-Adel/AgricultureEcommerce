@@ -1,18 +1,15 @@
 import { useSession } from "next-auth/react";
-import Link from "next/Link";
-import { useRouter } from "next/router";
-import { Fragment, useCallback, useEffect, useState } from "react";
+import { useCallback } from "react";
 import { FaShoppingBasket } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
-import { useDispatch, useSelector } from "react-redux";
-import { getCookie, storeCartItemInCookie } from "../../../helper/cookiesHandlers";
-import { editCart, getCartDetails } from "../../../redux/slices/cartSlice";
-import { ToastContainer, toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { storeCartItemInCookie } from "../../../helper/cookiesHandlers";
+import { editCart } from "../../../redux/slices/cartSlice";
 
 const AddToCart = (props) => {
   const session = useSession();
-  const cartState = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   const addToCartHandler = useCallback((e) => {
@@ -33,9 +30,7 @@ const AddToCart = (props) => {
       item: cartItem,
     };
 
-    let notification;
-    toast.dismiss(notification);
-    notification = toast.info(`Item has been added to you cart!`);
+    toast.info(`Item has been added to you cart!`);
 
     if (session.status != "authenticated") {
       storeCartItemInCookie(cartItem);

@@ -166,7 +166,8 @@
   }
 }
 @-webkit-keyframes sk-bounce {
-  0%, 100% {
+  0%,
+  100% {
     -webkit-transform: scale(0);
   }
   50% {
@@ -174,7 +175,8 @@
   }
 }
 @keyframes sk-bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(0);
     -webkit-transform: scale(0);
   }
@@ -773,6 +775,7 @@ p {
   transition: 0.3s;
   max-height: 200px;
   margin: auto;
+  width: 15vw;
 }
 
 .product_card--thumb:hover img {
@@ -1837,11 +1840,11 @@ p {
 }
 
 .slick-next {
-  right: 20px;
+  right: 20px !important;
 }
 
 .slick-prev {
-  left: 20px;
+  left: 20px !important;
 }
 
 .slick-prev:hover::before,
