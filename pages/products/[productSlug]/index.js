@@ -5,6 +5,7 @@ import Breadcrumbs from "../../../components/layout/Reusable/Breadcrumbs";
 import ProductSingle from "../../../components/Sections/products/ProductSingle/ProductSingle";
 import Products from "../../../data/products.json";
 import { getAuthHeaders } from "../../../helper/auth";
+import { fetchItemDetails } from "../../../services/productServices";
 
 function Slug(props) {
   const router = useRouter();
@@ -18,22 +19,11 @@ function Slug(props) {
 }
 
 export const getServerSideProps = async (context) => {
-  const productDetails = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getItemsDetails`,
-    {
-      method: "POST",
-      headers: await getAuthHeaders(),
-      body: JSON.stringify({
-        Item_Id: context.query.id,
-        lang: "ar",
-      }),
-    }
-  );
-
-  const details = await productDetails.json();
+  const Item_Id = context.query.id;
+  const details = await fetchItemDetails(Item_Id, "ar");
   return {
     props: {
-      productDetails: details[0],
+      productDetails: details,
     },
   };
 };

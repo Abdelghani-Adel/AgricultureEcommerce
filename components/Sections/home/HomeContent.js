@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
-import HomeBanner from "./HomeBanner";
+import AgricultureBooks from "./AgricultureBooks";
 import BestProducts from "./BestProducts/BestProducts";
 import Cta from "./Cta";
-import AgricultureOthers from "./AgricultureOthers";
+import HomeBanner from "./HomeBanner";
 
 class HomeContent extends Component {
   render() {
@@ -19,7 +19,7 @@ class HomeContent extends Component {
           <div className="container">
             <div className="row">
               <div className="col-lg-8 col-md-8 col-xs-12">
-                <AgricultureOthers BooksInfoList={this.props.BooksInfoList} />
+                <AgricultureBooks BooksInfoList={this.props.BooksInfoList} />
               </div>
 
               <div className="col-lg-4 col-md-4 col-xs-12">

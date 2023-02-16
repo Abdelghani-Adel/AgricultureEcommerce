@@ -20,7 +20,7 @@ export function getCookie(cname) {
   return "";
 }
 
-function deleteCookie(cname) {
+export function deleteCookie(cname) {
   document.cookie = `${cname}=${cname}; expires=Thu, 18 Dec 2013 12:00:00 UTC`;
 }
 

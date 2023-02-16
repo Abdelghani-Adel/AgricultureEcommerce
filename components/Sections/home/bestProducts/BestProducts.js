@@ -5,6 +5,7 @@ import { withTranslation } from "react-multi-lang";
 import { FaArrowRight, FaArrowLeft, FaStar, FaRegEye, FaShoppingBasket } from "react-icons/fa";
 import Best_Product from "./Best_Product";
 import ProductCard from "../../products/ProductCardList/ProductCard/ProductCard";
+import { fetchBestProducts } from "../../../../services/productServices";
 
 const settings = {
   slidesToShow: 2,
@@ -45,20 +46,7 @@ class BestProducts extends Component {
 
   componentDidMount() {
     const getProducts = async () => {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getItemMainByBestProducts`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ lang: "ar", Cate_Id: 0, limit: 10, start: 0 }),
-        }
-      );
-
-      const data = await res.json();
-      const products = data.data;
-
+      const products = await fetchBestProducts("ar");
       this.setState({ ...this.state, products: products });
     };
 

@@ -3,6 +3,7 @@ import { withTranslation } from "react-multi-lang";
 import Breadcrumbs from "../../../components/layout/Reusable/Breadcrumbs";
 import CategoryProducts from "../../../components/Sections/categories/CategoryProducts/CategoryProducts";
 import SubCategories from "../../../components/Sections/categories/SubCategories/SubCategories";
+import { fetchCategoryProducts, fetchSubCategories } from "../../../services/CategoryAPI";
 
 const CategorySingle = (props) => {
   const { categories, showProducts, products } = props;
@@ -20,69 +21,26 @@ const CategorySingle = (props) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
-  // API fetch to get the array of sub_categories
-  const subCategoriesRes = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/GetCategoriesMenu`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        lang: "ar",
-        FAClassification_ParentId: ctx.query.id,
-      }),
-    }
-  );
-  const subCategories = await subCategoriesRes.json();
+export const getServerSideProps = async (context) => {
+  const categoryId = context.query.id;
 
-  if (!subCategories) {
-    return {
-      notFound: true,
-    };
-  }
-
+  const subCategories = await fetchSubCategories(categoryId, "ar");
   if (subCategories.length > 0) {
     return {
       props: {
         categories: subCategories,
-        categorySlug: ctx.params.categorySlug,
+        categorySlug: context.params.categorySlug,
         showProducts: false,
-        // test: ctx.process.btoa("test"),
       },
     };
   }
 
-  // API fetch to get the array of products | send slug || get the products
-  const productsRes = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getItemMainByCategory`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        lang: "ar",
-        Cate_Id: ctx.query.id,
-        limit: 6,
-        start: 1,
-      }),
-    }
-  );
-  const products = await productsRes.json();
-
-  if (!products) {
-    return {
-      notFound: true,
-    };
-  }
-
+  const products = await fetchCategoryProducts(categoryId, "ar");
   return {
     props: {
       products: products,
-      categorySlug: ctx.params.categorySlug,
-      id: ctx.query.id,
+      categorySlug: context.params.categorySlug,
+      id: context.query.id,
       test: products,
       showProducts: true,
     },
