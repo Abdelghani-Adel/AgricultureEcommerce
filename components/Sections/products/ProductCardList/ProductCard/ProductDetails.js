@@ -6,11 +6,12 @@ import { useSelector } from "react-redux";
 const ProductDetails = (props) => {
   const { product } = props;
   const cartState = useSelector((state) => state.cart);
+  console.log(product);
 
   return (
     <div className="product_card--body">
       <div className="category_badge">
-        <span className="badge badge-secondary ">Category</span>
+        <span className="badge badge-secondary">{product.Category_Name || "Category Name"}</span>
       </div>
 
       <h5 className="product_card--title">
@@ -21,9 +22,6 @@ const ProductDetails = (props) => {
         {product.discount > 0 ||
           (product.discount !== "" && (
             <span>
-              {/* {new Intl.NumberFormat().format(
-                ((product.price * (100 - product.discount)) / 100).toFixed(2)
-              )} */}
               {product.Price} {cartState.currency && cartState.currency.CurrBaseCode}
             </span>
           ))}

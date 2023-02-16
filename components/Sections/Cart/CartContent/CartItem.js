@@ -117,9 +117,11 @@ const CartItem = (props) => {
       </td>
       <td data-title="Product">
         <div className="andro_cart-product-wrapper">
-          <div>
-            <img className="category_icon" src={`${item.Item_Image}`} alt={item.Item_Name} />
-          </div>
+          {item.Item_Image && (
+            <div>
+              <img className="category_icon" src={`${item.Item_Image}`} alt={item.Item_Name} />
+            </div>
+          )}
           <div className="andro_cart-product-body">
             <h6>{item.Item_Name}</h6>
             {/* <p>

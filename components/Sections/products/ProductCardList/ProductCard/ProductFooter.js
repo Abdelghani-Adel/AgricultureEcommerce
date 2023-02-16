@@ -62,17 +62,6 @@ const ProductFooter = (props) => {
         return !prev;
       });
     }
-
-    // const res = await fetch(
-    //   `${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/UPSProducts_Reviews_Like`,
-    //   {
-    //     method: "POST",
-    //     headers: await getAuthHeaders(),
-    //     body: JSON.stringify(requestBody),
-    //   }
-    // );
-
-    // const data = await res.json();
   };
 
   return (
