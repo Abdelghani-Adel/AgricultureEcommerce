@@ -19,16 +19,6 @@ const BuyNow = (props) => {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const IncrementItem = () => {
-    setClicks(clicks + 1);
-  };
-  const DecreaseItem = () => {
-    clicks < 1 ? setClicks(0) : setClicks(clicks - 1);
-  };
-  const handleChange = (event) => {
-    setClicks(event.target.value);
-  };
-
   const buyNowHandler = () => {
     if (session.status != "authenticated") {
       router.push("/login");
@@ -69,7 +59,6 @@ const BuyNow = (props) => {
     <div className="andro_product-atc-form">
       <div>
         <div className="d-flex">
-          {/* {props.uom && ( */}
           <select defaultValue={0} className="form-select me-3" onChange={UOMchangeHandler}>
             <option value={0} disabled>
               {props.t("Products.SelectUom")}
@@ -82,11 +71,11 @@ const BuyNow = (props) => {
               ))}
           </select>
 
-          <AddToCart uom={true} style={`btn me-2 ${buttonDisabled && "disabled"}`} item={item}>
+          <AddToCart style={"btn me-2"} item={item}>
             Add To Cart
           </AddToCart>
 
-          <button onClick={buyNowHandler} className={`btn ${buttonDisabled && "disabled"}`}>
+          <button onClick={buyNowHandler} className="btn">
             BUY NOW
           </button>
         </div>
