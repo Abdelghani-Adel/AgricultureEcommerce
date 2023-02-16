@@ -14,7 +14,7 @@ class HomeBanner extends Component {
 
           <div className="home-banner--content">
             <div className="container-fluid">
-              <div className="row">
+              <div className="row g-3">
                 <Chat_banner />
                 <ProductsSlider />
                 <Other />

@@ -45,9 +45,9 @@ const Login = (props) => {
     <Fragment>
       <div className="section">
         <div className="container">
-          <div className="auth-wrapper">
+          <div className="row">
             <div
-              className="auth-description bg-cover bg-center dark-overlay dark-overlay-2"
+              className="d-none d-md-flex auth-description bg-cover bg-center dark-overlay dark-overlay-2"
               style={{ backgroundImage: "url(../img/login_bg.jpg)" }}
             >
               <div className="auth-description-inner">

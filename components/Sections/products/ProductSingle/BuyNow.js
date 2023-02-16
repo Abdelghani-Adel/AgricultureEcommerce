@@ -10,10 +10,7 @@ import AddToCart from "../AddToCart";
 import { withTranslation } from "react-multi-lang";
 
 const BuyNow = (props) => {
-  const [clicks, setClicks] = useState(1);
   const [item, setItem] = useState(props.item);
-  const [measureUnits, setMeasureUnits] = useState([]);
-  const [buttonDisabled, setButtonsDisabled] = useState(true);
   const session = useSession();
 
   const dispatch = useDispatch();
@@ -30,30 +27,8 @@ const BuyNow = (props) => {
   };
 
   const UOMchangeHandler = (e) => {
-    setButtonsDisabled(false);
-    setItem({ ...item, UOM_Id: e.target.value });
+    setItem({ ...item, FAUOMID: e.target.value });
   };
-
-  useEffect(() => {
-    const fetchMeasureUnits = async () => {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getItemUOMs`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            Item_Id: item.Item_Id,
-            // Item_Id: 129,
-            lang: "ar",
-          }),
-        }
-      );
-      const UOMs = await res.json();
-      setMeasureUnits(UOMs);
-    };
-
-    fetchMeasureUnits();
-  }, []);
 
   return (
     <div className="andro_product-atc-form">
@@ -63,12 +38,11 @@ const BuyNow = (props) => {
             <option value={0} disabled>
               {props.t("Products.SelectUom")}
             </option>
-            {measureUnits.length > 0 &&
-              measureUnits.map((unit, i) => (
-                <option key={i} value={unit.UOM_Id_To}>
-                  {unit.UOMName}
-                </option>
-              ))}
+            {item.uoms.map((unit, i) => (
+              <option key={i} value={unit.UOM_Id_To}>
+                {unit.UOMName}
+              </option>
+            ))}
           </select>
 
           <AddToCart style={"btn me-2"} item={item}>

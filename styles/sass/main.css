@@ -767,13 +767,14 @@ p {
   margin: 0 0 20px;
   overflow: hidden;
   text-align: center;
+  height: 20vh;
 }
 
 .product_card--thumb img {
   transition: 0.3s;
   max-height: 200px;
   margin: auto;
-  width: 15vw;
+  max-height: 100%;
 }
 
 .product_card--thumb:hover img {

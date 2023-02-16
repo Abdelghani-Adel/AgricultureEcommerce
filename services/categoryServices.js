@@ -13,7 +13,6 @@ export async function fetchCategoriesMenu(lang) {
     }
   );
   const menues = await res.json();
-  console.log(menues);
   return menues;
 }
 
@@ -52,6 +51,5 @@ export async function fetchCategoryProducts(categoryId, lang) {
     }
   );
   const products = await productsRes.json();
-  console.log(products);
   return products;
 }

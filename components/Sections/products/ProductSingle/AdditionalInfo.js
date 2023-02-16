@@ -2,7 +2,6 @@ import { withTranslation } from "react-multi-lang";
 
 const AdditionalInfo = (props) => {
   const { item } = props;
-  console.log(item);
   return (
     <div className="row">
       <div className="col-lg-4">

@@ -43,9 +43,9 @@ const SignUp = (props) => {
   return (
     <div className="section">
       <div className="container">
-        <div className="auth-wrapper">
+        <div className="row">
           <div
-            className="auth-description bg-cover bg-center dark-overlay dark-overlay-2"
+            className="col d-none d-md-flex auth-description bg-cover bg-center dark-overlay dark-overlay-2"
             style={{ backgroundImage: "url(../img/login_bg.jpg)" }}
           >
             <div className="auth-description-inner">
@@ -54,7 +54,7 @@ const SignUp = (props) => {
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
           </div>
-          <div className="auth-form">
+          <div className="col auth-form">
             <h2>{props.t("Auth.Signup")}</h2>
             <form onSubmit={submitHandler}>
               {errors && (

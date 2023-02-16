@@ -49,7 +49,7 @@ const sliderSettings = {
 
 const ProductsSlider = (props) => {
   return (
-    <div className="col-lg-6 col-xs-12">
+    <div className="col-6 col-lg-6 col-xs-12">
       <div className="andro_banner banner-1">
         <Slider className="andro_banner-slider" {...sliderSettings}>
           {bannerslider.map((item, i) => (

@@ -13,17 +13,24 @@
   margin: 0 0 20px;
   overflow: hidden;
   text-align: center;
+  height: 20vh;
 
   img {
     transition: 0.3s;
     max-height: 200px;
     margin: auto;
-    width: 15vw;
+    max-height: 100%;
   }
   &:hover img {
     transform: scale(1.1) rotate(3deg);
   }
 }
+
+// @media screen and (min-width: "768px") {
+//   .product_card--thumb {
+//     width: auto;
+//   }
+// }
 
 .category_badge {
   display: block;

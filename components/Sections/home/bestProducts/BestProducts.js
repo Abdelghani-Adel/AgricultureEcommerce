@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-import Link from "next/Link";
-import Slider from "react-slick";
+import { FaArrowLeft, FaArrowRight, FaStar } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
-import { FaArrowRight, FaArrowLeft, FaStar, FaRegEye, FaShoppingBasket } from "react-icons/fa";
-import Best_Product from "./Best_Product";
-import ProductCard from "../../products/ProductCardList/ProductCard/ProductCard";
+import Slider from "react-slick";
 import { fetchBestProducts } from "../../../../services/productServices";
+import ProductCard from "../../products/ProductCardList/ProductCard/ProductCard";
 
 const settings = {
-  slidesToShow: 2,
+  slidesToShow: 3,
   slidesToScroll: 1,
   arrows: false,
   dots: false,
