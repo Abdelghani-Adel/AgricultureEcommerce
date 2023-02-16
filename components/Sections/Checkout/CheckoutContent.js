@@ -39,7 +39,6 @@ const CheckoutContent = (props) => {
     }
 
     // const cartContent = cartState.tempCheckoutCart ? cartState.tempCheckoutCart : cartState;
-    // console.log(cartContent);
 
     setCartContent(cart);
     setReqBody((prev) => {
@@ -68,11 +67,6 @@ const CheckoutContent = (props) => {
     });
 
     const data = await res.json();
-
-    console.log(reqBody);
-    console.log(data);
-    alert(data.Message);
-    window.location = "/";
   };
 
   return (

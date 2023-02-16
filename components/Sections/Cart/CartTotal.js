@@ -7,7 +7,6 @@ import { useSession } from "next-auth/react";
 const CartTotal = (props) => {
   const cartState = useSelector((state) => state.cart);
   const session = useSession();
-  console.log(session);
   return (
     <div className="col-lg-6">
       <div className="section-title">

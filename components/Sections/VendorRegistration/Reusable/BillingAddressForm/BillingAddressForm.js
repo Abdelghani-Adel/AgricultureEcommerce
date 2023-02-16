@@ -34,7 +34,6 @@ const BillingAddressForm = (props) => {
       // also set the addresses state to be shown in the droplist
       // also hydrate the parent's request body state with the first previous address found
       if (addresses.length > 0) {
-        // console.log(addresses);
         setShowPreviousAddress(true);
         setShowAddingForm(false);
         setAddresses(addresses);

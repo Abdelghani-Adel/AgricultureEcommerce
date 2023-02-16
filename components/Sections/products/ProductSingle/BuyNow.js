@@ -59,7 +59,6 @@ const BuyNow = (props) => {
         }
       );
       const UOMs = await res.json();
-      console.log(UOMs);
       setMeasureUnits(UOMs);
     };
 

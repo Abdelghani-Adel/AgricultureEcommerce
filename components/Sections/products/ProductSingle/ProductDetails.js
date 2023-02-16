@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 const ProductDetails = (props) => {
   const { item } = props;
   const cartState = useSelector((state) => state.cart);
-  console.log(item.price);
 
   return (
     <Fragment>

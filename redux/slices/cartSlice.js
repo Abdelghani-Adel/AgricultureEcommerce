@@ -143,8 +143,6 @@ export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkA
   const lang = thunkAPI.getState().lang;
   const currentState = thunkAPI.getState().cart;
 
-  console.log(payload.item);
-
   const filteredItems = currentState.items.filter((item) => item.Item_Id == payload.item.Item_Id);
   const cartItemBeingEdited = filteredItems[0] || {};
 
