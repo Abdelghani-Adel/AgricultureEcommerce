@@ -169,8 +169,10 @@ export async function addItemsFromCookiesToDB() {
       await store.dispatch(editCart(payload));
     }
 
-    window.location.replace("/cart");
+    // window.location.replace("/cart");
     // delete the cookie
     document.cookie = `cartCookie=${cartCookie}; expires=Thu, 18 Dec 2013 12:00:00 UTC`;
+
+    return "done";
   }
 }
