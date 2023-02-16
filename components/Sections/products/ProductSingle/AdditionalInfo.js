@@ -2,6 +2,7 @@ import { withTranslation } from "react-multi-lang";
 
 const AdditionalInfo = (props) => {
   const { item } = props;
+  console.log(item);
   return (
     <div className="row">
       <div className="col-lg-4">
@@ -45,6 +46,18 @@ const AdditionalInfo = (props) => {
             {/* {props.t("Products.reviews")} */}
             Warnings
           </li>
+          <li
+            className="nav-link mb-2"
+            id="v-pills-review-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-review"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-review"
+            aria-selected="false"
+          >
+            {props.t("Products.reviews")}
+          </li>
         </ul>
       </div>
       <div className="col-lg-8">
@@ -55,7 +68,11 @@ const AdditionalInfo = (props) => {
             role="tabpanel"
             aria-labelledby="v-pills-home-tab"
           >
-            No Ingredients Found
+            {item.ingredients.length > 0 ? (
+              <div dangerouslySetInnerHTML={{ __html: item.ingredients[0].desc }}></div>
+            ) : (
+              "No ingredients found"
+            )}
           </div>
           <div
             className="tab-pane fade"
@@ -63,7 +80,11 @@ const AdditionalInfo = (props) => {
             role="tabpanel"
             aria-labelledby="v-pills-profile-tab"
           >
-            No Facilities Found
+            {item.facilities.length > 0 ? (
+              <div dangerouslySetInnerHTML={{ __html: item.facilities[0].desc }}></div>
+            ) : (
+              "No facilities found"
+            )}
           </div>
           <div
             className="tab-pane fade"
@@ -71,7 +92,23 @@ const AdditionalInfo = (props) => {
             role="tabpanel"
             aria-labelledby="v-pills-messages-tab"
           >
-            No Warnings Found
+            {item.warns.length > 0 ? (
+              <div dangerouslySetInnerHTML={{ __html: item.warns[0].desc }}></div>
+            ) : (
+              "No warnings found"
+            )}
+          </div>
+          <div
+            className="tab-pane fade"
+            id="v-pills-review"
+            role="tabpanel"
+            aria-labelledby="v-pills-messages-tab"
+          >
+            {item.reviews && item.reviews.length > 0 ? (
+              <div dangerouslySetInnerHTML={{ __html: item.reviews[0].desc }}></div>
+            ) : (
+              "No reviews found"
+            )}
           </div>
         </div>
       </div>
