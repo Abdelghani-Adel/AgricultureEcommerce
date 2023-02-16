@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addItemsFromCookiesToDB } from "../../helper/cookiesHandlers";
-import { getCartDetails } from "../../redux/slices/cartSlice";
+import { getCartDetails, getCurrency } from "../../redux/slices/cartSlice";
 import { loaderActions } from "../../redux/slices/loaderSlice";
 import { getNavbarLinks } from "../../redux/slices/navbarSlice";
 import Footer from "./Footer/Footer";
@@ -13,20 +13,28 @@ import MainHeader from "./MainHeader/MainHeader";
 import Loader from "./Reusable/Loader";
 
 export default function MainLayout(props) {
-  const dispatch = useDispatch();
   const router = useRouter();
+  const dispatch = useDispatch();
   const loaderState = useSelector((state) => state.loader);
 
   useEffect(() => {
     dispatch(loaderActions.showLoader());
 
-    const getNavbarLink = dispatch(getNavbarLinks());
-    const getCartDetailsFromDB = dispatch(getCartDetails());
-    const getCartDetailsFromCookies = addItemsFromCookiesToDB();
+    const fetchCurrency = dispatch(getCurrency());
+    const fetchNavbarLinks = dispatch(getNavbarLinks());
+    const fetchCartDetailsFromDB = dispatch(getCartDetails());
+    const fetchCartDetailsFromCookies = addItemsFromCookiesToDB();
 
-    Promise.all([getCartDetailsFromDB, getNavbarLink, getCartDetailsFromCookies]).then(() => {
-      getCartDetailsFromCookies.then((data) => {
-        if (data == "done") {
+    const promisies = [
+      fetchCurrency,
+      fetchCartDetailsFromDB,
+      fetchNavbarLinks,
+      fetchCartDetailsFromCookies,
+    ];
+
+    Promise.all(promisies).then(() => {
+      fetchCartDetailsFromCookies.then((result) => {
+        if (result == "done") {
           router.push("/cart");
         }
       });

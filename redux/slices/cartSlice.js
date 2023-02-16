@@ -66,6 +66,11 @@ const cartSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(getCurrency.fulfilled, (state, { payload }) => {
+      if (payload) {
+        return { ...state, currency: payload };
+      }
+    });
     builder.addCase(getCartDetails.fulfilled, (state, { payload }) => {
       if (payload) {
         return { ...state, ...payload };
@@ -92,14 +97,18 @@ const cartSlice = createSlice({
   },
 });
 
+export const getCurrency = createAsyncThunk("cart/getCurrency", async () => {
+  const currencyRequest = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getCurrBase`
+  );
+  const currency = await currencyRequest.json();
+  return currency;
+});
+
 export const getCartDetails = createAsyncThunk("cart/getCartDetails", async (payload, thunkAPI) => {
   const session = await getSession();
-  if (session) {
-    const currencyRequest = await fetch(
-      `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getCurrBase`
-    );
-    const currency = await currencyRequest.json();
 
+  if (session) {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/getCartItem`, {
       method: "POST",
       headers: await getAuthHeaders(),
@@ -107,7 +116,7 @@ export const getCartDetails = createAsyncThunk("cart/getCartDetails", async (pay
     });
 
     const cartData = await res.json();
-    return { ...cartData, currency: { ...currency } };
+    return { ...cartData };
   }
 
   // Get the cart details from the cookies if the user is not authenticated
