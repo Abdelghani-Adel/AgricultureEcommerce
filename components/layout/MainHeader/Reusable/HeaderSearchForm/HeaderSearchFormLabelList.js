@@ -1,10 +1,7 @@
-import HeaderSearchFromLabel from "./HeaderSearchFormLabel";
+import { useEffect, useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
-import { useState } from "react";
-import { useEffect } from "react";
-import { CategoryApi } from "../../../../../services/CategoryAPI";
-
-const CategoryAPI = new CategoryApi();
+import { fetchCategoriesMenu } from "../../../../../services/categoryServices";
+import HeaderSearchFromLabel from "./HeaderSearchFormLabel";
 
 const HeaderSearchFormLabelList = (props) => {
   const [categories, setCategories] = useState([]);
@@ -12,7 +9,7 @@ const HeaderSearchFormLabelList = (props) => {
 
   useEffect(() => {
     const getCategories = async () => {
-      const categories = await CategoryAPI.GetCategoriesMenu();
+      const categories = await fetchCategoriesMenu();
       setCategories(categories);
     };
 

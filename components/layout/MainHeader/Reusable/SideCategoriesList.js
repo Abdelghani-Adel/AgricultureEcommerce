@@ -1,15 +1,14 @@
 import Link from "next/Link";
 import React, { useEffect, useState } from "react";
-import { CategoryApi } from "../../../../services/CategoryAPI";
-import {withTranslation} from "react-multi-lang";
-const CategoryAPI = new CategoryApi();
+import { withTranslation } from "react-multi-lang";
+import { fetchCategoriesMenu } from "../../../../services/categoryServices";
 
 const SideCategoriesList = (props) => {
   const [categories, setCategories] = useState();
 
   useEffect(() => {
     const getCategories = async () => {
-      const categories = await CategoryAPI.GetCategoriesMenu();
+      const categories = await fetchCategoriesMenu("ar");
       setCategories(categories);
     };
     getCategories();
@@ -25,15 +24,12 @@ const SideCategoriesList = (props) => {
         <div className="tagcloud">
           {categories &&
             categories.map((category) => (
-              
               <Link
                 onClick={props.toggleSideCategoriesTags}
-                 key={category.FAClassificationId}
-                 href={`/categories/${category.FAClassificationSlug}?id=${category.FAClassificationId}`}
+                key={category.FAClassificationId}
+                href={`/categories/${category.FAClassificationSlug}?id=${category.FAClassificationId}`}
               >
-                
                 {category.FAClassificationName}
-                
               </Link>
             ))}
 

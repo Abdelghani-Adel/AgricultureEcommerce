@@ -3,7 +3,7 @@ import { withTranslation } from "react-multi-lang";
 import Breadcrumbs from "../../../components/layout/Reusable/Breadcrumbs";
 import CategoryProducts from "../../../components/Sections/categories/CategoryProducts/CategoryProducts";
 import SubCategories from "../../../components/Sections/categories/SubCategories/SubCategories";
-import { fetchCategoryProducts, fetchSubCategories } from "../../../services/CategoryAPI";
+import { fetchCategoryProducts, fetchSubCategories } from "../../../services/categoryServices";
 
 const CategorySingle = (props) => {
   const { categories, showProducts, products } = props;
@@ -40,11 +40,8 @@ export const getServerSideProps = async (context) => {
     props: {
       products: products,
       categorySlug: context.params.categorySlug,
-      id: context.query.id,
-      test: products,
       showProducts: true,
     },
   };
 };
-
 export default withTranslation(CategorySingle);

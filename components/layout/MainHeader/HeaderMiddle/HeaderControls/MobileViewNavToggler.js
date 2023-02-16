@@ -1,10 +1,6 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import HeaderNav from "../../Reusable/Navigation/HeaderNav";
 import Link from "next/Link";
-import { CategoryApi } from "../../../../../services/CategoryAPI";
-
-const categoryApi = new CategoryApi();
+import { useEffect, useState } from "react";
+import { fetchCategoriesMenu } from "../../../../../services/categoryServices";
 
 const MobileViewNavToggler = (props) => {
   const [navIsShown, setNavIsShown] = useState(false);
@@ -15,7 +11,7 @@ const MobileViewNavToggler = (props) => {
 
   useEffect(() => {
     const getCategories = async () => {
-      const categories = await categoryApi.GetCategoriesMenu();
+      const categories = await fetchCategoriesMenu("ar");
       setCategories(categories);
     };
     getCategories();
