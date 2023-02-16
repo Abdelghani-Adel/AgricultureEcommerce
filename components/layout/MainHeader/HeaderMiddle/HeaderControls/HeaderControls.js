@@ -84,7 +84,9 @@ const HeaderControls = (props) => {
           <Link href="/cart" title="Cart">
             <FaShoppingBasket />
             <div className="main_header-cart-content fs-800">
-              <span>{cartState.items.length} Items</span>
+              <span>
+                {cartState.items.length} {cartState.items.length > 1 ? "Items" : "Item"}
+              </span>
               <span>
                 {cartState.totalPrice} {cartState.currency && cartState.currency.CurrBaseCode}
               </span>
