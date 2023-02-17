@@ -9,8 +9,6 @@ const CategoryNavItem = (props) => {
   const itemStyle = link.ClassificationChildren.length > 0 ? "menu-item-has-children" : "";
   const itemLink = `/categories/${link.FAClassificationSlug}?id=${link.FAClassificationId}`;
 
-  const encoded = window.btoa(unescape(encodeURIComponent(link.FAClassificationId)));
-
   const arrowClickHandler = (e) => {
     e.preventDefault();
     e.stopPropagation();

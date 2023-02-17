@@ -2399,6 +2399,10 @@ p {
   display: block;
 }
 
+.header-nav .menu-item a {
+  width: 100%;
+}
+
 .header-nav > .menu-item .category_icon {
   width: 16px;
   height: 16px;
