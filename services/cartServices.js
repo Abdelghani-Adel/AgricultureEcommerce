@@ -47,7 +47,7 @@ export async function deleteCartItem(item, Cart_Id, lang) {
     body: JSON.stringify({ ...item, Cart_Id: Cart_Id, lang: lang }),
   });
   const cartDetails = await res.json();
-  toast.error("Item has been deleted");
+  toast.error(cartDetails.Message);
   return cartDetails;
 }
 
