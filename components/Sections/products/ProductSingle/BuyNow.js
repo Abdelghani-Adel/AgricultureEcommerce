@@ -11,6 +11,7 @@ import { withTranslation } from "react-multi-lang";
 
 const BuyNow = (props) => {
   const [item, setItem] = useState(props.item);
+  const [selectedUOM, setSelectedUOM] = useState("");
   const session = useSession();
 
   const dispatch = useDispatch();
@@ -30,13 +31,19 @@ const BuyNow = (props) => {
     setItem({ ...item, FAUOMID: e.target.value });
   };
 
+  useEffect(() => {
+    const defaultUOMObject = item.uoms.filter((uom) => uom.UOM_Id_To == item.FAUOMID)[0];
+    const defaultUOM = defaultUOMObject ? defaultUOMObject.UOMName : item.UOMName;
+    setSelectedUOM(defaultUOM);
+  }, []);
+
   return (
     <div className="andro_product-atc-form">
       <div>
         <div className="d-flex">
           <select defaultValue={0} className="form-select me-3" onChange={UOMchangeHandler}>
             <option value={0} disabled>
-              {props.t("Products.SelectUom")}
+              {selectedUOM}
             </option>
             {item.uoms.map((unit, i) => (
               <option key={i} value={unit.UOM_Id_To}>

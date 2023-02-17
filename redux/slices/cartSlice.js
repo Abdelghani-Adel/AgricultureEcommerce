@@ -78,7 +78,7 @@ const cartSlice = createSlice({
     });
     builder.addCase(getCartDetails.fulfilled, (state, { payload }) => {
       if (payload) {
-        return { ...state, ...payload };
+        return { ...state, ...payload, checkedCartItems: [], checkedCartItemsTotalPrice: 0 };
       }
     });
     builder.addCase(editCart.fulfilled, (state, { payload }) => {
