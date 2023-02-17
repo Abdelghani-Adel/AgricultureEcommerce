@@ -15,7 +15,6 @@ const AddToCart = (props) => {
   const dispatch = useDispatch();
 
   const addToCartHandler = useCallback(() => {
-    // prepare the cartItem object to be sent to the api
     const cartItem = {
       Item_Id: item.Item_Id,
       Item_Name: item.Item_Name,
@@ -28,16 +27,12 @@ const AddToCart = (props) => {
       lang: lang,
     };
 
-    // Show notification
-    toast.info(`Item has been added to you cart!`);
-
-    // If the user add to cart while not logged in => store in cookie, return
+    toast.success(`Item has been added to you cart!`);
     if (session.status != "authenticated") {
       storeCartItemInCookie(cartItem);
       return;
     }
 
-    // prepare the payload for the editCart redux thunk, if the user is logged in
     const payload = {
       action: "plus",
       item: cartItem,

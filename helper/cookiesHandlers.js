@@ -28,34 +28,26 @@ export function storeCartItemInCookie(itemBeingStored) {
   const isCookieEnabled = navigator.cookieEnabled;
 
   if (isCookieEnabled) {
-    // get the cookie
-    const foundCookie = getCookie("cartCookie");
+    const cookieIsFound = getCookie("cartCookie");
 
-    // parse it if found
-    if (foundCookie) {
-      // parse the cookie object
-      let cartItemsFoundInTheCookie = JSON.parse(foundCookie);
-      let newCartItems = cartItemsFoundInTheCookie.items;
+    if (cookieIsFound) {
+      let parsedCookie = JSON.parse(cookieIsFound);
+      let cartItems = parsedCookie.items;
 
-      // check if the object is already in the cart
-      const itemIndex = newCartItems.findIndex((item) => item.Item_Id == itemBeingStored.Item_Id);
+      const itemIndex = cartItems.findIndex((item) => item.Item_Id == itemBeingStored.Item_Id);
       if (itemIndex >= 0) {
-        newCartItems[itemIndex].Qty++;
+        cartItems[itemIndex].Qty++;
       } else {
-        newCartItems = [...newCartItems, itemBeingStored];
+        cartItems = [...cartItems, itemBeingStored];
       }
 
-      // Stringify the cart
-      const newCartItemsToStore = JSON.stringify({
-        totalPrice: cartItemsFoundInTheCookie.totalPrice + itemBeingStored.UnitPrice,
-        items: newCartItems,
+      const updatedCookie = JSON.stringify({
+        totalPrice: parsedCookie.totalPrice + itemBeingStored.UnitPrice,
+        items: cartItems,
       });
 
-      // update the new cookie
-      document.cookie = `cartCookie=${newCartItemsToStore}; SameSite=Strict`;
-      // update the state
+      document.cookie = `cartCookie=${updatedCookie}; SameSite=Strict`;
       store.dispatch(getCartDetails());
-
       return;
     }
   }
@@ -70,121 +62,83 @@ export function storeCartItemInCookie(itemBeingStored) {
 }
 
 export function deleteCartItemInCookie(itemBeingDeleted) {
-  // get the cookie
   const foundCookie = getCookie("cartCookie");
+  let parsedCookie = JSON.parse(foundCookie);
+  const removedItem_Cost = itemBeingDeleted.Qty * itemBeingDeleted.UnitPrice;
+  const newTotalPrice = parsedCookie.totalPrice - removedItem_Cost;
+  const newItems = parsedCookie.items.filter((item) => item.Item_Id != itemBeingDeleted.Item_Id);
 
-  // parse the cookie object
-  let cartItemsFoundInTheCookie = JSON.parse(foundCookie);
-
-  const removedItemCost = itemBeingDeleted.Qty * itemBeingDeleted.UnitPrice;
-  const newTotalPrice = cartItemsFoundInTheCookie.totalPrice - removedItemCost;
-  const newItems = cartItemsFoundInTheCookie.items.filter(
-    (item) => item.Item_Id != itemBeingDeleted.Item_Id
-  );
-
-  const newCartItemsToStore = JSON.stringify({
+  const updatedCookie = JSON.stringify({
     totalPrice: newTotalPrice,
     items: newItems,
   });
 
-  // update the new cookie
-  document.cookie = `cartCookie=${newCartItemsToStore}; SameSite=Strict`;
-  // update the state
+  document.cookie = `cartCookie=${updatedCookie}; SameSite=Strict`;
   store.dispatch(getCartDetails());
   toast.error("Item has been deleted!");
 }
 
 export function increaseCartItemInCookie(itemBeingIncreased) {
-  // get the cookie
   const foundCookie = getCookie("cartCookie");
+  const parsedCookie = JSON.parse(foundCookie);
+  let cartItems = parsedCookie.items;
+  const itemIndex = cartItems.findIndex((item) => item.Item_Id == itemBeingIncreased.Item_Id);
 
-  // parse the cookie object
-  let cartItemsFoundInTheCookie = JSON.parse(foundCookie);
-  let newCartItems = cartItemsFoundInTheCookie.items;
-
-  // find the item
-  const itemIndex = newCartItems.findIndex((item) => item.Item_Id == itemBeingIncreased.Item_Id);
-  newCartItems[itemIndex].Qty++;
-
-  // Stringify the cart
-  const newCartItemsToStore = JSON.stringify({
-    totalPrice: cartItemsFoundInTheCookie.totalPrice + itemBeingIncreased.UnitPrice,
-    items: newCartItems,
+  cartItems[itemIndex].Qty++;
+  const updatedCookie = JSON.stringify({
+    totalPrice: parsedCookie.totalPrice + itemBeingIncreased.UnitPrice,
+    items: cartItems,
   });
 
-  // update the new cookie
-  document.cookie = `cartCookie=${newCartItemsToStore}; SameSite=Strict`;
-  // update the state
+  document.cookie = `cartCookie=${updatedCookie}; SameSite=Strict`;
   store.dispatch(getCartDetails());
 }
 
-export function decreaseCartItemInCookie(itemBeingIncreased) {
-  // get the cookie
+export function decreaseCartItemInCookie(itemBeingDecreased) {
   const foundCookie = getCookie("cartCookie");
+  const parsedCookie = JSON.parse(foundCookie);
+  let cartItems = parsedCookie.items;
+  const itemIndex = cartItems.findIndex((item) => item.Item_Id == itemBeingDecreased.Item_Id);
 
-  // parse the cookie object
-  let cartItemsFoundInTheCookie = JSON.parse(foundCookie);
-  let newCartItems = cartItemsFoundInTheCookie.items;
-
-  // find the item
-  const itemIndex = newCartItems.findIndex((item) => item.Item_Id == itemBeingIncreased.Item_Id);
-
-  if (newCartItems[itemIndex].Qty == 1) {
-    newCartItems = newCartItems.filter((item) => item.Item_Id != newCartItems[itemIndex].Item_Id);
-
-    // Stringify the cart
-    const newCartItemsToStore = JSON.stringify({
-      totalPrice: cartItemsFoundInTheCookie.totalPrice - itemBeingIncreased.UnitPrice,
-      items: newCartItems,
-    });
-
-    // update the new cookie
-    document.cookie = `cartCookie=${newCartItemsToStore}; SameSite=Strict`;
-    // update the state
-    store.dispatch(getCartDetails());
-
-    toast.error("Item has been deleted");
+  if (cartItems[itemIndex].Qty == 1) {
+    deleteCartItemInCookie(itemBeingDecreased);
     return;
   }
-  newCartItems[itemIndex].Qty--;
 
-  // Stringify the cart
+  cartItems[itemIndex].Qty--;
   const newCartItemsToStore = JSON.stringify({
-    totalPrice: cartItemsFoundInTheCookie.totalPrice - itemBeingIncreased.UnitPrice,
-    items: newCartItems,
+    totalPrice: parsedCookie.totalPrice - itemBeingDecreased.UnitPrice,
+    items: cartItems,
   });
 
-  // update the new cookie
   document.cookie = `cartCookie=${newCartItemsToStore}; SameSite=Strict`;
-  // update the state
   store.dispatch(getCartDetails());
 }
 
 export function getCartDetailsFromCookies(item) {
   const foundCookie = getCookie("cartCookie");
   if (foundCookie) {
-    const cartItemsFoundInTheCookie = JSON.parse(foundCookie);
+    const parsedCookie = JSON.parse(foundCookie);
     return {
-      totalPrice: cartItemsFoundInTheCookie.totalPrice,
-      items: cartItemsFoundInTheCookie.items,
+      totalPrice: parsedCookie.totalPrice,
+      items: parsedCookie.items,
+    };
+  } else {
+    return {
+      totalPrice: payload.UnitPrice,
+      items: [payload],
     };
   }
-
-  // if the user is adding to the cookie for the first time
-  return {
-    totalPrice: payload.UnitPrice,
-    items: [payload],
-  };
 }
 
 export async function addItemsFromCookiesToDB() {
-  const cartCookie = getCookie("cartCookie");
   const session = await getSession();
+  const cartCookie = getCookie("cartCookie");
 
   if (cartCookie && session) {
-    const cartFoundInTheCookie = JSON.parse(cartCookie);
-    const itemsFoundInTheCookie = cartFoundInTheCookie.items;
-    for (let item of itemsFoundInTheCookie) {
+    const parsedCookie = JSON.parse(cartCookie);
+    const cartItems = parsedCookie.items;
+    for (let item of cartItems) {
       const payload = {
         action: "plus",
         item: item,
