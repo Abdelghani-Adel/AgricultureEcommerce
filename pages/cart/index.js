@@ -4,10 +4,14 @@ import CartContent from "../../components/Sections/Cart/CartContent/CartContent"
 import CartTotal from "../../components/Sections/Cart/CartTotal";
 import UpSells from "../../components/Sections/Cart/Upsells/UpSells";
 import { withTranslation } from "react-multi-lang";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { loaderActions } from "../../redux/slices/loaderSlice";
 
 const Cart = (props) => {
   const cartState = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  dispatch(loaderActions.hideLoader());
+
   return (
     <Fragment>
       <Breadcrumbs breadcrumb={{ pagename: "Cart" }} />

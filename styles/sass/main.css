@@ -902,9 +902,8 @@ p {
 }
 
 .product_card--buttons a {
-  flex: 1;
-  box-shadow: none;
-  border-radius: 0;
+  width: 100%;
+  display: inline-block;
 }
 
 .andro_product-single-content .btn {

@@ -11,6 +11,7 @@ import { editCart } from "../../../redux/slices/cartSlice";
 const AddToCart = (props) => {
   const { item } = props;
   const lang = useSelector((state) => state.lang);
+  const cartState = useSelector((state) => state.cart);
   const session = useSession();
   const dispatch = useDispatch();
 
@@ -24,6 +25,7 @@ const AddToCart = (props) => {
       UOM_Id: item.FAUOMID,
       UOM_Name: item.UOMName,
       Supp_Id: 0,
+      Cart_Id: cartState.Cart_Id,
       lang: lang,
     };
 

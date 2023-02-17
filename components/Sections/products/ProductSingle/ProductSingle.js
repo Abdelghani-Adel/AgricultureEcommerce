@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { useState } from "react";
 import { withTranslation } from "react-multi-lang";
 import AdditionalInfo from "./AdditionalInfo";
 import BuyNow from "./BuyNow";
@@ -7,8 +6,7 @@ import ProductCarousel from "./ProductCarousel";
 import ProductDetails from "./ProductDetails";
 
 const ProductSingle = (props) => {
-  const { ItemDetails } = props;
-  const [item, setItem] = useState(ItemDetails);
+  const item = props.ItemDetails;
 
   return (
     <Fragment>

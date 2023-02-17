@@ -1,13 +1,18 @@
 import { useRouter } from "next/router";
 import { withTranslation } from "react-multi-lang";
+import { useDispatch } from "react-redux";
 import Breadcrumbs from "../../components/layout/Reusable/Breadcrumbs";
 import CategoryProducts from "../../components/Sections/categories/CategoryProducts/CategoryProducts";
 import SubCategories from "../../components/Sections/categories/SubCategories/SubCategories";
+import { loaderActions } from "../../redux/slices/loaderSlice";
 import { fetchCategoryProducts, fetchSubCategories } from "../../services/categoryServices";
 
 const CategorySingle = (props) => {
   const { categories, showProducts, products } = props;
   const router = useRouter();
+  const dispatch = useDispatch();
+
+  dispatch(loaderActions.hideLoader());
 
   return (
     <>

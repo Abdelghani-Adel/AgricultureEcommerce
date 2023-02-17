@@ -35,6 +35,10 @@ const HeaderControls = (props) => {
     dispatch(loaderActions.hideLoader());
   };
 
+  const showLoader = () => {
+    dispatch(loaderActions.showLoader());
+  };
+
   return (
     <div className="main_header-controls">
       <ul className="d-flex justify-content-end ">
@@ -81,7 +85,7 @@ const HeaderControls = (props) => {
           </Link>
         </li>
         <li className="header_control main_header-cart d-none d-md-flex">
-          <Link href="/cart" title="Cart">
+          <Link href="/cart" title="Cart" onClick={showLoader}>
             <FaShoppingBasket />
             <div className="main_header-cart-content fs-800">
               <span>

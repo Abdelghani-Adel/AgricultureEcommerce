@@ -1,20 +1,25 @@
 import Link from "next/Link";
-import { FaRegEye, FaRegHeart } from "react-icons/fa";
-import { BiLike, BiDislike } from "react-icons/bi";
-
-import { withTranslation } from "react-multi-lang";
-import AddToCart from "../../AddToCart";
-import { useState } from "react";
-import { getAuthHeaders } from "../../../../../helper/auth";
+import { BiDislike, BiLike } from "react-icons/bi";
+import { FaRegEye } from "react-icons/fa";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import { withTranslation } from "react-multi-lang";
+import AddToCart from "../../AddToCart";
+import { useDispatch } from "react-redux";
+import { loaderActions } from "../../../../../redux/slices/loaderSlice";
 
 const ProductFooter = (props) => {
   const { product } = props;
   const session = useSession();
   const router = useRouter();
+  const dispatch = useDispatch();
   const [likeButtonChecked, setLikeButtonChecked] = useState(false);
   const [unlikeButtonChecked, setUnlikeButtonChecked] = useState(false);
+
+  const showLoader = () => {
+    dispatch(loaderActions.showLoader());
+  };
 
   const likeHandler = async (e) => {
     e.preventDefault();
@@ -69,15 +74,16 @@ const ProductFooter = (props) => {
       <div className="product_card--buttons">
         <AddToCart item={product} />
 
-        <Link
-          href={props.productPath}
-          data-toggle="tooltip"
-          data-placement="top"
-          className="andro_btn-custom light"
-          title={props.t("Products.ViewDetails")}
-        >
-          <FaRegEye />
-        </Link>
+        <button className="like_button" onClick={showLoader}>
+          <Link
+            href={props.productPath}
+            data-toggle="tooltip"
+            data-placement="top"
+            title={props.t("Products.ViewDetails")}
+          >
+            <FaRegEye />
+          </Link>
+        </button>
 
         <button
           className={`like_button ${likeButtonChecked ? "checked" : ""}`}

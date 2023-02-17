@@ -1,8 +1,15 @@
 import Link from "next/Link";
 import { withTranslation } from "react-multi-lang";
+import { useDispatch } from "react-redux";
+import { loaderActions } from "../../../../redux/slices/loaderSlice";
 
 const SubCategories = (props) => {
   const { categories } = props;
+  const dispatch = useDispatch();
+  const showLoader = () => {
+    dispatch(loaderActions.showLoader());
+  };
+
   return (
     <div className="section">
       <div className="container">
@@ -14,6 +21,7 @@ const SubCategories = (props) => {
                   pathname: `/categories/${subCategory.FAClassificationSlug}`,
                   query: { id: `${subCategory.FAClassificationId}` },
                 }}
+                onClick={showLoader}
               >
                 <div className="card catg_card">
                   <img

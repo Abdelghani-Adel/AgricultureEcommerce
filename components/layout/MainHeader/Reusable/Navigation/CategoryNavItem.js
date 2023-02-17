@@ -1,13 +1,20 @@
 import Link from "next/Link";
 import { useState } from "react";
 import { FaAngleDown, FaAngleLeft, FaAngleRight, FaAngleUp } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { loaderActions } from "../../../../../redux/slices/loaderSlice";
 
 const CategoryNavItem = (props) => {
   const { link, isChild } = props;
   const [subMenuIsShown, setSubMenuIsShown] = useState(false);
+  const dispatch = useDispatch();
 
   const itemStyle = link.ClassificationChildren.length > 0 ? "menu-item-has-children" : "";
   const itemLink = `/categories/${link.FAClassificationSlug}?id=${link.FAClassificationId}`;
+
+  const showLoader = () => {
+    dispatch(loaderActions.showLoader());
+  };
 
   const arrowClickHandler = (e) => {
     e.preventDefault();
@@ -26,6 +33,7 @@ const CategoryNavItem = (props) => {
           pathname: `/categories/${link.FAClassificationSlug}`,
           query: { id: `${link.FAClassificationId}` },
         }}
+        onClick={showLoader}
       >
         {link.IconTypeId == 1 && <img className="category_icon svg" src={`${link.Icon}`} />}
         {link.IconTypeId == 2 && <img className="category_icon" src={`${link.Icon}`} />}
