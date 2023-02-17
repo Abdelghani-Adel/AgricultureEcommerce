@@ -46,5 +46,17 @@ export async function deleteCartItem(item, Cart_Id, lang) {
     body: JSON.stringify({ ...item, Cart_Id: Cart_Id, lang: lang }),
   });
   const cartDetails = await res.json();
+  console.log(cartDetails);
   return cartDetails;
+}
+
+export async function UPSSalesOrder(reqBody) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/UPSSalesOrder`, {
+    method: "POST",
+    headers: await getAuthHeaders(),
+    body: JSON.stringify(reqBody),
+  });
+
+  const data = await res.json();
+  return data;
 }

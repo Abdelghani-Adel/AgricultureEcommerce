@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
 import ReactPaginate from "react-paginate";
@@ -11,38 +12,36 @@ import ProductCount from "./ProductCount";
 import SearchCategory from "./SearchCategory";
 
 const CategoryProducts = (props) => {
-  const [products, setProducts] = useState(props.products.data);
-  const [productsTotal, setproductsTotal] = useState(props.products.total);
-  const router = useRouter();
+  const [products, setProducts] = useState([]);
+  const [productsTotal, setproductsTotal] = useState();
 
-  const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(6);
-  const [loading, setLoading] = useState(false);
   const [itemOffset, setItemOffset] = useState(0);
-  const [pageCount, setPageCount] = useState(
-    Math.ceil(products != null ? products.length : 0 / itemsPerPage)
-  );
-  const [endOffset, setEndOffset] = useState(itemOffset + itemsPerPage);
-  const [currentItems, setCurrentItems] = useState(
-    products != null ? products.slice(itemOffset, endOffset) : []
-  );
+  const [endOffset, setEndOffset] = useState(6);
+  const [currentItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState();
 
-  const [currentStart, setCurrentStart] = useState(0);
+  // const [currentStart, setCurrentStart] = useState(0);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const products = props.products.data;
+    const total = props.products.total;
+    const pageCount = Math.ceil(products.length / itemsPerPage);
+
+    setProducts(products);
+    setproductsTotal(total);
+    setCurrentItems(products.slice(itemOffset, endOffset));
+    setPageCount(pageCount);
+  }, [props]);
 
   const changePageHandler = (event) => {
-    // const basePath = router.asPath.substring(0, router.asPath.indexOf("?"));
-    const basePath = router.asPath;
-
-    // router.push(`${basePath}&start=${itemOffset}`);
-
     const newOffset = (event.selected * itemsPerPage) % products.length;
     const newEndOffset = newOffset + itemsPerPage;
 
-    setLoading(true);
-    setCurrentStart();
     setItemOffset((event.selected * itemsPerPage) % products.length);
     setCurrentItems(products.slice(newOffset, newEndOffset));
-    setLoading(false);
   };
 
   return (
@@ -57,11 +56,7 @@ const CategoryProducts = (props) => {
             />
 
             <div className="row">
-              {loading === false ? (
-                <ProductCardList products={currentItems} slug={props.slug} />
-              ) : (
-                <Loader />
-              )}
+              <ProductCardList products={currentItems} slug={props.slug} />
             </div>
           </div>
 

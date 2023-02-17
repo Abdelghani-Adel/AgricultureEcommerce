@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
-import { useLayoutEffect, useRef } from "react";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useLayoutEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Breadcrumbs from "../../components/layout/Reusable/Breadcrumbs";
 import CheckoutContent from "../../components/Sections/Checkout/CheckoutContent";

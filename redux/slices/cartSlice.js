@@ -89,14 +89,11 @@ const cartSlice = createSlice({
       }
     });
     builder.addCase(deleteItem.fulfilled, (state, { payload }) => {
+      console.log(payload);
       if (payload) {
         state.items = payload.items;
         state.totalPrice = payload.totalPrice;
         state.Cart_Id = payload.Cart_Id;
-      }
-      if (!payload) {
-        state.items = [];
-        state.total = 0;
       }
     });
   },

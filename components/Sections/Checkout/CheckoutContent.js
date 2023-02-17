@@ -1,12 +1,18 @@
+import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { withTranslation } from "react-multi-lang";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { getAuthHeaders } from "../../../helper/auth";
+import { getCartDetails } from "../../../redux/slices/cartSlice";
+import { UPSSalesOrder } from "../../../services/cartServices";
 import BillingAddress from "./BillingDetails/BillingAddress";
 import CheckoutDetails from "./CheckoutDetails/CheckoutDetails";
 
 const CheckoutContent = (props) => {
   const cartState = useSelector((state) => state.cart);
+  const router = useRouter();
+  const dispatch = useDispatch();
   const [reqBody, setReqBody] = useState();
   const [cartContent, setCartContent] = useState();
 
@@ -60,13 +66,13 @@ const CheckoutContent = (props) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/UPSSalesOrder`, {
-      method: "POST",
-      headers: await getAuthHeaders(),
-      body: JSON.stringify(reqBody),
+    const data = await UPSSalesOrder(reqBody);
+    toast.info(data.Message, {
+      autoClose: 3000,
     });
 
-    const data = await res.json();
+    dispatch(getCartDetails());
+    router.push("/");
   };
 
   return (
