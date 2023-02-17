@@ -41,7 +41,7 @@ const SignUp = (props) => {
     dispatch(loaderActions.hideLoader());
   };
   return (
-    <div className="section">
+    <div className="section bg-white">
       <div className="container">
         <div className="row">
           <div

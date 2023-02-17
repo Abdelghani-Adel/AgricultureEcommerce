@@ -43,7 +43,7 @@ const Login = (props) => {
 
   return (
     <Fragment>
-      <div className="section">
+      <div className="section bg-white">
         <div className="container">
           <div className="row">
             <div
