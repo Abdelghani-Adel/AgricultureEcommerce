@@ -50,18 +50,9 @@ const BuyNow = (props) => {
           </AddToCart>
 
           <button onClick={buyNowHandler} className="btn">
-            BUY NOW
+            {props.t("Products.ShopNow")}
           </button>
         </div>
-        {/* <div className="qty">
-          <span className="qty-subtract" onClick={DecreaseItem} data-type="minus" data-field>
-            <FaMinus />
-          </span>
-          <input type="text" name="clicks" value={clicks} onChange={handleChange} />
-          <span className="qty-add" onClick={IncrementItem} data-type="plus" data-field>
-            <FaPlus />
-          </span>
-        </div> */}
       </div>
     </div>
   );

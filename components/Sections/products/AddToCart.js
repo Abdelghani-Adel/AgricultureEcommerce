@@ -48,7 +48,7 @@ const AddToCart = (props) => {
       title={props.t("Products.AddToCart")}
       onClick={addToCartHandler}
     >
-      {props.children ? props.children : <FaShoppingBasket />}
+      {props.children ? `${props.t("Products.AddToCart")}` : <FaShoppingBasket />}
     </button>
   );
 };

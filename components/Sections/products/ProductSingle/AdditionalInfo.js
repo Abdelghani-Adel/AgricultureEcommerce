@@ -16,8 +16,7 @@ const AdditionalInfo = (props) => {
             aria-controls="v-pills-home"
             aria-selected="true"
           >
-            {/* {props.t("Products.ItemDesc")} */}
-            Ingredients
+            {props.t("Products.Ingredients")}
           </li>
           <li
             className="nav-link mb-2"
@@ -29,8 +28,7 @@ const AdditionalInfo = (props) => {
             aria-controls="v-pills-profile"
             aria-selected="false"
           >
-            {/* {props.t("Products.AddInfo")} */}
-            Facilities
+            {props.t("Products.Facilities")}
           </li>
           <li
             className="nav-link mb-2"
@@ -42,8 +40,7 @@ const AdditionalInfo = (props) => {
             aria-controls="v-pills-messages"
             aria-selected="false"
           >
-            {/* {props.t("Products.reviews")} */}
-            Warnings
+            {props.t("Products.Warnings")}
           </li>
           <li
             className="nav-link mb-2"

@@ -1,3 +1,5 @@
+import { withTranslation } from "react-multi-lang";
+
 const InputField = (props) => {
   const {
     changeHandler,
@@ -17,7 +19,7 @@ const InputField = (props) => {
     <div className={customeStyle ? customeStyle : "col"}>
       <div className="form-group">
         <label>
-          {title}
+          {props.t(`${title}`)}
           <span className="text-danger">*</span>
         </label>
 
@@ -28,7 +30,7 @@ const InputField = (props) => {
             className={inputStyle}
             name={fieldName}
             onChange={changeHandler}
-            placeholder={`Choose ${title}`}
+            placeholder={`${props.t("Address.Choose")} ${props.t(`${title}`)}`}
             required
           />
         )}
@@ -38,7 +40,7 @@ const InputField = (props) => {
           <select className={inputStyle} name={fieldName} onChange={changeHandler} required>
             {!firstOptionChoosen && (
               <option selected disabled value="">
-                Choose {title}
+                {props.t("Address.Choose")} {props.t(`${title}`)}
               </option>
             )}
             {options &&
@@ -54,4 +56,4 @@ const InputField = (props) => {
   );
 };
 
-export default InputField;
+export default withTranslation(InputField);

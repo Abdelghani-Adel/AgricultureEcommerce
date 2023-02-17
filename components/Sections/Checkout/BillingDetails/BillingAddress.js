@@ -16,7 +16,7 @@ const BillingAddress = (props) => {
             <BillingAddressInput
               requiredField={true}
               fieldName="userName"
-              transTitle="Username"
+              transTitle="Checkout.Username"
               fieldWidth="6"
               defaultValue={session.user.username}
               disabled={true}

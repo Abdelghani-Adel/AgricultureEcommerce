@@ -36,8 +36,11 @@
     "AddInfo": "معلومات اضافية",
     "reviews": "تقييم مستخدمين",
     "NoProducts": "! لا يوجد منتجات لهذه القائمة",
-    "SelectUom":"اختار الوحده",
-    "Likes":"الاعجاب"
+    "SelectUom": "اختار الوحده",
+    "Likes": "الاعجاب",
+    "Ingredients": "المكونات",
+    "Facilities": "Facilities",
+    "Warnings": "التحذيرات"
   },
   "Footer": {
     "TopCategories": "أعلي الاقسام",
@@ -56,7 +59,9 @@
     "Tax": "ضرائب",
     "CheckoutProceed": "قم بالدفع",
     "AddToCart": "أضف الي العربة",
-    "EmptyCart": "! لم تقم بإضافة أي منتجات لعربة التسوق"
+    "EmptyCart": "! لم تقم بإضافة أي منتجات لعربة التسوق",
+    "Delete": "حذف",
+    "Check": "إضافة"
   },
   "Wishlist": {
     "Availability": "المتاح",
@@ -86,7 +91,8 @@
     "PaymentChoose": "إختر طريقة الدفع",
     "CreditCard": "بطاقة الإئتمان",
     "Paypal": "باي بال",
-    "OnDelivery": "عند الإستلام"
+    "OnDelivery": "عند الإستلام",
+    "Username": "إسم المستخدم"
   },
   "Categories": {
     "Ingrediants": "المكونات الزراعية",
@@ -107,5 +113,16 @@
     "PasswordConfirm": "تأكيد كلمة السر",
     "PhoneNumber": "رقم الهاتف",
     "AlreadyHave": "لديك حساب ؟"
+  },
+  "Address": {
+    "Choose": "إختر",
+    "YourAddress": "عنوانك",
+    "AddNew": "هل تريد إضافة عنوان جديد ؟",
+    "Country": "الدولة",
+    "Gov": "المحافظة",
+    "City": "المدينة",
+    "Areas": "المنطقة / الحيّ",
+    "Street": "الشارع",
+    "Building": "رقم المبني"
   }
 }

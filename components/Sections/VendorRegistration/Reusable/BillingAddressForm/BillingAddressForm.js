@@ -1,6 +1,7 @@
 import InputField from "../InputField";
 import { useEffect, useState, Fragment, useCallback } from "react";
 import VendorRegisterAPI from "../../../../../services/VendorRegisterAPI";
+import { withTranslation } from "react-multi-lang";
 
 const vendorRegApi = new VendorRegisterAPI();
 
@@ -83,7 +84,7 @@ const BillingAddressForm = (props) => {
       {showPreviousAddress && (
         <div className="row">
           <InputField
-            title="Your Address"
+            title="Address.YourAddress"
             fieldName="EI_Add_Id"
             changeHandler={fieldChangeHandler}
             options={addresses}
@@ -98,7 +99,7 @@ const BillingAddressForm = (props) => {
         <div className="row">
           <div className="col">
             <p className="text-primary cursor-pointer" onClick={showAddingNewAddressForm}>
-              Add New Address ?
+              {props.t("Address.AddNew")}
             </p>
           </div>
         </div>
@@ -107,7 +108,7 @@ const BillingAddressForm = (props) => {
       {showAddingForm && (
         <div className="row row-cols-2">
           <InputField
-            title="Country"
+            title="Address.Country"
             fieldName="Country_Id"
             changeHandler={countryChangeHandler}
             options={countries}
@@ -116,7 +117,7 @@ const BillingAddressForm = (props) => {
           />
 
           <InputField
-            title="Government"
+            title="Address.Gov"
             fieldName="Gover_Id"
             changeHandler={governmentChangeHandler}
             options={governments}
@@ -125,7 +126,7 @@ const BillingAddressForm = (props) => {
           />
 
           <InputField
-            title="City"
+            title="Address.City"
             fieldName="City_Id"
             changeHandler={cityChangeHandler}
             options={cities}
@@ -134,7 +135,7 @@ const BillingAddressForm = (props) => {
           />
 
           <InputField
-            title="Supported Areas"
+            title="Address.Areas"
             fieldName="District_Id"
             changeHandler={fieldChangeHandler}
             options={districts}
@@ -143,13 +144,13 @@ const BillingAddressForm = (props) => {
           />
 
           <InputField
-            title="Street Address"
+            title="Address.Street"
             fieldName="streetAdd"
             changeHandler={fieldChangeHandler}
           />
 
           <InputField
-            title="Building No."
+            title="Address.Building"
             fieldName="buildingNo"
             changeHandler={fieldChangeHandler}
           />
@@ -159,7 +160,7 @@ const BillingAddressForm = (props) => {
   );
 };
 
-export default BillingAddressForm;
+export default withTranslation(BillingAddressForm);
 
 /*
   // Component Reusable scenarios:-

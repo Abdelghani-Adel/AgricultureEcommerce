@@ -38,7 +38,10 @@
     "ItemDesc": "Item Description",
     "NoProducts": "No Products Found !",
     "SelectUom": "select uom",
-    "Likes": "Likes"
+    "Likes": "Likes",
+    "Ingredients": "Ingredients",
+    "Facilities": "Facilities",
+    "Warnings": "Warnings"
   },
   "Footer": {
     "TopCategories": "Top Categories",
@@ -57,7 +60,9 @@
     "Tax": "Tax",
     "CheckoutProceed": "PROCEED TO CHECKOUT",
     "AddToCart": "ADD TO CART",
-    "EmptyCart": "You have not added any items to the cart !"
+    "EmptyCart": "You have not added any items to the cart !",
+    "Delete": "Delete",
+    "Check": "Add"
   },
   "Wishlist": {
     "Availability": "Availability",
@@ -87,7 +92,8 @@
     "PaymentChoose": "Choose Payment Method",
     "CreditCard": "Credit Card",
     "Paypal": "PayPal",
-    "OnDelivery": "On Delivery"
+    "OnDelivery": "On Delivery",
+    "Username": "Username"
   },
   "Categories": {
     "Ingrediants": "Ingrediants",
@@ -108,5 +114,16 @@
     "PasswordConfirm": "Confirm Your Password",
     "PhoneNumber": "Phone Number",
     "AlreadyHave": "Already have an account ?"
+  },
+  "Address": {
+    "Choose": "Choose",
+    "YourAddress": "Your Address",
+    "AddNew": "Add New Address ?",
+    "Country": "Country",
+    "Gov": "Government",
+    "City": "City",
+    "Areas": "Supported Areas",
+    "Street": "Street Address",
+    "Building": "Building No."
   }
 }
