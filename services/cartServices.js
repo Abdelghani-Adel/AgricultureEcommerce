@@ -20,7 +20,7 @@ export async function fetchCartDetailsFromDB(lang) {
   return cartData;
 }
 
-export async function editCartItem(editedCartItem, Cart_Id, lang, Cust_Id) {
+export async function editCartItem(editedCartItem, lang, Cust_Id, currentCart) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/addToCart`, {
     method: "POST",
     headers: await getAuthHeaders(),
@@ -30,7 +30,8 @@ export async function editCartItem(editedCartItem, Cart_Id, lang, Cust_Id) {
       totalPrice: 0,
       Cart_Ref: "string",
       Cust_Id: Cust_Id,
-      Cart_Id: Cart_Id,
+      Cart_Id: currentCart.Cart_Id,
+      Curr_Id: currentCart.currency.CurrBase,
       lang: lang,
       items: [editedCartItem],
     }),

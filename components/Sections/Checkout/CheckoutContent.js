@@ -11,6 +11,7 @@ import CheckoutDetails from "./CheckoutDetails/CheckoutDetails";
 
 const CheckoutContent = (props) => {
   const cartState = useSelector((state) => state.cart);
+  const lang = useSelector((state) => state.lang);
   const router = useRouter();
   const dispatch = useDispatch();
   const [reqBody, setReqBody] = useState();
@@ -24,8 +25,8 @@ const CheckoutContent = (props) => {
       Cart_Ref: cartState.Cart_Ref,
       Cust_Id: cartState.Cust_Id,
       Cart_Id: cartState.Cart_Id,
-      lang: "ar",
-      currency: cartState.currency,
+      lang: lang,
+      Curr_Id: cartState.currency.CurrBase,
       items: [],
     };
 
@@ -66,10 +67,17 @@ const CheckoutContent = (props) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const data = await UPSSalesOrder(reqBody);
-    toast.info(data.Message, {
-      autoClose: 3000,
-    });
+    const response = await UPSSalesOrder(reqBody);
+
+    if (response.success) {
+      toast.success(response.Message, {
+        autoClose: 4000,
+      });
+    } else {
+      toast.error(response.Message, {
+        autoClose: 4000,
+      });
+    }
 
     dispatch(getCartDetails());
     router.push("/");

@@ -116,12 +116,12 @@ export const getCartDetails = createAsyncThunk("cart/getCartDetails", async (pay
 });
 
 export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkAPI) => {
+  const currentCart = thunkAPI.getState().cart;
   const lang = thunkAPI.getState().lang;
   const session = await getSession();
   const Cust_Id = session.user.custId;
-  const currentState = thunkAPI.getState().cart;
-  const Cart_Id = currentState.Cart_Id;
-  const filteredItems = currentState.items.filter((item) => item.Item_Id == payload.item.Item_Id);
+  const Cart_Id = currentCart.Cart_Id;
+  const filteredItems = currentCart.items.filter((item) => item.Item_Id == payload.item.Item_Id);
   const cartItemBeingEdited = filteredItems[0] || {};
   const Quote_S_Id = cartItemBeingEdited.Quote_S_Id || 0;
   let Qty = payload.item.Qty;
@@ -151,7 +151,7 @@ export const editCart = createAsyncThunk("cart/editCart", async (payload, thunkA
     lang: payload.item.lang,
   };
 
-  return editCartItem(editedCartItem, Cart_Id, lang, Cust_Id);
+  return editCartItem(editedCartItem, lang, Cust_Id, currentCart);
 });
 
 export const deleteItem = createAsyncThunk("cart/deleteItem", async (payload, thunkAPI) => {
