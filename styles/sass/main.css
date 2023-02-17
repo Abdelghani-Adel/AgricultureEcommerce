@@ -2223,6 +2223,7 @@ p {
   cursor: pointer;
   text-align: center;
   white-space: nowrap;
+  transform: none !important;
 }
 
 .image-gallery-thumbnail {

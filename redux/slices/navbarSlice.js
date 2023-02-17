@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getAuthToken } from "../../helper/auth";
+import { fetchCategoriesMenu } from "../../services/categoryServices";
 
 const navBarSlice = createSlice({
   name: "navbar",
@@ -11,24 +11,14 @@ const navBarSlice = createSlice({
   },
 });
 
-export const getNavbarLinks = createAsyncThunk("navbar/getNavbarLinks", async () => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/GetCategoriesMenu`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: await getAuthToken(),
-      },
-      body: JSON.stringify({
-        lang: "ar",
-        FAClassification_ParentId: 81,
-      }),
-    }
-  );
-  const links = await res.json();
-  return links;
-});
+export const getNavbarLinks = createAsyncThunk(
+  "navbar/getNavbarLinks",
+  async (payload, thunkAPI) => {
+    const lang = thunkAPI.getState().lang;
+    const links = await fetchCategoriesMenu(lang);
+    return links;
+  }
+);
 
 export const navbarActions = navBarSlice.actions;
 export default navBarSlice;

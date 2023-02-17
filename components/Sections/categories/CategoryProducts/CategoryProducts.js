@@ -28,11 +28,12 @@ const CategoryProducts = (props) => {
   useEffect(() => {
     const products = props.products.data;
     const total = props.products.total;
-    const pageCount = Math.ceil(products.length / itemsPerPage);
+    const pageCount = products ? Math.ceil(products.length / itemsPerPage) : 0;
+    const currentItems = products ? products.slice(itemOffset, endOffset) : [];
 
     setProducts(products);
     setproductsTotal(total);
-    setCurrentItems(products.slice(itemOffset, endOffset));
+    setCurrentItems(currentItems);
     setPageCount(pageCount);
   }, [props]);
 
