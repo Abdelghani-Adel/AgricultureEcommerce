@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { withTranslation } from "react-multi-lang";
 import { useDispatch } from "react-redux";
 import Breadcrumbs from "../../components/layout/Reusable/Breadcrumbs";
@@ -12,7 +13,9 @@ const CategorySingle = (props) => {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  dispatch(loaderActions.hideLoader());
+  useEffect(() => {
+    dispatch(loaderActions.hideLoader());
+  });
 
   return (
     <>
