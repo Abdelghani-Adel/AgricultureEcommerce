@@ -3,7 +3,6 @@ import React, { useCallback, useEffect, useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
 import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
 import {
   decreaseCartItemInCookie,
   deleteCartItemInCookie,
@@ -54,9 +53,6 @@ const CartItem = (props) => {
     }
 
     // If the user decreases the item with Qty = 1, show notification
-    if (item.Qty == 1) {
-      toast.error("Item has been deleted");
-    }
 
     // Prepare the payload to be sent to the reduxThunk if the user is logged in
     const payload = {
@@ -67,8 +63,6 @@ const CartItem = (props) => {
   });
 
   const deleteItemHandler = useCallback(() => {
-    toast.error("Item has been deleted!");
-
     // If the user delete from the cart while he is not logged in
     if (session.status != "authenticated") {
       deleteCartItemInCookie(item);

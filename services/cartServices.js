@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { getAuthHeaders } from "../helper/auth";
 
 export async function fetchCurrency() {
@@ -46,7 +47,7 @@ export async function deleteCartItem(item, Cart_Id, lang) {
     body: JSON.stringify({ ...item, Cart_Id: Cart_Id, lang: lang }),
   });
   const cartDetails = await res.json();
-  console.log(cartDetails);
+  toast.error("Item has been deleted");
   return cartDetails;
 }
 

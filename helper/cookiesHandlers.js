@@ -86,10 +86,12 @@ export function deleteCartItemInCookie(itemBeingDeleted) {
     totalPrice: newTotalPrice,
     items: newItems,
   });
+
   // update the new cookie
   document.cookie = `cartCookie=${newCartItemsToStore}; SameSite=Strict`;
   // update the state
   store.dispatch(getCartDetails());
+  toast.error("Item has been deleted!");
 }
 
 export function increaseCartItemInCookie(itemBeingIncreased) {
