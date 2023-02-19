@@ -1,5 +1,4 @@
 import { getSession } from "next-auth/react";
-import { Router, useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { editCart, getCartDetails } from "../redux/slices/cartSlice";
 import store from "../redux/store";
@@ -148,5 +147,28 @@ export async function addItemsFromCookiesToDB() {
 
     deleteCookie("cartCookie");
     return "done";
+  }
+}
+
+// ///////////////////////// LIKES //////////////////////// //
+
+export function storeLikeInCookie(productBeingAffected, action) {
+  const isCookieEnabled = navigator.cookieEnabled;
+
+  if (isCookieEnabled) {
+    const likesCookie = JSON.stringify({
+      products: [
+        {
+          id: productBeingAffected.Item_Id,
+          liked: action == "like" ? true : false,
+          unlike: action == "unlike" ? true : false,
+          likes: action == "like" ? productBeingAffected.likes + 1 : productBeingAffected.likes,
+          unlikes:
+            action == "unlike" ? productBeingAffected.unLikes + 1 : productBeingAffected.unLikes,
+        },
+      ],
+    });
+
+    document.cookie = `likesCookie=${likesCookie}; SameSite=Strict`;
   }
 }
