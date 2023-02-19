@@ -1,13 +1,12 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
+import { withTranslation } from "react-multi-lang";
+import { useDispatch, useSelector } from "react-redux";
 import Breadcrumbs from "../../components/layout/Reusable/Breadcrumbs";
 import CartContent from "../../components/Sections/Cart/CartContent/CartContent";
 import CartTotal from "../../components/Sections/Cart/CartTotal";
 import UpSells from "../../components/Sections/Cart/Upsells/UpSells";
-import { withTranslation } from "react-multi-lang";
-import { useDispatch, useSelector } from "react-redux";
-import { loaderActions } from "../../redux/slices/loaderSlice";
 import { getCartDetails } from "../../redux/slices/cartSlice";
-import { useEffect } from "react";
+import { loaderActions } from "../../redux/slices/loaderSlice";
 
 const Cart = (props) => {
   const cartState = useSelector((state) => state.cart);

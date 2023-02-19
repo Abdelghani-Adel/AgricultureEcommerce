@@ -72,7 +72,7 @@ const ProductFooter = (props) => {
   return (
     <div className="product_card--footer">
       <div className="product_card--buttons">
-        <AddToCart item={product} />
+        <AddToCart style={"product_footer--button"} item={product} />
 
         <button className="like_button" onClick={showLoader}>
           <Link

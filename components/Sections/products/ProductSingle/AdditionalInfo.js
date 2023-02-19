@@ -4,7 +4,7 @@ const AdditionalInfo = (props) => {
   const { item } = props;
   return (
     <div className="row">
-      <div className="col-lg-4">
+      <div className="col-5 col-lg-4">
         <ul className="nav nav-pills d-flex flex-column" id="myTab" role="tablist">
           <li
             className="nav-link active mb-2"
@@ -56,7 +56,7 @@ const AdditionalInfo = (props) => {
           </li>
         </ul>
       </div>
-      <div className="col-lg-8">
+      <div className="col-7 col-lg-8">
         <div className="tab-content">
           <div
             className="tab-pane fade show active"

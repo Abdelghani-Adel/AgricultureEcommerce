@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import AgricultureBooks from "./AgricultureBooks";
-import BestProducts from "./BestProducts/BestProducts";
+import BestProducts from "./bestProducts/BestProducts";
 import Cta from "./Cta";
 import HomeBanner from "./HomeBanner";
 

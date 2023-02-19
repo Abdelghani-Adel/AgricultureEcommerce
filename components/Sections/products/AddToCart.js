@@ -44,7 +44,7 @@ const AddToCart = (props) => {
 
   return (
     <button
-      className={`product_footer--button ${props.style || ""}`}
+      className={`${props.style || ""}`}
       title={props.t("Products.AddToCart")}
       onClick={addToCartHandler}
     >

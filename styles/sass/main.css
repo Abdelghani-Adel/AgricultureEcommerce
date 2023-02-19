@@ -918,8 +918,9 @@ p {
   border-radius: 25px;
   z-index: 1;
   box-shadow: 0 3px 24px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 1rem;
   height: 40px;
-  width: 200px;
+  width: 100%;
   display: flex;
   align-content: center;
   align-items: center;
