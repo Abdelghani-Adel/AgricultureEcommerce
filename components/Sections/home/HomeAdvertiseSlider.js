@@ -13,7 +13,7 @@ const settings = {
 
 export default function HomeAdvertiseSlider() {
   return (
-    <Slider className="advertise-slider" {...settings}>
+    <Slider className="advertise-slider d-none d-md-block" {...settings} >
       <div>
         <div className="advertise">
           <img src="../img/agri_banner.png" alt="" />

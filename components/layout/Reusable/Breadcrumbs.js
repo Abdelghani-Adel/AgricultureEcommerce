@@ -1,5 +1,5 @@
 import Link from "next/Link";
-
+import {withTranslation} from "react-multi-lang";
 const Breadcrumbs = (props) => {
   const pagename = props.breadcrumb.pagename;
   return (
@@ -10,7 +10,7 @@ const Breadcrumbs = (props) => {
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
               <li className="breadcrumb-item">
-                <Link href="/">Home</Link>
+                <Link href="/">{props.t("Navbar.Home")}</Link>
               </li>
               <li className="breadcrumb-item active" aria-current="page">
                 {pagename}
@@ -23,4 +23,4 @@ const Breadcrumbs = (props) => {
   );
 };
 
-export default Breadcrumbs;
+export default  withTranslation(Breadcrumbs);

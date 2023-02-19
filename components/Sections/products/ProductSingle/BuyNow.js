@@ -40,8 +40,8 @@ const BuyNow = (props) => {
   return (
     <div>
       <div className="row justify-content-center">
-        <div className="col-4">
-          <select defaultValue={0} className="form-select me-3" onChange={UOMchangeHandler}>
+        <div className="col-lg-4 col-xs-12" >
+          <select defaultValue={0} className="form-select me-3 uom_select" onChange={UOMchangeHandler}>
             <option value={0} disabled>
               {selectedUOM}
             </option>
@@ -53,13 +53,13 @@ const BuyNow = (props) => {
           </select>
         </div>
 
-        <div className="col-4">
+        <div className="col-lg-4 col-xs-12">
           <AddToCart style={"btn"} item={item}>
             Add To Cart
           </AddToCart>
         </div>
 
-        <div className="col-4">
+        <div className="col-lg-4 col-xs-12">
           <button onClick={buyNowHandler} className="btn">
             {props.t("Products.ShopNow")}
           </button>

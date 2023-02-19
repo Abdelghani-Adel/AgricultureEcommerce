@@ -3261,7 +3261,7 @@ td.remove {
 
 @media (max-width: 991px) {
   .carousel_bg {
-    margin-bottom: 25% !important;
+    margin-top: 50px !important;
   }
   /* .banner-3.andro_banner .andro_arrows {
     margin-top: 10px;
@@ -3879,13 +3879,13 @@ td.remove {
 @media (max-width: 991px) {
   .andro_fresh-arrivals .slick-track {
     width: 9000px !important;
-    height: 550px !important;
+    height: auto !important;
   }
   .andro_fresh-arrivals .slick-list {
-    height: 550px !important;
+    height:auto !important;
   }
   .andro_fresh-arrivals-slider {
-    /* height: 400px; */
+    height: auto;
     overflow: hidden;
   }
 }

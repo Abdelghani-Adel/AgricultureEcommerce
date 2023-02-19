@@ -759,8 +759,7 @@ p {
   border: 1px solid #f0f2f3;
   box-shadow: 0 3px 24px rgba(0, 0, 0, 0.04);
   border-radius: 8px;
-  margin-bottom: 30px;
-  margin-bottom: 10px;
+  margin: 0 10px 10px 0;
 }
 
 .product_card--thumb {
@@ -884,6 +883,10 @@ p {
   margin-bottom: 0;
 }
 
+.uom_select {
+  margin: 10px 0;
+}
+
 .product_card--footer {
   border-top: 0;
   padding: 0;
@@ -925,6 +928,7 @@ p {
   align-content: center;
   align-items: center;
   justify-content: center;
+  margin: 10px 0;
 }
 
 .andro_product-single-content .btn:hover {
@@ -1732,7 +1736,7 @@ p {
 
 .slick-slide {
   outline: none;
-  margin: 0 15px;
+  margin: 0 0px;
 }
 
 .andro_banner .slick-track,
@@ -2980,3 +2984,5 @@ p {
     font-size: 2rem;
   }
 }
+
+/*# sourceMappingURL=main.css.map */
