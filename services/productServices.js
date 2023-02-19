@@ -25,7 +25,7 @@ export async function fetchBooksItems(lang) {
         lang: lang,
         Cate_Id: 0,
         Cust_Id: 0,
-        limit: 3,
+        limit: 10,
         start: 0,
       }),
     }

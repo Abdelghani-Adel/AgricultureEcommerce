@@ -1,11 +1,9 @@
-import React, { Component, useState } from "react";
 import Link from "next/Link";
+import React, { Fragment, useEffect, useState } from "react";
 import { withTranslation } from "react-multi-lang";
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import ProductCardList from "../products/ProductCardList/ProductCardList";
 import { fetchBooksItems } from "../../../services/productServices";
-import { Fragment } from "react";
+import ProductSlider from "../../layout/Reusable/ProductSlider";
 
 const AgricultureBooks = (props) => {
   const lang = useSelector((state) => state.lang);
@@ -21,16 +19,17 @@ const AgricultureBooks = (props) => {
   }, []);
   return (
     <Fragment>
-      <div className="section-title">
-        <h4 className="title">{props.t("Products.BooksAndInfo")}</h4>
-      </div>
-      <div className="row">
-        <ProductCardList products={booksList} />
-      </div>
+      {booksList.length > 0 && (
+        <ProductSlider
+          products={booksList}
+          translateTitle={"Products.BooksAndInfo"}
+          slidesToShow={2}
+        />
+      )}
 
-      <Link href="#" className="agri-btn-rounded-dark">
+      {/* <Link href="#" className="agri-btn-rounded-dark">
         {props.t("Products.ViewAll")}
-      </Link>
+      </Link> */}
     </Fragment>
   );
 };

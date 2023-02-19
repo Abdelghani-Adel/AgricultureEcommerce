@@ -3715,7 +3715,8 @@ td.remove {
 } */
 
 .andro_fresh-arrivals-slider {
-  height: 550px;
+  height: 400px;
+  overflow: hidden;
   /* height: 100% !important; */
 }
 /* .agri-btn-rounded {

@@ -1,43 +1,14 @@
-import React, { Component } from "react";
-import { FaArrowLeft, FaArrowRight, FaStar } from "react-icons/fa";
+import React, { Component, Fragment } from "react";
 import { withTranslation } from "react-multi-lang";
-import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 import { fetchBestProducts } from "../../../../services/productServices";
-import ProductCard from "../../products/ProductCardList/ProductCard/ProductCard";
+import ProductSlider from "../../../layout/Reusable/ProductSlider";
 
-const settings = {
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  arrows: false,
-  dots: false,
-  infinite: true,
-  autoplay: false,
-  responsive: [
-    {
-      breakpoint: 991,
-      settings: {
-        slidesToShow: 1,
-      },
-    },
-    {
-      breakpoint: 575,
-      settings: {
-        slidesToShow: 1,
-      },
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-  ],
-};
 class BestProducts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalshow: false,
       products: [],
     };
   }
@@ -45,65 +16,22 @@ class BestProducts extends Component {
   componentDidMount() {
     const getProducts = async () => {
       const products = await fetchBestProducts("ar");
-      this.setState({ ...this.state, products: products });
+      this.setState({ products: products });
     };
-
     getProducts();
   }
-  next = () => {
-    this.slider.slickNext();
-  };
-  previous = () => {
-    this.slider.slickPrev();
-  };
-  // Modal
-  modalShow = () => {
-    this.setState({ modalshow: true });
-  };
-  modalClose = () => {
-    this.setState({ modalshow: false });
-  };
-  Rating = (rating) => {
-    let stars = [];
-    for (let i = 0; i < 5; i++) {
-      stars.push(<FaStar key={i} />);
-    }
-    if (rating && rating > 0) {
-      for (let i = 0; i <= rating - 1; i++) {
-        stars[i] = <FaStar className="active" key={i} />;
-      }
-    }
-    return stars;
-  };
 
   render() {
     return (
-      <div className="section pt-0 andro_fresh-arrivals">
-        <div className="container">
-          <div className="section-title flex-title">
-            <h4 className="title">{this.props.t("Products.BestProducts")}</h4>
-            <div className="andro_arrows">
-              <div className="slick-arrow slider-prev">
-                <FaArrowLeft onClick={this.previous} />
-              </div>
-              <div className="slick-arrow slider-prev">
-                <FaArrowRight onClick={this.next} />
-              </div>
-            </div>
-          </div>
-          <Slider
-            className="andro_fresh-arrivals-slider"
-            ref={(c) => (this.slider = c)}
-            {...settings}
-          >
-            {/* Product Start */}
-            {this.state.products && this.state.products.length > 0
-              ? this.state.products.map((product, i) => <ProductCard product={product} key={i} />)
-              : null}
-            {/* Product End */}
-          </Slider>
-        </div>
-      </div>
+      <Fragment>
+        {this.state.products.length > 0 && (
+          <ProductSlider
+            translateTitle={"Products.BestProducts"}
+            products={this.state.products}
+            slidesToShow={3}
+          />
+        )}
+      </Fragment>
     );
   }
 }
