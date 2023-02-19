@@ -19,12 +19,19 @@ export function getCookie(cname) {
   return "";
 }
 
+export function setExpiration() {
+  const today = new Date();
+  let expiry = today.setMonth(today.getMonth() + 1);
+  return "Thu, 31 Dec 2024 12:00:00 UTC";
+}
+
 export function deleteCookie(cname) {
   document.cookie = `${cname}=${cname}; expires=Thu, 18 Dec 2013 12:00:00 UTC`;
 }
 
 export function storeCartItemInCookie(itemBeingStored) {
   const isCookieEnabled = navigator.cookieEnabled;
+  const expires = setExpiration();
 
   if (isCookieEnabled) {
     const cookieIsFound = getCookie("cartCookie");
@@ -45,7 +52,7 @@ export function storeCartItemInCookie(itemBeingStored) {
         items: cartItems,
       });
 
-      document.cookie = `cartCookie=${updatedCookie}; SameSite=Strict`;
+      document.cookie = `cartCookie=${updatedCookie}; expires=${expires}; SameSite=None; secure=true`;
       store.dispatch(getCartDetails());
       return;
     }
@@ -56,7 +63,7 @@ export function storeCartItemInCookie(itemBeingStored) {
     items: [itemBeingStored],
     totalPrice: itemBeingStored.UnitPrice,
   });
-  document.cookie = `cartCookie=${cartCookie}; SameSite=Strict`;
+  document.cookie = `cartCookie=${cartCookie}; expires=${expires}; SameSite=None; secure=true`;
   store.dispatch(getCartDetails(itemBeingStored));
 }
 
@@ -66,13 +73,14 @@ export function deleteCartItemInCookie(itemBeingDeleted) {
   const removedItem_Cost = itemBeingDeleted.Qty * itemBeingDeleted.UnitPrice;
   const newTotalPrice = parsedCookie.totalPrice - removedItem_Cost;
   const newItems = parsedCookie.items.filter((item) => item.Item_Id != itemBeingDeleted.Item_Id);
+  const expires = setExpiration();
 
   const updatedCookie = JSON.stringify({
     totalPrice: newTotalPrice,
     items: newItems,
   });
 
-  document.cookie = `cartCookie=${updatedCookie}; SameSite=Strict`;
+  document.cookie = `cartCookie=${updatedCookie}; expires=${expires}; SameSite=None; secure=true`;
   store.dispatch(getCartDetails());
   toast.error("Item has been deleted!");
 }
@@ -82,6 +90,8 @@ export function increaseCartItemInCookie(itemBeingIncreased) {
   const parsedCookie = JSON.parse(foundCookie);
   let cartItems = parsedCookie.items;
   const itemIndex = cartItems.findIndex((item) => item.Item_Id == itemBeingIncreased.Item_Id);
+  const expires = setExpiration();
+  console.log(expires);
 
   cartItems[itemIndex].Qty++;
   const updatedCookie = JSON.stringify({
@@ -89,7 +99,7 @@ export function increaseCartItemInCookie(itemBeingIncreased) {
     items: cartItems,
   });
 
-  document.cookie = `cartCookie=${updatedCookie}; SameSite=Strict`;
+  document.cookie = `cartCookie=${updatedCookie}; expires=${expires}; SameSite=None; secure=true`;
   store.dispatch(getCartDetails());
 }
 
@@ -98,6 +108,7 @@ export function decreaseCartItemInCookie(itemBeingDecreased) {
   const parsedCookie = JSON.parse(foundCookie);
   let cartItems = parsedCookie.items;
   const itemIndex = cartItems.findIndex((item) => item.Item_Id == itemBeingDecreased.Item_Id);
+  const expires = setExpiration();
 
   if (cartItems[itemIndex].Qty == 1) {
     deleteCartItemInCookie(itemBeingDecreased);
@@ -110,7 +121,7 @@ export function decreaseCartItemInCookie(itemBeingDecreased) {
     items: cartItems,
   });
 
-  document.cookie = `cartCookie=${newCartItemsToStore}; SameSite=Strict`;
+  document.cookie = `cartCookie=${newCartItemsToStore}; expires=${expires}; SameSite=None; secure=true`;
   store.dispatch(getCartDetails());
 }
 
