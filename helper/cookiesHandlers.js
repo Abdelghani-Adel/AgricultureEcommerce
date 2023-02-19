@@ -163,23 +163,35 @@ export async function addItemsFromCookiesToDB() {
 
 // ///////////////////////// LIKES //////////////////////// //
 
-export function storeLikeInCookie(productBeingAffected, action) {
-  const isCookieEnabled = navigator.cookieEnabled;
+export function storeLikeInCookie(idBeingAffected, action) {
+  const cookiesIsEnabled = navigator.cookieEnabled;
 
-  if (isCookieEnabled) {
+  if (cookiesIsEnabled) {
+    const prevCookieIsFound = getCookie("likesCookie");
+    if (prevCookieIsFound) {
+      const parsedCookie = JSON.parse(prevCookieIsFound);
+      let products = parsedCookie.products;
+
+      const productIndex = products.findIndex((product) => product.id == idBeingAffected);
+      let productIsFound = products[productIndex];
+
+      // if (productIsFound) {
+      //   if(productIsFound.liked )
+      // }
+
+      return;
+    }
+
     const likesCookie = JSON.stringify({
       products: [
         {
-          id: productBeingAffected.Item_Id,
+          id: idBeingAffected,
           liked: action == "like" ? true : false,
           unlike: action == "unlike" ? true : false,
-          likes: action == "like" ? productBeingAffected.likes + 1 : productBeingAffected.likes,
-          unlikes:
-            action == "unlike" ? productBeingAffected.unLikes + 1 : productBeingAffected.unLikes,
         },
       ],
     });
 
-    document.cookie = `likesCookie=${likesCookie}; SameSite=Strict`;
+    document.cookie = `likesCookie=${likesCookie}; expires=${expires}; SameSite=None; secure=true`;
   }
 }

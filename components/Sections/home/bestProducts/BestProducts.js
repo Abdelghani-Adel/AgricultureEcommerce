@@ -28,7 +28,7 @@ class BestProducts extends Component {
           <ProductSlider
             translateTitle={"Products.BestProducts"}
             products={this.state.products}
-            slidesToShow={3}
+            slidesToShow={4}
           />
         )}
       </Fragment>
