@@ -168,30 +168,62 @@ export function storeLikeInCookie(idBeingAffected, action) {
 
   if (cookiesIsEnabled) {
     const prevCookieIsFound = getCookie("likesCookie");
+
     if (prevCookieIsFound) {
-      const parsedCookie = JSON.parse(prevCookieIsFound);
-      let products = parsedCookie.products;
-
-      const productIndex = products.findIndex((product) => product.id == idBeingAffected);
-      let productIsFound = products[productIndex];
-
-      // if (productIsFound) {
-      //   if(productIsFound.liked )
-      // }
-
+      updateLikesCookie(action, prevCookieIsFound, idBeingAffected);
       return;
+    } else {
+      likeNewProduct(action, [], idBeingAffected);
     }
-
-    const likesCookie = JSON.stringify({
-      products: [
-        {
-          id: idBeingAffected,
-          liked: action == "like" ? true : false,
-          unlike: action == "unlike" ? true : false,
-        },
-      ],
-    });
-
-    document.cookie = `likesCookie=${likesCookie}; expires=${expires}; SameSite=None; secure=true`;
   }
 }
+
+const updateLikesCookie = async (action, cookie, idBeingAffected) => {
+  const parsedCookie = JSON.parse(cookie);
+  const prevProducts = parsedCookie.products;
+  const productIndex = prevProducts.findIndex((product) => product.id == idBeingAffected);
+
+  if (productIndex >= 0) {
+    likeExistedProduct(action, prevProducts, productIndex);
+  } else {
+    likeNewProduct(action, prevProducts, idBeingAffected);
+  }
+};
+
+const likeExistedProduct = (action, prevProducts, productIndex) => {
+  const expires = setExpiration();
+  let newProducts = prevProducts;
+  if (action == "like") {
+    newProducts[productIndex].liked = newProducts[productIndex].liked ? false : true;
+  } else if (action == "unLike") {
+    newProducts[productIndex].unLiked = newProducts[productIndex].unLiked ? false : true;
+  }
+
+  const cleanedProducts = cleanProducts(newProducts);
+  const updatedCookie = JSON.stringify({ products: cleanedProducts });
+  document.cookie = `likesCookie=${updatedCookie}; expires=${expires}; SameSite=None; secure=true`;
+};
+
+const likeNewProduct = (action, prevProducts, productId) => {
+  const expires = setExpiration();
+  const newProduct = {
+    id: productId,
+    liked: action == "like",
+    unLiked: action == "unLike",
+  };
+  const newProducts = [...prevProducts, newProduct];
+  const cleanedProducts = cleanProducts(newProducts);
+  const updatedCookie = JSON.stringify({ products: cleanedProducts });
+  document.cookie = `likesCookie=${updatedCookie}; expires=${expires}; SameSite=None; secure=true`;
+};
+
+const cleanProducts = (products) => {
+  const cleanedProducts = products.filter((product) => {
+    if (!product.liked && !product.unLiked) {
+      return;
+    } else {
+      return product;
+    }
+  });
+  return cleanedProducts;
+};

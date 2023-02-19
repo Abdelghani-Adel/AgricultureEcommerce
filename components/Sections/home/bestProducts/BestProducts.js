@@ -24,7 +24,7 @@ class BestProducts extends Component {
   render() {
     return (
       <Fragment>
-        {this.state.products.length > 0 && (
+        {this.state.products && this.state.products.length > 0 && (
           <ProductSlider
             translateTitle={"Products.BestProducts"}
             products={this.state.products}

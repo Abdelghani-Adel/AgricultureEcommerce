@@ -19,7 +19,7 @@ const AgricultureBooks = (props) => {
   }, []);
   return (
     <Fragment>
-      {booksList.length > 0 && (
+      {booksList && booksList.length > 0 && (
         <ProductSlider
           products={booksList}
           translateTitle={"Products.BooksAndInfo"}
