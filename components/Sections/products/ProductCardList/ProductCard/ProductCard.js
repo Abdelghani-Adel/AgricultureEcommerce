@@ -6,11 +6,10 @@ import ProductThumb from "./ProductThumb";
 
 const ProductCard = (props) => {
   const { product, style } = props;
-  console.log("style " ,style)
   const productPath = `/products/${product.Item_Slug || "slugNotFound"}?id=${product.Item_Id}`;
 
   return (
-    <div style={style}>
+    <div className={style}>
       <div className="product_card">
         <ProductStickers product={product} productPath={productPath} />
         <ProductThumb product={product} productPath={productPath} />

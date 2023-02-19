@@ -1,3 +1,5 @@
+import { getAuthHeaders } from "../helper/auth";
+
 export async function fetchBestProducts(lang) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getItemMainByBestProducts`,
@@ -50,4 +52,15 @@ export async function fetchItemDetails(Item_Id, lang) {
 
   const details = await productDetails.json();
   return details[0];
+}
+
+export async function UPSproductLikes(requestBody) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/UPSProducts_Reviews_Like`,
+    {
+      method: "POST",
+      headers: await getAuthHeaders(),
+      body: JSON.stringify({ requestBody }),
+    }
+  );
 }

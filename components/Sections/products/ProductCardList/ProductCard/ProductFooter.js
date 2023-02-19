@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { loaderActions } from "../../../../../redux/slices/loaderSlice";
 import { getCookie, storeLikeInCookie } from "../../../../../helper/cookiesHandlers";
 import { useEffect } from "react";
+import { UPSproductLikes } from "../../../../../services/productServices";
 
 const ProductFooter = (props) => {
   const { product } = props;
@@ -28,7 +29,6 @@ const ProductFooter = (props) => {
     const likesCookieIsFound = getCookie("likesCookie");
     if (likesCookieIsFound) {
       const parsedCookie = JSON.parse(likesCookieIsFound);
-      console.log(parsedCookie);
       const productIndex = parsedCookie.products.findIndex((item) => item.id == product.Item_Id);
       const foundProduct = parsedCookie.products[productIndex];
       if (foundProduct && foundProduct.liked) {
@@ -45,37 +45,34 @@ const ProductFooter = (props) => {
     setUnlikes(unLikes);
   }, []);
 
-  const showLoader = () => {
-    dispatch(loaderActions.showLoader());
-  };
-
   const likeHandler = async (e) => {
     let requestBody = {
       Review_Id: 0,
       Company_Id: 0,
       Item_Id: product.Item_Id,
-      Cust_Id: 0,
       Review_Num: 0,
       Review_Comment: "string",
       isLike: 0,
       Computer_Name: "string",
       Active: true,
       Cust_Name: "string",
-      // delete: true,
     };
 
     const actionType = e.target.dataset.type;
 
     if (actionType == "like") {
       if (likeButtonChecked) {
+        requestBody = { ...requestBody, isLike: 0 };
         setLikes((prev) => {
           return prev - 1;
         });
       } else {
+        requestBody = { ...requestBody, isLike: 1 };
         setLikes((prev) => {
           return prev + 1;
         });
       }
+
       setLikeButtonChecked((prev) => {
         return !prev;
       });
@@ -83,10 +80,12 @@ const ProductFooter = (props) => {
 
     if (actionType == "unLike") {
       if (unlikeButtonChecked) {
+        requestBody = { ...requestBody, isLike: 0 };
         setUnlikes((prev) => {
           return prev - 1;
         });
       } else {
+        requestBody = { ...requestBody, isLike: 2 };
         setUnlikes((prev) => {
           return prev + 1;
         });
@@ -100,6 +99,12 @@ const ProductFooter = (props) => {
       storeLikeInCookie(product.Item_Id, actionType);
       return;
     }
+
+    // UPSproductLikes(requestBody);
+  };
+
+  const showLoader = () => {
+    dispatch(loaderActions.showLoader());
   };
 
   return (
