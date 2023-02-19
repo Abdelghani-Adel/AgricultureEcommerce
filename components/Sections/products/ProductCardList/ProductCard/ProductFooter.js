@@ -8,6 +8,8 @@ import { withTranslation } from "react-multi-lang";
 import AddToCart from "../../AddToCart";
 import { useDispatch } from "react-redux";
 import { loaderActions } from "../../../../../redux/slices/loaderSlice";
+import { getCookie, storeLikeInCookie } from "../../../../../helper/cookiesHandlers";
+import { useEffect } from "react";
 
 const ProductFooter = (props) => {
   const { product } = props;
@@ -16,20 +18,38 @@ const ProductFooter = (props) => {
   const dispatch = useDispatch();
   const [likeButtonChecked, setLikeButtonChecked] = useState(false);
   const [unlikeButtonChecked, setUnlikeButtonChecked] = useState(false);
+  const [likes, setLikes] = useState();
+  const [unLikes, setUnlikes] = useState();
+
+  useEffect(() => {
+    let likes = product.isLike;
+    let unLikes = product.UnLike;
+
+    const likesCookieIsFound = getCookie("likesCookie");
+    if (likesCookieIsFound) {
+      const parsedCookie = JSON.parse(likesCookieIsFound);
+      console.log(parsedCookie);
+      const productIndex = parsedCookie.products.findIndex((item) => item.id == product.Item_Id);
+      const foundProduct = parsedCookie.products[productIndex];
+      if (foundProduct && foundProduct.liked) {
+        likes = likes + 1;
+        setLikeButtonChecked(true);
+      }
+      if (foundProduct && foundProduct.unLiked) {
+        unLikes = unLikes + 1;
+        setUnlikeButtonChecked(true);
+      }
+    }
+
+    setLikes(likes);
+    setUnlikes(unLikes);
+  }, []);
 
   const showLoader = () => {
     dispatch(loaderActions.showLoader());
   };
 
   const likeHandler = async (e) => {
-    e.preventDefault();
-    if (session.status != "authenticated") {
-      router.push("/login");
-      return;
-    }
-
-    const actionType = e.target.dataset.type;
-
     let requestBody = {
       Review_Id: 0,
       Company_Id: 0,
@@ -44,28 +64,41 @@ const ProductFooter = (props) => {
       // delete: true,
     };
 
-    if (actionType == "like") {
-      requestBody = {
-        ...requestBody,
-        isLike: 1,
-        // delete: likeButtonChecked,
-      };
+    const actionType = e.target.dataset.type;
 
+    if (actionType == "like") {
+      if (likeButtonChecked) {
+        setLikes((prev) => {
+          return prev - 1;
+        });
+      } else {
+        setLikes((prev) => {
+          return prev + 1;
+        });
+      }
       setLikeButtonChecked((prev) => {
         return !prev;
       });
     }
 
     if (actionType == "unLike") {
-      requestBody = {
-        ...requestBody,
-        isLike: 2,
-        // delete: unlikeButtonChecked,
-      };
-
+      if (unlikeButtonChecked) {
+        setUnlikes((prev) => {
+          return prev - 1;
+        });
+      } else {
+        setUnlikes((prev) => {
+          return prev + 1;
+        });
+      }
       setUnlikeButtonChecked((prev) => {
         return !prev;
       });
+    }
+
+    if (session.status != "authenticated") {
+      storeLikeInCookie(product.Item_Id, actionType);
+      return;
     }
   };
 
@@ -91,7 +124,7 @@ const ProductFooter = (props) => {
           title={props.t("Products.Likes")}
           onClick={likeHandler}
         >
-          <BiLike /> {`(${product.isLike})`}
+          <BiLike /> {`(${likes})`}
         </button>
 
         <button
@@ -100,7 +133,7 @@ const ProductFooter = (props) => {
           title={props.t("Products.Likes")}
           onClick={likeHandler}
         >
-          <BiDislike /> {`(${product.UnLike})`}
+          <BiDislike /> {`(${unLikes})`}
         </button>
       </div>
     </div>

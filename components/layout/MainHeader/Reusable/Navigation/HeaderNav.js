@@ -8,9 +8,10 @@ const HeaderNav = (props) => {
 
   return (
     <ul className="header-nav">
-      {navLinksState.map((link) => (
-        <HeaderNavItem lang={lang} link={link} key={link.FAClassificationId} />
-      ))}
+      {navLinksState &&
+        navLinksState.map((link) => (
+          <HeaderNavItem lang={lang} link={link} key={link.FAClassificationId} />
+        ))}
     </ul>
   );
 };
