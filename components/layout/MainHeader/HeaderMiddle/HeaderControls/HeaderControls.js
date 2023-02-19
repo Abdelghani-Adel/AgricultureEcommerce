@@ -84,10 +84,10 @@ const HeaderControls = (props) => {
             <FaRegHeart />
           </Link>
         </li>
-        <li className="header_control main_header-cart d-none d-md-flex">
+        <li className="header_control main_header-cart">
           <Link href="/cart" title="Cart" onClick={showLoader}>
             <FaShoppingBasket />
-            <div className="main_header-cart-content fs-800">
+            <div className="main_header-cart-content fs-800 d-none d-md-block">
               <span>
                 {cartState.items.length} {cartState.items.length > 1 ? "Items" : "Item"}
               </span>
