@@ -1247,6 +1247,35 @@ p {
   width: 100%;
 }
 
+.default_btn {
+  flex: 0 0 auto;
+  cursor: pointer;
+  background-color: #50bd4d;
+  border: 0;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.3s;
+  text-transform: uppercase;
+  border-radius: 25px;
+  z-index: 1;
+  box-shadow: 0 3px 24px rgba(0, 0, 0, 0.1);
+  height: 40px;
+  width: 200px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.default_btn.disabled {
+  background-color: #c6c6c6;
+  pointer-events: none;
+}
+
+.default_btn a {
+  color: #fff;
+}
+
 .close-btn {
   border: 0;
   background-color: transparent;

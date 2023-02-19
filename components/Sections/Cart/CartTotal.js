@@ -1,12 +1,21 @@
-import cart from "../../../data/cart.json";
-import { withTranslation } from "react-multi-lang";
-import Link from "next/Link";
-import { useSelector } from "react-redux";
 import { useSession } from "next-auth/react";
+import Link from "next/Link";
+import { useEffect, useState } from "react";
+import { withTranslation } from "react-multi-lang";
+import { useSelector } from "react-redux";
 
 const CartTotal = (props) => {
   const cartState = useSelector((state) => state.cart);
+  const [buttonIsDisabled, setButtonIsDisabled] = useState();
   const session = useSession();
+
+  useEffect(() => {
+    if (cartState.checkedCartItems.length > 0) {
+      setButtonIsDisabled(false);
+    } else {
+      setButtonIsDisabled(true);
+    }
+  }, [cartState]);
   return (
     <div className="col-lg-6">
       <div className="section-title">
@@ -21,12 +30,7 @@ const CartTotal = (props) => {
               {cartState.currency && cartState.currency.CurrBaseCode}
             </td>
           </tr>
-          {/* <tr>
-            <th>{props.t("Cart.Tax")}</th>
-            <td>
-              9.99$ <span className="small">(11%)</span>
-            </td>
-          </tr> */}
+
           <tr>
             <th>{props.t("Cart.Total")}</th>
             <td>
@@ -38,12 +42,11 @@ const CartTotal = (props) => {
           </tr>
         </tbody>
       </table>
-      <Link
-        href={session.status == "authenticated" ? "/checkout" : "/login"}
-        className="andro_btn-custom primary btn-block"
-      >
-        {props.t("Cart.CheckoutProceed")}
-      </Link>
+      <button className={`default_btn ${buttonIsDisabled ? "disabled" : ""}`}>
+        <Link href={session.status == "authenticated" ? "/checkout" : "/login"}>
+          {props.t("Cart.CheckoutProceed")}
+        </Link>
+      </button>
     </div>
   );
 };
