@@ -95,6 +95,8 @@ const ProductFooter = (props) => {
       });
     }
 
+    console.log(requestBody);
+
     if (session.status != "authenticated") {
       storeLikeInCookie(product.Item_Id, actionType);
       return;

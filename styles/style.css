@@ -3793,7 +3793,8 @@ td.remove {
   border-radius: 8px;
 }
 .catg_card img {
-  max-width: 200px;
+  /* max-width: 200px; */
+  height: 25vh;
   margin: auto;
 }
 .catg_card p {
@@ -3882,7 +3883,7 @@ td.remove {
     height: auto !important;
   }
   .andro_fresh-arrivals .slick-list {
-    height:auto !important;
+    height: auto !important;
   }
   .andro_fresh-arrivals-slider {
     height: auto;
