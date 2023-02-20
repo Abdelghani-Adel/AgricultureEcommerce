@@ -20,34 +20,65 @@ export default function MainLayout(props) {
   useEffect(() => {
     dispatch(loaderActions.showLoader());
 
-    const fetchCartDetailsFromCookies = addItemsFromCookiesToDB();
-    const fetchLikesDetailsFromCookies = sendLikesToDB();
-    const sendCookiesToDBPromises = [fetchCartDetailsFromCookies, fetchLikesDetailsFromCookies];
+    const fetchCurrency = dispatch(getCurrency());
+    const fetchNavbarLinks = dispatch(getNavbarLinks());
+    const initialPromises = [fetchCurrency, fetchNavbarLinks];
 
-    Promise.all(sendCookiesToDBPromises).then(() => {
-      const fetchCurrency = dispatch(getCurrency());
-      const fetchNavbarLinks = dispatch(getNavbarLinks());
-      const fetchCartDetailsFromDB = dispatch(getCartDetails());
-      const fetchProductsToRedux = dispatch(fetchProducts());
+    Promise.all(initialPromises).then(() => {
+      const fetchCartDetailsFromCookies = addItemsFromCookiesToDB();
+      const fetchLikesDetailsFromCookies = sendLikesToDB();
+      const sendCookiesToDBPromises = [fetchCartDetailsFromCookies, fetchLikesDetailsFromCookies];
 
-      const promisies = [
-        fetchCurrency,
-        fetchNavbarLinks,
-        fetchCartDetailsFromDB,
-        fetchCartDetailsFromCookies,
-        fetchLikesDetailsFromCookies,
-        fetchProductsToRedux,
-      ];
+      Promise.all(sendCookiesToDBPromises).then(() => {
+        const fetchCurrency = dispatch(getCurrency());
+        const fetchNavbarLinks = dispatch(getNavbarLinks());
+        const fetchCartDetailsFromDB = dispatch(getCartDetails());
+        const fetchProductsToRedux = dispatch(fetchProducts());
 
-      Promise.all(promisies).then(() => {
-        fetchCartDetailsFromCookies.then((result) => {
-          if (result == "done") {
-            router.push("/cart");
-          }
+        const promisies = [
+          fetchCurrency,
+          fetchNavbarLinks,
+          fetchCartDetailsFromDB,
+          fetchCartDetailsFromCookies,
+          fetchLikesDetailsFromCookies,
+          fetchProductsToRedux,
+        ];
+
+        Promise.all(promisies).then(() => {
+          fetchCartDetailsFromCookies.then((result) => {
+            if (result == "done") {
+              router.push("/cart");
+            }
+          });
+          dispatch(loaderActions.hideLoader());
         });
-        dispatch(loaderActions.hideLoader());
       });
     });
+
+    // const fetchCurrency = dispatch(getCurrency());
+    // const fetchNavbarLinks = dispatch(getNavbarLinks());
+    // const fetchCartDetailsFromDB = dispatch(getCartDetails());
+    // const fetchCartDetailsFromCookies = addItemsFromCookiesToDB();
+    // const fetchLikesDetailsFromCookies = sendLikesToDB();
+    // const fetchProductsToRedux = dispatch(fetchProducts());
+
+    // const promisies = [
+    //   fetchCurrency,
+    //   fetchNavbarLinks,
+    //   fetchCartDetailsFromDB,
+    //   fetchCartDetailsFromCookies,
+    //   fetchLikesDetailsFromCookies,
+    //   fetchProductsToRedux,
+    // ];
+
+    // Promise.all(promisies).then(() => {
+    //   fetchCartDetailsFromCookies.then((result) => {
+    //     if (result == "done") {
+    //       router.push("/cart");
+    //     }
+    //   });
+    //   dispatch(loaderActions.hideLoader());
+    // });
   }, []);
 
   return (

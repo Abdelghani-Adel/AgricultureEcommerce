@@ -157,6 +157,7 @@ export async function addItemsFromCookiesToDB() {
     }
 
     deleteCookie("cartCookie");
+
     return "done";
   }
 }
