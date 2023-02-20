@@ -1,37 +1,31 @@
+import { getSession, useSession } from "next-auth/react";
 import Link from "next/Link";
+import { useEffect, useState } from "react";
 import { BiDislike, BiLike } from "react-icons/bi";
 import { FaRegEye } from "react-icons/fa";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
-import { useState } from "react";
 import { withTranslation } from "react-multi-lang";
-import AddToCart from "../../AddToCart";
 import { useDispatch } from "react-redux";
-import { loaderActions } from "../../../../../redux/slices/loaderSlice";
 import {
   setInitialLikeState,
-  storeLikeInCookie,
   setInitLikes,
-  sendLikeRecordToDB,
+  storeLikeInCookie,
 } from "../../../../../helper/cookiesHandlers";
-import { useEffect } from "react";
+import { loaderActions } from "../../../../../redux/slices/loaderSlice";
 import { UPSproductLikes } from "../../../../../services/productServices";
+import AddToCart from "../../AddToCart";
 
 const ProductFooter = (props) => {
-  const { product } = props;
-  const session = useSession();
-  const router = useRouter();
-  const dispatch = useDispatch();
-  const [likeButtonChecked, setLikeButtonChecked] = useState(false);
-  const [unlikeButtonChecked, setUnlikeButtonChecked] = useState(false);
   const [likes, setLikes] = useState();
   const [unLikes, setUnlikes] = useState();
-  const [likeSentToDB, setLikeSentToDb] = useState(false);
+  const [likeButtonChecked, setLikeButtonChecked] = useState(false);
+  const [unlikeButtonChecked, setUnlikeButtonChecked] = useState(false);
+
+  const { product } = props;
+  const session = useSession();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const prod_Id = product.Item_Id;
-    const Review_Id = product.myreview ? product.myreview.Review_Id : 0;
-    sendLikeRecordToDB(prod_Id, Review_Id, setLikeSentToDb);
+    setInitialLikeState(product, setLikeButtonChecked, setUnlikeButtonChecked);
   }, []);
 
   useEffect(() => {
@@ -39,42 +33,53 @@ const ProductFooter = (props) => {
     const dbUnLikes = product.UnLike;
     const prod_Id = product.Item_Id;
     setInitLikes(dbLikes, dbUnLikes, prod_Id, setLikes, setUnlikes);
-    setInitialLikeState(product, setLikeButtonChecked, setUnlikeButtonChecked);
-  }, [likeSentToDB]);
+  }, []);
 
   const likeHandler = async (e) => {
+    const actionType = e.currentTarget.dataset.type;
+    const authenticated = session.status == "authenticated";
+
     let requestBody = {
-      Review_Id: product.myreview ? product.myreview.Review_Id : 0,
-      Company_Id: 0,
       Item_Id: product.Item_Id,
+      isLike: 0,
+      Review_Id: 0,
+      Company_Id: 0,
+      Cust_Id: 0,
       Review_Num: 0,
       Review_Comment: "string",
-      isLike: 0,
       Computer_Name: "string",
       Active: true,
       Cust_Name: "string",
+      lang: "string",
     };
 
-    const actionType = e.currentTarget.dataset.type;
-
     if (actionType == "like") {
+      if (!authenticated) {
+        setLikes((prev) => (likeButtonChecked ? prev - 1 : prev + 1));
+        setUnlikes((prev) => (unlikeButtonChecked ? prev - 1 : prev));
+      }
       requestBody.isLike = 1;
-      likeButtonChecked ? setLikes((prev) => prev - 1) : setLikes((prev) => prev + 1);
       setLikeButtonChecked((prev) => !prev);
       setUnlikeButtonChecked(false);
-    } else if (actionType == "unLike") {
+    }
+    if (actionType == "unLike") {
+      if (!authenticated) {
+        setUnlikes((prev) => (unlikeButtonChecked ? prev - 1 : prev + 1));
+        setLikes((prev) => (likeButtonChecked ? prev - 1 : prev));
+      }
       requestBody.isLike = 2;
-      unlikeButtonChecked ? setUnlikes((prev) => prev - 1) : setUnlikes((prev) => prev + 1);
       setUnlikeButtonChecked((prev) => !prev);
       setLikeButtonChecked(false);
     }
 
-    if (session.status != "authenticated") {
+    if (!authenticated) {
       storeLikeInCookie(product.Item_Id, actionType);
       return;
     }
 
-    UPSproductLikes(requestBody);
+    const result = await UPSproductLikes(requestBody);
+    setLikes(result.isLike);
+    setUnlikes(result.UnLike);
   };
 
   const showLoader = () => {

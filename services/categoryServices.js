@@ -13,7 +13,6 @@ export async function fetchCategoriesMenu(lang) {
     }
   );
   const menues = await res.json();
-  // console.log(menues);
   return menues;
 }
 

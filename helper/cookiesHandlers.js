@@ -92,7 +92,6 @@ export function increaseCartItemInCookie(itemBeingIncreased) {
   let cartItems = parsedCookie.items;
   const itemIndex = cartItems.findIndex((item) => item.Item_Id == itemBeingIncreased.Item_Id);
   const expires = setExpiration();
-  console.log(expires);
 
   cartItems[itemIndex].Qty++;
   const updatedCookie = JSON.stringify({
@@ -196,8 +195,10 @@ const likeExistedProduct = (action, prevProducts, productIndex) => {
   let newProducts = prevProducts;
   if (action == "like") {
     newProducts[productIndex].liked = newProducts[productIndex].liked ? false : true;
+    newProducts[productIndex].unLiked = false;
   } else if (action == "unLike") {
     newProducts[productIndex].unLiked = newProducts[productIndex].unLiked ? false : true;
+    newProducts[productIndex].liked = false;
   }
 
   const cleanedProducts = cleanProducts(newProducts);
@@ -273,35 +274,39 @@ export const setInitialLikeState = async (product, likeBtn, unLikeBtn) => {
   }
 };
 
-export const sendLikeRecordToDB = async (Item_Id, Review_Id, setLikeSentToDb) => {
+export const sendLikesToDB = async () => {
   const session = await getSession();
   if (!session) {
     return;
   }
 
   const cookieIsFound = getCookie("likesCookie");
-  const parsedCookie = JSON.parse(cookieIsFound);
-  const productIndex = parsedCookie.products.findIndex((item) => item.id == Item_Id);
-  const foundProduct = parsedCookie.products[productIndex];
+  if (cookieIsFound) {
+    const parsedCookie = JSON.parse(cookieIsFound);
+    const likes = parsedCookie.products;
 
-  if (foundProduct) {
-    const requestBody = {
-      Review_Id: Review_Id,
-      Company_Id: 0,
-      Item_Id: Item_Id,
-      Cust_Id: 0,
-      Review_Num: 0,
-      Review_Comment: "string",
-      isLike: foundProduct.liked ? 1 : 2,
-      Computer_Name: "string",
-      Active: true,
-      Cust_Name: "string",
-    };
-
-    const action = foundProduct.liked ? "like" : "unLike";
-    updateLikesCookie(action, cookieIsFound, Item_Id);
-
-    const res = await UPSproductLikes(requestBody);
-    setLikeSentToDb(true);
+    likes.map(async (record) => {
+      await sendLikeRecordToDB(record, cookieIsFound);
+    });
   }
+};
+
+const sendLikeRecordToDB = async (record, cookieIsFound) => {
+  const requestBody = {
+    Review_Id: 0,
+    Company_Id: 0,
+    Item_Id: record.id,
+    Cust_Id: 0,
+    Review_Num: 0,
+    Review_Comment: "string",
+    isLike: record.liked ? 1 : 2,
+    Computer_Name: "string",
+    Active: true,
+    Cust_Name: "string",
+  };
+
+  const action = record.liked ? "like" : "unLike";
+  updateLikesCookie(action, cookieIsFound, record.id);
+
+  const res = await UPSproductLikes(requestBody);
 };

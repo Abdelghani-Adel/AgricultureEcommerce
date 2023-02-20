@@ -1,10 +1,9 @@
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
-import { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { addItemsFromCookiesToDB } from "../../helper/cookiesHandlers";
+import { addItemsFromCookiesToDB, sendLikesToDB } from "../../helper/cookiesHandlers";
 import { getCartDetails, getCurrency } from "../../redux/slices/cartSlice";
 import { loaderActions } from "../../redux/slices/loaderSlice";
 import { getNavbarLinks } from "../../redux/slices/navbarSlice";
@@ -19,18 +18,19 @@ export default function MainLayout(props) {
 
   useEffect(() => {
     dispatch(loaderActions.showLoader());
-    console.log("fetch apis");
 
     const fetchCurrency = dispatch(getCurrency());
     const fetchNavbarLinks = dispatch(getNavbarLinks());
     const fetchCartDetailsFromDB = dispatch(getCartDetails());
     const fetchCartDetailsFromCookies = addItemsFromCookiesToDB();
+    const fetchLikesDetailsFromCookies = sendLikesToDB();
 
     const promisies = [
       fetchCurrency,
-      fetchCartDetailsFromDB,
       fetchNavbarLinks,
+      fetchCartDetailsFromDB,
       fetchCartDetailsFromCookies,
+      fetchLikesDetailsFromCookies,
     ];
 
     Promise.all(promisies).then(() => {

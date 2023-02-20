@@ -71,5 +71,5 @@ export async function UPSproductLikes(requestBody) {
   );
 
   const result = await res.json();
-  console.log(result);
+  return result;
 }
