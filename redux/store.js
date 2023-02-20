@@ -4,6 +4,7 @@ import cartSlice from "./slices/cartSlice";
 import langSlice from "./slices/lang";
 import loaderSlice from "./slices/loaderSlice";
 import navBarSlice from "./slices/navbarSlice";
+import productSlice from "./slices/productSlice";
 
 const store = configureStore(
   {
@@ -13,6 +14,7 @@ const store = configureStore(
       loader: loaderSlice.reducer,
       navbarLinks: navBarSlice.reducer,
       lang: langSlice.reducer,
+      products: productSlice.reducer,
     },
   },
   typeof window !== "undefined" &&
