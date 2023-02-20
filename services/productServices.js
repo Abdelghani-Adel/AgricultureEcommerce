@@ -1,6 +1,9 @@
+import { getSession } from "next-auth/react";
 import { getAuthHeaders } from "../helper/auth";
 
 export async function fetchBestProducts(lang) {
+  const session = await getSession();
+  const Cust_Id = session ? session.user.custId : 0;
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getItemMainByBestProducts`,
     {
@@ -8,7 +11,7 @@ export async function fetchBestProducts(lang) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ lang: lang, Cate_Id: 0, limit: 10, start: 0 }),
+      body: JSON.stringify({ lang: lang, Cate_Id: 0, Cust_Id: Cust_Id, limit: 10, start: 0 }),
     }
   );
 
@@ -18,6 +21,9 @@ export async function fetchBestProducts(lang) {
 }
 
 export async function fetchBooksItems(lang) {
+  const session = await getSession();
+  const Cust_Id = session ? session.user.custId : 0;
+
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getBooksItems`,
     {
@@ -26,7 +32,7 @@ export async function fetchBooksItems(lang) {
       body: JSON.stringify({
         lang: lang,
         Cate_Id: 0,
-        Cust_Id: 0,
+        Cust_Id: Cust_Id,
         limit: 10,
         start: 0,
       }),
@@ -60,7 +66,10 @@ export async function UPSproductLikes(requestBody) {
     {
       method: "POST",
       headers: await getAuthHeaders(),
-      body: JSON.stringify({ requestBody }),
+      body: JSON.stringify(requestBody),
     }
   );
+
+  const result = await res.json();
+  console.log(result);
 }

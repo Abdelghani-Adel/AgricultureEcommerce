@@ -1,7 +1,8 @@
-import { getSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import { editCart, getCartDetails } from "../redux/slices/cartSlice";
 import store from "../redux/store";
+import { UPSproductLikes } from "../services/productServices";
 
 export function getCookie(cname) {
   let name = cname + "=";
@@ -226,4 +227,81 @@ const cleanProducts = (products) => {
     }
   });
   return cleanedProducts;
+};
+
+export const setInitLikes = async (dbLikes, dbUnLikes, prod_Id, setLikes, setUnlikes) => {
+  const session = await getSession();
+  let totalLikes = dbLikes;
+  let totalUnLikes = dbUnLikes;
+
+  const likesCookieIsFound = getCookie("likesCookie");
+  if (!session && likesCookieIsFound) {
+    const parsedCookie = JSON.parse(likesCookieIsFound);
+    const productIndex = parsedCookie.products.findIndex((item) => item.id == prod_Id);
+    const foundProduct = parsedCookie.products[productIndex];
+
+    foundProduct && foundProduct.liked && totalLikes++;
+    foundProduct && foundProduct.unLiked && totalUnLikes++;
+  }
+
+  setLikes(totalLikes);
+  setUnlikes(totalUnLikes);
+};
+
+export const setInitialLikeState = async (product, likeBtn, unLikeBtn) => {
+  const session = await getSession();
+
+  if (session) {
+    const productReview = product.myreview;
+    if (!productReview) {
+      return;
+    }
+
+    productReview.isLike == 1 && likeBtn(true);
+    productReview.isLike == 2 && unLikeBtn(true);
+    return;
+  }
+
+  const likesCookieIsFound = getCookie("likesCookie");
+  if (!session && likesCookieIsFound) {
+    const parsedCookie = JSON.parse(likesCookieIsFound);
+    const productIndex = parsedCookie.products.findIndex((item) => item.id == product.Item_Id);
+    const foundProduct = parsedCookie.products[productIndex];
+
+    foundProduct && foundProduct.liked && likeBtn(true);
+    foundProduct && foundProduct.unLiked && unLikeBtn(true);
+  }
+};
+
+export const sendLikeRecordToDB = async (Item_Id, Review_Id, setLikeSentToDb) => {
+  const session = await getSession();
+  if (!session) {
+    return;
+  }
+
+  const cookieIsFound = getCookie("likesCookie");
+  const parsedCookie = JSON.parse(cookieIsFound);
+  const productIndex = parsedCookie.products.findIndex((item) => item.id == Item_Id);
+  const foundProduct = parsedCookie.products[productIndex];
+
+  if (foundProduct) {
+    const requestBody = {
+      Review_Id: Review_Id,
+      Company_Id: 0,
+      Item_Id: Item_Id,
+      Cust_Id: 0,
+      Review_Num: 0,
+      Review_Comment: "string",
+      isLike: foundProduct.liked ? 1 : 2,
+      Computer_Name: "string",
+      Active: true,
+      Cust_Name: "string",
+    };
+
+    const action = foundProduct.liked ? "like" : "unLike";
+    updateLikesCookie(action, cookieIsFound, Item_Id);
+
+    const res = await UPSproductLikes(requestBody);
+    setLikeSentToDb(true);
+  }
 };

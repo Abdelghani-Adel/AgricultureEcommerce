@@ -8,7 +8,12 @@ import { withTranslation } from "react-multi-lang";
 import AddToCart from "../../AddToCart";
 import { useDispatch } from "react-redux";
 import { loaderActions } from "../../../../../redux/slices/loaderSlice";
-import { getCookie, storeLikeInCookie } from "../../../../../helper/cookiesHandlers";
+import {
+  setInitialLikeState,
+  storeLikeInCookie,
+  setInitLikes,
+  sendLikeRecordToDB,
+} from "../../../../../helper/cookiesHandlers";
 import { useEffect } from "react";
 import { UPSproductLikes } from "../../../../../services/productServices";
 
@@ -21,33 +26,25 @@ const ProductFooter = (props) => {
   const [unlikeButtonChecked, setUnlikeButtonChecked] = useState(false);
   const [likes, setLikes] = useState();
   const [unLikes, setUnlikes] = useState();
+  const [likeSentToDB, setLikeSentToDb] = useState(false);
 
   useEffect(() => {
-    let likes = product.isLike;
-    let unLikes = product.UnLike;
-
-    const likesCookieIsFound = getCookie("likesCookie");
-    if (likesCookieIsFound) {
-      const parsedCookie = JSON.parse(likesCookieIsFound);
-      const productIndex = parsedCookie.products.findIndex((item) => item.id == product.Item_Id);
-      const foundProduct = parsedCookie.products[productIndex];
-      if (foundProduct && foundProduct.liked) {
-        likes = likes + 1;
-        setLikeButtonChecked(true);
-      }
-      if (foundProduct && foundProduct.unLiked) {
-        unLikes = unLikes + 1;
-        setUnlikeButtonChecked(true);
-      }
-    }
-
-    setLikes(likes);
-    setUnlikes(unLikes);
+    const prod_Id = product.Item_Id;
+    const Review_Id = product.myreview ? product.myreview.Review_Id : 0;
+    sendLikeRecordToDB(prod_Id, Review_Id, setLikeSentToDb);
   }, []);
+
+  useEffect(() => {
+    const dbLikes = product.isLike;
+    const dbUnLikes = product.UnLike;
+    const prod_Id = product.Item_Id;
+    setInitLikes(dbLikes, dbUnLikes, prod_Id, setLikes, setUnlikes);
+    setInitialLikeState(product, setLikeButtonChecked, setUnlikeButtonChecked);
+  }, [likeSentToDB]);
 
   const likeHandler = async (e) => {
     let requestBody = {
-      Review_Id: 0,
+      Review_Id: product.myreview ? product.myreview.Review_Id : 0,
       Company_Id: 0,
       Item_Id: product.Item_Id,
       Review_Num: 0,
@@ -58,51 +55,26 @@ const ProductFooter = (props) => {
       Cust_Name: "string",
     };
 
-    const actionType = e.target.dataset.type;
+    const actionType = e.currentTarget.dataset.type;
 
     if (actionType == "like") {
-      if (likeButtonChecked) {
-        requestBody = { ...requestBody, isLike: 0 };
-        setLikes((prev) => {
-          return prev - 1;
-        });
-      } else {
-        requestBody = { ...requestBody, isLike: 1 };
-        setLikes((prev) => {
-          return prev + 1;
-        });
-      }
-
-      setLikeButtonChecked((prev) => {
-        return !prev;
-      });
+      requestBody.isLike = 1;
+      likeButtonChecked ? setLikes((prev) => prev - 1) : setLikes((prev) => prev + 1);
+      setLikeButtonChecked((prev) => !prev);
+      setUnlikeButtonChecked(false);
+    } else if (actionType == "unLike") {
+      requestBody.isLike = 2;
+      unlikeButtonChecked ? setUnlikes((prev) => prev - 1) : setUnlikes((prev) => prev + 1);
+      setUnlikeButtonChecked((prev) => !prev);
+      setLikeButtonChecked(false);
     }
-
-    if (actionType == "unLike") {
-      if (unlikeButtonChecked) {
-        requestBody = { ...requestBody, isLike: 0 };
-        setUnlikes((prev) => {
-          return prev - 1;
-        });
-      } else {
-        requestBody = { ...requestBody, isLike: 2 };
-        setUnlikes((prev) => {
-          return prev + 1;
-        });
-      }
-      setUnlikeButtonChecked((prev) => {
-        return !prev;
-      });
-    }
-
-    console.log(requestBody);
 
     if (session.status != "authenticated") {
       storeLikeInCookie(product.Item_Id, actionType);
       return;
     }
 
-    // UPSproductLikes(requestBody);
+    UPSproductLikes(requestBody);
   };
 
   const showLoader = () => {
@@ -140,7 +112,8 @@ const ProductFooter = (props) => {
           title={props.t("Products.Likes")}
           onClick={likeHandler}
         >
-          <BiDislike /> {`(${unLikes})`}
+          <BiDislike />
+          {`(${unLikes})`}
         </button>
       </div>
     </div>
