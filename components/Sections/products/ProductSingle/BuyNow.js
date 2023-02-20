@@ -1,13 +1,10 @@
 import { useSession } from "next-auth/react";
-import Link from "next/Link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { useState } from "react";
-import { FaMinus, FaPlus } from "react-icons/fa";
-import { useDispatch } from "react-redux";
-import { cartActions, editCart } from "../../../../redux/slices/cartSlice";
-import AddToCart from "../AddToCart";
+import { useEffect, useState } from "react";
 import { withTranslation } from "react-multi-lang";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../../../redux/slices/cartSlice";
+import AddToCart from "../AddToCart";
 
 const BuyNow = (props) => {
   const [item, setItem] = useState(props.item);
@@ -40,8 +37,12 @@ const BuyNow = (props) => {
   return (
     <div>
       <div className="row justify-content-center">
-        <div className="col-lg-4 col-xs-12" >
-          <select defaultValue={0} className="form-select me-3 uom_select" onChange={UOMchangeHandler}>
+        <div className="col-lg-4 col-xs-12">
+          <select
+            defaultValue={0}
+            className="form-select me-3 uom_select"
+            onChange={UOMchangeHandler}
+          >
             <option value={0} disabled>
               {selectedUOM}
             </option>
