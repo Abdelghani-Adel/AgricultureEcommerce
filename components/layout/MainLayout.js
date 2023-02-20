@@ -19,6 +19,7 @@ export default function MainLayout(props) {
 
   useEffect(() => {
     dispatch(loaderActions.showLoader());
+    console.log("fetch apis");
 
     const fetchCurrency = dispatch(getCurrency());
     const fetchNavbarLinks = dispatch(getNavbarLinks());
