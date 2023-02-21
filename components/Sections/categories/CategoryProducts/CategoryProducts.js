@@ -1,13 +1,9 @@
-import { useRouter } from "next/router";
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
 import ReactPaginate from "react-paginate";
-import Loader from "../../../layout/Reusable/Loader";
 import ProductCardList from "../../products/ProductCardList/ProductCardList";
-import FilterPrice from "./FilterPrice";
-import FilterState from "./FilterState";
+import FiltersGroup from "./Filter/FiltersGroup";
 import ProductCount from "./ProductCount";
 import SearchCategory from "./SearchCategory";
 
@@ -64,8 +60,7 @@ const CategoryProducts = (props) => {
           <div className="col-lg-3 col-xs-12">
             <div className="sidebar">
               <SearchCategory />
-              <FilterState />
-              <FilterPrice />
+              <FiltersGroup />
             </div>
           </div>
 

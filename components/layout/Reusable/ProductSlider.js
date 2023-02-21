@@ -12,7 +12,7 @@ const defaultSliderSettings = {
   arrows: false,
   dots: false,
   infinite: true,
-  autoplay: false,
+  autoplay: true,
   swipeToSlide: true,
   responsive: [
     {

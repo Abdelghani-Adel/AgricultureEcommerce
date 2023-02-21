@@ -2429,7 +2429,8 @@ p {
   transform-origin: 0% 0%;
   visibility: hidden;
   z-index: 998;
-  min-width: 230px;
+  min-width: max-content;
+  border: 1px solid rgb(224, 224, 224);
   box-shadow: 0 3px 24px rgba(0, 0, 0, 0.04);
 }
 
@@ -2573,7 +2574,7 @@ p {
 }
 
 .mobile_nav {
-  width: 40vw;
+  width: 50vw;
   background-color: #5d5d5d;
   height: 100vh;
   padding: 10px;
