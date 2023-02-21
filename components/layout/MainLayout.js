@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
@@ -16,11 +15,9 @@ export default function MainLayout(props) {
   useEffect(() => {
     dispatch(loaderActions.showLoader());
     fetchBasicData()
-      .then(sendCookiesToDB())
-      .then(fetchBrwosingData())
-      .then(() => {
-        dispatch(loaderActions.hideLoader());
-      });
+      .then(() => sendCookiesToDB())
+      .then(() => fetchBrwosingData())
+      .then(() => dispatch(loaderActions.hideLoader()));
   }, []);
 
   return (
