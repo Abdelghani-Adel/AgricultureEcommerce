@@ -8,6 +8,7 @@ import { getCartDetails, getCurrency } from "../../redux/slices/cartSlice";
 import { loaderActions } from "../../redux/slices/loaderSlice";
 import { getNavbarLinks } from "../../redux/slices/navbarSlice";
 import { fetchProducts } from "../../redux/slices/productSlice";
+import { fetchBasicData, fetchBrwosingData, sendCookiesToDB } from "../../services/GroupAPICall";
 import Footer from "./Footer/Footer";
 import MainHeader from "./MainHeader/MainHeader";
 import Loader from "./Reusable/Loader";
@@ -20,64 +21,47 @@ export default function MainLayout(props) {
   useEffect(() => {
     dispatch(loaderActions.showLoader());
 
-    const fetchCurrency = dispatch(getCurrency());
-    const fetchNavbarLinks = dispatch(getNavbarLinks());
-    const initialPromises = [fetchCurrency, fetchNavbarLinks];
-
-    Promise.all(initialPromises).then(() => {
-      const fetchCartDetailsFromCookies = addItemsFromCookiesToDB();
-      const fetchLikesDetailsFromCookies = sendLikesToDB();
-      const sendCookiesToDBPromises = [fetchCartDetailsFromCookies, fetchLikesDetailsFromCookies];
-
-      Promise.all(sendCookiesToDBPromises).then(() => {
-        const fetchCurrency = dispatch(getCurrency());
-        const fetchNavbarLinks = dispatch(getNavbarLinks());
-        const fetchCartDetailsFromDB = dispatch(getCartDetails());
-        const fetchProductsToRedux = dispatch(fetchProducts());
-
-        const promisies = [
-          fetchCurrency,
-          fetchNavbarLinks,
-          fetchCartDetailsFromDB,
-          fetchCartDetailsFromCookies,
-          fetchLikesDetailsFromCookies,
-          fetchProductsToRedux,
-        ];
-
-        Promise.all(promisies).then(() => {
-          fetchCartDetailsFromCookies.then((result) => {
-            if (result == "done") {
-              router.push("/cart");
-            }
-          });
-          dispatch(loaderActions.hideLoader());
-        });
+    fetchBasicData()
+      .then(sendCookiesToDB())
+      .then(fetchBrwosingData())
+      .then(() => {
+        dispatch(loaderActions.hideLoader());
       });
-    });
 
     // const fetchCurrency = dispatch(getCurrency());
     // const fetchNavbarLinks = dispatch(getNavbarLinks());
-    // const fetchCartDetailsFromDB = dispatch(getCartDetails());
-    // const fetchCartDetailsFromCookies = addItemsFromCookiesToDB();
-    // const fetchLikesDetailsFromCookies = sendLikesToDB();
-    // const fetchProductsToRedux = dispatch(fetchProducts());
+    // const initialPromises = [fetchCurrency, fetchNavbarLinks];
 
-    // const promisies = [
-    //   fetchCurrency,
-    //   fetchNavbarLinks,
-    //   fetchCartDetailsFromDB,
-    //   fetchCartDetailsFromCookies,
-    //   fetchLikesDetailsFromCookies,
-    //   fetchProductsToRedux,
-    // ];
+    // Promise.all(initialPromises).then(() => {
+    //   const fetchCartDetailsFromCookies = addItemsFromCookiesToDB();
+    //   const fetchLikesDetailsFromCookies = sendLikesToDB();
+    //   const sendCookiesToDBPromises = [fetchCartDetailsFromCookies, fetchLikesDetailsFromCookies];
 
-    // Promise.all(promisies).then(() => {
     //   fetchCartDetailsFromCookies.then((result) => {
     //     if (result == "done") {
     //       router.push("/cart");
     //     }
     //   });
-    //   dispatch(loaderActions.hideLoader());
+
+    //   Promise.all(sendCookiesToDBPromises).then(() => {
+    //     const fetchCurrency = dispatch(getCurrency());
+    //     const fetchNavbarLinks = dispatch(getNavbarLinks());
+    //     const fetchCartDetailsFromDB = dispatch(getCartDetails());
+    //     const fetchProductsToRedux = dispatch(fetchProducts());
+
+    //     const fetchingSiteData = [
+    //       fetchCurrency,
+    //       fetchNavbarLinks,
+    //       fetchCartDetailsFromDB,
+    //       fetchCartDetailsFromCookies,
+    //       fetchLikesDetailsFromCookies,
+    //       fetchProductsToRedux,
+    //     ];
+
+    //     Promise.all(fetchingSiteData).then(() => {
+    //       dispatch(loaderActions.hideLoader());
+    //     });
+    //   });
     // });
   }, []);
 

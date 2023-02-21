@@ -15,8 +15,8 @@ import { UPSproductLikes } from "../../../../../services/productServices";
 import AddToCart from "../../AddToCart";
 
 const ProductFooter = (props) => {
-  const [likes, setLikes] = useState();
-  const [unLikes, setUnlikes] = useState();
+  const [likes, setLikes] = useState(0);
+  const [unLikes, setUnlikes] = useState(0);
   const [likeButtonChecked, setLikeButtonChecked] = useState(false);
   const [unlikeButtonChecked, setUnlikeButtonChecked] = useState(false);
 

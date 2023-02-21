@@ -70,7 +70,12 @@ const ProductsSlider = (props) => {
                   </Link>
                 </div>
                 <div className="col-lg-6 d-none d-lg-block">
-                  <img src={"../" + item.photo} alt={item.title} />
+                  <img
+                    src={
+                      "https://fastly.picsum.photos/id/988/500/420.jpg?hmac=Y0eqwuZAPCMDPwBcL9AIhDwVNSWV-IenkzC5M5jeKek"
+                    }
+                    alt={item.title}
+                  />
                 </div>
               </div>
             </div>

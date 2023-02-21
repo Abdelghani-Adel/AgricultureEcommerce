@@ -23,13 +23,15 @@ class HomeContent extends Component {
               </div>
 
               <div className="col-lg-4 col-md-4 col-xs-12">
-                <div style={{ width: "100%" }}>
-                  <img
-                    src="img/videoFull.png"
-                    alt="agriculture_video"
-                    className="img-fluid h-100"
-                  />
-                </div>
+                {/* <iframe
+                  width="200"
+                  height="200"
+                  src="https://youtu.be/Mz1fql7kr7g"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe> */}
               </div>
             </div>
           </div>

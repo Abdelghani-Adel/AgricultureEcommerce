@@ -9,7 +9,7 @@ export default function Home(props) {
   const dispatch = useDispatch();
   const loader = useSelector((state) => state.loader);
   const session = useSession();
-  console.log(session);
+  // console.log(session);
 
   useEffect(() => {
     dispatch(loaderActions.hideLoader());
