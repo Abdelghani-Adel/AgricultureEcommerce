@@ -2345,6 +2345,30 @@ p {
     padding: 5px 10px;
   }
 }
+.special_offer--inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.special_offer--inner .slick-slider {
+  overflow: hidden;
+}
+
+.special_offer .slick-slide img {
+  max-height: 10%;
+}
+
+.special_offer--img {
+  max-height: 10%;
+}
+
+.img_border {
+  border: 2px solid #40a13d;
+  padding: 5px;
+}
+
 .frame-wrapper {
   width: 100%;
   height: 100px;

@@ -8,6 +8,7 @@ const Other = (props) => {
           src="https://fastly.picsum.photos/id/33/521/177.jpg?hmac=L4jhdUWoWTz7RjMHsU6TzbWZouEY3lokJ3D9_kVKiiQ"
           alt="agriculture_advertise"
           style={{ marginBottom: "10px" }}
+          className="img_border"
         />
 
         <div className="frame-wrapper">
@@ -22,6 +23,7 @@ const Other = (props) => {
           src="https://fastly.picsum.photos/id/492/521/177.jpg?hmac=h81F_8F-sSb5sxzOeMg3GcGQRcYPWX25Nbb75fqz8LM"
           alt="agriculture_advertise"
           style={{ marginTop: "10px" }}
+          className="img_border"
         />
       </div>
     </div>
