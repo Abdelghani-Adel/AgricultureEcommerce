@@ -28,19 +28,19 @@ class Footer extends Component {
                 <h5 className="widget-title">{this.props.t("Footer.Information")}</h5>
                 <ul>
                   <li>
-                    <Link href="/">Home</Link>
+                    <Link href="/">{this.props.t("Footer.Home")}</Link>
                   </li>
                   <li>
-                    <Link href="/blog-grid">Blog</Link>
+                    <Link href="/blog-grid">{this.props.t("Footer.Blog")}</Link>
                   </li>
                   <li>
-                    <Link href="/about">About Us</Link>
+                    <Link href="/about">{this.props.t("Footer.About")}</Link>
                   </li>
                   <li>
-                    <Link href="/shop-v1">Shop</Link>
+                    <Link href="/shop-v1">{this.props.t("Footer.Shop")}</Link>
                   </li>
                   <li>
-                    <Link href="/contact">Contact Us</Link>
+                    <Link href="/contact">{this.props.t("Footer.Contact")}</Link>
                   </li>
                 </ul>
               </div>
@@ -71,21 +71,21 @@ class Footer extends Component {
               <div className="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
                 <h5 className="widget-title">{this.props.t("Footer.Others")}</h5>
                 <ul>
+                  {/* <li>
+                    <Link href="/checkout">{this.props.t("Footer.Checkout")}</Link>
+                  </li> */}
                   <li>
-                    <Link href="/checkout">Checkout</Link>
+                    <Link href="/cart">{this.props.t("Footer.Cart")}</Link>
                   </li>
                   <li>
-                    <Link href="/cart">Cart</Link>
+                    <Link href="/product-single">{this.props.t("Footer.Product")}</Link>
                   </li>
                   <li>
-                    <Link href="/product-single">Product</Link>
+                    <Link href="/shop-v1">{this.props.t("Footer.Shop")}</Link>
                   </li>
-                  <li>
-                    <Link href="/shop-v1">Shop</Link>
-                  </li>
-                  <li>
+                  {/* <li>
                     <Link href="/legal">Legal</Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
 
@@ -127,16 +127,16 @@ class Footer extends Component {
           <div className="container">
             <ul>
               <li>
-                <Link href="#">Privacy Policy</Link>
+                <Link href="#">{this.props.t("Footer.PrivacyPolicy")}</Link>
               </li>
               <li>
-                <Link href="#">Refund Policy</Link>
+                <Link href="#">{this.props.t("Footer.RefundPolicy")}</Link>
               </li>
               <li>
-                <Link href="#">Cookie Policy</Link>
+                <Link href="#">{this.props.t("Footer.CookiePolicy")}</Link>
               </li>
               <li>
-                <Link href="#">Terms &amp; Conditions</Link>
+                <Link href="#">{this.props.t("Footer.Terms")}</Link>
               </li>
             </ul>
 

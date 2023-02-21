@@ -15,9 +15,8 @@
 }
 .frame-wrapper-2 {
   width: 100%;
-  height: 50%;
+  height: 40vh;
   border: 2px solid;
-  //   background-image: linear-gradient(45deg, #00e213, #e0fd04);
   border: 4px solid #50bd4d;
   padding: 10px;
   border-radius: 10px;
@@ -26,6 +25,7 @@
 @media screen and (min-width: 768px) {
   .frame-wrapper-2 {
     margin-top: 60px;
+    height: 50%;
   }
 }
 

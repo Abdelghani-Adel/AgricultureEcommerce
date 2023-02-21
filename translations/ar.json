@@ -47,7 +47,19 @@
     "Others": "اخري",
     "SocialMedia": "وسائل التواصل",
     "Signup": "تسجيل الدخول",
-    "Information": "المعلومات"
+    "Information": "المعلومات",
+    "Home": "الصفحة الرئيسية",
+    "Blog": "المدوّنة",
+    "About": "معلومات عنّا",
+    "Shop": "المتجر",
+    "Contact": "تواصل معنا",
+    "Checkout": "قم بالدفع",
+    "Cart": "عربة التسوق",
+    "Product": "المنتجات",
+    "PrivacyPolicy": "سياسة الخصوصية",
+    "RefundPolicy": "سياسة الاسترجاع",
+    "CookiePolicy": "سياسة ملفات الارتباط",
+    "Terms": "الشروط والأحكام"
   },
   "Cart": {
     "Product": "المنتج",

@@ -48,7 +48,19 @@
     "Others": "Others",
     "SocialMedia": "Social Media",
     "Signup": "Signup",
-    "Information": "Information"
+    "Information": "Information",
+    "Home": "Home",
+    "Blog": "Blog",
+    "About": "About Us",
+    "Shop": "Shop",
+    "Contact": "Contact Us",
+    "Checkout": "Checkout",
+    "Cart": "Cart",
+    "Product": "Product",
+    "PrivacyPolicy": "Privacy Policy",
+    "RefundPolicy": "Refund Policy",
+    "CookiePolicy": "Cookie Plicy",
+    "Terms": "Terms & Conditions"
   },
   "Cart": {
     "Product": "Product",

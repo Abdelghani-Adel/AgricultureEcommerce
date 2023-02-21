@@ -18,11 +18,11 @@ class HomeContent extends Component {
         <div className="section pt-0 andro_fresh-arrivals">
           <div className="container">
             <div className="row">
-              <div className="col-lg-8 col-md-8 col-xs-12">
+              <div className="col-lg-8 col-md-7 col-xs-12">
                 <AgricultureBooks BooksInfoList={this.props.BooksInfoList} />
               </div>
 
-              <div className="col-lg-4 col-md-4 col-xs-12">
+              <div className="col-lg-4 col-md-5 col-xs-12">
                 <div className="frame-wrapper-2">
                   <iframe
                     className="iframe_2"
