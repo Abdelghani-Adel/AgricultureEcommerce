@@ -10,7 +10,7 @@ const BestProducts = () => {
 
   return (
     <Fragment>
-      {products && products.length > 0 && (
+      {products.length > 0 && (
         <ProductSlider
           translateTitle={"Products.BestProducts"}
           products={products}

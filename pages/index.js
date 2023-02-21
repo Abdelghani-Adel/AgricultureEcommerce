@@ -1,15 +1,11 @@
-import { useSession } from "next-auth/react";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import HomeContent from "../components/Sections/home/HomeContent";
 import Products from "../data/products.json";
 import { loaderActions } from "../redux/slices/loaderSlice";
 
 export default function Home(props) {
   const dispatch = useDispatch();
-  const loader = useSelector((state) => state.loader);
-  const session = useSession();
-  // console.log(session);
 
   useEffect(() => {
     dispatch(loaderActions.hideLoader());

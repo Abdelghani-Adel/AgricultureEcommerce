@@ -21,11 +21,6 @@ export async function fetchCartDetailsFromDB(lang) {
 }
 
 export async function editCartItem(editedCartItem, lang, Cust_Id, currentCart) {
-  console.log(editedCartItem);
-  console.log(lang);
-  console.log(Cust_Id);
-  console.log(currentCart);
-  console.log("cartDetails");
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/api/Booking/addToCart`, {
     method: "POST",
     headers: await getAuthHeaders(),

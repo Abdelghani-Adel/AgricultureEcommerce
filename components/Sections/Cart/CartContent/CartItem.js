@@ -7,7 +7,7 @@ import {
   decreaseCartItemInCookie,
   deleteCartItemInCookie,
   increaseCartItemInCookie,
-} from "../../../../helper/cookiesHandlers";
+} from "../../../../helper/Cookies/CarCookies";
 import { cartActions, deleteItem, editCart } from "../../../../redux/slices/cartSlice";
 
 const CartItem = (props) => {

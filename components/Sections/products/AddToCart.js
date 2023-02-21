@@ -5,7 +5,7 @@ import { withTranslation } from "react-multi-lang";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { storeCartItemInCookie } from "../../../helper/cookiesHandlers";
+import { storeCartItemInCookie } from "../../../helper/Cookies/CarCookies";
 import { editCart } from "../../../redux/slices/cartSlice";
 
 const AddToCart = (props) => {

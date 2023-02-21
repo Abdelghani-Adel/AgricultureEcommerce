@@ -1,4 +1,5 @@
-import { addItemsFromCookiesToDB, sendLikesToDB } from "../helper/cookiesHandlers";
+import { addItemsFromCookiesToDB } from "../helper/Cookies/CarCookies";
+import { sendLikesToDB } from "../helper/Cookies/LikesCookies";
 import { getCartDetails, getCurrency } from "../redux/slices/cartSlice";
 import { getNavbarLinks } from "../redux/slices/navbarSlice";
 import { fetchProducts } from "../redux/slices/productSlice";

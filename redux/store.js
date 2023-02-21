@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authSlice from "./slices/authSlice";
 import cartSlice from "./slices/cartSlice";
 import langSlice from "./slices/lang";
 import loaderSlice from "./slices/loaderSlice";
@@ -10,7 +9,6 @@ const store = configureStore(
   {
     reducer: {
       cart: cartSlice.reducer,
-      auth: authSlice.reducer,
       loader: loaderSlice.reducer,
       navbarLinks: navBarSlice.reducer,
       lang: langSlice.reducer,

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getSession } from "next-auth/react";
-import { getCartDetailsFromCookies } from "../../helper/cookiesHandlers";
+import { getCartDetailsFromCookies } from "../../helper/Cookies/CarCookies";
 import {
   deleteCartItem,
   editCartItem,
@@ -40,15 +40,6 @@ const cartSlice = createSlice({
         checkedCartItems: [...filteredCheckedItems],
         checkedCartItemsTotalPrice: checkedItemsPrice,
       };
-    },
-    save: (state, param) => {
-      const { payload } = param;
-      state.location = [...state.location, payload];
-    },
-    clearCart: (state) => {
-      state.items = [];
-      state.totalPrice = 0;
-      state.Cart_Id = 0;
     },
     hydrateTempCart: (state, params) => {
       const item = {

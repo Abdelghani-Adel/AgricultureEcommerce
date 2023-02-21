@@ -10,13 +10,13 @@ const Other = (props) => {
           style={{ marginBottom: "10px" }}
         />
 
-        <iframe
-          width="100%"
-          height="150px"
-          src="http://admin.zera3amarket.com/Videos/Video2.mp4"
-          title="YouTube video player"
-          crossOrigin="anonymous"
-        ></iframe>
+        <div className="frame-wrapper">
+          <iframe
+            className="iframe"
+            src="https://www.youtube-nocookie.com/embed/Mz1fql7kr7g?enablejsapi=1"
+            title="YouTube video player"
+          ></iframe>
+        </div>
 
         <img
           src="https://fastly.picsum.photos/id/492/521/177.jpg?hmac=h81F_8F-sSb5sxzOeMg3GcGQRcYPWX25Nbb75fqz8LM"

@@ -9,7 +9,7 @@ import {
   setInitialLikeState,
   setInitLikes,
   storeLikeInCookie,
-} from "../../../../../helper/cookiesHandlers";
+} from "../../../../../helper/Cookies/LikesCookies";
 import { loaderActions } from "../../../../../redux/slices/loaderSlice";
 import { UPSproductLikes } from "../../../../../services/productServices";
 import AddToCart from "../../AddToCart";
