@@ -30,12 +30,6 @@ const ProductInfo = ({ item, wrapperPosition }) => {
 
   const handleScroll = () => {
     const position = window.pageYOffset;
-
-    // const childDimentions = ref.current.getBoundingClientRect();
-    // const parentDimentions = ref.current.parentElement.getBoundingClientRect();
-    // console.log(window.innerHeight - childDimentions.y - childDimentions.height);
-    // console.log(window.innerHeight - parentDimentions.y - parentDimentions.height);
-
     if (window.pageXOffset >= ref.current.offsetTop + ref.current.offsetHeight) {
       console.log("got it");
     }

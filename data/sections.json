@@ -1,0 +1,16 @@
+{
+  "home": {
+    "best_products": {
+      "Position": "0",
+      "hidden": "false"
+    },
+    "cta": {
+      "Position": "0",
+      "hidden": "true"
+    },
+    "books": {
+      "Position": "0",
+      "hidden": "false"
+    }
+  }
+}

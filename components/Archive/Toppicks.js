@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Link from "next/Link";
-import shopbox from "../../../data/shop.json";
-import { Rating } from "../../../helper/helper";
+import shopbox from "../../data/shop.json";
+import { Rating } from "../../helper/helper";
 import { Modal } from "react-bootstrap";
 import Quickview from "../../layouts/Quickview";
 

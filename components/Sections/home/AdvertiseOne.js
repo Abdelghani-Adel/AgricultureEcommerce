@@ -47,7 +47,7 @@ const sliderSettings = {
   ],
 };
 
-const ProductsSlider = (props) => {
+const AdvertiseOne = (props) => {
   return (
     <div className="col-12 col-lg-6 col-xs-12">
       <div className="andro_banner banner-1">
@@ -87,4 +87,4 @@ const ProductsSlider = (props) => {
   );
 };
 
-export default ProductsSlider;
+export default AdvertiseOne;

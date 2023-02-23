@@ -1,7 +1,7 @@
 import Link from "next/Link";
 import React, { useEffect, useState } from "react";
 import { withTranslation } from "react-multi-lang";
-import Categories from "../../../data/category.json";
+import Categories from "../../data/category.json";
 
 const Category = (props) => {
   const [data, setData] = useState();

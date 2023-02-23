@@ -51,7 +51,7 @@ const sliderSettings = {
   ],
 };
 
-function Home_Offer(props) {
+function SpecialOffers(props) {
   return (
     <div className="col-6 col-lg-2 col-xs-12 special_offer text-center">
       <div className="card special_offer--inner">
@@ -76,4 +76,4 @@ function Home_Offer(props) {
     </div>
   );
 }
-export default withTranslation(Home_Offer);
+export default withTranslation(SpecialOffers);

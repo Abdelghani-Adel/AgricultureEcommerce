@@ -1,6 +1,6 @@
 import { withTranslation } from "react-multi-lang";
 
-const Other = (props) => {
+const AdvertiseTwo = (props) => {
   return (
     <div className="col-6 col-lg-2 col-xs-12">
       <div className=" andro_banner other_banner">
@@ -30,4 +30,4 @@ const Other = (props) => {
   );
 };
 
-export default withTranslation(Other);
+export default withTranslation(AdvertiseTwo);

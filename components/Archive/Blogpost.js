@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Link from "next/Link";
 import Slider from "react-slick";
-import blogbox from "../../../data/blog.json";
-import blogtags from "../../../data/blogtags.json";
-import testimonial from "../../../data/testimonial.json";
+import blogbox from "../../data/blog.json";
+import blogtags from "../../data/blogtags.json";
+import testimonial from "../../data/testimonial.json";
 
 class Blogpost extends Component {
   render() {
@@ -44,10 +44,7 @@ class Blogpost extends Component {
                     <article className="andro_post">
                       <div className="andro_post-thumb">
                         <Link to={"/post-single/" + item.id}>
-                          <img
-                            src={process.env.PUBLIC_URL + "/" + item.photo}
-                            alt={item.title}
-                          />
+                          <img src={process.env.PUBLIC_URL + "/" + item.photo} alt={item.title} />
                         </Link>
                       </div>
                       <div className="andro_post-body">
@@ -67,26 +64,18 @@ class Blogpost extends Component {
                         <div className="andro_post-desc">
                           <h5>
                             {" "}
-                            <Link to={"/post-single/" + item.id}>
-                              {item.title}
-                            </Link>{" "}
+                            <Link to={"/post-single/" + item.id}>{item.title}</Link>{" "}
                           </h5>
                           <span>
                             {" "}
                             <span className="fw-600">Posted On</span>{" "}
-                            <Link
-                              to={"/post-single/" + item.id}
-                              className="andro_post-date"
-                            >
+                            <Link to={"/post-single/" + item.id} className="andro_post-date">
                               {item.postdate}
                             </Link>{" "}
                           </span>
                           <p>{item.shortdesc}</p>
                         </div>
-                        <Link
-                          className="andro_btn-custom btn-block"
-                          to={"/post-single/" + item.id}
-                        >
+                        <Link className="andro_btn-custom btn-block" to={"/post-single/" + item.id}>
                           {" "}
                           Read More{" "}
                         </Link>
@@ -109,10 +98,7 @@ class Blogpost extends Component {
                     {testimonial.map((item, i) => (
                       <div key={i} className="andro_testimonial-item">
                         <div className="andro_testimonials-inner">
-                          <img
-                            src={process.env.PUBLIC_URL + "/" + item.photo}
-                            alt={item.name}
-                          />
+                          <img src={process.env.PUBLIC_URL + "/" + item.photo} alt={item.name} />
                           <h5>{item.name}</h5>
                           <span>{item.designation}</span>
                           <p>{item.para}</p>
@@ -177,33 +163,22 @@ class Blogpost extends Component {
                       <div className="form-group text-center">
                         <Link to="#">Forgot Password?</Link>
                       </div>
-                      <button
-                        type="submit"
-                        className="andro_btn-custom primary btn-block"
-                      >
+                      <button type="submit" className="andro_btn-custom primary btn-block">
                         Login
                       </button>
                       <div className="andro_auth-seperator">
                         <span>OR</span>
                       </div>
                       <div className="andro_social-login">
-                        <button
-                          type="button"
-                          className="andro_social-login-btn facebook"
-                        >
-                          <i className="fab fa-facebook-f" /> Continue with
-                          Facebook{" "}
+                        <button type="button" className="andro_social-login-btn facebook">
+                          <i className="fab fa-facebook-f" /> Continue with Facebook{" "}
                         </button>
-                        <button
-                          type="button"
-                          className="andro_social-login-btn google"
-                        >
+                        <button type="button" className="andro_social-login-btn google">
                           <i className="fab fa-google" /> Continue with Google
                         </button>
                       </div>
                       <p className="mb-0 text-center">
-                        Don't have an account?{" "}
-                        <Link to="/register">Create One</Link>{" "}
+                        Don't have an account? <Link to="/register">Create One</Link>{" "}
                       </p>
                     </form>
                   </div>

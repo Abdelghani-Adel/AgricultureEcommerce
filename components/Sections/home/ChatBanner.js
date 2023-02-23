@@ -1,7 +1,7 @@
 import React from "react";
 import { withTranslation } from "react-multi-lang";
 
-function chat_banner(props) {
+function ChatBanner(props) {
   return (
     <div className="col-12 col-lg-2">
       <div className="chat_banner">
@@ -20,4 +20,4 @@ function chat_banner(props) {
   );
 }
 
-export default withTranslation(chat_banner);
+export default withTranslation(ChatBanner);
