@@ -1,30 +1,46 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useRef } from "react";
 import { withTranslation } from "react-multi-lang";
-import AdditionalInfo from "./AdditionalInfo";
-import BuyNow from "./BuyNow";
+import AdditionalInfo from "../../../Archive/AdditionalInfo";
+import InformationTabs from "./InfoTabs/InformationTabs";
 import ProductCarousel from "./ProductCarousel";
-import ProductDetails from "./ProductDetails";
+import ProductInfo from "./ProductInfo/ProductInfo";
 
 const ProductSingle = (props) => {
   const item = props.ItemDetails;
+  const parentRef = useRef();
+
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+
+    const childDimentions = parentRef.current.getBoundingClientRect();
+
+    console.log(window.innerHeight - childDimentions.y - childDimentions.height);
+
+    // console.log("dd");
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <Fragment>
       <>
-        <div className="section">
+        <div className="section" ref={parentRef}>
           <div className="container">
             <div className="row">
               {/* Product Thumbnail */}
-              <div className="col-md-5">
+              <div className="col-md-8">
                 <ProductCarousel item={item} />
+                <InformationTabs item={item} />
               </div>
 
-              {/* Product Details */}
-              <div className="col-md-7">
-                <div className="andro_product-single-content">
-                  <ProductDetails item={item} />
-                  <BuyNow item={item} />
-                </div>
+              <div className="col-md-4">
+                <ProductInfo item={item} />
               </div>
             </div>
           </div>
@@ -32,9 +48,7 @@ const ProductSingle = (props) => {
 
         <div className="section pt-0">
           <div className="container">
-            <div className="andro_product-additional-info">
-              <AdditionalInfo item={item} />
-            </div>
+            <div className="andro_product-additional-info"></div>
           </div>
         </div>
       </>

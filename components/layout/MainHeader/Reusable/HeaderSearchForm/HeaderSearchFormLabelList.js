@@ -10,7 +10,7 @@ const HeaderSearchFormLabelList = (props) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   return (
-    <div className="andro_search-adv-cats">
+    <div className="andro_search-adv-cats menu-item-has-children">
       <span>
         {selectedCategory} <FaAngleDown />
       </span>

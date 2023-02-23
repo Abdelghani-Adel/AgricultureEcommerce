@@ -15,7 +15,7 @@ const CategoryProducts = (props) => {
   const [itemOffset, setItemOffset] = useState(0);
   const [endOffset, setEndOffset] = useState(6);
   const [currentItems, setCurrentItems] = useState([]);
-  const [pageCount, setPageCount] = useState();
+  const [pageCount, setPageCount] = useState(0);
 
   // const [currentStart, setCurrentStart] = useState(0);
   // const [currentPage, setCurrentPage] = useState(1);

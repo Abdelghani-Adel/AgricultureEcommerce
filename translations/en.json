@@ -41,7 +41,8 @@
     "Likes": "Likes",
     "Ingredients": "Ingredients",
     "Facilities": "Facilities",
-    "Warnings": "Warnings"
+    "Warnings": "Warnings",
+    "Desc": "Description"
   },
   "Footer": {
     "TopCategories": "Top Categories",

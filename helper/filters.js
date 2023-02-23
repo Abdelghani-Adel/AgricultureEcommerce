@@ -46,7 +46,7 @@ export const filters = [
       },
       {
         filterID: 1,
-        optionId: 2,
+        optionId: 3,
         optionTitle: "Organic",
         Entity_Id: 1,
         input_type: "checkbox",
@@ -86,7 +86,7 @@ export const filters = [
       },
       {
         filterID: 2,
-        optionId: 2,
+        optionId: 3,
         optionTitle: "Agrodev United",
         Entity_Id: 1,
         input_type: "checkbox",

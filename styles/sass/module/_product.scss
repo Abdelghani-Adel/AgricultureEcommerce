@@ -127,7 +127,7 @@
 .product_card .andro_rating {
   margin-bottom: 0;
 }
-.uom_select{
+.uom_select {
   margin: 10px 0;
 }
 .product_card--footer {
@@ -267,4 +267,16 @@
 // product image carrousel
 
 .image-gallery-thumbnail .image-gallery-thumbnail-image {
+}
+
+.product_single--info {
+  width: 30vw;
+}
+
+.product_single--info.Sticky {
+  position: fixed;
+  top: 0;
+  width: 30vw;
+  height: 500px;
+  // background-color: #18181d;
 }

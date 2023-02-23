@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { withTranslation } from "react-multi-lang";
 
 const InfoTab = (props) => {
-  const active = props.selected == "true";
+  const active = props.selected === true;
   const showData = props.data && props.data.length > 0;
   return (
     <Fragment>

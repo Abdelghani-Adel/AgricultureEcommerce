@@ -63,7 +63,7 @@ const ProductSlider = (props) => {
 
   return (
     <div className="section pt-0 andro_fresh-arrivals">
-      <div className="container">
+      <div className="container-fluid">
         <div className="section-title flex-title">
           <h4 className="title">{props.t(`${props.translateTitle}`)}</h4>
 

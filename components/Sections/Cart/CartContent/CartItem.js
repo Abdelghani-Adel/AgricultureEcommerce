@@ -94,7 +94,7 @@ const CartItem = (props) => {
             onChange={checkItemHandler}
             checked={itemChecked}
           />
-          {/* <label class="form-check-label" for="flexCheckDefault">
+          {/* <label className="form-check-label" for="flexCheckDefault">
             Default checkbox
           </label> */}
         </div>

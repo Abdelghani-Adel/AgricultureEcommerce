@@ -17,6 +17,10 @@
   align-items: center;
   justify-content: center;
 
+  &:hover {
+    background-color: #358832;
+  }
+
   &.disabled {
     background-color: #c6c6c6;
     pointer-events: none;

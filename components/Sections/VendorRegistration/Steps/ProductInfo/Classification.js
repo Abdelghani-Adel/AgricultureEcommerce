@@ -2,14 +2,14 @@ const Classification = (props) => {
   const { classification, style, changeHandler } = props;
   return (
     <div className="col">
-      <div class={`form-check ${style}`}>
+      <div className={`form-check ${style}`}>
         <input
-          class="form-check-input"
+          className="form-check-input"
           type="checkbox"
           value={classification.FAClassificationId}
           onChange={changeHandler}
         />
-        <label class="form-check-label">{classification.FAClassificationName}</label>
+        <label className="form-check-label">{classification.FAClassificationName}</label>
       </div>
 
       {classification.ClassificationChildren.length > 0 && (

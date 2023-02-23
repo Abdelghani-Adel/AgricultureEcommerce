@@ -1,11 +1,11 @@
 import { withTranslation } from "react-multi-lang";
-import InfoData from "./InfoTabs/InfoData";
-import InfoTab from "./InfoTabs/InfoTab";
+import InfoData from "../Sections/products/ProductSingle/InfoTabs/InfoData";
+import InfoTab from "../Sections/products/ProductSingle/InfoTabs/InfoTab";
 
 const AdditionalInfo = (props) => {
   const { item } = props;
   return (
-    <div className="row">
+    <div className="row mt-3">
       <div className="col-5 col-lg-4">
         <ul className="nav nav-pills d-flex flex-column" id="myTab" role="tablist">
           <InfoTab

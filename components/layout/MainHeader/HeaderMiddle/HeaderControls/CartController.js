@@ -12,13 +12,13 @@ const CartController = () => {
   return (
     <Link href="/cart" title="Cart" onClick={showLoader}>
       <FaShoppingBasket />
-      <div className="main_header-cart-content fs-800 d-none d-md-block">
+      <div className="ms-2 fs-800 d-none d-md-block">
         <span>
           {cartState.items.length} {cartState.items.length > 1 ? "Items" : "Item"}
         </span>
-        <span>
+        {/* <span>
           {cartState.totalPrice} {cartState.currency && cartState.currency.CurrBaseCode}
-        </span>
+        </span> */}
       </div>
     </Link>
   );

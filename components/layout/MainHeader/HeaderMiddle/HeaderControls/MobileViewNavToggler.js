@@ -4,7 +4,7 @@ import { fetchCategoriesMenu } from "../../../../../services/categoryServices";
 import { FaCommentAlt, FaRegHeart, FaShoppingBasket, FaUserAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { signOut, useSession } from "next-auth/react";
-import AuthController from "./AuthController";
+import ProfileAuthController from "./ProfileAuthController/ProfileAuthController";
 import CartController from "./CartController";
 
 const MobileViewNavToggler = (props) => {
@@ -36,14 +36,14 @@ const MobileViewNavToggler = (props) => {
         <div className="mobilemenu-overlay" onClick={clickHandler}>
           <div className="mobile_nav">
             <div className="row justify-content-between">
-              <div className="col-6">
+              {/* <div className="col-6">
                 <li className="header_control main_header-cart bg-white">
                   <CartController />
                 </li>
-              </div>
-              <div className="col-6">
+              </div> */}
+              <div className="col-8">
                 <ul className="header_control me-2 bg-white">
-                  <AuthController mobileView={true} />
+                  <ProfileAuthController mobileView={true} />
                 </ul>
               </div>
             </div>

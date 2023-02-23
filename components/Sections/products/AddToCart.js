@@ -21,7 +21,7 @@ const AddToCart = (props) => {
       Item_Name: item.Item_Name,
       UnitPrice: item.Price,
       Quote_Date: "",
-      Qty: 1,
+      Qty: props.quantity ? props.quantity : 1,
       UOM_Id: item.FAUOMID,
       UOM_Name: item.UOMName,
       Supp_Id: 0,

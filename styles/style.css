@@ -903,10 +903,10 @@ Version: 1.0.0
   padding-left: 0;
 }
 
-.navbar-nav .menu-item-has-children,
+/* .navbar-nav .menu-item-has-children,
 .main_header-middle .navbar-nav .menu-item-has-children {
   position: relative;
-}
+} */
 
 /* .main_header .sub-menu, */
 /* .andro_flex-menu .sub-menu {
@@ -3594,7 +3594,7 @@ td.remove {
   .modal-body {
     padding: 20px;
   }
-  /* .andro_product-atc-form .qty-outter,
+  .andro_product-atc-form .qty-outter,
   .andro_product-atc-form .qty-outter .andro_btn-custom {
     display: block;
   }
@@ -3611,7 +3611,7 @@ td.remove {
   .andro_product.andro_product-list .andro_product-thumb {
     width: auto;
     margin-right: 0;
-  } */
+  }
   .andro_cta-notice {
     padding: 20px;
   }
@@ -3868,7 +3868,7 @@ td.remove {
 .carousel_bg {
   /* background-color: #f1f1f1; */
   /* margin: 30px 0; */
-  margin-bottom: 15%;
+  margin-bottom: 12%;
   padding: 0;
 }
 .dynamic_content {

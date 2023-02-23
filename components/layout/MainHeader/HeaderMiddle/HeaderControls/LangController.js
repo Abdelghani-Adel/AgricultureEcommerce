@@ -2,9 +2,9 @@ import Link from "next/Link";
 import { useState } from "react";
 import { withTranslation } from "react-multi-lang";
 import { useDispatch, useSelector } from "react-redux";
-import { langActions } from "../../../../redux/slices/lang";
+import { langActions } from "../../../../../redux/slices/lang";
 
-const LanguageChange = (props) => {
+const LangController = (props) => {
   const lang = useSelector((state) => state.lang);
   const dispatch = useDispatch();
 
@@ -14,7 +14,7 @@ const LanguageChange = (props) => {
   };
 
   return (
-    <ul className="header_control language-change">
+    <ul className="header_control lang_controller">
       <li className="menu-item menu-item-has-children">
         <Link href="">{props.t("Navbar." + lang)}</Link>
         <ul className="sub-menu sub-menu-left">
@@ -26,4 +26,4 @@ const LanguageChange = (props) => {
   );
 };
 
-export default withTranslation(LanguageChange);
+export default withTranslation(LangController);
