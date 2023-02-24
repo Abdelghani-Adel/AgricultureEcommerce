@@ -4,6 +4,7 @@ import langSlice from "./slices/lang";
 import loaderSlice from "./slices/loaderSlice";
 import navBarSlice from "./slices/navbarSlice";
 import productSlice from "./slices/productSlice";
+import subCategoryNavSlice from "./slices/subCategoryNavSlice";
 
 const store = configureStore(
   {
@@ -13,6 +14,7 @@ const store = configureStore(
       navbarLinks: navBarSlice.reducer,
       lang: langSlice.reducer,
       products: productSlice.reducer,
+      subNav: subCategoryNavSlice.reducer,
     },
   },
   typeof window !== "undefined" &&

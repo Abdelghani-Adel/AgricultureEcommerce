@@ -2,16 +2,31 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { withTranslation } from "react-multi-lang";
 import { useDispatch } from "react-redux";
-import Breadcrumbs from "../../components/layout/Reusable/Breadcrumbs";
+import Breadcrumbs from "../../components/Reusable_Components/Breadcrumbs";
 import CategoryProducts from "../../components/Sections/categories/CategoryProducts/CategoryProducts";
 import SubCategories from "../../components/Sections/categories/SubCategories/SubCategories";
 import { loaderActions } from "../../redux/slices/loaderSlice";
+import { subNavActions } from "../../redux/slices/subCategoryNavSlice";
 import { fetchCategoryProducts, fetchSubCategories } from "../../services/categoryServices";
 
 const CategorySingle = (props) => {
-  const { categories, showProducts, products } = props;
+  const { categories, showProducts } = props;
   const router = useRouter();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    return () => {
+      dispatch(subNavActions.clear());
+    };
+  }, []);
+
+  useEffect(() => {
+    if (categories && categories.length > 0) {
+      dispatch(subNavActions.hydrate(categories));
+    } else {
+      dispatch(subNavActions.clear());
+    }
+  }, [props]);
 
   useEffect(() => {
     dispatch(loaderActions.hideLoader());

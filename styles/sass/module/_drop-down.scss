@@ -27,6 +27,12 @@
   }
 }
 
+.sub-menu .sub-menu {
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+
 .sub-menu .sub-menu li {
   display: flex;
   align-items: center;

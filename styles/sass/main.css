@@ -2055,6 +2055,12 @@ p {
   padding-right: 5px;
 }
 
+.sub-menu .sub-menu {
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+
 .sub-menu .sub-menu li {
   display: flex;
   align-items: center;
@@ -2724,6 +2730,19 @@ p {
   background-color: #5d5d5d;
   height: 100vh;
   padding: 10px;
+}
+
+.main_header-bottom-wrapper {
+  position: relative;
+}
+
+.nav-2 .header-nav {
+  height: 40px;
+  width: 100%;
+  background: #424242;
+  position: relative;
+  top: 100%;
+  z-index: 2;
 }
 
 .footer {

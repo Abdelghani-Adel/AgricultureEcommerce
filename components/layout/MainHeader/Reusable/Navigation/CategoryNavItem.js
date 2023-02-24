@@ -10,7 +10,6 @@ const CategoryNavItem = (props) => {
   const dispatch = useDispatch();
 
   const itemStyle = link.ClassificationChildren.length > 0 ? "menu-item-has-children" : "";
-  const itemLink = `/categories/${link.FAClassificationSlug}?id=${link.FAClassificationId}`;
 
   const showLoader = () => {
     dispatch(loaderActions.showLoader());

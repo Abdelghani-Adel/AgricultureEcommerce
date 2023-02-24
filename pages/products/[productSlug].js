@@ -1,9 +1,8 @@
 import { useRouter } from "next/router";
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { withTranslation } from "react-multi-lang";
 import { useDispatch } from "react-redux";
-import Breadcrumbs from "../../components/layout/Reusable/Breadcrumbs";
+import Breadcrumbs from "../../components/Reusable_Components/Breadcrumbs";
 import ProductSingle from "../../components/Sections/products/ProductSingle/ProductSingle";
 import { loaderActions } from "../../redux/slices/loaderSlice";
 import { fetchItemDetails } from "../../services/productServices";

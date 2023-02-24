@@ -1,7 +1,7 @@
 import React from "react";
-import BrandLogo from "../../Reusable/BrandLogo";
+import BrandLogo from "../../../Reusable_Components/BrandLogo";
 import HeaderControls from "./HeaderControls/HeaderControls";
-import HeaderSearchForm from "../Reusable/HeaderSearchForm/HeaderSearchForm";
+import HeaderSearchForm from "../../../Reusable_Components/SearchBars/HeaderSearchForm/HeaderSearchForm";
 import { withTranslation } from "react-multi-lang";
 const HeaderMiddle = (props) => {
   return (

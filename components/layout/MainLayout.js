@@ -6,7 +6,7 @@ import { loaderActions } from "../../redux/slices/loaderSlice";
 import { fetchBasicData, fetchBrwosingData, sendCookiesToDB } from "../../services/GroupAPICall";
 import Footer from "./Footer/Footer";
 import MainHeader from "./MainHeader/MainHeader";
-import Loader from "./Reusable/Loader";
+import Loader from "../Reusable_Components/Loader";
 
 export default function MainLayout(props) {
   const dispatch = useDispatch();

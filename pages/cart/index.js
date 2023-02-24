@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import { withTranslation } from "react-multi-lang";
 import { useDispatch, useSelector } from "react-redux";
-import Breadcrumbs from "../../components/layout/Reusable/Breadcrumbs";
+import Breadcrumbs from "../../components/Reusable_Components/Breadcrumbs";
 import CartContent from "../../components/Sections/Cart/CartContent/CartContent";
 import CartTotal from "../../components/Sections/Cart/CartTotal";
 import UpSells from "../../components/Sections/Cart/Upsells/UpSells";

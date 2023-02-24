@@ -6,7 +6,7 @@ const navBarSlice = createSlice({
   initialState: [],
   extraReducers: (builder) => {
     builder.addCase(getNavbarLinks.fulfilled, (state, { payload }) => {
-      return [...payload];
+      return [...state, ...payload];
     });
   },
 });

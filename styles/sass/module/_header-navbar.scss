@@ -97,3 +97,16 @@
   height: 100vh;
   padding: 10px;
 }
+
+.main_header-bottom-wrapper {
+  position: relative;
+}
+
+.nav-2 .header-nav {
+  height: 40px;
+  width: 100%;
+  background: #424242;
+  position: relative;
+  top: 100%;
+  z-index: 2;
+}

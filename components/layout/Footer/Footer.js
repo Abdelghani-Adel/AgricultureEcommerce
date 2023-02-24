@@ -2,7 +2,7 @@ import Link from "next/Link";
 import React, { Component } from "react";
 import { FaFacebookF, FaHandPointer, FaTwitter, FaYoutube } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
-import BrandLogo from "../Reusable/BrandLogo";
+import BrandLogo from "../../Reusable_Components/BrandLogo";
 class Footer extends Component {
   scrollToTop() {
     window.scrollTo({
