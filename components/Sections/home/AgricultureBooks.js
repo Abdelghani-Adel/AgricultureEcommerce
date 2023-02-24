@@ -1,11 +1,10 @@
-import Link from "next/Link";
 import React, { Fragment, useEffect, useState } from "react";
 import { withTranslation } from "react-multi-lang";
 import { useSelector } from "react-redux";
 import { fetchBooksItems } from "../../../services/productServices";
-import ProductSlider from "../../layout/Reusable/ProductSlider";
+import ProductSlider from "../../Reusable_Components/Sliders/ProductSlider";
 
-const AgricultureBooks = (props) => {
+const AgricultureBooks = ({ cards_in_slide, order }) => {
   const lang = useSelector((state) => state.lang);
   const [booksList, setBooksList] = useState([]);
 
@@ -23,13 +22,9 @@ const AgricultureBooks = (props) => {
         <ProductSlider
           products={booksList}
           translateTitle={"Products.BooksAndInfo"}
-          slidesToShow={2}
+          slidesToShow={cards_in_slide}
         />
       )}
-
-      {/* <Link href="#" className="agri-btn-rounded-dark">
-        {props.t("Products.ViewAll")}
-      </Link> */}
     </Fragment>
   );
 };

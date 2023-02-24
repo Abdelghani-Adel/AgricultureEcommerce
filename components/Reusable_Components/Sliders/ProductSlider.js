@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Fragment } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import ProductCard from "../../Sections/products/ProductCardList/ProductCard/ProductCard";
+import ProductCard from "../Cards/ProductCard/ProductCard";
 
 const defaultSliderSettings = {
   slidesToShow: 3,
@@ -52,7 +53,7 @@ const ProductSlider = (props) => {
     setSliderSettings((prev) => {
       return { ...prev, slidesToShow: props.slidesToShow };
     });
-  }, []);
+  }, [props]);
 
   const next = () => {
     nav1.slickNext();
@@ -62,32 +63,25 @@ const ProductSlider = (props) => {
   };
 
   return (
-    <div className="section pt-0 andro_fresh-arrivals">
-      <div className="container-fluid">
-        <div className="section-title flex-title">
-          <h4 className="title">{props.t(`${props.translateTitle}`)}</h4>
+    <Fragment>
+      <div className="slider_header">
+        <h4 className="m-0">{props.t(`${props.translateTitle}`)}</h4>
 
-          <div className="andro_arrows">
-            <div className="slick-arrow slider-prev" onClick={previous}>
-              <FaArrowLeft />
-            </div>
-            <div className="slick-arrow slider-prev" onClick={next}>
-              <FaArrowRight />
-            </div>
+        <div className="slider_arrows">
+          <div className="arrow me-2" onClick={previous}>
+            <FaArrowLeft />
+          </div>
+          <div className="arrow" onClick={next}>
+            <FaArrowRight />
           </div>
         </div>
-        <Slider
-          asNavFor={nav2}
-          className="andro_fresh-arrivals-slider"
-          ref={slider1}
-          {...sliderSettings}
-        >
-          {products && products.length > 0
-            ? products.map((product, i) => <ProductCard product={product} key={i} />)
-            : null}
-        </Slider>
       </div>
-    </div>
+      <Slider asNavFor={nav2} ref={slider1} {...sliderSettings}>
+        {products && products.length > 0
+          ? products.map((product, i) => <ProductCard product={product} key={i} />)
+          : null}
+      </Slider>
+    </Fragment>
   );
 };
 

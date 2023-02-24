@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import ProductCard from "./ProductCard/ProductCard";
+import ProductCard from "../../../Reusable_Components/Cards/ProductCard/ProductCard";
 import { withTranslation } from "react-multi-lang";
 
 const ProductCardList = (props) => {

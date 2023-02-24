@@ -1,6 +1,6 @@
 import Link from "next/Link";
 import { withTranslation } from "react-multi-lang";
-import { Rating } from "../../../../../helper/helper";
+import { Rating } from "../../../../helper/helper";
 import { useSelector } from "react-redux";
 
 const ProductDetails = (props) => {

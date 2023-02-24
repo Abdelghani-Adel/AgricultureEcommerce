@@ -1,6 +1,6 @@
-const AdvertiseThree = () => {
+const AdvertiseThree = ({ order }) => {
   return (
-    <div className="col-lg-4 col-md-5 col-xs-12">
+    <div>
       <div className="frame-wrapper-2">
         <iframe
           className="iframe_2"

@@ -1,3 +1,51 @@
+// MY Custom arrow
+
+.slider_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+  margin-bottom: 30px;
+  padding-bottom: 25px;
+  border-bottom: 3px solid #f0f2f3;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background-color: #50bd4d;
+  }
+}
+
+.slider_arrows {
+  display: flex;
+  align-items: center;
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f0f2f3;
+    transition: 0.3s;
+    cursor: pointer;
+    color: #18181d;
+
+    &:hover {
+      color: #fff;
+      background-color: #50bd4d;
+      box-shadow: 4px 3px 24px rgb(80 189 77 / 50%);
+    }
+  }
+}
+
+/////////////////////////////////////
 .slick-list {
   margin: 0 -15px;
 }

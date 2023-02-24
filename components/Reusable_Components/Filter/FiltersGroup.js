@@ -1,4 +1,4 @@
-import { filters } from "../../../../../helper/filters";
+import { filters } from "../../../helper/filters";
 import Filter from "./Filter";
 
 const FiltersGroup = (props) => {

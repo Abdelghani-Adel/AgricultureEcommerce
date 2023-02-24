@@ -3,9 +3,9 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
 import ReactPaginate from "react-paginate";
 import ProductCardList from "../../products/ProductCardList/ProductCardList";
-import FiltersGroup from "./Filter/FiltersGroup";
+import FiltersGroup from "../../../Reusable_Components/Filter/FiltersGroup";
 import ProductCount from "./ProductCount";
-import SearchCategory from "./SearchCategory";
+import SearchCategory from "../../../Reusable_Components/SearchBars/SearchCategory";
 
 const CategoryProducts = (props) => {
   const [products, setProducts] = useState([]);

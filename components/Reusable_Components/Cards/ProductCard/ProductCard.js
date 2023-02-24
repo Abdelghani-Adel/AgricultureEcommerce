@@ -1,4 +1,3 @@
-import { withTranslation } from "react-multi-lang";
 import ProductDetails from "./ProductDetails";
 import ProductFooter from "./ProductFooter";
 import ProductStickers from "./ProductStickers";
@@ -20,4 +19,4 @@ const ProductCard = (props) => {
   );
 };
 
-export default withTranslation(ProductCard);
+export default ProductCard;

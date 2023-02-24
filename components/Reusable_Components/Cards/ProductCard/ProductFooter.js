@@ -9,10 +9,10 @@ import {
   setInitialLikeState,
   setInitLikes,
   storeLikeInCookie,
-} from "../../../../../helper/Cookies/LikesCookies";
-import { loaderActions } from "../../../../../redux/slices/loaderSlice";
-import { UPSproductLikes } from "../../../../../services/productServices";
-import AddToCart from "../../AddToCart";
+} from "../../../../helper/Cookies/LikesCookies";
+import { loaderActions } from "../../../../redux/slices/loaderSlice";
+import { UPSproductLikes } from "../../../../services/productServices";
+import AddToCart from "../../../Sections/products/AddToCart";
 
 const ProductFooter = (props) => {
   const [likes, setLikes] = useState(0);

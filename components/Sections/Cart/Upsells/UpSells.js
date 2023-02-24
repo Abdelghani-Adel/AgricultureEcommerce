@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { fetchBestProducts } from "../../../../services/productServices";
-import ProductSlider from "../../../layout/Reusable/ProductSlider";
-import BestProducts from "../../home/bestProducts/BestProducts";
+import ProductSlider from "../../../Reusable_Components/Sliders/ProductSlider";
 
 const UpSells = (props) => {
   const [products, setProducts] = useState([]);

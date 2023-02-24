@@ -1,16 +1,42 @@
 {
-  "home": {
-    "best_products": {
-      "Position": "0",
-      "hidden": "false"
+  "pages": [
+    {
+      "id": "home",
+      "sections": {
+        "best_products": {
+          "position": 2,
+          "hidden": false,
+          "cards_in_slide": 4
+        },
+        "cta": {
+          "position": 3,
+          "hidden": false
+        },
+        "books": {
+          "position": 4,
+          "hidden": false,
+          "cards_in_slide": 3,
+          "departments": {
+            "books_slider": {
+              "position": 1,
+              "hidden": false
+            },
+            "adv": {
+              "position": 2,
+              "hidden": false,
+              "adv_id": 3
+            }
+          }
+        }
+      }
     },
-    "cta": {
-      "Position": "0",
-      "hidden": "true"
+    {
+      "id": "sub_categories",
+      "sections": {}
     },
-    "books": {
-      "Position": "0",
-      "hidden": "false"
+    {
+      "id": "category_products",
+      "sections": {}
     }
-  }
+  ]
 }

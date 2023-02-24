@@ -1,6 +1,6 @@
 import Link from "next/Link";
 import { useDispatch } from "react-redux";
-import { loaderActions } from "../../../../../redux/slices/loaderSlice";
+import { loaderActions } from "../../../../redux/slices/loaderSlice";
 
 const ProductThumb = (props) => {
   const { product } = props;

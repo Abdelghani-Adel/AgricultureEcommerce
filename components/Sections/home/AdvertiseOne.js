@@ -47,42 +47,39 @@ const sliderSettings = {
   ],
 };
 
-const AdvertiseOne = (props) => {
+const AdvertiseOne = () => {
   return (
-    <div className="col-12 col-lg-6 col-xs-12">
-      <div className="andro_banner banner-1">
-        <Slider className="andro_banner-slider" {...sliderSettings}>
-          {bannerslider.map((item, i) => (
-            <div key={i} className="container-fluid">
-              <div className="row align-items-center">
-                <div className="col-lg-6">
-                  <p>
-                    Use code <strong className="custom-primary">{item.couponcode}</strong> during
-                    checkout
-                  </p>
-                  <h5>
-                    {" "}
-                    {item.title} <span className="fw-400">{item.titlespan}</span>{" "}
-                  </h5>
-                  <p>{item.para}</p>
-                  <Link href="/shop-v1" className="andro_btn-custom">
-                    Shop Now
-                  </Link>
-                </div>
-                <div className="col-lg-6 d-none d-lg-block">
-                  <img
-                    src={
-                      "https://fastly.picsum.photos/id/988/500/420.jpg?hmac=Y0eqwuZAPCMDPwBcL9AIhDwVNSWV-IenkzC5M5jeKek"
-                    }
-                    alt={item.title}
-                    className="img_border"
-                  />
-                </div>
+    <div className="andro_banner adv_1">
+      <Slider className="andro_banner-slider" {...sliderSettings}>
+        {bannerslider.map((item, i) => (
+          <div key={i} className="container">
+            <div className="row align-items-center">
+              <div className="col-lg-6">
+                <p>
+                  Use code <strong className="custom-primary">{item.couponcode}</strong> during
+                  checkout
+                </p>
+                <h5>
+                  {item.title} <span className="fw-400">{item.titlespan}</span>{" "}
+                </h5>
+                <p>{item.para}</p>
+                <Link href="/shop-v1" className="andro_btn-custom">
+                  Shop Now
+                </Link>
+              </div>
+              <div className="col-lg-6 d-none d-lg-block">
+                <img
+                  src={
+                    "https://fastly.picsum.photos/id/988/500/420.jpg?hmac=Y0eqwuZAPCMDPwBcL9AIhDwVNSWV-IenkzC5M5jeKek"
+                  }
+                  alt={item.title}
+                  className="img_border"
+                />
               </div>
             </div>
-          ))}
-        </Slider>
-      </div>
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 };
