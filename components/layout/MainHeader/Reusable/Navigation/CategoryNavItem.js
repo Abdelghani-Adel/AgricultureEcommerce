@@ -26,7 +26,7 @@ const CategoryNavItem = (props) => {
   };
 
   return (
-    <li className={`menu-item mt-1 ${itemStyle}`} onMouseLeave={blurHandler} onClick={blurHandler}>
+    <li className={`nav_item ${itemStyle}`} onMouseLeave={blurHandler} onClick={blurHandler}>
       <Link
         href={{
           pathname: `/categories/${link.FAClassificationSlug}`,

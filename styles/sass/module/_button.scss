@@ -1,7 +1,9 @@
+@use "../abstracts/variables";
+
 .default_btn {
   flex: 0 0 auto;
   cursor: pointer;
-  background-color: #50bd4d;
+  background-color: variables.$main-color;
   border: 0;
   color: #fff;
   font-weight: 600;
@@ -18,7 +20,8 @@
   justify-content: center;
 
   &:hover {
-    background-color: #358832;
+    background-color: variables.$main-color-hover;
+    color: #fff;
   }
 
   &.disabled {
@@ -27,7 +30,7 @@
   }
 
   a {
-    color: #fff;
+    color: #fff !important;
   }
 }
 
@@ -116,7 +119,7 @@
   white-space: nowrap;
   vertical-align: middle;
   position: relative;
-  background-color: #50bd4d;
+  background-color: variables.$main-color-hover;
   border: 0;
   color: #fff;
   // font-size: 14px;

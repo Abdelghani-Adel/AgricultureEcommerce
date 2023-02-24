@@ -5,14 +5,13 @@ import CategoryNavItem from "../Reusable/Navigation/CategoryNavItem";
 const SubNav = (props) => {
   const links = useSelector((state) => state.subNav);
 
-  console.log(links);
   return (
     <>
       {links.length > 0 && (
-        <div className="nav-2">
+        <div className="sub_nav">
           <ul className="header-nav">
             {links.map((link) => (
-              <CategoryNavItem link={link} />
+              <CategoryNavItem key={link.FAClassificationId} link={link} />
             ))}
           </ul>
         </div>

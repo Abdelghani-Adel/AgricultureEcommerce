@@ -13,7 +13,7 @@ class Cta extends Component {
               magna dictum porta. Praesent sapien massa, convallis a pellentesque nec, egestas non
               nisi.
             </p>
-            <Link href="/" className="andro_btn-custom light">
+            <Link href="/" className="default_btn">
               Shop Now
             </Link>
           </div>

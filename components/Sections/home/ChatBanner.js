@@ -5,7 +5,7 @@ function ChatBanner(props) {
   return (
     <div className="col-12 col-lg-2">
       <div className="chat_banner">
-        <div className="card  mb-3">
+        <div className="card mb-3">
           <div className="card-header">Room Title</div>
           <div className="card-body text-success">
             <p className="card-text">

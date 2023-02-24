@@ -1,3 +1,5 @@
+@use "../abstracts/variables";
+
 html {
   overflow-x: hidden;
 }
@@ -116,7 +118,7 @@ h6 {
 }
 
 a {
-  color: #50bd4d;
+  color: variables.$main-color;
   text-decoration: none;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
@@ -124,7 +126,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #40a13d;
+  color: variables.$main-color-hover;
   text-decoration: none;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;

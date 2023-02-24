@@ -1,105 +1,27 @@
-.custom-primary {
-  color: #50bd49;
-}
-.custom-secondary {
-  color: #b682e1;
-}
-.twitter {
-  background-color: rgb(44, 170, 225) !important;
-  color: #fff;
-}
-.twitter:hover {
-  background-color: #2caae1;
-  color: #fff;
+@import "../abstracts/variables";
+
+// text-colors
+@each $color, $value in $colors {
+  .txt-#{$color} {
+    color: $value;
+  }
 }
 
-.facebook {
-  background-color: rgb(59, 87, 157) !important;
-  color: #fff;
+// borders
+@each $color, $value in $colors {
+  .border-#{$color} {
+    border-color: $value;
+  }
 }
-.facebook:hover {
-  background-color: #3b579d;
-  color: #fff;
-}
-
-.google {
-  background-color: rgb(220, 74, 56) !important;
-  color: #fff;
-}
-.google:hover {
-  background-color: #dc4a38;
-  color: #fff;
+@each $color, $value in $colors {
+  .border-focus-#{$color}:focus-visible {
+    border-color: $value;
+  }
 }
 
-.linkedin {
-  background-color: rgb(1, 119, 181) !important;
-  color: #fff;
-}
-.linkedin:hover {
-  background-color: #0177b5;
-  color: #fff;
-}
-
-.pinterest {
-  background-color: rgb(204, 33, 39) !important;
-  color: #fff;
-}
-.pinterest:hover {
-  background-color: #cc2127;
-  color: #fff;
-}
-
-.youtube {
-  background-color: rgb(229, 45, 39);
-  color: #fff;
-}
-.youtube:hover {
-  background-color: #e52d27;
-  color: #fff;
-}
-
-.github {
-  background-color: rgb(51, 51, 51) !important;
-  color: #fff;
-}
-.github:hover {
-  background-color: #333333 !important;
-  color: #fff;
-}
-
-.behance {
-  background-color: rgb(23, 105, 255) !important;
-  color: #fff;
-}
-.behance:hover {
-  background-color: #1769ff;
-  color: #fff;
-}
-
-.dribbble {
-  background-color: rgb(234, 76, 137) !important;
-  color: #fff;
-}
-.dribbble:hover {
-  background-color: #ea4c89;
-  color: #fff;
-}
-
-.reddit {
-  background-color: rgb(255, 69, 0) !important;
-  color: #fff;
-}
-.reddit:hover {
-  background-color: #ff4500;
-  color: #fff;
-}
-
-.light-bg {
-  background-color: #f0f2f3;
-}
-.primary-bg {
-  background-color: #50bd4d;
-}
-.secondary-bg {
-  background-color: #5d5d5d;
+// Backgrounds
+@each $color, $value in $colors {
+  .bg-#{$color} {
+    background-color: $value;
+  }
 }

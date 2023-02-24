@@ -63,7 +63,7 @@ const AdvertiseOne = () => {
                   {item.title} <span className="fw-400">{item.titlespan}</span>{" "}
                 </h5>
                 <p>{item.para}</p>
-                <Link href="/shop-v1" className="andro_btn-custom">
+                <Link href="/shop-v1" className="default_btn">
                   Shop Now
                 </Link>
               </div>

@@ -91,7 +91,7 @@ const ProductFooter = (props) => {
       <div className="product_card--buttons">
         <AddToCart style={"product_footer--button"} item={product} />
 
-        <button className="like_button" onClick={showLoader}>
+        <button className="product_footer--button" onClick={showLoader}>
           <Link
             href={props.productPath}
             data-toggle="tooltip"
@@ -103,7 +103,7 @@ const ProductFooter = (props) => {
         </button>
 
         <button
-          className={`like_button ${likeButtonChecked ? "checked" : ""}`}
+          className={`product_footer--button ${likeButtonChecked ? "checked" : ""}`}
           data-type="like"
           title={props.t("Products.Likes")}
           onClick={likeHandler}
@@ -112,7 +112,7 @@ const ProductFooter = (props) => {
         </button>
 
         <button
-          className={`like_button ${unlikeButtonChecked ? "checked" : ""}`}
+          className={`product_footer--button ${unlikeButtonChecked ? "checked" : ""}`}
           data-type="unLike"
           title={props.t("Products.Likes")}
           onClick={likeHandler}

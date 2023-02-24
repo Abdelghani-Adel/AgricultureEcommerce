@@ -1,3 +1,5 @@
+@use "../abstracts/variables";
+
 .product_card {
   position: relative;
   padding: 20px;
@@ -27,12 +29,6 @@
   }
 }
 
-// @media screen and (min-width: "768px") {
-//   .product_card--thumb {
-//     width: auto;
-//   }
-// }
-
 .category_badge {
   display: block;
   width: 100%;
@@ -49,7 +45,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #ffa80a;
+  background-color: variables.$secondary-color;
   color: #fff;
   border-radius: 8px 0 8px 0;
   display: flex;
@@ -85,7 +81,7 @@
   a {
     color: #18181d;
     &:hover {
-      color: #40a13d;
+      color: variables.$main-color-hover;
     }
   }
 }
@@ -131,7 +127,6 @@
   margin: 10px 0;
 }
 .product_card--footer {
-  border-top: 0;
   padding: 0;
   margin: 20px -20px -20px -20px;
   margin-top: 20px;
@@ -153,106 +148,13 @@
 
 //////////////////////////// product single ///////////////////////////////////
 
-.andro_product-single-content .btn {
-  flex: 0 0 auto;
-
-  cursor: pointer;
-  background-color: #50bd4d;
-  border: 0;
-  color: #fff;
-  font-weight: 600;
-  transition: 0.3s;
-  text-transform: uppercase;
-  border-radius: 25px;
-  z-index: 1;
-  box-shadow: 0 3px 24px rgba(0, 0, 0, 0.1);
-  padding: 0.5rem 1rem;
-  height: 40px;
-  width: 100%;
-
-  display: flex;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-  margin: 10px 0;
-
-  &:hover {
-    background-color: #33da2d;
-  }
-}
-
 .product_footer--button {
-  cursor: pointer;
-  display: inline-block;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  position: relative;
-  background-color: #50bd4d;
   border: 0;
-  color: #fff;
-  font-weight: 600;
-  // transition: 0.3s;
-  text-transform: uppercase;
-  // border-radius: 25px;
-  z-index: 1;
-  // box-shadow: 0 3px 24px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
   height: 40px;
   width: 200px;
-  line-height: 40px;
   background-color: #fff;
-  color: #50bd4d;
-  overflow: hidden;
-
-  flex: 1 1;
-
-  &:hover {
-    background-color: #f0f2f3;
-  }
-
-  &:after {
-    content: "";
-    background: #90ee90;
-    display: block;
-    position: absolute;
-    padding-top: 300%;
-    padding-left: 350%;
-    margin-left: -20px !important;
-    margin-top: -120%;
-    opacity: 0;
-    transition: all 0.8s;
-  }
-
-  &:active:after {
-    padding: 0;
-    margin: 0;
-    opacity: 1;
-    transition: 0s;
-  }
-}
-
-.like_button {
-  cursor: pointer;
-  display: inline-block;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  position: relative;
-  background-color: #50bd4d;
-  border: 0;
-  color: #fff;
-  font-weight: 600;
-  // transition: 0.3s;
-  text-transform: uppercase;
-  // border-radius: 25px;
-  z-index: 1;
-  // box-shadow: 0 3px 24px rgba(0, 0, 0, 0.1);
-  height: 40px;
-  width: 200px;
-  line-height: 40px;
-  background-color: #fff;
-  color: #50bd4d;
-
+  color: variables.$main-color-hover;
   flex: 1 1;
 
   &:hover {
