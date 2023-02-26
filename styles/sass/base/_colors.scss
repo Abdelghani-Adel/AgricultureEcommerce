@@ -9,7 +9,7 @@
 
 // borders
 @each $color, $value in $colors {
-  .border-#{$color} {
+  .border_#{$color} {
     border-color: $value;
   }
 }

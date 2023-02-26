@@ -16,9 +16,6 @@ const CartController = () => {
         <span>
           {cartState.items.length} {cartState.items.length > 1 ? "Items" : "Item"}
         </span>
-        {/* <span>
-          {cartState.totalPrice} {cartState.currency && cartState.currency.CurrBaseCode}
-        </span> */}
       </div>
     </Link>
   );

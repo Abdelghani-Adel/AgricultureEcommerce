@@ -1,7 +1,6 @@
-import HeaderNav from "../Reusable/Navigation/HeaderNav";
-import SideCategoriesToggler from "./SideCategoriesToggler";
+import HeaderNav from "../../../Reusable_Components/Navigation/HeaderNav";
 import HeaderOffers from "./HeaderOffers";
-import { useSelector } from "react-redux";
+import ShowAllCategories from "./ShowAllCategories";
 import SubNav from "./SubNav";
 
 const HeaderBottom = (props) => {
@@ -10,7 +9,7 @@ const HeaderBottom = (props) => {
       <div className="main_header-bottom">
         <div className="main_header-bottom-inner mt-0">
           <div className="d-flex" style={{ height: "40px" }}>
-            <SideCategoriesToggler />
+            <ShowAllCategories />
             <HeaderNav lang={props.lang} />
           </div>
           <div className="header_left_offers">

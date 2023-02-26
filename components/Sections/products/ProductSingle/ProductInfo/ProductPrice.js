@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 const ProductPrice = ({ price }) => {
   const cartState = useSelector((state) => state.cart);
   return (
-    <div className="andro_product-price">
+    <h4 className="txt-primary">
       {price} {cartState.currency && cartState.currency.CurrBaseCode}
-    </div>
+    </h4>
   );
 };
 

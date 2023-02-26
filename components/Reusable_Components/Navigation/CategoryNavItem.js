@@ -2,7 +2,7 @@ import Link from "next/Link";
 import { useState } from "react";
 import { FaAngleDown, FaAngleLeft, FaAngleRight, FaAngleUp } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { loaderActions } from "../../../../../redux/slices/loaderSlice";
+import { loaderActions } from "../../../redux/slices/loaderSlice";
 
 const CategoryNavItem = (props) => {
   const { link, isChild } = props;
@@ -33,6 +33,7 @@ const CategoryNavItem = (props) => {
           query: { id: `${link.FAClassificationId}` },
         }}
         onClick={showLoader}
+        className="nav_link"
       >
         {link.IconTypeId == 1 && <img className="category_icon svg" src={`${link.Icon}`} />}
         {link.IconTypeId == 2 && <img className="category_icon" src={`${link.Icon}`} />}
@@ -48,7 +49,7 @@ const CategoryNavItem = (props) => {
       </Link>
 
       {subMenuIsShown && (
-        <ul className="sub-menu" role="menu">
+        <ul className="sub_menu" role="menu">
           {link.ClassificationChildren.map((subItem) => (
             <CategoryNavItem link={subItem} key={subItem.FAClassificationId} isChild={true} />
           ))}

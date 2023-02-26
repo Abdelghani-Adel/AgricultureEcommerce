@@ -1,16 +1,13 @@
-import React, { Fragment, useState } from "react";
+import React from "react";
 import HeaderBottom from "./HeaderBottom/HeaderBottom";
 import HeaderMiddle from "./HeaderMiddle/HeaderMiddle";
-import ToggleNav from "./Reusable/ToggleNav";
 
 const MainHeader = (props) => {
   return (
-    <Fragment>
-      <header>
-        <HeaderMiddle changeLang={props.changeLang} lang={props.lang} />
-        <HeaderBottom lang={props.lang} />
-      </header>
-    </Fragment>
+    <header>
+      <HeaderMiddle changeLang={props.changeLang} lang={props.lang} />
+      <HeaderBottom lang={props.lang} />
+    </header>
   );
 };
 

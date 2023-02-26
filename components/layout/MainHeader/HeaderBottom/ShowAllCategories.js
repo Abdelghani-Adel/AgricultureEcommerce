@@ -1,9 +1,9 @@
 import { Fragment, useState } from "react";
-import SideCategoriesList from "../Reusable/SideCategoriesList";
+import SideCategoriesList from "./SideCategoriesList";
 import classNames from "classnames";
-import {withTranslation} from "react-multi-lang"
+import { withTranslation } from "react-multi-lang";
 
-const SideCategoriesToggler = (props) => {
+const ShowAllCategories = (props) => {
   const [showSideCategoriesTags, setShowSideCategoriesTags] = useState();
   const toggleSideCategoriesTags = () => setShowSideCategoriesTags(!showSideCategoriesTags);
 
@@ -14,7 +14,7 @@ const SideCategoriesToggler = (props) => {
           open: showSideCategoriesTags,
         })}
       >
-        <SideCategoriesList toggleSideCategoriesTags={toggleSideCategoriesTags}/>
+        <SideCategoriesList toggleSideCategoriesTags={toggleSideCategoriesTags} />
       </aside>
 
       {/* Dark overlay shown when displaying the right sub categories */}
@@ -33,4 +33,4 @@ const SideCategoriesToggler = (props) => {
   );
 };
 
-export default withTranslation(SideCategoriesToggler);
+export default withTranslation(ShowAllCategories);

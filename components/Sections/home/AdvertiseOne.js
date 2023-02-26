@@ -73,7 +73,7 @@ const AdvertiseOne = () => {
                     "https://fastly.picsum.photos/id/988/500/420.jpg?hmac=Y0eqwuZAPCMDPwBcL9AIhDwVNSWV-IenkzC5M5jeKek"
                   }
                   alt={item.title}
-                  className="img_border"
+                  className="border_1 border_primary p-3"
                 />
               </div>
             </div>

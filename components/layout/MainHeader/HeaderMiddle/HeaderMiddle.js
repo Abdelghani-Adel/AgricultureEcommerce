@@ -3,6 +3,7 @@ import BrandLogo from "../../../Reusable_Components/BrandLogo";
 import HeaderControls from "./HeaderControls/HeaderControls";
 import HeaderSearchForm from "../../../Reusable_Components/SearchBars/HeaderSearchForm/HeaderSearchForm";
 import { withTranslation } from "react-multi-lang";
+
 const HeaderMiddle = (props) => {
   return (
     <div className="main_header-middle">

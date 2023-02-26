@@ -41,17 +41,11 @@
   margin-bottom: 30px;
   display: block;
 }
-// .social-login {
-//   margin-bottom: 20px;
-// }
-// .social-login + p a {
-//   display: inline-block;
-// }
 .auth-form {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  background-color: #f0f2f3;
+  // background-color: #f0f2f3;
   padding: 60px;
   text-align: center;
 }
@@ -62,9 +56,6 @@
   max-width: 400px;
   margin: 0 auto;
 }
-/* .auth-form .btn-custom {
-  margin-top: 20px;
-} */
 .auth-form a {
   display: block;
   color: #18181d;

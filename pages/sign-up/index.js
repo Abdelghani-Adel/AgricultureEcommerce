@@ -110,7 +110,7 @@ const SignUp = (props) => {
                   onChange={inputChangeHandler}
                 />
               </div>
-              <button type="submit" className="andro_btn-custom primary">
+              <button type="submit" className="default_btn m-auto">
                 {props.t("Auth.Signup")}
               </button>
 

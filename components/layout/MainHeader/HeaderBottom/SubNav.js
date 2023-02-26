@@ -1,6 +1,6 @@
 import Link from "next/Link";
 import { useSelector } from "react-redux";
-import CategoryNavItem from "../Reusable/Navigation/CategoryNavItem";
+import CategoryNavItem from "../../../Reusable_Components/Navigation/CategoryNavItem";
 
 const SubNav = (props) => {
   const links = useSelector((state) => state.subNav);

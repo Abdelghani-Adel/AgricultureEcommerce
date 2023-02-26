@@ -4,22 +4,6 @@
   background-color: #f0f2f3;
   padding: 20px 0 0;
 }
-// .footer p {
-//   margin-bottom: 20px;
-//   color: #515151;
-// }
-.footer-top {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  margin-bottom: 30px;
-}
 .footer-middle a,
 .footer-middle i {
   color: #515151;
@@ -27,14 +11,12 @@
 .footer-middle a:hover {
   color: variables.$main-color;
 }
-// .footer-middle a.andro_btn-custom,
-// .footer-middle a.andro_btn-custom:hover {
-//   color: #fff;
-// }
+
 .footer ul li {
   display: inline-block !important;
   margin: 0 10px !important;
 }
+
 .footer-bottom ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -53,35 +35,22 @@
 .footer-bottom ul li a:hover {
   color: variables.$main-color;
 }
-.footer-copyright {
-  padding-bottom: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
+
 .footer-copyright p {
-  margin: 0;
+  padding-bottom: 10px;
 }
 .back-to-top {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  color: #18181d;
-  // font-size: 14px;
-  /* font-weight: 600; */
+  // color: #18181d;
+  z-index: 10;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  display: none;
 }
-// .back-to-top:hover {
-//   color: variables.$main-color;
-// }
+.back-to-top.show {
+  display: block;
+}
+
 .back-to-top span {
   width: 40px;
   height: 40px;
@@ -95,26 +64,21 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background-color: #4e4e4e;
+  background-color: variables.$main-color;
   color: #fff;
   margin-left: 20px;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
-  // font-size: 18px;
 }
 
 .back-to-top:hover span {
-  background-color: variables.$main-color;
+  background-color: variables.$main-color-hover;
   color: #fff;
 }
 .footer-widget {
   padding-bottom: 50px;
 }
-// .footer-buttons a {
-//   display: inline-block;
-//   width: 150px;
-// }
 .widget-title {
   margin-bottom: 20px;
   /* font-weight: 700; */
@@ -163,9 +127,7 @@
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  // font-size: 18px;
   border: 0;
-  color: #fff;
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
   transform: translateX(0);

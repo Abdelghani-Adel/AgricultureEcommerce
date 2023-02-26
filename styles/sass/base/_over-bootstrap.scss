@@ -1,26 +1,7 @@
-.form-control::-webkit-input-placeholder {
-  color: #a5a5a5;
-}
-.form-control::-moz-placeholder {
-  color: #a5a5a5;
-}
-.form-control:-ms-input-placeholder {
-  color: #a5a5a5;
-}
-.form-control::-ms-input-placeholder {
-  color: #a5a5a5;
-}
-.form-control::placeholder {
-  color: #a5a5a5;
-}
+@use "../abstracts/variables";
+
 .form-control {
-  border: 1px solid #f0f2f3;
   border-radius: 25px;
-  width: 100%;
-  color: #6e6e6e;
-  background-color: #fff;
-  letter-spacing: 0.1px;
-  font-size: 14px;
 }
 .form-control:focus {
   border: 1px solid #efefef;
@@ -28,21 +9,14 @@
   box-shadow: none;
 }
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
-.nav-item {
-  margin: 0;
+.nav-tabs .nav-link {
+  color: variables.$main-color;
 }
 
-.nav-link {
-  padding: 10px 20px !important;
-  background-color: #f0f2f3 !important;
-  margin-right: 10px !important;
-  color: #18181d !important;
-  border-radius: 8px !important;
-}
-.nav-link.active {
-  background-color: #50bd49 !important;
-  color: #fff !important;
+.nav-tabs .nav-link.active {
+  background-color: variables.$main-color;
+  color: #fff;
 }

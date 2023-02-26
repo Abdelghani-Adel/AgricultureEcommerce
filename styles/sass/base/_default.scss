@@ -18,6 +18,21 @@ img {
   max-width: 100%;
   height: auto;
 }
+.form-control::-webkit-input-placeholder {
+  color: variables.$main-color;
+}
+.form-control::-moz-placeholder {
+  color: variables.$main-color;
+}
+.form-control:-ms-input-placeholder {
+  color: variables.$main-color;
+}
+.form-control::-ms-input-placeholder {
+  color: variables.$main-color;
+}
+.form-control::placeholder {
+  color: variables.$main-color;
+}
 a,
 abbr,
 acronym,

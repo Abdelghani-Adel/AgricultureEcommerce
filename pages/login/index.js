@@ -90,7 +90,7 @@ const Login = (props) => {
                   <label className="form-check-label ms-1">{props.t("Auth.Remember")}</label>
                 </div>
                 <Link href="#">{props.t("Auth.Forget")}</Link>
-                <button type="submit" className="andro_btn-custom primary">
+                <button type="submit" className="default_btn m-auto">
                   {props.t("Auth.Login")}
                 </button>
 
