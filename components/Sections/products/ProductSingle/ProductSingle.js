@@ -13,10 +13,6 @@ const ProductSingle = (props) => {
     const position = window.pageYOffset;
 
     const childDimentions = parentRef.current.getBoundingClientRect();
-
-    console.log(window.innerHeight - childDimentions.y - childDimentions.height);
-
-    // console.log("dd");
   };
 
   useEffect(() => {

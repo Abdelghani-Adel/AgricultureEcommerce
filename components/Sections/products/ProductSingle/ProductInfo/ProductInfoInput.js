@@ -9,9 +9,8 @@ const ProductInfoInput = (props) => {
       <div className="d-flex justify-content-around g-4">
         <QuantityInput quantityHandler={props.quantityHandler} quantity={props.quantity} />
         <UnitOfMeasure item={props.item} UOMchangeHandler={props.UOMchangeHandler} />
-        <ProductInfoTotals quantity={props.quantity} price={props.item.Price} />
       </div>
-      <div></div>
+      <ProductInfoTotals quantity={props.quantity} price={props.item.Price} />
     </Fragment>
   );
 };

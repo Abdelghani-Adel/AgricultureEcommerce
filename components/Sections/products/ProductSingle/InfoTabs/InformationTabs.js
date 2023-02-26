@@ -28,8 +28,8 @@ const AdditionalInfo = (props) => {
   }, []);
   return (
     <div className="row mt-3">
-      <div className="col-5 col-lg-4">
-        <ul className="nav nav-pills d-flex flex-column" id="myTab" role="tablist">
+      <div className="col-12">
+        <ul className="nav nav-tabs d-flex flex-row-reverse" id="myTab" role="tablist">
           <InfoTab
             target={"ingredients"}
             data={item.ingredients}
@@ -62,7 +62,7 @@ const AdditionalInfo = (props) => {
           />
         </ul>
       </div>
-      <div className="col-7 col-lg-8">
+      <div className="col-12">
         <div className="tab-content">
           <InfoData
             data={item.ingredients}

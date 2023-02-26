@@ -1,4 +1,6 @@
+@use "../abstracts/variables";
+
 .img_border {
-  border: 2px solid #40a13d;
+  border: 2px solid variables.$main-color;
   padding: 5px;
 }

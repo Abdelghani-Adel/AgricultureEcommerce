@@ -1,3 +1,5 @@
+@use "../abstracts/variables";
+
 .footer {
   background-color: #f0f2f3;
   padding: 20px 0 0;
@@ -23,7 +25,7 @@
   color: #515151;
 }
 .footer-middle a:hover {
-  color: #50bd4d;
+  color: variables.$main-color;
 }
 // .footer-middle a.andro_btn-custom,
 // .footer-middle a.andro_btn-custom:hover {
@@ -49,7 +51,7 @@
   color: #515151;
 }
 .footer-bottom ul li a:hover {
-  color: #50bd4d;
+  color: variables.$main-color;
 }
 .footer-copyright {
   padding-bottom: 20px;
@@ -78,7 +80,7 @@
   /* font-weight: 600; */
 }
 // .back-to-top:hover {
-//   color: #50bd4d;
+//   color: variables.$main-color;
 // }
 .back-to-top span {
   width: 40px;
@@ -103,7 +105,7 @@
 }
 
 .back-to-top:hover span {
-  background-color: #50bd4d;
+  background-color: variables.$main-color;
   color: #fff;
 }
 .footer-widget {

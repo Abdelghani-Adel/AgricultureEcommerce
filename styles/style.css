@@ -3261,7 +3261,7 @@ td.remove {
 
 @media (max-width: 991px) {
   .carousel_bg {
-    margin-top: 50px !important;
+    /* margin-top: 50px !important; */
   }
   /* .banner-3.andro_banner .andro_arrows {
     margin-top: 10px;

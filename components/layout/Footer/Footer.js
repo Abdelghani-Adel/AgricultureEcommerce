@@ -24,8 +24,8 @@ class Footer extends Component {
           <div className="container">
             <div className="row">
               {/* Information */}
-              <div className="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
-                <h5 className="widget-title">{this.props.t("Footer.Information")}</h5>
+              <div className="col-xl-3 col-lg-3 col-md-4  footer-widget">
+                <h5 className="txt-primary">{this.props.t("Footer.Information")}</h5>
                 <ul>
                   <li>
                     <Link href="/">{this.props.t("Footer.Home")}</Link>
@@ -46,8 +46,8 @@ class Footer extends Component {
               </div>
 
               {/* Tpop Categories */}
-              <div className="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
-                <h5 className="widget-title">{this.props.t("Footer.TopCategories")}</h5>
+              <div className="col-xl-3 col-lg-3 col-md-4  footer-widget">
+                <h5 className="txt-primary">{this.props.t("Footer.TopCategories")}</h5>
                 {/* <ul>
                   <li>
                     <Link href="#">Food</Link>
@@ -68,8 +68,8 @@ class Footer extends Component {
               </div>
 
               {/* Others */}
-              <div className="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
-                <h5 className="widget-title">{this.props.t("Footer.Others")}</h5>
+              <div className="col-xl-3 col-lg-3 col-md-4  footer-widget">
+                <h5 className="txt-primary">{this.props.t("Footer.Others")}</h5>
                 <ul>
                   {/* <li>
                     <Link href="/checkout">{this.props.t("Footer.Checkout")}</Link>
@@ -90,8 +90,8 @@ class Footer extends Component {
               </div>
 
               {/* Social Media */}
-              <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12 footer-widget">
-                <h5 className="widget-title">{this.props.t("Footer.SocialMedia")}</h5>
+              <div className="col-xl-3 col-lg-3 col-md-6  footer-widget">
+                <h5 className="txt-primary">{this.props.t("Footer.SocialMedia")}</h5>
                 <ul className="social-media">
                   <li>
                     <Link href="#" className="facebook">

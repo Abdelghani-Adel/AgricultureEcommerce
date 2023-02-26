@@ -1,6 +1,4 @@
-import { useRef } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ProductInfoActions from "./ProductInfoActions";
 import ProductInfoHeader from "./ProductInfoHeader";
 import ProductInfoInput from "./ProductInfoInput";
@@ -12,7 +10,7 @@ const ProductInfo = ({ item, wrapperPosition }) => {
   const ref = useRef();
 
   const UOMchangeHandler = (e) => {
-    setItem({ ...item, FAUOMID: e.target.value });
+    setProduct({ ...item, FAUOMID: e.target.value });
   };
 
   const quantityHandler = (e) => {
@@ -54,7 +52,6 @@ const ProductInfo = ({ item, wrapperPosition }) => {
         quantityHandler={quantityHandler}
         UOMchangeHandler={UOMchangeHandler}
       />
-      <hr className="m-0 mt-2 mb-2" />
       <ProductInfoActions item={product} quantity={quantity} />
     </div>
   );

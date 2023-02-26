@@ -1,10 +1,14 @@
 $main-color: #50bd4d;
 $main-color-hover: #40a13d;
 $secondary-color: #fada5e;
+$secondary-color-hover: #c0a127;
+
+$titles-color: #18181d;
+$title-hover-color: #080811;
 
 $colors: (
-  "primary": #50bd4d,
-  "secondary": #fada5e,
+  "primary": $main-color,
+  "secondary": $secondary-color,
   "blue": #2d62ed,
   "lightblue": #2d62ed4d,
   "white": #fff,

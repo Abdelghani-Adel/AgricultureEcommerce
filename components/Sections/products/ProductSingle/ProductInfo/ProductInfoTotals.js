@@ -1,13 +1,12 @@
 const ProductInfoTotals = ({ price, quantity }) => {
   return (
     <div className="product_info--totals">
-      <div className="d-flex justify-content-between">
+      {/* <div className="d-flex justify-content-between">
         <p>Unit Price:</p>
         <p>{price}</p>
-      </div>
-      <div className="d-flex justify-content-between fw-bolder text-dark">
-        <p>Total</p>
-        <p>{price * quantity}</p>
+      </div> */}
+      <div className="mt-2">
+        <h4>Total: {price * quantity}</h4>
       </div>
     </div>
   );

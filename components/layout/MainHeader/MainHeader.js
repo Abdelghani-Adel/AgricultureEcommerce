@@ -6,7 +6,7 @@ import ToggleNav from "./Reusable/ToggleNav";
 const MainHeader = (props) => {
   return (
     <Fragment>
-      <header className={`main_header`}>
+      <header>
         <HeaderMiddle changeLang={props.changeLang} lang={props.lang} />
         <HeaderBottom lang={props.lang} />
       </header>

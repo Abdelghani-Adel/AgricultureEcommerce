@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { Fragment, useCallback, useState } from "react";
 import { AuthenticationAPI } from "../../services/AuthenticationAPI";
 import { signIn, useSession } from "next-auth/react";
-import Loader from "../../components/layout/Reusable/Loader";
+import Loader from "../../components/Reusable_Components/Loader";
 import { useDispatch } from "react-redux";
 import { loaderActions } from "../../redux/slices/loaderSlice";
 import { withTranslation } from "react-multi-lang";

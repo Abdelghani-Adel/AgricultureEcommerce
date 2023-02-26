@@ -1,3 +1,5 @@
+@use "../abstracts/variables";
+
 .andro_cart-product-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -22,7 +24,7 @@
   color: #18181d;
 }
 .andro_cart-product-wrapper h6 a:hover {
-  color: #50bd4d;
+  color: variables.$main-color;
 }
 .andro_cart-product-wrapper p {
   margin-bottom: 0;

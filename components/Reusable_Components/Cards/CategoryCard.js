@@ -20,7 +20,7 @@ const CategoryCard = ({ category, style }) => {
         <div className="card catg_card">
           <img className="card-img-top" src={category.FAClassificationImage} alt="Card image cap" />
           <div className="card-body">
-            <h5 className="card-title">{category.FAClassificationName}</h5>
+            <h5 className="card-title txt-primary">{category.FAClassificationName}</h5>
             <div
               className="card-text"
               dangerouslySetInnerHTML={{ __html: category.FAClassificationDesc }}

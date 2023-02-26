@@ -1,8 +1,4 @@
-// .andro_sticky-section {
-//   position: sticky;
-//   top: 30px;
-// }
-
+@use "../abstracts/variables";
 .section {
   position: relative;
   padding-top: 5px;
@@ -43,7 +39,7 @@
   left: 0;
   width: 100px;
   height: 3px;
-  background-color: #50bd4d;
+  background-color: variables.$main-color;
 }
 .section-title.flex-title {
   display: flex;
@@ -69,9 +65,9 @@
     margin-top: 0;
     padding-top: 40px;
   }
-  .section {
-    padding: 40px 0;
-  }
+  // .section {
+  //   padding: 40px 0;
+  // }
   .section.section-padding {
     padding: 40px 0 10px;
   }
