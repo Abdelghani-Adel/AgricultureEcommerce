@@ -17,12 +17,12 @@ const CategoryCard = ({ category, style }) => {
         }}
         onClick={showLoader}
       >
-        <div className="card catg_card">
-          <img className="card-img-top" src={category.FAClassificationImage} alt="Card image cap" />
-          <div className="card-body">
-            <h5 className="card-title txt-primary">{category.FAClassificationName}</h5>
+        <div className="category_card border_1 border_primary">
+          <img className="category_card--img" src={category.FAClassificationImage} />
+          <div className="category_card--body">
+            <h5 className="txt-primary">{category.FAClassificationName}</h5>
             <div
-              className="card-text"
+              className="text-muted"
               dangerouslySetInnerHTML={{ __html: category.FAClassificationDesc }}
             />
           </div>

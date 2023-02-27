@@ -45,3 +45,20 @@ p {
 .fs-900 {
   font-size: 0.9rem;
 }
+
+.decorated_title {
+  position: relative;
+  font-weight: 700;
+  margin-bottom: 30px;
+  padding-bottom: 25px;
+  border-bottom: 3px solid #f0f2f3;
+}
+.decorated_title::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background-color: #50bd4d;
+}

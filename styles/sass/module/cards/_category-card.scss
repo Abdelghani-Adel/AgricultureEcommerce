@@ -1,0 +1,17 @@
+.category_card {
+  margin: 20px;
+  position: relative;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #f0f2f3;
+  box-shadow: 0 3px 24px rgb(0 0 0/4%);
+  border-radius: 8px;
+}
+
+.category_card--img {
+  height: 25vh;
+  display: block;
+  margin: auto;
+  margin-bottom: 1rem;
+  border-radius: 25px;
+}

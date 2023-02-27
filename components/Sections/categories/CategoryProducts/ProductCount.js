@@ -1,30 +1,29 @@
-import { useState ,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { withTranslation } from "react-multi-lang";
 
 const ProductCount = (props) => {
-    // const { Items, total } = props;
-   const [itemsPerPage, setItemsPerPage] = useState(0);
-   const [Items, setItems] = useState([])
-   const [total, settotal] = useState(0)
-
+  // const { Items, total } = props;
+  const [itemsPerPage, setItemsPerPage] = useState(0);
+  const [Items, setItems] = useState([]);
+  const [total, settotal] = useState(0);
 
   // if (total < itemsPerPage) {
   //   itemsPerPage = total;
   // }
   useEffect(() => {
-    setItemsPerPage(props.itemsPerPage)
+    setItemsPerPage(props.itemsPerPage);
     settotal(props.total);
     setItems(props.Items);
   }, []);
   useEffect(() => {
-    setItemsPerPage(props.itemsPerPage)
+    setItemsPerPage(props.itemsPerPage);
     settotal(props.total);
     setItems(props.Items);
   }, [props]);
   return (
-    <div className="andro_shop-global">
+    <div className="pagination_info">
       <p>
-        Showing <b>{itemsPerPage}</b> of <b>{total > 0 ? total : itemsPerPage }</b> products
+        Showing <b>{itemsPerPage}</b> of <b>{total > 0 ? total : itemsPerPage}</b> products
       </p>
       {/* <form method="post">
         <select className="form-control" name="orderby">

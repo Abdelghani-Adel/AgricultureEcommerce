@@ -1,4 +1,10 @@
-@use "../abstracts/variables";
+@use "../../abstracts/variables";
+
+.navbar-brand {
+  padding: 10px 0;
+  width: 170px;
+  display: block;
+}
 
 // Start Header Controlls
 .header_control {
@@ -133,25 +139,40 @@
 }
 // End Header Controls
 
-// Start Navbar
-
-// Start Header Offers
-.header_left_offers {
-  background-color: variables.$secondary-color;
-  height: 40px;
-  padding: 0 10px;
+.menu_toggler {
   display: flex;
+  height: 40px;
+  min-width: 40px;
   align-items: center;
-  flex: 0 0 auto;
-}
-.header_left_offers a {
-  display: inline-block;
-  margin: 0 10px;
-  color: #222;
+  justify-content: center;
+  background-color: variables.$main-color;
+  transition: 0.3s;
+  flex-direction: column;
+  cursor: pointer;
 }
 
-.header_left_offers img {
-  vertical-align: middle;
-  margin: 0 3px;
+.menu_toggler:hover {
+  background-color: variables.$main-color-hover;
 }
-// End Header Offers
+.menu_toggler:hover span {
+  margin: 0;
+}
+.menu_toggler:hover span:nth-child(1) {
+  width: 10px;
+  transform: rotate(45deg) translate(7px, -3px);
+}
+.menu_toggler:hover span:nth-child(3) {
+  width: 10px;
+  transform: rotate(-45deg) translate(7px, 3px);
+}
+
+.menu_toggler span {
+  background-color: #fff;
+  display: block;
+  margin-bottom: 4px;
+  width: 20px;
+  height: 2px;
+  border-radius: 3px;
+  transition: 0.3s;
+  transform-origin: right;
+}

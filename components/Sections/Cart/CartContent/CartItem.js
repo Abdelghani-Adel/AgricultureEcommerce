@@ -134,10 +134,10 @@ const CartItem = (props) => {
         <div className="d-flex justify-content-between align-items-center">
           <span>{item.Qty}</span>
           <span className="d-flex flex-column">
-            <button className="btn btn-success m-1" onClick={increaseItem}>
+            <button className="btn btn-success bg_primary m-1" onClick={increaseItem}>
               <FaAngleUp />
             </button>
-            <button className="btn btn-success m-1" onClick={decreaseItem}>
+            <button className="btn btn-success bg_primary m-1" onClick={decreaseItem}>
               <FaAngleDown />
             </button>
           </span>

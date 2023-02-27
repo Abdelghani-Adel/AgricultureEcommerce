@@ -1,17 +1,17 @@
 const SearchCategory = (props) => {
   return (
-    <div className="sidebar-widget widget-search">
+    <div className="category_search">
       <form method="post">
-        <div className="andro_search-adv-input">
+        <div>
           <input
             type="text"
             className="form-control"
             placeholder="Look for Fruits, Vegetables"
             name="search"
           />
-          <button type="submit" name="button">
+          {/* <button type="submit" name="button">
             <i className="fa fa-search" />
-          </button>
+          </button> */}
         </div>
       </form>
     </div>

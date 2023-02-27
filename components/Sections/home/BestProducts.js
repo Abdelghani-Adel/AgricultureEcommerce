@@ -10,7 +10,7 @@ const BestProducts = ({ order, cards_in_slide }) => {
 
   return (
     <div className="col-12 section" style={{ order: `${order}` }}>
-      {products.length > 0 && (
+      {products && products.length > 0 && (
         <ProductSlider
           translateTitle={"Products.BestProducts"}
           products={products}

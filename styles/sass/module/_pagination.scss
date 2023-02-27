@@ -50,9 +50,6 @@
   background-color: #f0f2f3;
 }
 
-.pagination {
-  margin-top: 50px;
-}
 .pagination li {
   /* padding: 10px 15px; */
   border: 0;
@@ -92,4 +89,21 @@
   .pagination {
     margin: 10px 0 30px;
   }
+}
+
+.pagination_info {
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #f0f2f3;
+  background-color: #fff;
+  box-shadow: 0 3px 24px rgba(0, 0, 0, 0.04);
+}
+
+.pagination_info p {
+  margin-bottom: 20px;
 }

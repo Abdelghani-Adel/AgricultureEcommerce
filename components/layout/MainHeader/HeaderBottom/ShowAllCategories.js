@@ -21,10 +21,7 @@ const ShowAllCategories = (props) => {
       <div className="andro_aside-overlay aside-trigger-right" onClick={toggleSideCategoriesTags} />
 
       {/* Toggler for side sub categories menu */}
-      <div
-        className="aside-toggler aside-trigger-right desktop-toggler"
-        onClick={toggleSideCategoriesTags}
-      >
+      <div className="menu_toggler" onClick={toggleSideCategoriesTags}>
         <span />
         <span />
         <span />

@@ -1,26 +1,23 @@
 import Link from "next/Link";
-import {withTranslation} from "react-multi-lang";
+import { withTranslation } from "react-multi-lang";
 const Breadcrumbs = (props) => {
   const pagename = props.breadcrumb.pagename;
   return (
-    <div className="andro_subheader pattern-bg primary-bg">
+    <div className="breadcrumbs">
       <div className="container">
-        <div className="andro_subheader-inner">
-          <h1>{pagename}</h1>
-          <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item">
-                <Link href="/">{props.t("Navbar.Home")}</Link>
-              </li>
-              <li className="breadcrumb-item active" aria-current="page">
-                {pagename}
-              </li>
-            </ol>
-          </nav>
+        <div className="breadcrumbs-inner">
+          <h1 className="txt-white">{pagename}</h1>
+          <p className="txt-white">
+            <span>{pagename}</span>
+            <span className="ms-2 me-2">/</span>
+            <span>
+              <Link href="/">{props.t("Navbar.Home")}</Link>
+            </span>
+          </p>
         </div>
       </div>
     </div>
   );
 };
 
-export default  withTranslation(Breadcrumbs);
+export default withTranslation(Breadcrumbs);

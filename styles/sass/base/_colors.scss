@@ -21,7 +21,7 @@
 
 // Backgrounds
 @each $color, $value in $colors {
-  .bg-#{$color} {
+  .bg_#{$color} {
     background-color: $value;
   }
 }

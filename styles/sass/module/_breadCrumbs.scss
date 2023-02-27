@@ -1,0 +1,34 @@
+.breadcrumbs {
+  position: relative;
+  z-index: 1;
+  background-image: url("../../public/img/banner_bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.breadcrumbs::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  z-index: -1;
+}
+
+.breadcrumbs-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 0;
+}
+
+.breadcrumbs-inner a {
+  color: #fff;
+  font-weight: 700;
+}
+.breadcrumbs-inner a:hover {
+  color: #cccccc;
+}

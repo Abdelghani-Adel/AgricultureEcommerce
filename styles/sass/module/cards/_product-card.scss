@@ -1,6 +1,4 @@
-@use "../abstracts/variables";
-
-////////////////////////////// product_card ///////////////////////////////
+@use "../../abstracts/variables";
 
 .product_card {
   position: relative;
@@ -160,23 +158,4 @@
 .product_card--buttons a {
   width: 100%;
   display: inline-block;
-}
-
-//////////////////////////// product single ///////////////////////////////////
-
-.uom_select {
-  margin: 10px 0;
-}
-
-.product_single--info {
-  // width: 30vw;
-}
-
-@media screen and (min-width: 768px) {
-  .product_single--info.Sticky {
-    position: fixed;
-    top: 0;
-    width: 30vw;
-    height: 500px;
-  }
 }
