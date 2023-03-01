@@ -45,7 +45,7 @@ export async function fetchCategoryProducts(categoryId, lang) {
       body: JSON.stringify({
         lang: lang,
         Cate_Id: categoryId,
-        limit: 6,
+        limit: 100,
         start: 1,
       }),
     }

@@ -10,12 +10,12 @@ const HeaderSearchFormLabelList = (props) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   return (
-    <div className="andro_search-adv-cats menu-item-has-children">
+    <div className="header_search--list menu-item-has-children">
       <span>
         {selectedCategory} <FaAngleDown />
       </span>
       <div className="sub-menu">
-        <div className="andro_dropdown-scroll">
+        <div>
           {links.map((link, i) => (
             <HeaderSearchFromLabel key={i} category={link} />
           ))}

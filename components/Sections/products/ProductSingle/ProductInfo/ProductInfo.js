@@ -3,56 +3,66 @@ import ProductInfoActions from "./ProductInfoActions";
 import ProductInfoHeader from "./ProductInfoHeader";
 import ProductInfoInput from "./ProductInfoInput";
 
-const ProductInfo = ({ item, wrapperPosition }) => {
-  const [product, setProduct] = useState(item);
-  const [quantity, setQuantity] = useState(1);
+const ProductInfo = ({ item, parentPosition }) => {
+  const [itemBeingBought, setItemBeingBought] = useState(item);
+  const [itemBeingBoughtQTY, setItemBeingBoughtQTY] = useState(1);
+
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [parentPos, setParentPosition] = useState(parentPosition);
+  const [isBottom, setIsBottom] = useState("");
   const ref = useRef();
 
-  const UOMchangeHandler = (e) => {
-    setProduct({ ...item, FAUOMID: e.target.value });
+  const quantityHandler = (newQty) => {
+    if (newQty < 1 || isNaN(newQty)) {
+      return;
+    }
+    setItemBeingBoughtQTY(newQty);
   };
 
-  const quantityHandler = (e) => {
-    const type = e.currentTarget.dataset.type;
-
-    if (type == "minus") {
-      if (quantity == 1) {
-        return;
-      }
-      setQuantity((prev) => prev - 1);
-    } else {
-      setQuantity((prev) => prev + 1);
-    }
+  const UOMchangeHandler = (e) => {
+    setItemBeingBought({ ...item, FAUOMID: e.target.value });
   };
 
   const handleScroll = () => {
-    const position = window.pageYOffset;
-    if (window.pageXOffset >= ref.current.offsetTop + ref.current.offsetHeight) {
-      console.log("got it");
+    const childDimentions = ref.current.getBoundingClientRect();
+
+    // const parentBottom = window.innerHeight - parentPos.top - parentPos.height;
+    // const childBottom = window.innerHeight - childDimentions.top - childDimentions.height;
+
+    console.log("parentBottom", parentPosition.bottom);
+    console.log("childBottom", childDimentions.bottom);
+
+    if (parentPosition.bottom <= childDimentions.bottom) {
+      setIsBottom("stop");
+    } else {
+      setIsBottom("");
     }
-    setScrollPosition(position);
+
+    setScrollPosition(window.pageYOffset);
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    setParentPosition(parentPosition);
+  }, [parentPosition]);
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [parentPosition]);
 
   return (
-    <div ref={ref} className={`product_single--info ${scrollPosition > 276.7 ? "Sticky" : ""}`}>
-      <ProductInfoHeader item={product} />
+    <div ref={ref} className={`product_single--info ${scrollPosition > 276.7 ? "Sticky5" : ""}`}>
+      <ProductInfoHeader item={itemBeingBought} />
       <hr className="m-0 mt-2 mb-2" />
       <ProductInfoInput
-        item={product}
-        quantity={quantity}
+        item={itemBeingBought}
+        quantity={itemBeingBoughtQTY}
         quantityHandler={quantityHandler}
         UOMchangeHandler={UOMchangeHandler}
       />
-      <ProductInfoActions item={product} quantity={quantity} />
+      <ProductInfoActions item={itemBeingBought} quantity={itemBeingBoughtQTY} />
     </div>
   );
 };

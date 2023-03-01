@@ -1,54 +1,45 @@
-import React, { Fragment, useEffect, useRef } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import { withTranslation } from "react-multi-lang";
 import AdditionalInfo from "../../../Archive/AdditionalInfo";
 import InformationTabs from "./InfoTabs/InformationTabs";
 import ProductCarousel from "./ProductCarousel";
 import ProductInfo from "./ProductInfo/ProductInfo";
 
-const ProductSingle = (props) => {
-  const item = props.ItemDetails;
-  const parentRef = useRef();
+const ProductSingle = ({ ItemDetails }) => {
+  const [item, setItem] = useState(ItemDetails);
+  const [position, setPosition] = useState({});
+  const ref = useRef();
 
   const handleScroll = () => {
-    const position = window.pageYOffset;
-
-    const childDimentions = parentRef.current.getBoundingClientRect();
+    setPosition(ref.current.getBoundingClientRect());
   };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
+  useEffect(() => {
+    setItem(ItemDetails);
+  }, [ItemDetails]);
+
   return (
-    <Fragment>
-      <>
-        <div className="section" ref={parentRef}>
-          <div className="container">
-            <div className="row">
-              {/* Product Thumbnail */}
-              <div className="col-md-8">
-                <ProductCarousel item={item} />
-                <InformationTabs item={item} />
-              </div>
+    <div className="section" ref={ref}>
+      <div className="container">
+        <div className="row flex-column-reverse flex-md-row">
+          <div className="col-md-6">
+            <ProductCarousel item={item} />
+            <InformationTabs item={item} />
+          </div>
 
-              <div className="col-md-4">
-                <ProductInfo item={item} />
-              </div>
-            </div>
+          <div className="col-md-6">
+            <ProductInfo item={item} parentPosition={position} />
           </div>
         </div>
-
-        <div className="section pt-0">
-          <div className="container">
-            <div className="andro_product-additional-info"></div>
-          </div>
-        </div>
-      </>
-    </Fragment>
+      </div>
+    </div>
   );
 };
 

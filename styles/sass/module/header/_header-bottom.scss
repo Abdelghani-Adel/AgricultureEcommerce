@@ -10,3 +10,9 @@
   justify-content: space-between;
   max-height: 40px;
 }
+
+@media screen and (max-width: 768px) {
+  .main_header-bottom-wrapper {
+    display: none;
+  }
+}

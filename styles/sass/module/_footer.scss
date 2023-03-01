@@ -2,7 +2,9 @@
 
 .footer {
   background-color: #f0f2f3;
-  padding: 20px 0 0;
+  // height: 50vh;
+  z-index: 3;
+  // position: relative;
 }
 .footer-middle a,
 .footer-middle i {

@@ -21,18 +21,14 @@ const ProductInfoActions = (props) => {
   };
 
   return (
-    <div className="row">
-      <div className="col-6">
-        <AddToCart style={"default_btn"} item={props.item} quantity={props.quantity}>
-          Add To Cart
-        </AddToCart>
-      </div>
+    <div className="d-flex">
+      <AddToCart style={"default_btn"} item={props.item} quantity={props.quantity}>
+        Add To Cart
+      </AddToCart>
 
-      <div className="col-6">
-        <button onClick={buyNowHandler} className="default_btn">
-          {props.t("Products.ShopNow")}
-        </button>
-      </div>
+      <button onClick={buyNowHandler} className="default_btn ms-2">
+        {props.t("Products.ShopNow")}
+      </button>
     </div>
   );
 };

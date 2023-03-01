@@ -4,12 +4,9 @@ export default function Document() {
     <Html lang="en">
       <Head>
         {/* <title>AgriOnClick</title> */}
-        <meta name="description" content="Created by RTS Solutions" />
+        {/* <meta name="description" content="Created by RTS Solutions" /> */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        {/* <link
-          rel="stylesheet"
-          href="/static/font-awesome.min.css"/> */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link rel="stylesheet" href="/static/bootstrap.min.css" />

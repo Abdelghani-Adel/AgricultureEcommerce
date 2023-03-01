@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { withTranslation } from "react-multi-lang";
@@ -10,6 +11,7 @@ import { fetchItemDetails } from "../../services/productServices";
 function Slug(props) {
   const router = useRouter();
   const dispatch = useDispatch();
+  console.log(props);
 
   useEffect(() => {
     dispatch(loaderActions.hideLoader());
@@ -17,6 +19,14 @@ function Slug(props) {
 
   return (
     <>
+      <Head>
+        <title>{props.productDetails.header_title}</title>
+        <meta property="og:title" content={props.productDetails.header_title} />
+        <meta name="description" content={props.productDetails.header_description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="devsdiamond.com" />
+        <meta property="og:image" content={`https://devsdiamond.com/img/offer.jpeg`} />
+      </Head>
       <Breadcrumbs breadcrumb={{ pagename: router.query.productSlug }} />
       <ProductSingle ItemDetails={props.productDetails} />
     </>

@@ -10,7 +10,7 @@ const ShowAllCategories = (props) => {
   return (
     <Fragment>
       <aside
-        className={classNames("andro_aside andro_aside-right", {
+        className={classNames("side_categories", {
           open: showSideCategoriesTags,
         })}
       >
@@ -18,7 +18,7 @@ const ShowAllCategories = (props) => {
       </aside>
 
       {/* Dark overlay shown when displaying the right sub categories */}
-      <div className="andro_aside-overlay aside-trigger-right" onClick={toggleSideCategoriesTags} />
+      <div className="side_categories--overlay" onClick={toggleSideCategoriesTags} />
 
       {/* Toggler for side sub categories menu */}
       <div className="menu_toggler" onClick={toggleSideCategoriesTags}>

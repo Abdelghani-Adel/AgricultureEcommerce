@@ -8,7 +8,7 @@ import SpecialOffers from "./SpecialOffers";
 
 const HomeBanner = () => {
   return (
-    <div className="col-12 section carousel_bg" id="home_banner">
+    <div className="col-12 section pt-0 carousel_bg" id="home_banner">
       <div className="home-banner">
         <HomeAdvertiseSlider />
 

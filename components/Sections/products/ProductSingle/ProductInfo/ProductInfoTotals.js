@@ -5,7 +5,7 @@ const ProductInfoTotals = ({ price, quantity }) => {
         <p>Unit Price:</p>
         <p>{price}</p>
       </div> */}
-      <div className="mt-2">
+      <div className="">
         <h4>Total: {price * quantity}</h4>
       </div>
     </div>

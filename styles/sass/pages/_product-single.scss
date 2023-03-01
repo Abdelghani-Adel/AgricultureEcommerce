@@ -1,16 +1,22 @@
-.uom_select {
-  margin: 10px 0;
-}
-
-.product_single--info {
-  // width: 30vw;
+.product_single--carousel {
+  position: relative;
 }
 
 @media screen and (min-width: 768px) {
   .product_single--info.Sticky {
     position: fixed;
     top: 0;
-    width: 30vw;
-    height: 500px;
+    width: 41vw;
+    // transition: 3s;
+    height: 60vh;
+    background-color: #ccc;
+    // z-index: 5;
+  }
+  .product_single--info.Sticky.stop {
+    position: absolute;
+    top: initial;
+    bottom: 0;
+    width: 41vw;
+    // transition: 3s;
   }
 }

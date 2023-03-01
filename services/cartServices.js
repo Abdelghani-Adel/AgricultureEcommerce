@@ -38,7 +38,6 @@ export async function editCartItem(editedCartItem, lang, Cust_Id, currentCart) {
   });
 
   const cartDetails = await res.json();
-  console.log(cartDetails);
   return cartDetails;
 }
 

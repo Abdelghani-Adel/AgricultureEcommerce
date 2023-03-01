@@ -4,8 +4,8 @@ import BestProducts from "../components/Sections/home/BestProducts";
 import BooksSection from "../components/Sections/home/BooksSection";
 import Cta from "../components/Sections/home/Cta";
 import HomeBanner from "../components/Sections/home/HomeBanner";
-import { loaderActions } from "../redux/slices/loaderSlice";
 import sections from "../data/sections.json";
+import { loaderActions } from "../redux/slices/loaderSlice";
 
 export default function Home() {
   const dispatch = useDispatch();

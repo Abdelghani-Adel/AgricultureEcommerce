@@ -2,10 +2,12 @@ import { addItemsFromCookiesToDB } from "../helper/Cookies/CarCookies";
 import { sendLikesToDB } from "../helper/Cookies/LikesCookies";
 import { getCartDetails, getCurrency } from "../redux/slices/cartSlice";
 import { getNavbarLinks } from "../redux/slices/navbarSlice";
+import { fetchTemplate } from "../redux/slices/PagesTemplateSlice";
 import { fetchProducts } from "../redux/slices/productSlice";
 import store from "../redux/store";
 
 export async function fetchBasicData() {
+  // await store.dispatch(fetchTemplate());
   await store.dispatch(getCurrency());
   await store.dispatch(getNavbarLinks());
 }
