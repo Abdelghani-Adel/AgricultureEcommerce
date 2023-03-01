@@ -13,7 +13,8 @@
     "About": "About",
     "Shop": "Shop",
     "ContactUs": "Contact Us",
-    "Chat": "Chat"
+    "Chat": "Chat",
+    "Partners":"Partners"
   },
   "Home": {
     "JoinChat": "Join Chat"
@@ -23,7 +24,7 @@
     "AddToCart": "Add To Cart",
     "AddToWish": "Add To WishList",
     "ViewDetails": "View Details",
-    "Stars": "Stars",
+    "Stars": "Rating",
     "Featured": "Featured",
     "BooksAndInfo": "Books And Agriculture Info",
     "ReadMore": "Read More",
@@ -42,7 +43,10 @@
     "Ingredients": "Ingredients",
     "Facilities": "Facilities",
     "Warnings": "Warnings",
-    "Desc": "Description"
+    "Desc": "Description",
+    "Range":"Range",
+    "Free":"Free",
+    "FreeProducts":"Free Products"
   },
   "Footer": {
     "TopCategories": "Top Categories",

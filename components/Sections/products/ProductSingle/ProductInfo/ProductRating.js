@@ -6,7 +6,7 @@ const ProductRating = ({ rating }) => {
     <div className="andro_rating-wrapper">
       <div className="andro_rating">
         {/* <FaRegHeart /> */}
-        {Rating(rating)} {rating} Stars
+        {Rating(rating)} {rating} 
       </div>
     </div>
   );

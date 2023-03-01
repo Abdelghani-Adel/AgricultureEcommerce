@@ -13,7 +13,8 @@
     "About": "نبذه عن",
     "Shop": "المتجر",
     "ContactUs": "تواصل معنا",
-    "Chat": "دردشة عامة"
+    "Chat": "دردشة عامة",
+    "Partners":"شركائنا"
   },
   "Home": {
     "JoinChat": "الانضمام للدردشة"
@@ -22,7 +23,7 @@
     "BestProducts": "أفضل المنتجات",
     "AddToCart": "أضف الي العربة",
     "ViewDetails": "رؤية التفاصيل",
-    "Stars": "نجوم",
+    "Stars": "تقييم",
     "Featured": "مميز",
     "BooksAndInfo": "كتب ومعلومات زراعية",
     "ReadMore": "قراءة المزيد",
@@ -41,7 +42,10 @@
     "Ingredients": "المكونات",
     "Facilities": "الزراعات",
     "Warnings": "التحذيرات",
-    "Desc": "وصف المنتج"
+    "Desc": "وصف المنتج",
+    "Range":"الكمية",
+    "Free":"المجاني",
+    "FreeProducts":"منتجات مجانية"
   },
   "Footer": {
     "TopCategories": "أعلي الاقسام",

@@ -1,5 +1,13 @@
 @use "../abstracts/variables";
 
+.adv_3{
+  background-color: white;
+  border: 1px solid #ddd;
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 10px;
+}
 .frame-wrapper {
   width: 100%;
   height: 100px;
@@ -17,16 +25,16 @@
 }
 .frame-wrapper-2 {
   width: 100%;
-  height: 40vh;
-  border: 2px solid;
-  border: 4px solid variables.$main-color;
+ // height: 40vh;
+  //border: 2px solid;
+  //border: 4px solid variables.$main-color;
   padding: 10px;
   border-radius: 10px;
 }
 
 @media screen and (min-width: 768px) {
   .frame-wrapper-2 {
-    margin-top: 60px;
+    //margin-top: 60px;
     height: 50%;
   }
 }

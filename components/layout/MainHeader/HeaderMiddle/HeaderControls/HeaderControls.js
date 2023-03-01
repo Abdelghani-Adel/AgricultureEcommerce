@@ -30,16 +30,15 @@ const HeaderControls = (props) => {
           <FaCommentAlt />
         </Link>
       </li>
-
-      <ul className="header_control me-2 bg-white d-none d-md-flex">
-        <ProfileAuthController mobileView={false} />
-      </ul>
-
       <li className="header_control d-none d-md-flex">
         <Link href="/wishlist" title="Wish List">
           <FaRegHeart />
         </Link>
       </li>
+      <ul className="header_control me-2 bg-white d-none d-md-flex">
+        <ProfileAuthController mobileView={false} />
+      </ul>
+
       <li className="header_control cart_controller ">
         <CartController />
       </li>

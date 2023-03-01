@@ -50,7 +50,7 @@ const sliderSettings = {
 
 const AdvertiseOne = () => {
   return (
-    <div className="andro_banner adv_1">
+    <div className="andro_banner adv_1 border_1">
       <Slider className="andro_banner-slider" {...sliderSettings}>
         {bannerslider.map((item, i) => (
           <div key={i} className="container">
@@ -74,7 +74,8 @@ const AdvertiseOne = () => {
                     "https://fastly.picsum.photos/id/988/500/420.jpg?hmac=Y0eqwuZAPCMDPwBcL9AIhDwVNSWV-IenkzC5M5jeKek"
                   }
                   alt={item.title}
-                  className="border_1 border_primary p-3"
+                  className="p-2 border-raduis_12"
+                  // className="border_1 border_primary p-3"
                   width={500}
                   height={400}
                 />

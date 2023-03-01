@@ -8,7 +8,7 @@ const Offers = [
   { title: "Free Shipping", icon: "icon.png" },
   { title: "Free Refund", icon: "icon.png" },
 ];
-function HeaderOffers() {
+function HeaderOffers(props) {
   const [data, setData] = useState();
 
   useEffect(() => {
@@ -23,7 +23,16 @@ function HeaderOffers() {
   }, []);
   return (
     <>
-      {data &&
+     <Link href="#">
+          {props.t("Navbar.About")}
+            </Link>
+            <Link href="#">
+          {props.t("Navbar.Partners")}
+            </Link>
+            <Link  href="#">
+          {props.t("Navbar.ContactUs")}
+            </Link>
+      {/* {data &&
         data.map((offer, index) => {
           return (
             <Link key={index} href="#">
@@ -31,7 +40,7 @@ function HeaderOffers() {
               {offer.title}
             </Link>
           );
-        })}
+        })} */}
     </>
   );
 }

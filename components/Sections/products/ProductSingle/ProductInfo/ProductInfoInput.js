@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
+import { withTranslation } from "react-multi-lang";
 import ProductGifts from "./ProductGifts";
 import QuantityInput from "./QuantityInput";
 import UnitOfMeasure from "./Uom";
@@ -52,7 +53,7 @@ const ProductInfoInput = (props) => {
   }, [props.quantity]);
 
   return (
-    <div className="mb-2">
+    <div className="productInfoInput">
       <div className="row mb-2">
         <div className="col-6 col-lg-4 col-xl-3">
           <QuantityInput quantityHandler={props.quantityHandler} quantity={quantity} />
@@ -61,15 +62,15 @@ const ProductInfoInput = (props) => {
           <UnitOfMeasure item={item} UOMchangeHandler={props.UOMchangeHandler} />
         </div>
         <div className="col-6 col-lg-4 col-xl-3">
-          <h6 className="txt-primary mt-2 mb-2">Free Products : {freeProducts}</h6>
+          <h6 className="txt-primary mt-2 mb-2">{props.t("Products.FreeProducts")} : {freeProducts}</h6>
         </div>
         <div className="col-6 col-lg-4 col-xl-3">
-          <h5 className="mt-2 mb-2 fw-bold">Total : {props.quantity * item.Price}</h5>
+          <h5 className="mt-2 mb-2 fw-bold">{props.t("Cart.Total")} : {props.quantity * item.Price}</h5>
         </div>
       </div>
-      {item.gifts && item.gifts.length > 0 && <ProductGifts gifts={item.gifts} />}
+      {item.gifts && item.gifts.length > 0 && <ProductGifts {...props} gifts={item.gifts} />}
     </div>
   );
 };
 
-export default ProductInfoInput;
+export default  withTranslation(ProductInfoInput);

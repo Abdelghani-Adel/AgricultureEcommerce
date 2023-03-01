@@ -1,6 +1,6 @@
 const AdvertiseThree = ({ order }) => {
   return (
-    <div>
+    <div className="adv_3">
       <div className="frame-wrapper-2">
         <iframe
           className="iframe_2"

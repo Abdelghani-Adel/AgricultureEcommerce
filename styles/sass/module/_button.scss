@@ -19,6 +19,7 @@
   align-content: center;
   align-items: center;
   justify-content: center;
+  max-width: 200px;
 
   &:hover {
     background-color: variables.$main-color-hover;

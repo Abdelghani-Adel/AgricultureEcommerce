@@ -1,6 +1,16 @@
+@use "../../abstracts/variables";
+
 .product_offers {
-  padding: 0 10px;
+  padding: 10px;
   // width: 100%;
   border-radius: 10px;
   background-color: #04ff042b;
+  margin: 20px 0;
+  .gift_row{
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    &:last-child{
+      border-bottom: 0;
+    }
+  }
 }

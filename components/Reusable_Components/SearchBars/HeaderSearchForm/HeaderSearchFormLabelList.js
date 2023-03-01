@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { fetchCategoriesMenu } from "../../../../../services/categoryServices";
+//import { fetchCategoriesMenu } from "../../../../../services/categoryServices";
 import HeaderSearchFromLabel from "./HeaderSearchFormLabel";
 
 const HeaderSearchFormLabelList = (props) => {
