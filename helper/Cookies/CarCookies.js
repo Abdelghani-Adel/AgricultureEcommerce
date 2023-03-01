@@ -31,18 +31,20 @@ export function storeCartItemInCookie(itemBeingStored) {
       store.dispatch(getCartDetails());
       return;
     }
-  }
 
-  // If the cart in the cookie is empty, we initiate the cookie
-  const cartCookie = JSON.stringify({
-    items: [itemBeingStored],
-    totalPrice: itemBeingStored.UnitPrice,
-  });
-  document.cookie = `cartCookie=${cartCookie}; expires=${expires}; SameSite=None; secure=true`;
-  store.dispatch(getCartDetails(itemBeingStored));
+    // If the cart in the cookie is empty, we initiate the cookie
+    const cartCookie = JSON.stringify({
+      items: [itemBeingStored],
+      totalPrice: itemBeingStored.UnitPrice,
+    });
+    document.cookie = `cartCookie=${cartCookie}; expires=${expires}; SameSite=None; secure=true`;
+    store.dispatch(getCartDetails(itemBeingStored));
+  }
 }
 
 export function deleteCartItemInCookie(itemBeingDeleted) {
+  const isCookieEnabled = navigator.cookieEnabled;
+  if (!isCookieEnabled) return;
   const foundCookie = getCookie("cartCookie");
   let parsedCookie = JSON.parse(foundCookie);
   const removedItem_Cost = itemBeingDeleted.Qty * itemBeingDeleted.UnitPrice;
@@ -61,6 +63,8 @@ export function deleteCartItemInCookie(itemBeingDeleted) {
 }
 
 export function increaseCartItemInCookie(itemBeingIncreased) {
+  const isCookieEnabled = navigator.cookieEnabled;
+  if (!isCookieEnabled) return;
   const foundCookie = getCookie("cartCookie");
   const parsedCookie = JSON.parse(foundCookie);
   let cartItems = parsedCookie.items;
@@ -78,6 +82,8 @@ export function increaseCartItemInCookie(itemBeingIncreased) {
 }
 
 export function decreaseCartItemInCookie(itemBeingDecreased) {
+  const isCookieEnabled = navigator.cookieEnabled;
+  if (!isCookieEnabled) return;
   const foundCookie = getCookie("cartCookie");
   const parsedCookie = JSON.parse(foundCookie);
   let cartItems = parsedCookie.items;

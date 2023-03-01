@@ -1,13 +1,18 @@
 import { withTranslation } from "react-multi-lang";
+import Image from "next/image";
 
 const AdvertiseTwo = (props) => {
   return (
     <div className="adv_2">
-      <img
-        src="https://fastly.picsum.photos/id/33/521/177.jpg?hmac=L4jhdUWoWTz7RjMHsU6TzbWZouEY3lokJ3D9_kVKiiQ"
-        alt="agriculture_advertise"
-        className="border_1 border_primary p-1"
-      />
+      <div className="adv_2--thumb">
+        <Image
+          src="https://fastly.picsum.photos/id/33/521/177.jpg?hmac=L4jhdUWoWTz7RjMHsU6TzbWZouEY3lokJ3D9_kVKiiQ"
+          alt="agriculture_advertise"
+          className="border_1 border_primary p-1"
+          fill
+          style={{ objectFit: "fill" }}
+        />
+      </div>
 
       <div className="border_2 border_primary p-1">
         <iframe
@@ -17,11 +22,15 @@ const AdvertiseTwo = (props) => {
         ></iframe>
       </div>
 
-      <img
-        src="https://fastly.picsum.photos/id/492/521/177.jpg?hmac=h81F_8F-sSb5sxzOeMg3GcGQRcYPWX25Nbb75fqz8LM"
-        alt="agriculture_advertise"
-        className="border_1 border_primary p-1"
-      />
+      <div className="adv_2--thumb">
+        <Image
+          src="https://fastly.picsum.photos/id/33/521/177.jpg?hmac=L4jhdUWoWTz7RjMHsU6TzbWZouEY3lokJ3D9_kVKiiQ"
+          alt="agriculture_advertise"
+          className="border_1 border_primary p-1"
+          fill
+          style={{ objectFit: "fill" }}
+        />
+      </div>
     </div>
   );
 };

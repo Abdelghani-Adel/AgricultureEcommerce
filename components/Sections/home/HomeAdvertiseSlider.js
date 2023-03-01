@@ -1,5 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
+import Image from "next/image";
 
 const settings = {
   slidesToShow: 1,
@@ -13,15 +14,15 @@ const settings = {
 
 export default function HomeAdvertiseSlider() {
   return (
-    <Slider className="advertise-slider d-none d-md-block" {...settings} >
+    <Slider className="advertise-slider d-none d-md-block" {...settings}>
       <div>
         <div className="advertise">
-          <img src="../img/agri_banner.png" alt="" />
+          <Image src="/img/agri_banner.png" alt="" fill />
         </div>
       </div>
       <div>
         <div className="advertise">
-          <img src="../img/slider.jpg" alt="" />
+          <Image src="/img/slider.jpg" alt="" fill />
         </div>
       </div>
     </Slider>

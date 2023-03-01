@@ -3,9 +3,10 @@ import { UPSproductLikes } from "../../services/productServices";
 import { getCookie, setCookieExpiration } from "./CookiesHandlers";
 
 export function storeLikeInCookie(idBeingAffected, action) {
-  const cookiesIsEnabled = navigator.cookieEnabled;
+  const isCookieEnabled = navigator.cookieEnabled;
+  if (!isCookieEnabled) return;
 
-  if (cookiesIsEnabled) {
+  if (isCookieEnabled) {
     const prevCookieIsFound = getCookie("likesCookie");
 
     if (prevCookieIsFound) {
@@ -18,6 +19,9 @@ export function storeLikeInCookie(idBeingAffected, action) {
 }
 
 const updateLikesCookie = async (action, cookie, idBeingAffected) => {
+  const isCookieEnabled = navigator.cookieEnabled;
+  if (!isCookieEnabled) return;
+
   const parsedCookie = JSON.parse(cookie);
   const prevProducts = parsedCookie.products;
   const productIndex = prevProducts.findIndex((product) => product.id == idBeingAffected);
@@ -30,6 +34,9 @@ const updateLikesCookie = async (action, cookie, idBeingAffected) => {
 };
 
 const likeExistedProduct = (action, prevProducts, productIndex) => {
+  const isCookieEnabled = navigator.cookieEnabled;
+  if (!isCookieEnabled) return;
+
   const expires = setCookieExpiration();
   let newProducts = prevProducts;
   if (action == "like") {
@@ -46,6 +53,9 @@ const likeExistedProduct = (action, prevProducts, productIndex) => {
 };
 
 const likeNewProduct = (action, prevProducts, productId) => {
+  const isCookieEnabled = navigator.cookieEnabled;
+  if (!isCookieEnabled) return;
+
   const expires = setCookieExpiration();
   const newProduct = {
     id: productId,

@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import MainLayout from "../components/layout/MainLayout";
 import store from "../redux/store";
 import "../styles/globals.css";
-import "../styles/sass/main.css";
+import "../styles/sass/main.scss";
 import ar from "../translations/ar.json";
 import en from "../translations/en.json";
 import { SessionProvider } from "next-auth/react";

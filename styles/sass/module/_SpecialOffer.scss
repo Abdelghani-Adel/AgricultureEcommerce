@@ -9,10 +9,9 @@
   overflow: hidden;
 }
 
-.special_offer {
-  .slick-slide img {
-    max-height: 10%;
-  }
+.special_offer--thumb {
+  position: relative;
+  height: 150px;
 }
 
 .special_offer--img {

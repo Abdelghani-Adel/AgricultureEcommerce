@@ -8,10 +8,9 @@
   border-radius: 8px;
 }
 
-.category_card--img {
-  height: 25vh;
-  display: block;
-  margin: auto;
-  margin-bottom: 1rem;
-  border-radius: 25px;
+.category_card--thumb {
+  height: 200px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 0.5rem;
 }

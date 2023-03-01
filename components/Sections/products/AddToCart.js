@@ -1,4 +1,5 @@
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import { useCallback } from "react";
 import { FaShoppingBasket } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
@@ -14,8 +15,11 @@ const AddToCart = (props) => {
   const cartState = useSelector((state) => state.cart);
   const session = useSession();
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const addToCartHandler = useCallback(() => {
+    const isCookieEnabled = navigator.cookieEnabled;
+
     const cartItem = {
       Item_Id: item.Item_Id,
       Item_Name: item.Item_Name,
@@ -29,9 +33,14 @@ const AddToCart = (props) => {
       lang: lang,
     };
 
-    toast.success(`Item has been added to you cart!`);
     if (session.status != "authenticated") {
-      storeCartItemInCookie(cartItem);
+      if (isCookieEnabled) {
+        storeCartItemInCookie(cartItem);
+        toast.success(`Item has been added to you cart!`);
+      } else {
+        router.push("/login");
+      }
+
       return;
     }
 
@@ -40,6 +49,7 @@ const AddToCart = (props) => {
       item: cartItem,
     };
     dispatch(editCart(payload));
+    toast.success(`Item has been added to you cart!`);
   });
 
   return (

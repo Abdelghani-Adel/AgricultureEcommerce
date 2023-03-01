@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaAngleDown, FaAngleLeft, FaAngleRight, FaAngleUp } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { loaderActions } from "../../../redux/slices/loaderSlice";
+import Image from "next/image";
 
 const CategoryNavItem = (props) => {
   const { link, isChild } = props;
@@ -35,8 +36,12 @@ const CategoryNavItem = (props) => {
         onClick={showLoader}
         className="nav_link"
       >
-        {link.IconTypeId == 1 && <img className="category_icon svg" src={`${link.Icon}`} />}
-        {link.IconTypeId == 2 && <img className="category_icon" src={`${link.Icon}`} />}
+        {link.IconTypeId == 1 && (
+          <Image className="category_icon svg" src={`${link.Icon}`} width={16} height={16} />
+        )}
+        {link.IconTypeId == 2 && (
+          <Image className="category_icon" src={`${link.Icon}`} width={16} height={16} />
+        )}
 
         {link.FAClassificationName}
 

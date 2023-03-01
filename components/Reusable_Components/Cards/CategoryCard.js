@@ -1,6 +1,7 @@
 import Link from "next/Link";
 import { useDispatch } from "react-redux";
 import { loaderActions } from "../../../redux/slices/loaderSlice";
+import Image from "next/image";
 
 const CategoryCard = ({ category, style }) => {
   const dispatch = useDispatch();
@@ -18,7 +19,9 @@ const CategoryCard = ({ category, style }) => {
         onClick={showLoader}
       >
         <div className="category_card border_1 border_primary">
-          <img className="category_card--img" src={category.FAClassificationImage} />
+          <div className="category_card--thumb">
+            <Image src={category.FAClassificationImage} fill style={{ objectFit: "contain" }} />
+          </div>
           <div className="category_card--body">
             <h5 className="txt-primary">{category.FAClassificationName}</h5>
             <div

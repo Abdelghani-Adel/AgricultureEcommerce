@@ -1,5 +1,6 @@
 import { getSession, useSession } from "next-auth/react";
 import Link from "next/Link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { BiDislike, BiLike } from "react-icons/bi";
 import { FaRegEye } from "react-icons/fa";
@@ -23,6 +24,7 @@ const ProductFooter = (props) => {
   const { product } = props;
   const session = useSession();
   const dispatch = useDispatch();
+  const router = useRouter();
 
   useEffect(() => {
     setInitialLikeState(product, setLikeButtonChecked, setUnlikeButtonChecked);
@@ -36,6 +38,12 @@ const ProductFooter = (props) => {
   }, []);
 
   const likeHandler = async (e) => {
+    const isCookieEnabled = navigator.cookieEnabled;
+    if (!isCookieEnabled && session.status != "authenticated") {
+      router.push("/login");
+      return;
+    }
+
     const actionType = e.currentTarget.dataset.type;
     const authenticated = session.status == "authenticated";
 

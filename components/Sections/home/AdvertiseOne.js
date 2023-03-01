@@ -1,5 +1,6 @@
 import Slider from "react-slick";
 import Link from "next/Link";
+import Image from "next/image";
 
 const bannerslider = [
   {
@@ -68,12 +69,14 @@ const AdvertiseOne = () => {
                 </Link>
               </div>
               <div className="col-lg-6 d-none d-lg-block">
-                <img
+                <Image
                   src={
                     "https://fastly.picsum.photos/id/988/500/420.jpg?hmac=Y0eqwuZAPCMDPwBcL9AIhDwVNSWV-IenkzC5M5jeKek"
                   }
                   alt={item.title}
                   className="border_1 border_primary p-3"
+                  width={500}
+                  height={400}
                 />
               </div>
             </div>

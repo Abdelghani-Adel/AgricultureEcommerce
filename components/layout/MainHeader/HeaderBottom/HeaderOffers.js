@@ -2,6 +2,7 @@ import Link from "next/Link";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { withTranslation } from "react-multi-lang";
+
 const Offers = [
   { title: "Cash On Delivery", icon: "icon.png" },
   { title: "Free Shipping", icon: "icon.png" },
@@ -26,7 +27,7 @@ function HeaderOffers() {
         data.map((offer, index) => {
           return (
             <Link key={index} href="#">
-              <img src={"../img/" + offer.icon} alt="ecommerce" width="16" height="16" />
+              <Image src={`/img/` + offer.icon} alt="ecommerce" width="16" height="16" />
               {offer.title}
             </Link>
           );

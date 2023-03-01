@@ -9,6 +9,7 @@ import {
   increaseCartItemInCookie,
 } from "../../../../helper/Cookies/CarCookies";
 import { cartActions, deleteItem, editCart } from "../../../../redux/slices/cartSlice";
+import Image from "next/image";
 
 const CartItem = (props) => {
   const { item } = props;
@@ -113,7 +114,13 @@ const CartItem = (props) => {
         <div className="andro_cart-product-wrapper">
           {item.Item_Image && (
             <div>
-              <img className="category_icon" src={`${item.Item_Image}`} alt={item.Item_Name} />
+              <Image
+                className="category_icon"
+                src={`${item.Item_Image}`}
+                alt={item.Item_Name}
+                width={50}
+                height={100}
+              />
             </div>
           )}
           <div className="andro_cart-product-body">
