@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const cookiesAvailSlice = createSlice({
+const cookiesState = createSlice({
   name: "cookies",
   initialState: null,
   reducers: {
@@ -10,5 +10,5 @@ const cookiesAvailSlice = createSlice({
   },
 });
 
-export const cookiesActions = cookiesAvailSlice.actions;
-export default cookiesAvailSlice;
+export const cookiesActions = cookiesState.actions;
+export default cookiesState;

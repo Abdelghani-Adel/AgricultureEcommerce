@@ -4,11 +4,39 @@
   position: fixed;
   bottom: 10px;
   left: 10px;
-  border: 2px solid variables.$main-color;
-  padding: 0.5rem;
+  padding: 1.2rem;
   border-radius: 10px;
-  background-color: variables.$secondary-color;
-  color: #000;
+  background-color: hsl(210, 8%, 20%);
+  color: #fff;
   width: 25vw;
   z-index: 11;
+  transition: 1s;
+}
+
+.cookie-notification.hidden {
+  display: none;
+}
+
+.cookie-notification--image {
+  fill: currentColor;
+  color: hsl(205, 46%, 92%);
+}
+
+.cookie-notification--title {
+}
+
+.cookie-notification--paragraph {
+  font-size: 0.8rem;
+  line-height: 16px;
+}
+
+.cookie-notification .default_btn {
+  font-size: 0.8rem;
+  // width: 100%;
+  letter-spacing: 2px;
+  padding: 0.25rem 0;
+  flex: auto;
+  height: initial;
+  margin-top: 1rem;
+  border-radius: 0;
 }

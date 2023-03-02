@@ -9,6 +9,8 @@ const CategoryCard = ({ category, style }) => {
     dispatch(loaderActions.showLoader());
   };
 
+  console.log(category);
+
   return (
     <div className={style}>
       <Link

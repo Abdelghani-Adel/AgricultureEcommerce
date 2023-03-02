@@ -1,3 +1,6 @@
+import { cookiesActions } from "../../redux/slices/cookiesAvailSlice";
+import store from "../../redux/store";
+
 export function getCookie(cname) {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
@@ -22,4 +25,10 @@ export function setCookieExpiration() {
 
 export function deleteCookie(cname) {
   document.cookie = `${cname}=${cname}; expires=Thu, 18 Dec 2013 12:00:00 UTC`;
+}
+
+export async function checkCookiesAvailability() {
+  const availability = navigator.cookieEnabled;
+  store.dispatch(cookiesActions.changeAvailability(availability));
+  return;
 }

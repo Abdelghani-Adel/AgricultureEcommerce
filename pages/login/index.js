@@ -4,7 +4,7 @@ import { Fragment, useCallback, useState } from "react";
 import { AuthenticationAPI } from "../../services/AuthenticationAPI";
 import { signIn, useSession } from "next-auth/react";
 import Loader from "../../components/Reusable_Components/Loader";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loaderActions } from "../../redux/slices/loaderSlice";
 import { withTranslation } from "react-multi-lang";
 
@@ -13,6 +13,7 @@ const authApi = new AuthenticationAPI();
 const Login = (props) => {
   const [reqBody, setReqBody] = useState({ rememberMe: false });
   const [errors, setErrors] = useState();
+  const cookies = useSelector((state) => state.cookies);
   const dispatch = useDispatch();
 
   const inputChangeHandler = useCallback((e) => {
@@ -26,8 +27,13 @@ const Login = (props) => {
     e.preventDefault();
     dispatch(loaderActions.showLoader());
 
-    const dbLookup = await authApi.Login(reqBody);
+    if (!cookies) {
+      dispatch(loaderActions.hideLoader());
+      window.location.reload();
+      return;
+    }
 
+    const dbLookup = await authApi.Login(reqBody);
     if (dbLookup.token) {
       const res = await signIn("credentials", {
         email: reqBody.email,

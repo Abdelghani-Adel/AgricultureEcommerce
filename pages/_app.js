@@ -10,6 +10,7 @@ import "../styles/sass/main.scss";
 import ar from "../translations/ar.json";
 import en from "../translations/en.json";
 import { SessionProvider } from "next-auth/react";
+import CookiesNotification from "../components/Reusable_Components/CookiesNotification";
 
 setTranslations({ ar, en });
 setDefaultLanguage("ar");
@@ -26,6 +27,7 @@ export default function App({ Component, pageProps }) {
       <SessionProvider session={pageProps.session}>
         <Provider store={store}>
           <MainLayout changeLang={changeLang}>
+            <CookiesNotification />
             <Component {...pageProps} />
           </MainLayout>
         </Provider>

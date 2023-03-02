@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cartSlice from "./slices/cartSlice";
+import cookiesState from "./slices/cookiesAvailSlice";
 import langSlice from "./slices/lang";
 import loaderSlice from "./slices/loaderSlice";
 import navBarSlice from "./slices/navbarSlice";
@@ -17,6 +18,7 @@ const store = configureStore(
       products: productSlice.reducer,
       subNav: subCategoryNavSlice.reducer,
       template: pagesTemplateSlice.reducer,
+      cookies: cookiesState.reducer,
     },
   },
   typeof window !== "undefined" &&
