@@ -1,0 +1,14 @@
+@use "../abstracts/variables";
+
+.cookie-notification {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  border: 2px solid variables.$main-color;
+  padding: 0.5rem;
+  border-radius: 10px;
+  background-color: variables.$secondary-color;
+  color: #000;
+  width: 25vw;
+  z-index: 11;
+}
