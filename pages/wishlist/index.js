@@ -11,8 +11,8 @@ const WishList = (props) => {
       <Breadcrumbs breadcrumb={{ pagename: pagelocation }} />
       <div className="section">
         <div className="container">
-          <WishlistTable />
-          <WishlistShare />
+          {/* <WishlistTable />
+          <WishlistShare /> */}
         </div>
       </div>
     </Fragment>

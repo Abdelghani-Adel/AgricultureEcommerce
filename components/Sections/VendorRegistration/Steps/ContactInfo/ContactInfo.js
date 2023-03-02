@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
 import BillingAddressForm from "../../Reusable/BillingAddressForm/BillingAddressForm";
 import InputField from "../../Reusable/InputField";
 import SubmitStepButton from "../../Reusable/SubmitStepButton";
@@ -55,13 +55,13 @@ const ContactInfo = (props) => {
           <div className="col">
             <div className="form-group">
               <label>Identity Expiration Date</label>
-              <DatePicker
+              {/* <DatePicker
                 selected={expirationDate}
                 onChange={dateChangeHandler}
                 dateFormat="MM/yyyy"
                 showMonthYearPicker
                 className="form-control form-control-lg bg-light"
-              />
+              /> */}
             </div>
           </div>
 

@@ -34,14 +34,20 @@ const CategoryNavItem = (props) => {
           query: { id: `${link.FAClassificationId}` },
         }}
         onClick={showLoader}
-        className="nav_link"
+        className="nav_link position-relative"
       >
-        {link.IconTypeId == 1 && (
-          <Image className="category_icon svg" src={`${link.Icon}`} width={16} height={16} />
+        {/* {link.IconTypeId == 1 && (
+          <Image
+            className="category_icon svg"
+            alt="Icon"
+            src={`${link.Icon}`}
+            width={16}
+            height={16}
+          />
         )}
         {link.IconTypeId == 2 && (
-          <Image className="category_icon" src={`${link.Icon}`} width={16} height={16} />
-        )}
+          <Image className="category_icon" alt="Icon" src={`${link.Icon}`} width={16} height={16} />
+        )} */}
 
         {link.FAClassificationName}
 

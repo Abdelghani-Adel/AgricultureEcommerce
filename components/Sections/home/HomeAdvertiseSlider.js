@@ -16,13 +16,13 @@ export default function HomeAdvertiseSlider() {
   return (
     <Slider className="advertise-slider d-none d-md-block" {...settings}>
       <div>
-        <div className="advertise">
-          <Image src="/img/agri_banner.png" alt="" fill />
+        <div className="advertise position-relative">
+          <Image src="/img/agri_banner.png" alt="Advertise" fill priority />
         </div>
       </div>
       <div>
-        <div className="advertise">
-          <Image src="/img/slider.jpg" alt="" fill />
+        <div className="advertise position-relative">
+          <Image src="/img/slider.jpg" alt="Advertise" fill priority />
         </div>
       </div>
     </Slider>

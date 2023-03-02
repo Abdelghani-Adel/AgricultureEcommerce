@@ -4,16 +4,18 @@ import Image from "next/image";
 const AdvertiseTwo = (props) => {
   return (
     <div className="adv_2 border_1">
-      <div className="adv_2--thumb">
+      <div className="adv_2--thumb position-relative">
         <Image
           src="https://fastly.picsum.photos/id/33/521/177.jpg?hmac=L4jhdUWoWTz7RjMHsU6TzbWZouEY3lokJ3D9_kVKiiQ"
           alt="agriculture_advertise"
           className="border-raduis_12 p-1"
           fill
+          sizes="100%"
           style={{ objectFit: "fill" }}
+          priority
         />
       </div>
-      <hr/>
+      <hr />
 
       <div className="border-raduis_12 p-1">
         <iframe
@@ -22,14 +24,16 @@ const AdvertiseTwo = (props) => {
           title="YouTube video player"
         ></iframe>
       </div>
-      <hr/>
-      <div className="adv_2--thumb">
+      <hr />
+      <div className="adv_2--thumb position-relative">
         <Image
           src="https://fastly.picsum.photos/id/33/521/177.jpg?hmac=L4jhdUWoWTz7RjMHsU6TzbWZouEY3lokJ3D9_kVKiiQ"
           alt="agriculture_advertise"
           className="border-raduis_12 p-1"
           fill
+          sizes="100%"
           style={{ objectFit: "fill" }}
+          priority
         />
       </div>
     </div>

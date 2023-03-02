@@ -21,8 +21,14 @@ const CategoryCard = ({ category, style }) => {
         onClick={showLoader}
       >
         <div className="category_card border_1 border_primary">
-          <div className="category_card--thumb">
-            <Image src={category.FAClassificationImage} fill style={{ objectFit: "contain" }} />
+          <div className="category_card--thumb position-relative">
+            <Image
+              src={category.FAClassificationImage}
+              fill
+              style={{ objectFit: "contain" }}
+              alt="Category Pic"
+              priority
+            />
           </div>
           <div className="category_card--body">
             <h5 className="txt-primary">{category.FAClassificationName}</h5>

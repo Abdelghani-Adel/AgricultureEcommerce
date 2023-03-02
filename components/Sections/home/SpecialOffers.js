@@ -63,12 +63,14 @@ function SpecialOffers(props) {
               <div key={i} className="container">
                 <div className="row align-items-center justify-content-center">
                   <div className="col-10 ps-4 pe-4">
-                    <div className="special_offer--thumb ">
+                    <div className="special_offer--thumb position-relative">
                       <Image
                         src={item.photo}
-                        alt={item.title}
+                        alt="Product Offer"
                         fill
+                        sizes="100%"
                         style={{ objectFit: "contain" }}
+                        priority
                       />
                     </div>
                     <h6 className="m-0 mt-2">{item.offerTitle}</h6>

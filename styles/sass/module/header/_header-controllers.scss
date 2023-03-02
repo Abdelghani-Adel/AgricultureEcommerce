@@ -1,9 +1,10 @@
 @use "../../abstracts/variables";
 
 .navbar-brand {
-  padding: 10px 0;
-  width: 170px;
+  margin: 10px 0;
   display: block;
+  height: 50px;
+  width: 170px;
 }
 
 // Start Header Controlls

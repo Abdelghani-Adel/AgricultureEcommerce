@@ -18,10 +18,10 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-        <script src="/static/jquery-3.5.1.min.js"></script>
+        {/* <script src="/static/jquery-3.5.1.min.js"></script>
 
         <script src="/static/popper.min.js"></script>
-        <script src="/static/bootstrap.min.js"></script>
+        <script src="/static/bootstrap.min.js"></script> */}
       </body>
     </Html>
   );

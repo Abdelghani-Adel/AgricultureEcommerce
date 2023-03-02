@@ -68,16 +68,16 @@ const AdvertiseOne = () => {
                   Shop Now
                 </Link>
               </div>
-              <div className="col-lg-6 d-none d-lg-block">
+              <div className="col-lg-6 d-none d-lg-block position-relative">
                 <Image
                   src={
                     "https://fastly.picsum.photos/id/988/500/420.jpg?hmac=Y0eqwuZAPCMDPwBcL9AIhDwVNSWV-IenkzC5M5jeKek"
                   }
-                  alt={item.title}
+                  alt="Advertise"
                   className="p-2 border-raduis_12"
-                  // className="border_1 border_primary p-3"
                   width={500}
                   height={400}
+                  priority
                 />
               </div>
             </div>

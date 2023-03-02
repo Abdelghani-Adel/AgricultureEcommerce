@@ -6,10 +6,10 @@ const NotFoundPage = () => {
     <div className="page_not_found">
       <div className="section">
         <div className="container">
-          <div className="andro_404-container">
+          <div className="andro_404-container position-relative">
             <Image
               src="https://fastly.picsum.photos/id/955/738/300.jpg?hmac=x3UCwAFzTKNUn_y0suiVhfJnDF86_k2_oEFWkLdOqIQ"
-              alt=""
+              alt="404"
               width={600}
               height={400}
             />

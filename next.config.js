@@ -13,21 +13,11 @@ const nextConfig = {
   },
   images: {
     domains: ["fastly.picsum.photos"],
-    // remotePatterns: [
-    //   {
-    //     protocol: "https",
-    //     hostname: "fastly.picsum.photos",
-    //     port: "",
-    //     pathname: "/id/988/500/420.jpg",
-    //   },
-    //   {
-    //     protocol: "https",
-    //     hostname: "fastly.picsum.photos",
-    //     port: "",
-    //     pathname: "/id/492/521/177.jpg",
-    //   },
-    // ],
   },
 };
 
-module.exports = nextConfig;
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
+module.exports = withBundleAnalyzer(nextConfig);

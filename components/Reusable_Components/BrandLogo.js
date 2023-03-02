@@ -16,8 +16,8 @@ const BrandLogo = () => {
   };
 
   return (
-    <Link className="navbar-brand" href="/" onClick={showLoader}>
-      <Image src={"/img/logo.png"} alt="logo" width={150} height={50} />
+    <Link className="navbar-brand position-relative" href="/" onClick={showLoader}>
+      <Image src={"/img/logo.png"} alt="logo" fill priority sizes="100%" />
     </Link>
   );
 };

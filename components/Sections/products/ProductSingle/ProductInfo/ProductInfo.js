@@ -23,34 +23,34 @@ const ProductInfo = ({ item, parentPosition }) => {
     setItemBeingBought({ ...item, FAUOMID: e.target.value });
   };
 
-  const handleScroll = () => {
-    const childDimentions = ref.current.getBoundingClientRect();
+  // const handleScroll = () => {
+  //   const childDimentions = ref.current.getBoundingClientRect();
 
-    // const parentBottom = window.innerHeight - parentPos.top - parentPos.height;
-    // const childBottom = window.innerHeight - childDimentions.top - childDimentions.height;
+  //   // const parentBottom = window.innerHeight - parentPos.top - parentPos.height;
+  //   // const childBottom = window.innerHeight - childDimentions.top - childDimentions.height;
 
-    console.log("parentBottom", parentPosition.bottom);
-    console.log("childBottom", childDimentions.bottom);
+  //   console.log("parentBottom", parentPosition.bottom);
+  //   console.log("childBottom", childDimentions.bottom);
 
-    if (parentPosition.bottom <= childDimentions.bottom) {
-      setIsBottom("stop");
-    } else {
-      setIsBottom("");
-    }
+  //   if (parentPosition.bottom <= childDimentions.bottom) {
+  //     setIsBottom("stop");
+  //   } else {
+  //     setIsBottom("");
+  //   }
 
-    setScrollPosition(window.pageYOffset);
-  };
+  //   setScrollPosition(window.pageYOffset);
+  // };
 
-  useEffect(() => {
-    setParentPosition(parentPosition);
-  }, [parentPosition]);
+  // useEffect(() => {
+  //   setParentPosition(parentPosition);
+  // }, [parentPosition]);
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [parentPosition]);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll, { passive: true });
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [parentPosition]);
 
   return (
     <div ref={ref} className={`product_single--info ${scrollPosition > 276.7 ? "Sticky5" : ""}`}>

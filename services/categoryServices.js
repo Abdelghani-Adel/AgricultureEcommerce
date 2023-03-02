@@ -18,7 +18,7 @@ export async function fetchCategoriesMenu(lang) {
 
 export async function fetchSubCategories(categoryId, lang) {
   const subCategoriesRes = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/GetCategoriesMenu`,
+    `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getCategories`,
     {
       method: "POST",
       headers: {
