@@ -76,7 +76,7 @@ const AdvertiseOne = () => {
                   alt="Advertise"
                   className="p-2 border-raduis_12"
                   width={500}
-                  height={400}
+                  height={420}
                   priority
                 />
               </div>

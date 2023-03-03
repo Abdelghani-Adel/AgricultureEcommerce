@@ -6,7 +6,7 @@ const AdvertiseTwo = (props) => {
     <div className="adv_2 border_1">
       <div className="adv_2--thumb position-relative">
         <Image
-          src="https://fastly.picsum.photos/id/33/521/177.jpg?hmac=L4jhdUWoWTz7RjMHsU6TzbWZouEY3lokJ3D9_kVKiiQ"
+          src="https://fastly.picsum.photos/id/824/147/76.jpg?hmac=lUGgr-nqJgFk43kNOJ4TNtcrtvss6cemPNuMu0-1Rfo"
           alt="agriculture_advertise"
           className="border-raduis_12 p-1"
           fill
@@ -27,7 +27,7 @@ const AdvertiseTwo = (props) => {
       <hr />
       <div className="adv_2--thumb position-relative">
         <Image
-          src="https://fastly.picsum.photos/id/33/521/177.jpg?hmac=L4jhdUWoWTz7RjMHsU6TzbWZouEY3lokJ3D9_kVKiiQ"
+          src="https://fastly.picsum.photos/id/824/147/76.jpg?hmac=lUGgr-nqJgFk43kNOJ4TNtcrtvss6cemPNuMu0-1Rfo"
           alt="agriculture_advertise"
           className="border-raduis_12 p-1"
           fill

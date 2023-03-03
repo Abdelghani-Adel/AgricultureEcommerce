@@ -12,20 +12,19 @@ const BackTopTopBtn = () => {
     });
   };
 
-  const handleScroll = () => {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-      setHidden(false);
-    } else {
-      setHidden(true);
-    }
-  };
+  // const handleScroll = () => {
+  //   if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+  //     setHidden(false);
+  //   } else {
+  //     setHidden(true);
+  //   }
+  // };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    // window.addEventListener("scroll", handleScroll, { passive: true });
+    // return () => {
+    //   window.removeEventListener("scroll", handleScroll);
+    // };
   }, []);
 
   return (

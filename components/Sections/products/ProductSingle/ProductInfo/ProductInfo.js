@@ -53,7 +53,8 @@ const ProductInfo = ({ item, parentPosition }) => {
   // }, [parentPosition]);
 
   return (
-    <div ref={ref} className={`product_single--info ${scrollPosition > 276.7 ? "Sticky5" : ""}`}>
+    // <div ref={ref} className={`product_single--info ${scrollPosition > 276.7 ? "Sticky5" : ""}`}>
+    <div ref={ref} className={`product_single--info `}>
       <ProductInfoHeader item={itemBeingBought} />
       <hr className="m-0 mt-2 mb-2" />
       <ProductInfoInput

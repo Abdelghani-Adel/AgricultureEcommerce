@@ -35,6 +35,7 @@ const CategoryNavItem = (props) => {
         }}
         onClick={showLoader}
         className="nav_link position-relative"
+        prefetch={false}
       >
         {/* {link.IconTypeId == 1 && (
           <Image

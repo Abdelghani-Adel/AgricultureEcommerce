@@ -14,6 +14,7 @@ const nextConfig = {
   images: {
     domains: ["fastly.picsum.photos"],
   },
+  compress: true,
 };
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
