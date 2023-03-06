@@ -2,6 +2,7 @@ import Link from "next/Link";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { withTranslation } from "react-multi-lang";
+import { useSelector } from "react-redux";
 
 const Offers = [
   { title: "Cash On Delivery", icon: "icon.png" },
@@ -10,12 +11,10 @@ const Offers = [
 ];
 function HeaderOffers(props) {
   const [data, setData] = useState();
+  const lang = useSelector((state) => state.lang);
 
   useEffect(() => {
     async function fetchData() {
-      // const res = await fetch(
-      //   'https://proton.api.atomicassets.io/atomicmarket/v1/sales'
-      // );
       const data = Offers;
       setData(data);
     }
@@ -23,15 +22,9 @@ function HeaderOffers(props) {
   }, []);
   return (
     <>
-     <Link href="#">
-          {props.t("Navbar.About")}
-            </Link>
-            <Link href="#">
-          {props.t("Navbar.Partners")}
-            </Link>
-            <Link  href="#">
-          {props.t("Navbar.ContactUs")}
-            </Link>
+      <Link href="/about">{lang && props.t("Navbar.About")}</Link>
+      <Link href="#">{lang && props.t("Navbar.Partners")}</Link>
+      <Link href="/contact">{lang && props.t("Navbar.ContactUs")}</Link>
       {/* {data &&
         data.map((offer, index) => {
           return (

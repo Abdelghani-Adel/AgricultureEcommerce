@@ -5,22 +5,20 @@ import { useSelector } from "react-redux";
 import HeaderSearchFromLabel from "./HeaderSearchFormLabel";
 
 const HeaderSearchFormLabelList = (props) => {
-  const lang = useSelector((state) => state.lang);
-  const links = useSelector((state) => state.navbarLinks);
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
   return (
     <div className="header_search--list menu-item-has-children">
-      <span>
-        {selectedCategory} <FaAngleDown />
+      <span className="txt-dark">
+        {props.selectedCategory} <FaAngleDown />
       </span>
-      <div className="sub-menu">
-        <div>
-          {links.map((link, i) => (
-            <HeaderSearchFromLabel key={i} category={link} />
-          ))}
-        </div>
-      </div>
+      <ul className="sub-menu">
+        {props.links.map((link, i) => (
+          <HeaderSearchFromLabel
+            key={i}
+            category={link}
+            catChangeHandler={props.catChangeHandler}
+          />
+        ))}
+      </ul>
     </div>
   );
 };

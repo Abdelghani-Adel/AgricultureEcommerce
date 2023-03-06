@@ -2,8 +2,8 @@ import SubmitStepButton from "../../Reusable/SubmitStepButton";
 import { useEffect, useState, useCallback } from "react";
 import InputField from "../../Reusable/InputField";
 import BillingAddressForm from "../../Reusable/BillingAddressForm/BillingAddressForm";
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const PaymentInfo = (props) => {
   const { vendorID } = props;
@@ -31,10 +31,7 @@ const PaymentInfo = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    props.saveFunction(
-      requestBody,
-      "http://192.168.10.251:800/api/ECommerceSetting/addPartnerPayment"
-    );
+    props.saveFunction(requestBody, "/api/ECommerceSetting/addPartnerPayment");
   };
 
   return (
@@ -50,13 +47,13 @@ const PaymentInfo = (props) => {
           <div className="col">
             <div className="form-group">
               <label>Expiration Date</label>
-              {/* <DatePicker
+              <DatePicker
                 selected={expirationDate}
                 onChange={dateChangeHandler}
                 dateFormat="MM/yyyy"
                 showMonthYearPicker
-                className="form-control form-control-lg bg-light"
-              /> */}
+                className="form-control bg-light"
+              />
             </div>
           </div>
         </div>

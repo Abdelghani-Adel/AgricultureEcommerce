@@ -3,13 +3,13 @@
   position: relative;
 }
 .advertise {
-  height: 20vh;
-  width: 100vw;
+  height: 450px;
+  width: 100%;
   position: relative;
 }
-.advertise img {
-  width: 100vw;
-}
+// .advertise img {
+//   width: 100vw;
+// }
 
 .advertise-slider .slick-list {
   max-height: 20vh;
@@ -23,10 +23,6 @@
   position: absolute;
   top: 30% !important;
 }
-.advertise-slider .advertise img {
-  width: 100%;
-  height: 100%;
-}
 
 .offer_banner {
   padding: 0 !important;
@@ -34,7 +30,7 @@
   // padding: 30px 10px;
 
   img {
-    min-height: 100px;
+    // min-height: 100px;
   }
 }
 .other_banner {

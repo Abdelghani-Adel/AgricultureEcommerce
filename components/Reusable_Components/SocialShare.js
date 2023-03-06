@@ -13,7 +13,6 @@ import { useState } from "react";
 const SocialShare = ({ url }) => {
   const [optionsShown, setOptionsShown] = useState(false);
 
-  console.log(url);
   const toggleOptions = () => {
     setOptionsShown((prev) => !prev);
   };

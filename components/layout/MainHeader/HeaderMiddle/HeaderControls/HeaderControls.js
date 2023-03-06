@@ -35,9 +35,9 @@ const HeaderControls = (props) => {
           <FaRegHeart />
         </Link>
       </li>
-      <ul className="header_control me-2 bg-white d-none d-md-flex">
+      <li className="header_control me-2 bg-white d-none d-md-flex">
         <ProfileAuthController mobileView={false} />
-      </ul>
+      </li>
 
       <li className="header_control cart_controller ">
         <CartController />

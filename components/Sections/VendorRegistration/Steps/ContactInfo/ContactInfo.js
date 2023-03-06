@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import BillingAddressForm from "../../Reusable/BillingAddressForm/BillingAddressForm";
 import InputField from "../../Reusable/InputField";
 import SubmitStepButton from "../../Reusable/SubmitStepButton";
@@ -34,10 +34,7 @@ const ContactInfo = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    props.saveFunction(
-      requestBody,
-      "http://192.168.10.251:800/api/ECommerceSetting/addPartnerContact"
-    );
+    props.saveFunction(requestBody, "/api/ECommerceSetting/addPartnerContact");
   };
 
   return (
@@ -55,13 +52,13 @@ const ContactInfo = (props) => {
           <div className="col">
             <div className="form-group">
               <label>Identity Expiration Date</label>
-              {/* <DatePicker
+              <DatePicker
                 selected={expirationDate}
                 onChange={dateChangeHandler}
                 dateFormat="MM/yyyy"
                 showMonthYearPicker
-                className="form-control form-control-lg bg-light"
-              /> */}
+                className="form-control bg-light"
+              />
             </div>
           </div>
 
@@ -69,9 +66,9 @@ const ContactInfo = (props) => {
             title="Identity Issue Country"
             fieldName="IdentityNo_IssuedCountry"
             changeHandler={inputChangeHandler}
-            options={["Egypt", "USA"]}
-            optionID="aa"
-            optionTitle="aa"
+            options={[{ optionID: "", optionTitle: "Egypt" }]}
+            optionID="optionID"
+            optionTitle="optionTitle"
           />
 
           <InputField

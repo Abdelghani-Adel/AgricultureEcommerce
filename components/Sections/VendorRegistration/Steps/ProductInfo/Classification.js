@@ -1,7 +1,8 @@
 const Classification = (props) => {
   const { classification, style, changeHandler } = props;
+  const children = classification.ClassificationChildren;
   return (
-    <div className="col">
+    <div>
       <div className={`form-check ${style}`}>
         <input
           className="form-check-input"
@@ -9,12 +10,14 @@ const Classification = (props) => {
           value={classification.FAClassificationId}
           onChange={changeHandler}
         />
-        <label className="form-check-label">{classification.FAClassificationName}</label>
+        <label className={`form-check-label ${children ? "fw-bolder" : "fw-light"}`}>
+          {classification.FAClassificationName}
+        </label>
       </div>
 
-      {classification.ClassificationChildren.length > 0 && (
+      {children && children.length > 0 && (
         <div className={style}>
-          {classification.ClassificationChildren.map((classification) => (
+          {children.map((classification) => (
             <Classification
               key={classification.FAClassificationId}
               style="ms-3"

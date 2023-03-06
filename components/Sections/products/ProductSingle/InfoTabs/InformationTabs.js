@@ -9,6 +9,10 @@ const AdditionalInfo = (props) => {
   const [firstTab, setFirstTab] = useState("");
 
   useEffect(() => {
+    if (item.Item_Desc.length > 0) {
+      setFirstTab("desc");
+      return;
+    }
     if (item.ingredients.length > 0) {
       setFirstTab("ingredients");
       return;
@@ -21,15 +25,18 @@ const AdditionalInfo = (props) => {
     } else if (item.reviews.length > 0) {
       setFirstTab("reviews");
       return;
-    } else if (item.Item_Desc.length > 0) {
-      setFirstTab("desc");
-      return;
     }
   }, []);
   return (
     <div className="row mt-3">
       <div className="col-12">
         <ul className="nav nav-tabs d-flex flex-row-reverse" id="myTab" role="tablist">
+          <InfoTab
+            target={"description"}
+            data={item.Item_Desc}
+            translation={"Products.Desc"}
+            selected={firstTab == "desc"}
+          />
           <InfoTab
             target={"ingredients"}
             data={item.ingredients}
@@ -53,12 +60,6 @@ const AdditionalInfo = (props) => {
             data={item.reviews}
             translation={"Products.reviews"}
             selected={firstTab == "reviews"}
-          />
-          <InfoTab
-            target={"description"}
-            data={item.Item_Desc}
-            translation={"Products.Desc"}
-            selected={firstTab == "desc"}
           />
         </ul>
       </div>

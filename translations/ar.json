@@ -14,10 +14,13 @@
     "Shop": "المتجر",
     "ContactUs": "تواصل معنا",
     "Chat": "دردشة عامة",
-    "Partners":"شركائنا"
+    "Partners": "شركائنا"
   },
   "Home": {
-    "JoinChat": "الانضمام للدردشة"
+    "JoinChat": "الانضمام للدردشة",
+    "RoomTitle": "اسم الغرفة",
+    "SpecialOffer": "عروض خاصة",
+    "ShopNow": "تسوّق الآن"
   },
   "Products": {
     "BestProducts": "أفضل المنتجات",
@@ -43,9 +46,11 @@
     "Facilities": "الزراعات",
     "Warnings": "التحذيرات",
     "Desc": "وصف المنتج",
-    "Range":"الكمية",
-    "Free":"المجاني",
-    "FreeProducts":"منتجات مجانية"
+    "Range": "الكمية",
+    "Free": "المجاني",
+    "FreeProducts": "منتجات مجانية",
+    "LeaveComment": "اترك تعليقاَ",
+    "Submit": "إرسال"
   },
   "Footer": {
     "TopCategories": "أعلي الاقسام",
@@ -129,7 +134,10 @@
     "Username": "إسم المستخدم",
     "PasswordConfirm": "تأكيد كلمة السر",
     "PhoneNumber": "رقم الهاتف",
-    "AlreadyHave": "لديك حساب ؟"
+    "AlreadyHave": "لديك حساب ؟",
+    "ProviderSignup": "تسجيل مورّد",
+    "NewCustomer": "New customer?",
+    "Logout": "تسجيل الخروج"
   },
   "Address": {
     "Choose": "إختر",

@@ -1,3 +1,5 @@
+@use "../../abstracts/variables";
+
 .header_search form {
   display: flex;
 }
@@ -11,8 +13,10 @@
   cursor: pointer;
   width: 25%;
   font-size: 13px;
+  min-width: max-content;
+  padding: 0 10px;
 }
-.header_search--list a {
+.header_search--list li {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -49,4 +53,63 @@
   color: #838383;
   transition: 0.3s;
   border-left: 1px solid #f0f2f3;
+}
+
+.header_search--input .overlay {
+  display: block;
+  opacity: 1;
+}
+
+.header_search .search_result {
+  position: absolute;
+  transition: 0.5s;
+  top: 100%;
+  width: 100%;
+  padding: 10px;
+  z-index: 4;
+  background-color: #fdfdfd;
+  color: #000;
+  height: 40vh;
+  overflow: auto;
+  border-radius: 10px;
+}
+
+.header_search .search_result .result {
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  display: block;
+  color: #000;
+}
+
+.header_search .search_result .result:hover {
+  background-color: #575757;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.header_search .search_result a {
+  color: inherit;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+.header_search .search_result::-webkit-scrollbar {
+  border-radius: 10px;
+}
+
+.header_search .search_result::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+.header_search .search_result::-webkit-scrollbar-thumb {
+  background: variables.$main-color;
+  border-radius: 50%;
+}
+
+.header_search .search_result::-webkit-scrollbar-thumb:hover {
+  background: variables.$main-color-hover;
 }

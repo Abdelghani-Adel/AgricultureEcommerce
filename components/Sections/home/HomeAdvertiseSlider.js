@@ -1,6 +1,8 @@
 import React from "react";
 import Slider from "react-slick";
 import Image from "next/image";
+import Pic1 from "../../../public/img/agri_banner.png";
+import Pic2 from "../../../public/img/slider.jpg";
 
 const settings = {
   slidesToShow: 1,
@@ -17,12 +19,12 @@ export default function HomeAdvertiseSlider() {
     <Slider className="advertise-slider d-none d-md-block" {...settings}>
       <div>
         <div className="advertise position-relative">
-          <Image src="/img/agri_banner.png" alt="Advertise" fill priority />
+          <Image src={Pic1} alt="Advertise" priority sizes="(min-width: 768px) 100vw, 100vw" />
         </div>
       </div>
       <div>
         <div className="advertise position-relative">
-          <Image src="/img/slider.jpg" alt="Advertise" fill priority />
+          <Image src={Pic2} alt="Advertise" sizes="(min-width: 768px) 100vw, 100vw" />
         </div>
       </div>
     </Slider>

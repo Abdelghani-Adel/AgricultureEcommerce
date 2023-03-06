@@ -9,8 +9,6 @@ const CategoryCard = ({ category, style }) => {
     dispatch(loaderActions.showLoader());
   };
 
-  console.log(category);
-
   return (
     <div className={style}>
       <Link
@@ -27,11 +25,10 @@ const CategoryCard = ({ category, style }) => {
               fill
               style={{ objectFit: "contain" }}
               alt="Category Pic"
-              priority
             />
           </div>
           <div className="category_card--body">
-            <h5 className="txt-primary">{category.FAClassificationName}</h5>
+            <p className="txt-primary h5 fw-bold">{category.FAClassificationName}</p>
             <div
               className="text-muted"
               dangerouslySetInnerHTML={{ __html: category.FAClassificationDesc }}

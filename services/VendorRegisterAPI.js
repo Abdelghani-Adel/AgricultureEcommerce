@@ -86,7 +86,15 @@ class VendorRegisterAPI {
 
   async fetchClassificationTree() {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_SERVER}/api/EAdmin/GetClassificationTree`
+      `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getCategoriesLastParentWChd`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          lang: "ar",
+          FAClassification_ParentId: 81,
+        }),
+      }
     );
     const data = await response.json();
     return data;
@@ -101,7 +109,7 @@ class VendorRegisterAPI {
   }
 
   async saveAndContinue(requestBody, url) {
-    const response = await fetch(url, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}${url}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(requestBody),

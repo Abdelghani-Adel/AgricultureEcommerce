@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { withTranslation } from "react-multi-lang";
@@ -34,6 +35,10 @@ const CategorySingle = (props) => {
 
   return (
     <>
+      <Head>
+        <title>{props.categorySlug}</title>
+        <meta name="description" content={props.categorySlug} />
+      </Head>
       <Breadcrumbs breadcrumb={{ pagename: router.query.categorySlug }} />
       {showProducts ? (
         <CategoryProducts products={props.products} slug={router.query.categorySlug} />

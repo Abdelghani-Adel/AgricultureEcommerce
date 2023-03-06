@@ -7,7 +7,7 @@ const RegistrationConfirm = (props) => {
         <h4 className="text-center">Thank you for registration.</h4>
         <p className="text-center">We will contact you soon.</p>
         <div className="text-center">
-          <button className="btn btn-success">
+          <button className="btn btn-success" aria-label="Home">
             <Link href="/" className="text-white">
               HOME PAGE
             </Link>

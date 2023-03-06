@@ -1,21 +1,27 @@
 import Link from "next/Link";
-import { FaUserAlt } from "react-icons/fa";
-import { FiLogIn, FiLogOut } from "react-icons/fi";
+import { FiLogIn } from "react-icons/fi";
+import { useSelector } from "react-redux";
+import { withTranslation } from "react-multi-lang";
 
-const LoginController = () => {
+const LoginController = (props) => {
+  const lang = useSelector((state) => state.lang);
   return (
     <div>
-      <span>
-        {/* <FaUserAlt /> */}
-        تسجيل الدخول
-      </span>
+      <span>{lang && props.t("Auth.Login")}</span>
       <ul className="sub-menu sub-menu-left login_container">
-        <button className="auth_btn">
-          <Link href="/login">
-            <FiLogIn />
-            <span className="ms-2">تسجيل الدخول</span>
-          </Link>
-        </button>
+        <li className="d-flex justify-content-between">
+          <button className="auth_btn" aria-label="Login">
+            <Link href="/login">
+              <FiLogIn />
+              <span className="ms-2">{lang && props.t("Auth.Login")}</span>
+            </Link>
+          </button>
+          <button className="auth_btn  ms-2" aria-label="Login">
+            <Link href="/vendor-registration">
+              <span className="ms-2">{lang && props.t("Auth.ProviderSignup")}</span>
+            </Link>
+          </button>
+        </li>
         <p className="text-center">
           New Customer? <Link href="/login">Start here</Link>
         </p>
@@ -25,4 +31,4 @@ const LoginController = () => {
   );
 };
 
-export default LoginController;
+export default withTranslation(LoginController);

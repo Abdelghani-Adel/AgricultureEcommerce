@@ -19,12 +19,13 @@
   border: 1px solid #dee0e0;
   margin: 0 10px 0 0;
   transition: 0.2s;
+  color: #000;
 }
 .header_control:hover {
   background-color: #f0f2f3;
 }
 .header_control svg {
-  color: #838383;
+  color: #000000;
 }
 
 .cart_controller {
@@ -48,6 +49,9 @@
 }
 
 .lang_controller {
+  a {
+    color: #000;
+  }
   color: variables.$main-color;
   cursor: pointer;
 }
@@ -133,7 +137,7 @@
   position: fixed;
   left: 0;
   z-index: 3;
-  top: 62px;
+  top: 70px;
   width: 100vw;
   height: 100vh;
   background-color: rgba(22, 22, 22, 0.45);

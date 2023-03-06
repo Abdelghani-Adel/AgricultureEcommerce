@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import LeaveComment from "./LeaveComment";
 import ProductInfoActions from "./ProductInfoActions";
 import ProductInfoHeader from "./ProductInfoHeader";
 import ProductInfoInput from "./ProductInfoInput";
@@ -53,18 +54,21 @@ const ProductInfo = ({ item, parentPosition }) => {
   // }, [parentPosition]);
 
   return (
-    // <div ref={ref} className={`product_single--info ${scrollPosition > 276.7 ? "Sticky5" : ""}`}>
-    <div ref={ref} className={`product_single--info `}>
-      <ProductInfoHeader item={itemBeingBought} />
-      <hr className="m-0 mt-2 mb-2" />
-      <ProductInfoInput
-        item={itemBeingBought}
-        quantity={itemBeingBoughtQTY}
-        quantityHandler={quantityHandler}
-        UOMchangeHandler={UOMchangeHandler}
-      />
-      <ProductInfoActions item={itemBeingBought} quantity={itemBeingBoughtQTY} />
-    </div>
+    <>
+      {/* // <div ref={ref} className={`product_single--info ${scrollPosition > 276.7 ? "Sticky5" : ""}`}> */}
+      <div ref={ref} className={`product_single--info `}>
+        <ProductInfoHeader item={itemBeingBought} />
+        <hr className="m-0 mt-2 mb-2" />
+        <ProductInfoInput
+          item={itemBeingBought}
+          quantity={itemBeingBoughtQTY}
+          quantityHandler={quantityHandler}
+          UOMchangeHandler={UOMchangeHandler}
+        />
+        <ProductInfoActions item={itemBeingBought} quantity={itemBeingBoughtQTY} />
+      </div>
+      <LeaveComment />
+    </>
   );
 };
 

@@ -40,10 +40,14 @@ const CookiesNotification = () => {
           </p>
 
           <div className="d-flex g-4">
-            <button className="default_btn" onClick={acceptHandler}>
+            <button className="default_btn" onClick={acceptHandler} aria-label="Accept Cookies">
               Accept Cookies
             </button>
-            <button className="default_btn ms-4" onClick={rejectHandler}>
+            <button
+              className="default_btn ms-4"
+              onClick={rejectHandler}
+              aria-label="Reject Cookies"
+            >
               Reject Cookies
             </button>
           </div>

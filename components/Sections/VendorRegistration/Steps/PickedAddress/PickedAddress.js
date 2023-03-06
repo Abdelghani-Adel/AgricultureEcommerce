@@ -23,10 +23,7 @@ const PickedAddress = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    props.saveFunction(
-      requestBody,
-      "http://192.168.10.251:800/api/ECommerceSetting/upsPickedAddress"
-    );
+    props.saveFunction(requestBody, "/api/ECommerceSetting/upsPickedAddress");
   };
 
   return (

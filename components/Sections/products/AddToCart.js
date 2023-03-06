@@ -57,6 +57,7 @@ const AddToCart = (props) => {
       className={`${props.style || ""}`}
       title={props.t("Products.AddToCart")}
       onClick={addToCartHandler}
+      aria-label="Add To Cart"
     >
       {props.children ? `${props.t("Products.AddToCart")}` : <FaShoppingBasket />}
     </button>

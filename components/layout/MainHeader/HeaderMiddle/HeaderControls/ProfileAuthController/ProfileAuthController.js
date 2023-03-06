@@ -18,7 +18,7 @@ const ProfileAuthController = (props) => {
   };
 
   return (
-    <>
+    <ul>
       <li className="profile_controller menu-item menu-item-has-children ps-1 pe-1">
         {props.mobileView === true && (
           <>
@@ -48,7 +48,7 @@ const ProfileAuthController = (props) => {
         )}
       </li>
       <div className="overlay"></div>
-    </>
+    </ul>
   );
 };
 

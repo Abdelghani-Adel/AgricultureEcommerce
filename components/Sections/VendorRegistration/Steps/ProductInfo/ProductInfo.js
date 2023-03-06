@@ -29,10 +29,7 @@ const ProductInfo = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    props.saveFunction(
-      requestBody,
-      "http://192.168.10.251:800/api/ECommerceSetting/addPartnerCategories"
-    );
+    props.saveFunction(requestBody, "/api/ECommerceSetting/addPartnerCategories");
   };
 
   const inputChangeHandler = useCallback((e) => {
@@ -49,13 +46,16 @@ const ProductInfo = (props) => {
   return (
     <div className="container mt-5">
       <form action="" method="POST" onSubmit={submitHandler}>
-        <div className="row row-cols-3">
+        <div className="row row-cols-5 g-4">
           {classifications.map((classification) => (
-            <Classification
-              key={classification.FAClassificationId}
-              classification={classification}
-              changeHandler={inputChangeHandler}
-            />
+            <div className="col" key={classification.FAClassificationId}>
+              <div className="classification">
+                <Classification
+                  classification={classification}
+                  changeHandler={inputChangeHandler}
+                />
+              </div>
+            </div>
           ))}
         </div>
         <SubmitStepButton />

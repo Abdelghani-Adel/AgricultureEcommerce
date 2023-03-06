@@ -5,13 +5,13 @@ import { withTranslation } from "react-multi-lang";
 import { useDispatch } from "react-redux";
 import Breadcrumbs from "../../components/Reusable_Components/Breadcrumbs";
 import ProductSingle from "../../components/Sections/products/ProductSingle/ProductSingle";
+import { getCookie } from "../../helper/Cookies/CookiesHandlers";
 import { loaderActions } from "../../redux/slices/loaderSlice";
 import { fetchItemDetails } from "../../services/productServices";
 
 function Slug(props) {
   const router = useRouter();
   const dispatch = useDispatch();
-  console.log(props);
 
   useEffect(() => {
     dispatch(loaderActions.hideLoader());
@@ -35,10 +35,12 @@ function Slug(props) {
 
 export const getServerSideProps = async (context) => {
   const Item_Id = context.query.id;
-  const details = await fetchItemDetails(Item_Id, "ar");
+  const lang = context.req.cookies.langCookie ? context.req.cookies.langCookie : "ar";
+  const details = await fetchItemDetails(Item_Id, lang);
   return {
     props: {
       productDetails: details,
+      lang: lang,
     },
   };
 };

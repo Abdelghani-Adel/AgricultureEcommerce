@@ -42,7 +42,7 @@ const CartTotal = (props) => {
           </tr>
         </tbody>
       </table>
-      <button className={`default_btn ${buttonIsDisabled ? "disabled" : ""}`}>
+      <button className={`default_btn ${buttonIsDisabled ? "disabled" : ""}`} aria-label="login">
         <Link href={session.status == "authenticated" ? "/checkout" : "/login"}>
           {props.t("Cart.CheckoutProceed")}
         </Link>

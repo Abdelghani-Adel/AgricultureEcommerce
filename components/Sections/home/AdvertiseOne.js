@@ -1,6 +1,9 @@
 import Slider from "react-slick";
 import Link from "next/Link";
 import Image from "next/image";
+import { withTranslation } from "react-multi-lang";
+import { useSelector } from "react-redux";
+import Adv1 from "../../../public/img/adv1.jpg";
 
 const bannerslider = [
   {
@@ -23,7 +26,7 @@ const sliderSettings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
-  dots: true,
+  dots: false,
   dotsClass: "slick-dots d-flex",
   autoplay: true,
   responsive: [
@@ -48,7 +51,8 @@ const sliderSettings = {
   ],
 };
 
-const AdvertiseOne = () => {
+const AdvertiseOne = (props) => {
+  const lang = useSelector((state) => state.lang);
   return (
     <div className="andro_banner adv_1 border_1">
       <Slider className="andro_banner-slider" {...sliderSettings}>
@@ -64,20 +68,19 @@ const AdvertiseOne = () => {
                   {item.title} <span className="fw-400">{item.titlespan}</span>{" "}
                 </h5>
                 <p>{item.para}</p>
-                <Link href="/shop-v1" className="default_btn">
-                  Shop Now
-                </Link>
+                {lang && (
+                  <Link href="/shop-v1" className="default_btn">
+                    {props.t("Home.ShopNow")}
+                  </Link>
+                )}
               </div>
               <div className="col-lg-6 d-none d-lg-block position-relative">
                 <Image
-                  src={
-                    "https://fastly.picsum.photos/id/988/500/420.jpg?hmac=Y0eqwuZAPCMDPwBcL9AIhDwVNSWV-IenkzC5M5jeKek"
-                  }
+                  src={Adv1}
                   alt="Advertise"
                   className="p-2 border-raduis_12"
-                  width={500}
-                  height={420}
-                  priority
+                  sizes="(min-width: 768px) 100vw, 33vw"
+                  style={{ objectFit: "cover" }}
                 />
               </div>
             </div>
@@ -88,4 +91,4 @@ const AdvertiseOne = () => {
   );
 };
 
-export default AdvertiseOne;
+export default withTranslation(AdvertiseOne);

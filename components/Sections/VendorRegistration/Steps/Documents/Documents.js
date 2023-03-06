@@ -15,13 +15,10 @@ const Documents = (props) => {
       files.forEach((file) => formData.append("files", file));
       formData.append("FAPartnerId", vendorID);
 
-      const response = await fetch(
-        "http://192.168.10.251:800/api/ECommerceSetting/savePartnerDocuments",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await fetch("/api/ECommerceSetting/savePartnerDocuments", {
+        method: "POST",
+        body: formData,
+      });
 
       finishRegistration();
     };

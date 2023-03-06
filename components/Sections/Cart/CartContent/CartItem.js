@@ -105,6 +105,7 @@ const CartItem = (props) => {
           type="button"
           className="close-btn close-danger remove-from-cart"
           onClick={deleteItemHandler}
+          aria-label="Remove"
         >
           <span />
           <span />
@@ -120,7 +121,6 @@ const CartItem = (props) => {
                 alt="Cart Item"
                 width={50}
                 height={100}
-                priority
               />
             </div>
           )}
@@ -142,10 +142,18 @@ const CartItem = (props) => {
         <div className="d-flex justify-content-between align-items-center">
           <span>{item.Qty}</span>
           <span className="d-flex flex-column">
-            <button className="btn btn-success bg_primary m-1" onClick={increaseItem}>
+            <button
+              className="btn btn-success bg_primary m-1"
+              onClick={increaseItem}
+              aria-label="Increase"
+            >
               <FaAngleUp />
             </button>
-            <button className="btn btn-success bg_primary m-1" onClick={decreaseItem}>
+            <button
+              className="btn btn-success bg_primary m-1"
+              onClick={decreaseItem}
+              aria-label="Decrease"
+            >
               <FaAngleDown />
             </button>
           </span>

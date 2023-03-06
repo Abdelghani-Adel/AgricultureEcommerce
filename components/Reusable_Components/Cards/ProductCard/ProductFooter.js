@@ -99,7 +99,7 @@ const ProductFooter = (props) => {
       <div className="product_card--buttons">
         <AddToCart style={"product_footer--button"} item={product} />
 
-        <button className="product_footer--button" onClick={showLoader}>
+        <button className="product_footer--button" onClick={showLoader} aria-label="Show Details">
           <Link
             href={props.productPath}
             data-toggle="tooltip"
@@ -115,6 +115,7 @@ const ProductFooter = (props) => {
           data-type="like"
           title={props.t("Products.Likes")}
           onClick={likeHandler}
+          aria-label="Like Product"
         >
           <BiLike /> {`(${likes})`}
         </button>
@@ -124,6 +125,7 @@ const ProductFooter = (props) => {
           data-type="unLike"
           title={props.t("Products.Likes")}
           onClick={likeHandler}
+          aria-label="Unlike Product"
         >
           <BiDislike />
           {`(${unLikes})`}

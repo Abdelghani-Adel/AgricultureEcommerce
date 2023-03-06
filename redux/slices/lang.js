@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const langSlice = createSlice({
   name: "lang",
-  initialState: "ar",
+  initialState: null,
   reducers: {
     changeLang: (state, params) => {
       return params.payload;

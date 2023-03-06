@@ -110,7 +110,7 @@ const SignUp = (props) => {
                   onChange={inputChangeHandler}
                 />
               </div>
-              <button type="submit" className="default_btn m-auto">
+              <button type="submit" className="default_btn m-auto" aria-label="Sign up">
                 {props.t("Auth.Signup")}
               </button>
 

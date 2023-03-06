@@ -29,9 +29,10 @@ const BooksSection = ({ order, cards_in_slide, structure }) => {
 
           {!hideAdv && (
             <div className={advStyle} style={{ order: `${advOrder}` }}>
-              {adv_id == 1 && <AdvertiseOne />}
-              {adv_id == 2 && <AdvertiseTwo />}
-              {adv_id == 3 && <AdvertiseThree />}
+              <AdvertiseThree />
+              {/* {adv_id == 3 && <AdvertiseThree />} */}
+              {/* {adv_id == 1 && <AdvertiseOne />}
+              {adv_id == 2 && <AdvertiseTwo />} */}
             </div>
           )}
         </div>

@@ -13,7 +13,7 @@ const InputField = (props) => {
     style: customeStyle,
   } = props;
 
-  const inputStyle = `form-control form-control-lg bg-light`;
+  const inputStyle = `form-control bg-light`;
 
   return (
     <div className={customeStyle ? customeStyle : "col"}>

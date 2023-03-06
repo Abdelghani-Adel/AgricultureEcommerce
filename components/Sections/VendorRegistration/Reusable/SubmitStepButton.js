@@ -5,8 +5,9 @@ const SubmitStepButton = (props) => {
       <div className="col-md-3 col">
         <button
           type="submit"
-          className="andro_btn-custom btn-sm primary w-100"
+          className="default_btn w-100"
           style={{ padding: "0" }}
+          aria-label="Submit"
         >
           {title ? title : "Save And Continue"}
         </button>

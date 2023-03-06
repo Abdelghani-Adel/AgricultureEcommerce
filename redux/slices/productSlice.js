@@ -14,13 +14,17 @@ const productSlice = createSlice({
   },
 });
 
-export const fetchProducts = createAsyncThunk("products/fetchProducts", async () => {
-  const bestProducts = await fetchBestProducts("ar");
-  const books = await fetchBooksItems("ar");
-  return {
-    bestProducts: bestProducts,
-    books: books,
-  };
-});
+export const fetchProducts = createAsyncThunk(
+  "products/fetchProducts",
+  async (payload, thunkAPI) => {
+    const lang = thunkAPI.getState().lang;
+    const bestProducts = await fetchBestProducts(lang);
+    const books = await fetchBooksItems(lang);
+    return {
+      bestProducts: bestProducts,
+      books: books,
+    };
+  }
+);
 
 export default productSlice;

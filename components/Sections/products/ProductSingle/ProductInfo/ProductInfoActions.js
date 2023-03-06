@@ -26,7 +26,7 @@ const ProductInfoActions = (props) => {
         Add To Cart
       </AddToCart>
 
-      <button onClick={buyNowHandler} className="default_btn ms-2">
+      <button onClick={buyNowHandler} className="default_btn ms-2" aria-label="Shop Now">
         {props.t("Products.ShopNow")}
       </button>
     </div>

@@ -1,7 +1,10 @@
 import Link from "next/Link";
 import { withTranslation } from "react-multi-lang";
+import { useSelector } from "react-redux";
+
 const Breadcrumbs = (props) => {
   const pagename = props.breadcrumb.pagename;
+  const lang = useSelector((state) => state.lang);
   return (
     <div className="breadcrumbs">
       <div className="container">
@@ -11,7 +14,7 @@ const Breadcrumbs = (props) => {
             <span>{pagename}</span>
             <span className="ms-2 me-2">/</span>
             <span>
-              <Link href="/">{props.t("Navbar.Home")}</Link>
+              <Link href="/">{lang && props.t("Navbar.Home")}</Link>
             </span>
           </p>
         </div>

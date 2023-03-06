@@ -13,7 +13,7 @@ const CouponCodeApply = (props) => {
               aria-label="Coupon Code"
             />
             <div className="input-group-append">
-              <button className="default_btn input_btn-right" type="button">
+              <button className="default_btn input_btn-right" type="button" aria-label="Apply">
                 Apply
               </button>
             </div>

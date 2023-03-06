@@ -6,6 +6,7 @@ const AdvertiseThree = ({ order }) => {
           className="iframe_2"
           src="https://www.youtube-nocookie.com/embed/Mz1fql7kr7g?enablejsapi=1"
           title="YouTube video player"
+          loading="lazy"
         ></iframe>
       </div>
       <div className="text-end">

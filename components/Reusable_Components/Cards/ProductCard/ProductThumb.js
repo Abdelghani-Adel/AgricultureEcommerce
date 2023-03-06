@@ -17,13 +17,7 @@ const ProductThumb = (props) => {
         onClick={showLoader}
         className="position-relative d-block h-100 w-100"
       >
-        <Image
-          src={product.Item_Image}
-          alt="Product Pic"
-          fill
-          style={{ objectFit: "contain" }}
-          priority
-        />
+        <Image src={product.Item_Image} alt="Product Pic" fill style={{ objectFit: "contain" }} />
       </Link>
     </div>
   );

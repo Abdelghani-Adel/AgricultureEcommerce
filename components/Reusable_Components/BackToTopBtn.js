@@ -28,7 +28,12 @@ const BackTopTopBtn = () => {
   }, []);
 
   return (
-    <Link href="#" className={`back-to-top ${!hidden ? "show" : ""}`} onClick={scrollToTop}>
+    <Link
+      href="#"
+      className={`back-to-top ${!hidden ? "show" : ""}`}
+      onClick={scrollToTop}
+      aria-label="Back top top"
+    >
       <span>
         <FaHandPointer />
       </span>

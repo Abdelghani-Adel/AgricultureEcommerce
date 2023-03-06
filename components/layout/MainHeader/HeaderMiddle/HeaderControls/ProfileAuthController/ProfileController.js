@@ -2,12 +2,14 @@ import { signOut, useSession } from "next-auth/react";
 import Link from "next/Link";
 import { FaUserAlt } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loaderActions } from "../../../../../../redux/slices/loaderSlice";
+import { withTranslation } from "react-multi-lang";
 
-const ProfileController = () => {
+const ProfileController = (props) => {
   const dispatch = useDispatch();
   const session = useSession();
+  const lang = useSelector((state) => state.lang);
 
   const logoutHandler = () => {
     dispatch(loaderActions.showLoader());
@@ -19,9 +21,9 @@ const ProfileController = () => {
       <span>{session.data.user.username}</span>
       <ul className="sub-menu sub-menu-left drop_down login_container">
         {/* <span className="user_email">{session.data && session.data.user.email}</span> */}
-        <button onClick={logoutHandler} className="auth_btn">
+        <button onClick={logoutHandler} className="auth_btn" aria-label="Logout">
           <FiLogOut />
-          <span className="ms-2">تسجيل الخروج</span>
+          <span className="ms-2">{lang && props.t("Auth.Logout")}</span>
         </button>
         <hr className="m-0 mt-2 mb-2" />
 
@@ -51,4 +53,4 @@ const ProfileController = () => {
   );
 };
 
-export default ProfileController;
+export default withTranslation(ProfileController);

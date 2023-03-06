@@ -14,10 +14,13 @@
     "Shop": "Shop",
     "ContactUs": "Contact Us",
     "Chat": "Chat",
-    "Partners":"Partners"
+    "Partners": "Partners"
   },
   "Home": {
-    "JoinChat": "Join Chat"
+    "JoinChat": "Join Chat",
+    "RoomTitle": "Room Title",
+    "SpecialOffer": "Special Offers",
+    "ShopNow": "Shop Now"
   },
   "Products": {
     "BestProducts": "Best Products",
@@ -44,9 +47,11 @@
     "Facilities": "Facilities",
     "Warnings": "Warnings",
     "Desc": "Description",
-    "Range":"Range",
-    "Free":"Free",
-    "FreeProducts":"Free Products"
+    "Range": "Range",
+    "Free": "Free",
+    "FreeProducts": "Free Products",
+    "LeaveComment": "Leave a comment",
+    "Submit": "Submit"
   },
   "Footer": {
     "TopCategories": "Top Categories",
@@ -130,7 +135,10 @@
     "Username": "Username",
     "PasswordConfirm": "Confirm Your Password",
     "PhoneNumber": "Phone Number",
-    "AlreadyHave": "Already have an account ?"
+    "AlreadyHave": "Already have an account ?",
+    "ProviderSignup": "Provider Signup",
+    "NewCustomer": "New customer?",
+    "Logout": "Logout"
   },
   "Address": {
     "Choose": "Choose",
@@ -142,5 +150,6 @@
     "Areas": "Supported Areas",
     "Street": "Street Address",
     "Building": "Building No."
-  }
+  },
+  "Vendor": {}
 }

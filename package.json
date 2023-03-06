@@ -1,6 +1,6 @@
 {
   "name": "agriculture-ecommerce",
-  "version": "0.1.0",
+  "version": "1.0.11",
   "private": true,
   "scripts": {
     "dev": "node server.js",
@@ -19,10 +19,11 @@
     "next-auth": "^4.19.2",
     "react": "18.2.0",
     "react-bootstrap": "^2.7.0",
-    "react-datepicker": "^4.8.0",
+    "react-datepicker": "^4.10.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
     "react-image-gallery": "^1.2.11",
+    "react-lazy-load": "^4.0.1",
     "react-multi-lang": "^2.2.0",
     "react-paginate": "^8.1.4",
     "react-redux": "^8.0.5",
