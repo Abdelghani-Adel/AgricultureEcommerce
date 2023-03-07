@@ -23,5 +23,5 @@ export async function sendCookiesToDB() {
 
 export async function fetchBrwosingData() {
   await store.dispatch(getCartDetails());
-  await store.dispatch(fetchProducts());
+  // await store.dispatch(fetchProducts());
 }

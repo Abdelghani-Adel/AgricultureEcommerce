@@ -2,7 +2,7 @@ import { signIn } from "next-auth/react";
 import Link from "next/Link";
 import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loaderActions } from "../../redux/slices/loaderSlice";
 import { AuthenticationAPI } from "../../services/AuthenticationAPI";
 import { withTranslation } from "react-multi-lang";
@@ -13,6 +13,7 @@ const SignUp = (props) => {
   const [reqBody, setReqBody] = useState();
   const [errors, setErrors] = useState();
   const dispatch = useDispatch();
+  const lang = useSelector((state) => state.lang);
 
   const inputChangeHandler = useCallback((e) => {
     const fieldName = e.target.name;

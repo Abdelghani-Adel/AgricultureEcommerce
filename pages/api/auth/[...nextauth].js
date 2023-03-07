@@ -6,14 +6,6 @@ import { signIn } from "next-auth/react";
 const authApi = new AuthenticationAPI();
 
 export const authOptions = {
-  session: {
-    strategy: "jwt",
-    jwt: true,
-  },
-  pages: {
-    signIn: "/login",
-    error: "/login",
-  },
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -23,34 +15,68 @@ export const authOptions = {
           password: credentials.password,
           rememberMe: true,
         };
+
+        // DB lookup
         const res = await authApi.Login(reqBody);
+
         if (res.token) {
-          return { ...res };
+          const expiration = new Date();
+          expiration.setMinutes(expiration.getMinutes() + 1);
+          return { ...res, expiration: expiration };
         }
 
-        // throw new Error("Incorrect Credentials");
+        // Login failed
         return null;
       },
       secret: "8F8D1546C2C1A23FECE7FCEE13E542DCA4F4B6613A072DE63B7F7F9C1F13263F",
     }),
   ],
-  secret: "mvOHAEhOWjGtUo7tS6VuAUByEWnTh67AzdrP1HRvNOA=",
   callbacks: {
-    async jwt({ token, user, account }) {
-      // token.exp = 1676200560000;
-      // token.expires = 1676200560000;
+    async jwt({ token, user }) {
       return { ...token, ...user };
     },
-    async session({ session, user, token }) {
-      session.accessToken = token.accessToken;
-      return { ...session, ...token };
-      // return { ...token };
+    async session({ session, token, user }) {
+      let now = new Date();
+      let exp = new Date(token.expiration);
+      if (now.getTime() <= exp.getTime()) {
+        return { ...session, ...token, test1: now, test2: exp };
+      }
+      return {};
     },
+    // async signIn() {
+    //   return false;
+    // },
 
     async redirect({ url, baseUrl }) {
       return `${process.env.NEXT_PUBLIC_CURRENT_HOST}`;
     },
   },
+  secret: "mvOHAEhOWjGtUo7tS6VuAUByEWnTh67AzdrP1HRvNOA=",
+  jwt: {
+    secret: "mvOHAEhOWjGtUo7tS6VuAUByEWnTh67AzdrP1HRvNOA=",
+    // async encode() {
+    //   return "session";
+    // },
+    // async decode() {},
+  },
+  session: {
+    strategy: "jwt",
+    maxAge: 60 * 60,
+  },
+  pages: {
+    signIn: "/login",
+  },
+  // cookies: {
+  //   sessionToken: {
+  //     name: `next-auth.session-token`,
+  //     options: {
+  //       httpOnly: true,
+  //       sameSite: "lax",
+  //       path: "/",
+  //       // expires: "Fri, 10 Mar 2023 12:00:00 UTC",
+  //     },
+  //   },
+  // },
 };
 
 export default NextAuth(authOptions);

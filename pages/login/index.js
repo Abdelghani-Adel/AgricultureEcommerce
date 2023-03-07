@@ -15,6 +15,7 @@ const Login = (props) => {
   const [errors, setErrors] = useState();
   const cookies = useSelector((state) => state.cookies);
   const dispatch = useDispatch();
+  const lang = useSelector((state) => state.lang);
 
   const inputChangeHandler = useCallback((e) => {
     const fieldName = e.target.name;
@@ -32,6 +33,12 @@ const Login = (props) => {
       window.location.reload();
       return;
     }
+
+    // const res = await signIn("credentials", {
+    //   email: reqBody.email,
+    //   password: reqBody.password,
+    //   callbackUrl: "/",
+    // });
 
     const dbLookup = await authApi.Login(reqBody);
     if (dbLookup.token) {
