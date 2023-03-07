@@ -1,25 +1,27 @@
+import { withTranslation } from "react-multi-lang";
+
 const CurrentStepTitle = (props) => {
   const { currentStep } = props;
   return (
     <div className="mt-4">
       <div className="row">
         <div className="col">
-          <p className={`${currentStep != 1 && "d-none"}`}>Business Information</p>
+          <p className={`${currentStep != 1 && "d-none"}`}>{props.t("Vendor.BusinessInfo")}</p>
         </div>
         <div className="col">
-          <p className={`${currentStep != 2 && "d-none"}`}>Picked Address</p>
+          <p className={`${currentStep != 2 && "d-none"}`}>{props.t("Vendor.PickedAddress")}</p>
         </div>
         <div className="col">
-          <p className={`${currentStep != 3 && "d-none"}`}>Payment Information</p>
+          <p className={`${currentStep != 3 && "d-none"}`}>{props.t("Vendor.PaymentInfo")}</p>
         </div>
         <div className="col">
-          <p className={`${currentStep != 4 && "d-none"}`}>Product Information</p>
+          <p className={`${currentStep != 4 && "d-none"}`}>{props.t("Vendor.ProductInfo")}</p>
         </div>
         <div className="col">
-          <p className={`${currentStep != 5 && "d-none"}`}>Contact Information</p>
+          <p className={`${currentStep != 5 && "d-none"}`}>{props.t("Vendor.ContactInfo")}</p>
         </div>
         <div className="col">
-          <p className={`${currentStep != 6 && "d-none"}`}>Documents</p>
+          <p className={`${currentStep != 6 && "d-none"}`}>{props.t("Vendor.Docs")}</p>
         </div>
       </div>
       <div className="titleBar row">
@@ -34,4 +36,4 @@ const CurrentStepTitle = (props) => {
   );
 };
 
-export default CurrentStepTitle;
+export default withTranslation(CurrentStepTitle);

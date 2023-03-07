@@ -6,8 +6,9 @@ export function storeLangInCookie(lang) {
   const isCookieEnabled = navigator.cookieEnabled;
   const expires = setCookieExpiration();
   if (isCookieEnabled) {
-    deleteCookie("langCookie");
-    document.cookie = `langCookie=${lang}; expires=${expires}; SameSite=None; secure=true`;
+    // deleteCookie("langCookie");
+    document.cookie = `langCookie=${lang}; expires=${expires}; SameSite=None; secure=true; path=/`;
+    window.location.reload();
   }
 }
 

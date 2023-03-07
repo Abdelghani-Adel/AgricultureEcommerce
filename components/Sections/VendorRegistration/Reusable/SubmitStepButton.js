@@ -1,7 +1,11 @@
+import { withTranslation } from "react-multi-lang";
+import { useSelector } from "react-redux";
+
 const SubmitStepButton = (props) => {
+  const lang = useSelector((state) => state.lang);
   const { title } = props;
   return (
-    <div className="row justify-content-end">
+    <div className="row justify-content-end mt-3">
       <div className="col-md-3 col">
         <button
           type="submit"
@@ -9,11 +13,11 @@ const SubmitStepButton = (props) => {
           style={{ padding: "0" }}
           aria-label="Submit"
         >
-          {title ? title : "Save And Continue"}
+          {props.t(`${title}`)}
         </button>
       </div>
     </div>
   );
 };
 
-export default SubmitStepButton;
+export default withTranslation(SubmitStepButton);

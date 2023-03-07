@@ -49,7 +49,7 @@ const likeExistedProduct = (action, prevProducts, productIndex) => {
 
   const cleanedProducts = cleanProducts(newProducts);
   const updatedCookie = JSON.stringify({ products: cleanedProducts });
-  document.cookie = `likesCookie=${updatedCookie}; expires=${expires}; SameSite=None; secure=true`;
+  document.cookie = `likesCookie=${updatedCookie}; expires=${expires}; SameSite=None; secure=false`;
 };
 
 const likeNewProduct = (action, prevProducts, productId) => {
@@ -65,7 +65,7 @@ const likeNewProduct = (action, prevProducts, productId) => {
   const newProducts = [...prevProducts, newProduct];
   const cleanedProducts = cleanProducts(newProducts);
   const updatedCookie = JSON.stringify({ products: cleanedProducts });
-  document.cookie = `likesCookie=${updatedCookie}; expires=${expires}; SameSite=None; secure=true`;
+  document.cookie = `likesCookie=${updatedCookie}; expires=${expires}; SameSite=None; secure=false`;
 };
 
 const cleanProducts = (products) => {

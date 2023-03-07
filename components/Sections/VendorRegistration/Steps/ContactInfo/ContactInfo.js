@@ -4,8 +4,11 @@ import "react-datepicker/dist/react-datepicker.css";
 import BillingAddressForm from "../../Reusable/BillingAddressForm/BillingAddressForm";
 import InputField from "../../Reusable/InputField";
 import SubmitStepButton from "../../Reusable/SubmitStepButton";
+import { withTranslation } from "react-multi-lang";
+import { useSelector } from "react-redux";
 
 const ContactInfo = (props) => {
+  const lang = useSelector((state) => state.lang);
   const { vendorID } = props;
   const initReqBody = {
     // FAPartnerId: vendorID,
@@ -44,14 +47,14 @@ const ContactInfo = (props) => {
           <InputField title="Title" fieldName="ContactName" changeHandler={inputChangeHandler} />
 
           <InputField
-            title="Identity No."
+            title="Vendor.IdentityNo"
             fieldName="IdentityNo"
             changeHandler={inputChangeHandler}
           />
 
           <div className="col">
             <div className="form-group">
-              <label>Identity Expiration Date</label>
+              <label>{props.t("Vendor.IdentityExpiry")}</label>
               <DatePicker
                 selected={expirationDate}
                 onChange={dateChangeHandler}
@@ -63,7 +66,7 @@ const ContactInfo = (props) => {
           </div>
 
           <InputField
-            title="Identity Issue Country"
+            title="Vendor.IdentityIssueCountry"
             fieldName="IdentityNo_IssuedCountry"
             changeHandler={inputChangeHandler}
             options={[{ optionID: "", optionTitle: "Egypt" }]}
@@ -72,14 +75,18 @@ const ContactInfo = (props) => {
           />
 
           <InputField
-            title="First Name"
+            title="Vendor.Fname"
             fieldName="First_Name"
             changeHandler={inputChangeHandler}
           />
 
-          <InputField title="Last Name" fieldName="Last_Name" changeHandler={inputChangeHandler} />
+          <InputField
+            title="Vendor.Lname"
+            fieldName="Last_Name"
+            changeHandler={inputChangeHandler}
+          />
 
-          <InputField title="DOB" fieldName="DOB" changeHandler={inputChangeHandler} />
+          <InputField title="Vendor.DOB" fieldName="DOB" changeHandler={inputChangeHandler} />
         </div>
         <BillingAddressForm
           fieldChangeHandler={inputChangeHandler}
@@ -88,10 +95,10 @@ const ContactInfo = (props) => {
           showPreviousAddress={true}
         />
 
-        <SubmitStepButton />
+        <SubmitStepButton title="Vendor.Save" />
       </form>
     </div>
   );
 };
 
-export default ContactInfo;
+export default withTranslation(ContactInfo);

@@ -13,6 +13,8 @@ function Slug(props) {
   const router = useRouter();
   const dispatch = useDispatch();
 
+  console.log(props);
+
   useEffect(() => {
     dispatch(loaderActions.hideLoader());
   }, []);
@@ -27,7 +29,7 @@ function Slug(props) {
         <meta property="og:url" content="devsdiamond.com" />
         <meta property="og:image" content={`https://devsdiamond.com/img/offer.jpeg`} />
       </Head>
-      <Breadcrumbs breadcrumb={{ pagename: router.query.productSlug }} />
+      <Breadcrumbs breadcrumb={{ pagename: props.productDetails.Item_Slug }} />
       <ProductSingle ItemDetails={props.productDetails} />
     </>
   );

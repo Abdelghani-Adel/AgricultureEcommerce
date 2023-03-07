@@ -3,6 +3,7 @@ import VendorRegisterAPI from "../../../../../services/VendorRegisterAPI";
 import BillingAddressForm from "../../Reusable/BillingAddressForm/BillingAddressForm";
 import InputField from "../../Reusable/InputField";
 import SubmitStepButton from "../../Reusable/SubmitStepButton";
+import { withTranslation } from "react-multi-lang";
 
 const initialRequestBody = {
   FAPartner_Type_Id: null,
@@ -61,7 +62,7 @@ const BusinessInformation = (props) => {
       <form action="" method="POST" onSubmit={submitHandler}>
         <div className="row justify-content-between">
           <InputField
-            title="Business Type"
+            title="Vendor.BusinessType"
             fieldName="FAPartner_Type_Id"
             changeHandler={inputChangeHandler}
             options={businessTypes}
@@ -69,7 +70,7 @@ const BusinessInformation = (props) => {
             optionTitle="FAPartner_Type_Name"
           />
           <InputField
-            title="Business Name"
+            title="Vendor.BusinessName"
             fieldName="BusinessName"
             changeHandler={inputChangeHandler}
           />
@@ -80,22 +81,22 @@ const BusinessInformation = (props) => {
         {/* /////////////     COMMERCIAL   |   TAX     ///////////// */}
         <div className="row justify-content-between">
           <InputField
-            title="Commercial Register No."
+            title="Vendor.CommercialReg"
             fieldName="commercialReg"
             changeHandler={inputChangeHandler}
           />
-          <InputField title="Tax No." fieldName="taxNo" changeHandler={inputChangeHandler} />
+          <InputField title="Vendor.Tax" fieldName="taxNo" changeHandler={inputChangeHandler} />
         </div>
 
         {/* /////////////     PHONE   |   VERIFY_CODE     ///////////// */}
         <div className="row align-items-center">
           <InputField
-            title="Phone Number"
+            title="Vendor.Phone"
             fieldName="phoneNum"
             changeHandler={inputChangeHandler}
           />
           <InputField
-            title="Verify Code"
+            title="Vendor.VerifyCode"
             fieldName="verifyCode"
             changeHandler={inputChangeHandler}
           />
@@ -112,7 +113,7 @@ const BusinessInformation = (props) => {
               onChange={checkboxHandler}
               checked
             />
-            <label className="form-check-label">Do you have your own barcode ?</label>
+            <label className="form-check-label">{props.t("Vendor.OwnBarcode")}</label>
           </div>
         </div>
         <div className="mt-3">
@@ -124,15 +125,15 @@ const BusinessInformation = (props) => {
               value="ownBrand"
               onChange={checkboxHandler}
             />
-            <label className="form-check-label">Do you have your own brand ?</label>
+            <label className="form-check-label">{props.t("Vendor.OwnBrand")}</label>
           </div>
         </div>
 
         {/* /////////////     SAVE BUTTON     ///////////// */}
-        <SubmitStepButton />
+        <SubmitStepButton title="Vendor.Save" />
       </form>
     </div>
   );
 };
 
-export default BusinessInformation;
+export default withTranslation(BusinessInformation);

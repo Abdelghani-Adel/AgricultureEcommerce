@@ -8,7 +8,7 @@ const CheckoutDetails = (props) => {
       <OrderItemList cartContent={props.cartContent} />
       {/* <PaymentMethods /> */}
       <PrivacyPolicy />
-      <button type="submit" className="andro_btn-custom primary btn-block" aria-label="Place Order">
+      <button type="submit" className="default_btn" aria-label="Place Order">
         {props.t("Checkout.PlaceOrder")}
       </button>
     </div>

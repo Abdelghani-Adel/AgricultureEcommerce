@@ -16,11 +16,8 @@ const LangController = (props) => {
   const dispatch = useDispatch();
 
   const changeLang = (lang) => {
-    // props.changeLang(lang);
     setDefaultLanguage(lang);
     storeLangInCookie(lang);
-    window.location.reload();
-    // dispatch(langActions.changeLang(lang));
   };
 
   return (

@@ -1,3 +1,5 @@
+import store from "../redux/store";
+
 class VendorRegisterAPI {
   async fetchRegistrationSteps() {
     const response = await fetch(
@@ -84,14 +86,14 @@ class VendorRegisterAPI {
     return data;
   }
 
-  async fetchClassificationTree() {
+  async fetchClassificationTree(lang) {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getCategoriesLastParentWChd`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          lang: "ar",
+          lang: lang,
           FAClassification_ParentId: 81,
         }),
       }

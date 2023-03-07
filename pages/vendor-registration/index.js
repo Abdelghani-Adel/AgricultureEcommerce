@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
+import { useSelector } from "react-redux";
 import CurrentStepTitle from "../../components/Sections/VendorRegistration/Reusable/CurrentStepTitle/CurrentStepTitle";
 import RegistrationProgressBar from "../../components/Sections/VendorRegistration/Reusable/RegistrationProgressBar/RegistrationProgressBar";
 import BusinessInformation from "../../components/Sections/VendorRegistration/steps/BusinessInformation/BusinessInformation";
@@ -16,6 +17,7 @@ const VendorRegistration = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [registrationVendorID, setRegistrationVendorID] = useState();
   const router = useRouter();
+  const lang = useSelector((state) => state.lang);
 
   const saveAndContinue = useCallback((requestBody, url) => {
     const saveAndGoToNextStep = async () => {

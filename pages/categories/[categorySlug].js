@@ -51,8 +51,9 @@ const CategorySingle = (props) => {
 
 export const getServerSideProps = async (context) => {
   const categoryId = context.query.id;
+  const lang = context.req.cookies.langCookie ? context.req.cookies.langCookie : "ar";
 
-  const subCategories = await fetchSubCategories(categoryId, "ar");
+  const subCategories = await fetchSubCategories(categoryId, lang);
   if (subCategories.length > 0) {
     return {
       props: {
@@ -63,7 +64,7 @@ export const getServerSideProps = async (context) => {
     };
   }
 
-  const products = await fetchCategoryProducts(categoryId, "ar");
+  const products = await fetchCategoryProducts(categoryId, lang);
   return {
     props: {
       products: products,

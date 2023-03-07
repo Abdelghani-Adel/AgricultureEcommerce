@@ -1,6 +1,9 @@
 import { withTranslation } from "react-multi-lang";
+import { useSelector } from "react-redux";
 
 const InputField = (props) => {
+  const lang = useSelector((state) => state.lang);
+
   const {
     changeHandler,
     title,
@@ -30,7 +33,7 @@ const InputField = (props) => {
             className={inputStyle}
             name={fieldName}
             onChange={changeHandler}
-            placeholder={`${props.t("Address.Choose")} ${props.t(`${title}`)}`}
+            placeholder={`${props.t("Vendor.Enter")} ${props.t(`${title}`)}`}
             required
           />
         )}

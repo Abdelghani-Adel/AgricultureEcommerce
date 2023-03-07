@@ -1,10 +1,12 @@
 import { useEffect, useState, useCallback } from "react";
+import { useSelector } from "react-redux";
 import InputField from "../../Reusable/InputField";
 import SubmitStepButton from "../../Reusable/SubmitStepButton";
 
 const Documents = (props) => {
   const { vendorID, finishRegistration } = props;
   const [files, setFiles] = useState([]);
+  const lang = useSelector((state) => state.lang);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -35,28 +37,28 @@ const Documents = (props) => {
         <div className="row row-cols-1">
           <InputField
             inputType="file"
-            title="Commercial Register"
+            title="Vendor.Commercial"
             fieldName=""
             changeHandler={inputChangeHandler}
             style="col-6"
           />
           <InputField
             inputType="file"
-            title="License NO."
+            title="Vendor.LicenseNo"
             fieldName=""
             changeHandler={inputChangeHandler}
             style="col-6"
           />
           <InputField
             inputType="file"
-            title="Logo"
+            title="Vendor.Logo"
             fieldName=""
             changeHandler={inputChangeHandler}
             style="col-6"
           />
         </div>
 
-        <SubmitStepButton title="Finish" />
+        <SubmitStepButton title="Vendor.Finish" />
       </form>
     </div>
   );

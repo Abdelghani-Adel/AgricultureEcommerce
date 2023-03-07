@@ -27,7 +27,7 @@ export function storeCartItemInCookie(itemBeingStored) {
         items: cartItems,
       });
 
-      document.cookie = `cartCookie=${updatedCookie}; expires=${expires}; SameSite=None; secure=true`;
+      document.cookie = `cartCookie=${updatedCookie}; expires=${expires}; SameSite=None; secure=false`;
       store.dispatch(getCartDetails());
       return;
     }
@@ -37,7 +37,7 @@ export function storeCartItemInCookie(itemBeingStored) {
       items: [itemBeingStored],
       totalPrice: itemBeingStored.UnitPrice,
     });
-    document.cookie = `cartCookie=${cartCookie}; expires=${expires}; SameSite=None; secure=true`;
+    document.cookie = `cartCookie=${cartCookie}; expires=${expires}; SameSite=None; secure=false`;
     store.dispatch(getCartDetails(itemBeingStored));
   }
 }
@@ -57,7 +57,7 @@ export function deleteCartItemInCookie(itemBeingDeleted) {
     items: newItems,
   });
 
-  document.cookie = `cartCookie=${updatedCookie}; expires=${expires}; SameSite=None; secure=true`;
+  document.cookie = `cartCookie=${updatedCookie}; expires=${expires}; SameSite=None; secure=false`;
   store.dispatch(getCartDetails());
   toast.error("Item has been deleted!");
 }
@@ -77,7 +77,7 @@ export function increaseCartItemInCookie(itemBeingIncreased) {
     items: cartItems,
   });
 
-  document.cookie = `cartCookie=${updatedCookie}; expires=${expires}; SameSite=None; secure=true`;
+  document.cookie = `cartCookie=${updatedCookie}; expires=${expires}; SameSite=None; secure=false`;
   store.dispatch(getCartDetails());
 }
 
@@ -101,7 +101,7 @@ export function decreaseCartItemInCookie(itemBeingDecreased) {
     items: cartItems,
   });
 
-  document.cookie = `cartCookie=${newCartItemsToStore}; expires=${expires}; SameSite=None; secure=true`;
+  document.cookie = `cartCookie=${newCartItemsToStore}; expires=${expires}; SameSite=None; secure=false`;
   store.dispatch(getCartDetails());
 }
 

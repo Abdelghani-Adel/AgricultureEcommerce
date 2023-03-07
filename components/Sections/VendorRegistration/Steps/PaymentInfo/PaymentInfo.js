@@ -4,6 +4,7 @@ import InputField from "../../Reusable/InputField";
 import BillingAddressForm from "../../Reusable/BillingAddressForm/BillingAddressForm";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { withTranslation } from "react-multi-lang";
 
 const PaymentInfo = (props) => {
   const { vendorID } = props;
@@ -39,14 +40,14 @@ const PaymentInfo = (props) => {
       <form action="" method="POST" onSubmit={submitHandler}>
         <div className="row justify-content-center">
           <InputField
-            title="Card No."
+            title="Vendor.CardNo"
             fieldName="Credit_CardNo"
             changeHandler={inputChangeHandler}
           />
 
           <div className="col">
             <div className="form-group">
-              <label>Expiration Date</label>
+              <label>{props.t("Vendor.CardExpiry")}</label>
               <DatePicker
                 selected={expirationDate}
                 onChange={dateChangeHandler}
@@ -59,7 +60,7 @@ const PaymentInfo = (props) => {
         </div>
         <div className="row justify-content-center">
           <InputField
-            title="Card Holder's Name"
+            title="Vendor.CardHolder"
             fieldName="Card_Hold_Name"
             changeHandler={inputChangeHandler}
           />
@@ -71,10 +72,14 @@ const PaymentInfo = (props) => {
           vendorID={vendorID}
           showPreviousAddress={true}
         />
-        <SubmitStepButton fieldChangeHandler={inputChangeHandler} countryID={1} />
+        <SubmitStepButton
+          title="Vendor.Save"
+          fieldChangeHandler={inputChangeHandler}
+          countryID={1}
+        />
       </form>
     </div>
   );
 };
 
-export default PaymentInfo;
+export default withTranslation(PaymentInfo);

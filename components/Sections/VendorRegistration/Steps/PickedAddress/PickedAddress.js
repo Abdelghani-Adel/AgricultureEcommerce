@@ -36,7 +36,7 @@ const PickedAddress = (props) => {
           EntityId={17}
           showPreviousAddress={true}
         />
-        <SubmitStepButton />
+        <SubmitStepButton title="Vendor.Save" />
       </form>
     </div>
   );

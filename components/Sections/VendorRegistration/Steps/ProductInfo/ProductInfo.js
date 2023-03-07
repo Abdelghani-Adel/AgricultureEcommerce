@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import VendorRegisterAPI from "../../../../../services/VendorRegisterAPI";
 import InputField from "../../Reusable/InputField";
 import SubmitStepButton from "../../Reusable/SubmitStepButton";
@@ -8,6 +9,7 @@ import Classification from "./Classification";
 const vendorRegApi = new VendorRegisterAPI();
 
 const ProductInfo = (props) => {
+  const lang = useSelector((state) => state.lang);
   const { vendorID } = props;
   const initReqBody = {
     FAPartnerId: vendorID,
@@ -21,11 +23,11 @@ const ProductInfo = (props) => {
   // Hydrate classifications and categories state from the database
   useEffect(() => {
     const fetchClassification = async () => {
-      const data = await vendorRegApi.fetchClassificationTree();
+      const data = await vendorRegApi.fetchClassificationTree(lang);
       setClassifications(data);
     };
     fetchClassification();
-  }, []);
+  }, [lang]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -58,7 +60,7 @@ const ProductInfo = (props) => {
             </div>
           ))}
         </div>
-        <SubmitStepButton />
+        <SubmitStepButton title="Vendor.Save" />
       </form>
     </div>
   );
