@@ -34,12 +34,6 @@ const Login = (props) => {
       return;
     }
 
-    // const res = await signIn("credentials", {
-    //   email: reqBody.email,
-    //   password: reqBody.password,
-    //   callbackUrl: "/",
-    // });
-
     const dbLookup = await authApi.Login(reqBody);
     if (dbLookup.token) {
       const res = await signIn("credentials", {
@@ -47,6 +41,15 @@ const Login = (props) => {
         password: reqBody.password,
         callbackUrl: "/",
       });
+
+      // Storing expiration into local storage
+      const expirtyDate = new Date(dbLookup.expiry);
+      document.cookie = `next-auth-token-expiry=${expirtyDate}; expires=${expirtyDate}; SameSite=lax; secure=true`;
+
+      // const expiration = new Date();
+      // expiration.setMonth(expiration.getMonth() + 1);
+      // localStorage.setItem("Agri_Expiration", expiration);
+      // localStorage.setItem("Agri_Expiration", res.expiration);
     } else {
       setErrors(dbLookup);
     }

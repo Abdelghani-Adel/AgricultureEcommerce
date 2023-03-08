@@ -1,7 +1,6 @@
 import NextAuth from "next-auth";
-import { AuthenticationAPI } from "../../../services/AuthenticationAPI";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { signIn } from "next-auth/react";
+import { AuthenticationAPI } from "../../../services/AuthenticationAPI";
 
 const authApi = new AuthenticationAPI();
 
@@ -38,14 +37,11 @@ export const authOptions = {
     async session({ session, token, user }) {
       let now = new Date();
       let exp = new Date(token.expiration);
-      if (now.getTime() <= exp.getTime()) {
-        return { ...session, ...token, test1: now, test2: exp };
-      }
-      return {};
+      return { ...session, ...token, test1: now, test2: exp };
+      // if (now.getTime() <= exp.getTime()) {
+      // }
+      // return {};
     },
-    // async signIn() {
-    //   return false;
-    // },
 
     async redirect({ url, baseUrl }) {
       return `${process.env.NEXT_PUBLIC_CURRENT_HOST}`;
@@ -54,29 +50,25 @@ export const authOptions = {
   secret: "mvOHAEhOWjGtUo7tS6VuAUByEWnTh67AzdrP1HRvNOA=",
   jwt: {
     secret: "mvOHAEhOWjGtUo7tS6VuAUByEWnTh67AzdrP1HRvNOA=",
-    // async encode() {
-    //   return "session";
-    // },
-    // async decode() {},
   },
   session: {
     strategy: "jwt",
-    maxAge: 60 * 60,
+    // maxAge: 60,
   },
   pages: {
     signIn: "/login",
   },
-  // cookies: {
-  //   sessionToken: {
-  //     name: `next-auth.session-token`,
-  //     options: {
-  //       httpOnly: true,
-  //       sameSite: "lax",
-  //       path: "/",
-  //       // expires: "Fri, 10 Mar 2023 12:00:00 UTC",
-  //     },
-  //   },
-  // },
+  cookies: {
+    sessionToken: {
+      name: `next-auth.session`,
+      options: {
+        httpOnly: false,
+        sameSite: "lax",
+        path: "/",
+        secure: false,
+      },
+    },
+  },
 };
 
 export default NextAuth(authOptions);

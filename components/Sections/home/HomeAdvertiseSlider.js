@@ -10,7 +10,7 @@ const settings = {
   arrows: true,
   dots: false,
   dotsClass: "slick-dots d-flex",
-  // autoplay: true,
+  autoplay: true,
   variableWidth: true,
 };
 

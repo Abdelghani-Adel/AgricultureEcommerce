@@ -9,8 +9,14 @@ body {
   padding: 0;
   line-height: 1.8;
   color: #86858c;
-  overflow-x: hidden;
+  overflow: hidden;
 }
+
+// header {
+//   z-index: 0;
+//   display: block;
+//   position: relative;
+// }
 
 #__next {
   min-height: 100vh;

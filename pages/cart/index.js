@@ -18,7 +18,7 @@ const Cart = (props) => {
 
   return (
     <Fragment>
-      <Breadcrumbs breadcrumb={{ pagename: "Cart" }} />
+      <Breadcrumbs breadcrumb={{ pagename: props.t("Cart.Cart") }} />
 
       <div className="container">
         {cartState.items.length > 0 ? (

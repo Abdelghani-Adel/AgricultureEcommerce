@@ -32,6 +32,7 @@
 .header_search--input .form-control {
   border-radius: 0 25px 25px 0;
   height: 40px;
+  padding-right: 10%;
 }
 .header_search--input {
   position: relative;
@@ -46,7 +47,7 @@
   padding: 0;
   outline: none;
   cursor: pointer;
-  width: 50px;
+  width: 10%;
   height: 40px;
   background-color: transparent;
   border-radius: 0 25px 25px 0;
@@ -55,7 +56,7 @@
   border-left: 1px solid #f0f2f3;
 }
 
-.header_search--input .overlay {
+.header_search--input .overlay_search {
   display: block;
   opacity: 1;
 }
@@ -81,6 +82,12 @@
   padding: 5px 10px;
   display: block;
   color: #000;
+
+  &.active {
+    background-color: #575757;
+    border-radius: 10px;
+    color: #fff;
+  }
 }
 
 .header_search .search_result .result:hover {
@@ -107,7 +114,7 @@
 
 .header_search .search_result::-webkit-scrollbar-thumb {
   background: variables.$main-color;
-  border-radius: 50%;
+  border-radius: 10px;
 }
 
 .header_search .search_result::-webkit-scrollbar-thumb:hover {

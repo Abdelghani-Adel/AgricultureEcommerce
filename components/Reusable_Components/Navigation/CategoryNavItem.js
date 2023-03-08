@@ -4,6 +4,7 @@ import { FaAngleDown, FaAngleLeft, FaAngleRight, FaAngleUp } from "react-icons/f
 import { useDispatch } from "react-redux";
 import { loaderActions } from "../../../redux/slices/loaderSlice";
 import Image from "next/image";
+import { encrypt } from "../../../helper/crypto";
 
 const CategoryNavItem = (props) => {
   const { link, isChild } = props;
@@ -26,18 +27,20 @@ const CategoryNavItem = (props) => {
     setSubMenuIsShown(false);
   };
 
+  const encryptedID = encrypt(`${link.FAClassificationId}`);
+
   return (
     <li className={`nav_item ${itemStyle}`} onMouseLeave={blurHandler} onClick={blurHandler}>
       <Link
         href={{
           pathname: `/categories/${link.FAClassificationSlug}`,
-          query: { id: `${link.FAClassificationId}` },
+          query: { id: `${encryptedID}` },
         }}
         onClick={showLoader}
         className="nav_link position-relative"
         prefetch={false}
       >
-        {/* {link.IconTypeId == 1 && (
+        {link.IconTypeId == 1 && (
           <Image
             className="category_icon svg"
             alt="Icon"
@@ -48,7 +51,7 @@ const CategoryNavItem = (props) => {
         )}
         {link.IconTypeId == 2 && (
           <Image className="category_icon" alt="Icon" src={`${link.Icon}`} width={16} height={16} />
-        )} */}
+        )}
 
         {link.FAClassificationName}
 

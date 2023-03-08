@@ -1,3 +1,5 @@
+import store from "../redux/store";
+
 export async function searchCategory(string, classificationID) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getSearchMainCMB`,
@@ -17,7 +19,7 @@ export async function searchCategory(string, classificationID) {
   return data;
 }
 
-export async function getSearchItem(id, flag) {
+export async function getSearchItem(id, flag, searchText, lang) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER}/api/ECommerceSetting/getItemSearchMain`,
     {
@@ -26,12 +28,13 @@ export async function getSearchItem(id, flag) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        lang: "ar",
+        lang: lang,
         Cate_Id: id,
         Cust_Id: 0,
         limit: 20,
         start: 0,
         itemCateFlg: flag,
+        searchKey: searchText ? searchText : "",
       }),
     }
   );

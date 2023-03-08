@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import Breadcrumbs from "../../components/Reusable_Components/Breadcrumbs";
 import CategoryProducts from "../../components/Sections/categories/CategoryProducts/CategoryProducts";
 import SubCategories from "../../components/Sections/categories/SubCategories/SubCategories";
+import { decrypt } from "../../helper/crypto";
 import { loaderActions } from "../../redux/slices/loaderSlice";
 import { subNavActions } from "../../redux/slices/subCategoryNavSlice";
 import { fetchCategoryProducts, fetchSubCategories } from "../../services/categoryServices";
@@ -51,9 +52,10 @@ const CategorySingle = (props) => {
 
 export const getServerSideProps = async (context) => {
   const categoryId = context.query.id;
+  const decryptedID = decrypt(`${categoryId}`);
   const lang = context.req.cookies.langCookie ? context.req.cookies.langCookie : "ar";
 
-  const subCategories = await fetchSubCategories(categoryId, lang);
+  const subCategories = await fetchSubCategories(decryptedID, lang);
   if (subCategories.length > 0) {
     return {
       props: {
@@ -64,7 +66,7 @@ export const getServerSideProps = async (context) => {
     };
   }
 
-  const products = await fetchCategoryProducts(categoryId, lang);
+  const products = await fetchCategoryProducts(decryptedID, lang);
   return {
     props: {
       products: products,

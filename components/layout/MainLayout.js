@@ -7,6 +7,9 @@ import { fetchBasicData, fetchBrwosingData, sendCookiesToDB } from "../../servic
 import Footer from "./Footer/Footer";
 import MainHeader from "./MainHeader/MainHeader";
 import Loader from "../Reusable_Components/Loader";
+import { deleteCookie, getCookie } from "../../helper/Cookies/CookiesHandlers";
+import { signOut } from "next-auth/react";
+import { getTokenDuration } from "../../services/AuthenticationAPI";
 
 export default function MainLayout(props) {
   const dispatch = useDispatch();
@@ -18,6 +21,24 @@ export default function MainLayout(props) {
       .then(() => sendCookiesToDB())
       .then(() => fetchBrwosingData())
       .then(() => dispatch(loaderActions.hideLoader()));
+  }, []);
+
+  useEffect(() => {
+    const tokenRemainingDays = getTokenDuration();
+    const nextAuthSession = getCookie("next-auth.session");
+    const remainingMillSec = tokenRemainingDays * 86400000;
+
+    if (isNaN(tokenRemainingDays) && nextAuthSession.length > 0) {
+      signOut({ redirect: false });
+      return;
+    }
+
+    if (tokenRemainingDays < 2) {
+      setTimeout(() => {
+        deleteCookie("next-auth-token-expiry");
+        signOut();
+      }, remainingMillSec);
+    }
   }, []);
 
   return (

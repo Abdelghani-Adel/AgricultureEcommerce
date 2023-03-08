@@ -1,3 +1,5 @@
+import { getCookie } from "../helper/Cookies/CookiesHandlers";
+
 export class AuthenticationAPI {
   async Register(reqBody) {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/Auth/Register`, {
@@ -27,5 +29,19 @@ export class AuthenticationAPI {
 
     const result = await res.json();
     return result;
+  }
+}
+
+export function getTokenDuration() {
+  if (typeof window !== "undefined") {
+    const storedExpirationDate = getCookie("next-auth-token-expiry");
+    const expirationDate = new Date(storedExpirationDate);
+    const now = new Date();
+
+    const duration = expirationDate.getTime() - now.getTime();
+    const ramainDays = duration / 86400000;
+
+    // console.log(ramainDays, "days remaining");
+    return ramainDays;
   }
 }

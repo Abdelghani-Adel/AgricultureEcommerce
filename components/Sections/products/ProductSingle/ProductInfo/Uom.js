@@ -11,9 +11,11 @@ const UnitOfMeasure = ({ item, UOMchangeHandler }) => {
   return (
     <div>
       <select defaultValue={0} className="form-select me-3 uom_select" onChange={UOMchangeHandler}>
-        <option value={0} disabled>
-          {selectedUOM}
-        </option>
+        {item.uoms.length < 1 && (
+          <option value={0} disabled>
+            {selectedUOM}
+          </option>
+        )}
         {item.uoms.map((unit, i) => (
           <option key={i} value={unit.UOM_Id_To}>
             {unit.UOMName}

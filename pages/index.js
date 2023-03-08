@@ -25,8 +25,8 @@ import { loaderActions } from "../redux/slices/loaderSlice";
 export default function Home() {
   const dispatch = useDispatch();
   const pageStructure = sections.pages.find((page) => page.id == "home");
-  const session = useSession();
-  console.log(session);
+  // const session = useSession();
+  // console.log(session);
 
   useEffect(() => {
     dispatch(loaderActions.hideLoader());

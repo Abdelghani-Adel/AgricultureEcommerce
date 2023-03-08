@@ -2,6 +2,7 @@ import Link from "next/Link";
 import React, { Component } from "react";
 import { FaFacebookF, FaHandPointer, FaTwitter, FaYoutube } from "react-icons/fa";
 import { withTranslation } from "react-multi-lang";
+import { encrypt } from "../../../helper/crypto";
 import BackTopTopBtn from "../../Reusable_Components/BackToTopBtn";
 import BrandLogo from "../../Reusable_Components/BrandLogo";
 class Footer extends Component {
@@ -33,19 +34,14 @@ class Footer extends Component {
                       {this.props.t("Footer.Home")}
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="/blog-grid" aria-label="Blog">
                       {this.props.t("Footer.Blog")}
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link href="/about" aria-label="About">
                       {this.props.t("Footer.About")}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/shop-v1" aria-label="Shop">
-                      {this.props.t("Footer.Shop")}
                     </Link>
                   </li>
                   <li>
@@ -71,12 +67,18 @@ class Footer extends Component {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/product-single" aria-label="Product">
+                    <Link
+                      href={`/products/search?id=${encrypt("0")}&flag=${encrypt("0")}&textString=`}
+                      aria-label="Product"
+                    >
                       {this.props.t("Footer.Product")}
                     </Link>
                   </li>
                   <li>
-                    <Link href="/shop-v1" aria-label="Shop">
+                    <Link
+                      href={`/products/search?id=${encrypt("0")}&flag=${encrypt("0")}&textString=`}
+                      aria-label="Shop"
+                    >
                       {this.props.t("Footer.Shop")}
                     </Link>
                   </li>
@@ -114,16 +116,16 @@ class Footer extends Component {
           <div className="container">
             <ul>
               <li>
-                <Link href="#">{this.props.t("Footer.PrivacyPolicy")}</Link>
+                <Link href="/policies?type=privacy">{this.props.t("Footer.PrivacyPolicy")}</Link>
               </li>
               <li>
-                <Link href="#">{this.props.t("Footer.RefundPolicy")}</Link>
+                <Link href="/policies?type=return">{this.props.t("Footer.RefundPolicy")}</Link>
               </li>
               <li>
-                <Link href="#">{this.props.t("Footer.CookiePolicy")}</Link>
+                <Link href="/policies?type=cookies">{this.props.t("Footer.CookiePolicy")}</Link>
               </li>
               <li>
-                <Link href="#">{this.props.t("Footer.Terms")}</Link>
+                <Link href="/policies?type=terms">{this.props.t("Footer.Terms")}</Link>
               </li>
             </ul>
 

@@ -2,6 +2,7 @@ import Link from "next/Link";
 import { useDispatch } from "react-redux";
 import { loaderActions } from "../../../redux/slices/loaderSlice";
 import Image from "next/image";
+import { encrypt } from "../../../helper/crypto";
 
 const CategoryCard = ({ category, style }) => {
   const dispatch = useDispatch();
@@ -9,12 +10,14 @@ const CategoryCard = ({ category, style }) => {
     dispatch(loaderActions.showLoader());
   };
 
+  const encryptedID = encrypt(`${category.FAClassificationId}`);
+
   return (
     <div className={style}>
       <Link
         href={{
           pathname: `/categories/${category.FAClassificationSlug}`,
-          query: { id: `${category.FAClassificationId}` },
+          query: { id: `${encryptedID}` },
         }}
         onClick={showLoader}
       >

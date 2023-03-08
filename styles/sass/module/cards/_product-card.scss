@@ -109,6 +109,14 @@
   max-height: 30px;
   height: 30px;
   direction: rtl;
+
+  > p,
+  > p > * {
+    font-size: 1.2rem !important;
+    line-height: 30px;
+    font-weight: 500 !important;
+    font-family: initial !important;
+  }
 }
 
 .product_card--rating {

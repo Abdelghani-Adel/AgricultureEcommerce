@@ -84,7 +84,8 @@
     "AddToCart": "ADD TO CART",
     "EmptyCart": "You have not added any items to the cart !",
     "Delete": "Delete",
-    "Check": "Add"
+    "Check": "Add",
+    "Cart": "Cart"
   },
   "Wishlist": {
     "Availability": "Availability",
@@ -182,5 +183,11 @@
     "ProductInfo": "Product Information",
     "ContactInfo": "Contact Information",
     "Docs": "Documents"
+  },
+  "Policy": {
+    "Privacy": "Privacy Policy",
+    "Return": "Return Policy",
+    "Cookies": "Cookies Policy",
+    "Terms": "Terms & Conditions"
   }
 }
